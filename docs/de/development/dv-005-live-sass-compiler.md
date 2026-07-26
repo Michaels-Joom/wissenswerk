@@ -18,6 +18,19 @@ Gründe:
 
 Der Compiler ist Bestandteil der Entwicklungsumgebung und wird projektbezogen über eine `.vscode/settings.json` konfiguriert.
 
+## Source Maps
+Während der Entwicklung bleiben Source Maps bewusst aktiviert.
+Dadurch können die Browser-Entwicklertools die kompilierten CSS-Regeln direkt den ursprünglichen SCSS-Dateien und Zeilennummern zuordnen.
+
+Dies erleichtert:
+
+- die Fehlersuche
+- die Analyse von Layoutproblemen
+- die Navigation zwischen Browser und Quellcode
+
+Source Maps sind ausschließlich für die Entwicklungsumgebung vorgesehen.
+Für Release-Versionen erfolgt die Auslieferung ohne Source Maps und mit minifiziertem CSS.
+
 ## Projektstruktur
 
 ```text
