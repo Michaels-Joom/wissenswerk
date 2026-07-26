@@ -13,7 +13,7 @@ Beginne hier:
 
 - [📜 Manifest](./manifest/manifest.md)
 - [💡 Projektphilosophie](./project-philosophy/projektphilosophie.md)
-- [🛠️ Entwickler](./entwicklung/dv-000-entwicklunguebersicht.md)
+- [🛠️ Entwickler](./development/dv-000-entwicklunguebersicht.md)
 
 ## Interessieren dich Projektgrundlagen?
 
