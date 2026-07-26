@@ -27,7 +27,7 @@ Beginne hier:
 - 🎨 SCSS
 - 🔷 Joomla
 - 🧩 Komponenten
-- [🏗️ Architektur](./architektur/ar-000-architektur-uebersicht.md)
+- [🏗️ Architektur](./architecture/ar-000-architektur-uebersicht.md)
 - 📦 Asset Management
 - 🔗 Web Asset API
 - [💻 Entwicklungsumgebung](./environment/ev-000-entwicklungsumgebung-uebersicht.md)
