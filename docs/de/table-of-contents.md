@@ -12,7 +12,7 @@ Diese Dokumentation begleitet die Entwicklung eines Joomla-Templates und eines D
 Beginne hier:
 
 - [📜 Manifest](./manifest/manifest.md)
-- [💡 Projektphilosophie](./projektphilosophie/projektphilosophie.md)
+- [💡 Projektphilosophie](./project-philosophy/projektphilosophie.md)
 - [🛠️ Entwickler](./entwicklung/dv-000-entwicklunguebersicht.md)
 
 ## Interessieren dich Projektgrundlagen?
