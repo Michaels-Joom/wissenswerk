@@ -9,7 +9,7 @@ _WissensWerk dokumentiert den gesamten Entwicklungsprozess eines modernen Joomla
 
 📚 **Dokumentation**
 
-- 🇩🇪 [Deutsch](docs/de/inhaltsverzeichnis.md)
+- 🇩🇪 [Deutsch](docs/de/table-of-contents.md)
 
 ---
 
