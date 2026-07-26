@@ -19,7 +19,7 @@ Beginne hier:
 
 - [📖 Dokumentationsrichtlinien](./documentation-guidelines/dg-000-richtlinien-uebersicht.md)
 - [⚙️ Technische Grundlagen](./technical-foundation/tf-000-technische-grundlagen.md)
-- [🎨 Design System](./designsystem//ds-000-designprinzipenuebersicht.md)
+- [🎨 Design System](./design-system//ds-000-designprinzipenuebersicht.md)
 
 ## Interessieren dich technische Details?
 
