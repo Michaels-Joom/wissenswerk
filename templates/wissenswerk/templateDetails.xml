@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+    type="template"
+    client="site"
+    method="upgrade">
+
+    <name>tpl_wissenswerk</name>
+    <creationDate>2026-07-26</creationDate>
+    <author>Michael Laumann</author>
+    <authorEmail></authorEmail>
+    <authorUrl></authorUrl>
+    <copyright>(C) 2026 Michael Laumann</copyright>
+    <license>GNU General Public License Version 3 or later</license>
+    <version>0.1.0</version>
+    <description>TPL_WISSENSWERK_XML_DESCRIPTION</description>
+
+    <!-- ===================================================== -->
+    <!-- Dateien                                               -->
+    <!-- ===================================================== -->
+
+    <files>
+
+        <filename>component.php</filename>
+        <filename>error.php</filename>
+        <filename>index.php</filename>
+        <filename>offline.php</filename>
+        <filename>templateDetails.xml</filename>
+        <filename>joomla.asset.json</filename>
+
+        <folder>html</folder>
+        <folder>language</folder>
+        <folder>layouts</folder>
+        <folder>services</folder>
+
+    </files>
+
+    <!-- ===================================================== -->
+    <!-- Medien                                                -->
+    <!-- ===================================================== -->
+
+    <media destination="templates/site/wissenswerk" folder="media">
+
+        <folder>css</folder>
+        <folder>fonts</folder>
+        <folder>images</folder>
+        <folder>js</folder>
+        <folder>scss</folder>
+
+        <filename>joomla.asset.json</filename>
+
+    </media>
+
+    <!-- ===================================================== -->
+    <!-- Modulpositionen                                       -->
+    <!-- ===================================================== -->
+
+    <positions>
+
+        <!-- Header -->
+        <position>topbar</position>
+        <position>menu</position>
+        <position>search</position>
+
+        <!-- Oberhalb des Inhalts -->
+        <position>banner</position>
+        <position>hero</position>
+        <position>top-a</position>
+        <position>top-b</position>
+        <position>breadcrumbs</position>
+
+        <!-- Hauptbereich -->
+        <position>main-top</position>
+        <position>sidebar-left</position>
+        <position>sidebar-right</position>
+        <position>main-bottom</position>
+
+        <!-- Unterhalb des Inhalts -->
+        <position>bottom-a</position>
+        <position>bottom-b</position>
+
+        <!-- Footer -->
+        <position>footer</position>
+        <position>footer-nav</position>
+        <position>copyright</position>
+
+        <!-- Entwicklung -->
+        <position>debug</position>
+
+    </positions>
+
+    <!-- ===================================================== -->
+    <!-- Sprachen                                              -->
+    <!-- ===================================================== -->
+
+    <languages folder="language">
+
+        <language tag="de-DE">de-DE/tpl_wissenswerk.ini</language>
+        <language tag="de-DE">de-DE/tpl_wissenswerk.sys.ini</language>
+
+        <language tag="en-GB">en-GB/tpl_wissenswerk.ini</language>
+        <language tag="en-GB">en-GB/tpl_wissenswerk.sys.ini</language>
+
+    </languages>
+
+    <!-- ===================================================== -->
+    <!-- Templateparameter                                     -->
+    <!-- ===================================================== -->
+
+    <config>
+
+        <fields name="params">
+
+            <fieldset
+                name="branding"
+                label="TPL_WISSENSWERK_FIELDSET_BRANDING">
+
+                <field
+                    name="logoFile"
+                    type="media"
+                    label="TPL_WISSENSWERK_LOGO_LABEL"
+                    description="TPL_WISSENSWERK_LOGO_DESC"
+                    schemes="http,https,file,data"
+                    relative="true"
+                    validate="url"
+                    default=""
+                />
+
+                <field
+                    name="branding_first"
+                    type="text"
+                    label="TPL_WISSENSWERK_SITE_BRANDING_FIRST_LABEL"
+                    description="TPL_WISSENSWERK_SITE_BRANDING_FIRST_DESC"
+                    filter="string"
+                    default=""
+                />
+
+                <field
+                    name="branding_second"
+                    type="text"
+                    label="TPL_WISSENSWERK_SITE_BRANDING_SECOND_LABEL"
+                    description="TPL_WISSENSWERK_SITE_BRANDING_SECOND_DESC"
+                    filter="string"
+                    default=""
+                />
+
+                <field
+                    name="branding_slogan"
+                    type="text"
+                    label="TPL_WISSENSWERK_SITE_BRANDING_SLOGAN_LABEL"
+                    description="TPL_WISSENSWERK_SITE_BRANDING_SLOGAN_DESC"
+                    filter="string"
+                    default=""
+                />
+
+            </fieldset>
+
+        </fields>
+
+    </config>
+
+</extension>
