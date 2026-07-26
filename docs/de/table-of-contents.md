@@ -36,7 +36,7 @@ Beginne hier:
 
 - 🛠️ Troubleshooting
 - 🧪 Experimente
-- [📐 Architektur Entscheidungen (ADR)](./adr-000-architekturentscheidungen.md)
+- [📐 Architektur Entscheidungen (ADR)](./architectur/adr-000-architekturentscheidungen.md)
 
 - [📐 Architektur Entscheidungen](./adr-000-architekturentscheidungen.md)
 
