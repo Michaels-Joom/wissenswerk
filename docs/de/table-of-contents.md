@@ -38,6 +38,8 @@ Beginne hier:
 - 🧪 Experimente
 - [📐 Architektur Entscheidungen (ADR)](./adr-000-architekturentscheidungen.md)
 
+- [📐 Architektur Entscheidungen](./adr-000-architekturentscheidungen.md)
+
 ## Nachschlagen
 
 - 📖 Glossar
