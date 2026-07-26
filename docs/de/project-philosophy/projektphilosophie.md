@@ -1,4 +1,4 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../inhaltsverzeichnis.md)
+[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md)
 
 ---
 
