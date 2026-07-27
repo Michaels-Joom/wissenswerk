@@ -20,3 +20,4 @@ Dieses Kapitel beschreibt den technischen Aufbau von WissensWerk. Die einzelnen 
 - [🏗️ AR-012 Build-Prozess](./ar-012-build-prozess.md)
 - [🏗️ AR-013 Entwicklungsumgebung](./ar-013-entwicklungsumgebung.md)
 - [🏗️ AR-014 Deployment](./ar-014-deployment.md)
+- [🏗️ AR-015 Design System](./ar-015-design-system.md)
