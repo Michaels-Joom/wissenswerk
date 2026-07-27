@@ -1,0 +1,70 @@
+// =============================================================================
+// WissensWerk Template
+// Design Tokens - Layout
+// =============================================================================
+//
+// File:
+// _layout.scss
+//
+// Purpose:
+// Defines the global layout tokens of the WissensWerk design system.
+//
+// Architecture:
+// 1. Containers
+// 2. Layout Dimensions
+// 3. Border Radius
+// 4. Shadows
+// 5. Transitions
+// 6. Z-Index
+//
+// Notes:
+// Layout tokens describe the spatial behavior of the template.
+// Components should consume these tokens instead of hardcoded values.
+//
+// =============================================================================
+
+:root {
+
+    // Containers
+    --ww-container-max-width: 82.5rem;
+    --ww-container-padding-inline: var(--ww-space-5);
+
+    // Layout Dimensions
+    --ww-header-height:        5rem;
+    --ww-footer-min-height:    4rem;
+    --ww-sidebar-width:        18rem;
+
+    // Border Radius
+    --ww-radius-none:   0;
+    --ww-radius-sm:     .25rem;
+    --ww-radius-md:     .5rem;
+    --ww-radius-lg:     .75rem;
+    --ww-radius-xl:     1rem;
+    --ww-radius-round:  999rem;
+
+    // Shadows
+    --ww-shadow-sm:
+        0 1px 2px rgba(44, 37, 35, .08);
+
+    --ww-shadow-md:
+        0 4px 8px rgba(44, 37, 35, .12);
+
+    --ww-shadow-lg:
+        0 8px 24px rgba(44, 37, 35, .18);
+
+    // Transitions
+    --ww-transition-fast:      150ms;
+    --ww-transition-normal:    250ms;
+    --ww-transition-slow:      400ms;
+ 
+    // Z-Index
+    --ww-z-base:        1;
+    --ww-z-dropdown:    1000;
+    --ww-z-sticky:      1020;
+    --ww-z-fixed:       1030;
+    --ww-z-offcanvas:   1045;
+    --ww-z-modal:       1055;
+    --ww-z-popover:     1070;
+    --ww-z-tooltip:     1080;
+
+}

@@ -1,0 +1,19 @@
+// =============================================================================
+// WissensWerk Template
+// Main Stylesheet
+// =============================================================================
+
+// Vendors
+// Vendors
+@use "vendors/fonts";
+
+// Design Tokens
+@use "tokens/colors";
+@use "tokens/spacing";
+@use "tokens/typography";
+@use "tokens/layout";
+
+// Base
+@use "base/root";
+@use "base/base";
+@use "base/typography";

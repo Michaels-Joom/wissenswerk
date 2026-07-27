@@ -1,0 +1,78 @@
+:root {
+// =============================================================================
+// WissensWerk Template
+// Design Tokens - Colors
+// =============================================================================
+//
+// File:
+// _colors.scss
+//
+// Purpose:
+// Defines the complete color system of the WissensWerk design system.
+//
+// Architecture:
+// 1. Primitive Tokens
+//    Raw color values without semantic meaning.
+//
+// 2. Semantic Tokens
+//    Functional colors used throughout the template.
+//
+// 3. Theme Layer
+//    Reserved for future themes (Dark Mode, High Contrast, etc.)
+//
+// Notes:
+// Components must NEVER use hexadecimal values directly.
+// Always reference semantic tokens.
+//
+// Example:
+//
+// color: var(--ww-color-text);
+// background: var(--ww-color-surface);
+//
+/* =============================================================================
+   Theme: Default (Light)
+    ========================================================================== */
+    
+    // Primitive Colors
+    
+    --ww-green-700:      #1F4B43;
+    --ww-brass-500:      #B8860B;
+    --ww-bronze-900:     #2C2523;
+    --ww-parchment-100:  #F6F4EF;
+    --ww-white:          #FFFFFF;
+
+    // Semantic Colors
+    
+    // Brand 
+    --ww-color-primary:      var(--ww-brass-500);
+    --ww-color-secondary:    var(--ww-green-700);
+
+    // Background 
+    --ww-color-background:   var(--ww-parchment-100);
+    --ww-color-surface:      var(--ww-white);
+
+    // Typography 
+    --ww-color-text:         var(--ww-bronze-900);
+    --ww-color-heading:      var(--ww-bronze-900);
+
+    // Links 
+    --ww-color-link:         var(--ww-green-700);
+    --ww-color-link-hover:   var(--ww-brass-500);
+
+    // Borders 
+    --ww-color-border:       #DDD7CC;
+
+    // Status 
+    --ww-color-success:      #2E7D32;
+    --ww-color-warning:      #ED6C02;
+    --ww-color-danger:       #C62828;
+    --ww-color-info:         #0288D1;
+
+    /* =============================================================================
+   Bootstrap Mapping
+   ---------------------------------------------------------------------------
+   Bootstrap variables are mapped in a dedicated vendor file.
+   Do not redefine Bootstrap variables here.
+   ========================================================================== */
+
+}

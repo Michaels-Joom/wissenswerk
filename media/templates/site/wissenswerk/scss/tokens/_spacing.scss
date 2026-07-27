@@ -1,0 +1,47 @@
+// =============================================================================
+// WissensWerk Template
+// Design Tokens - Spacing
+// =============================================================================
+//
+// File:
+// _spacing.scss
+//
+// Purpose:
+// Defines the spacing scale used throughout the WissensWerk design system.
+//
+// Notes:
+// - Use spacing tokens instead of fixed values.
+// - Components must never use arbitrary pixel values.
+// - The scale is based on a 4px grid and uses rem units.
+//
+// Example:
+//
+// margin-bottom: var(--ww-space-4);
+// padding: var(--ww-space-6);
+//
+// =============================================================================
+
+:root {
+
+    // Primitive Spacing Tokens
+
+    --ww-space-0: 0;
+    --ww-space-1: 0.25rem;
+    --ww-space-2: 0.50rem;
+    --ww-space-3: 0.75rem;
+    --ww-space-4: 1rem;
+    --ww-space-5: 1.50rem;
+    --ww-space-6: 2rem;
+    --ww-space-7: 3rem;
+    --ww-space-8: 4rem;
+
+    // Semantische Spacing Tokens
+
+    --ww-gap-xs: var(--ww-space-2);
+    --ww-gap-sm: var(--ww-space-3);
+    --ww-gap-md: var(--ww-space-4);
+    
+    --ww-section-spacing: var(--ww-space-8);
+    --ww-card-padding: var(--ww-space-5);
+
+}
