@@ -2,7 +2,7 @@
 
 ---
 
-# DV-006 Design System
+# AR-015 Design System
 
 > **Status:** Aktiv  
 > **Version:** 1.0  
