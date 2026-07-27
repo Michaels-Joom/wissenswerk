@@ -1,3 +1,4 @@
+@use "../tokens/layout" as layout-tokens;
 // =============================================================================
 // WissensWerk Template
 // Base - Root
@@ -23,6 +24,7 @@
 // =============================================================================
 :root {
     color-scheme: light;
+     --ww-layout-content-width: #{layout-tokens.$content-width};
 }
 
 html {
@@ -43,3 +45,4 @@ hr {
     border: 0;
     border-top: 1px solid var(--ww-color-border);
 }
+

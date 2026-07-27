@@ -68,3 +68,27 @@
     --ww-z-tooltip:     1080;
 
 }
+
+// =============================================================================
+// SCSS Tokens
+// =============================================================================
+
+$content-width: 1320px;
+
+$sidebar-left-width: 280px;
+$sidebar-right-width: 260px;
+
+$header-height: 160px;
+$footer-min-height: 120px;
+
+// =============================================================================
+// Breakpoints
+// =============================================================================
+
+$ww-breakpoint-sm: 36rem;      // 576 px
+$ww-breakpoint-md: 48rem;      // 768 px
+$ww-breakpoint-lg: 62rem;      // 992 px
+$ww-breakpoint-xl: 75rem;      // 1200 px
+
+// Spezieller Breakpoint für das Header-Branding
+$ww-breakpoint-branding: 46.875rem; // 750 px

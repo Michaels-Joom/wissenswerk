@@ -102,24 +102,28 @@ $showDebug        = $this->countModules('debug');
 
                         <div class="ww-header__site">
 
-                             <?php if ($branding_first) : ?>      
-                                <span class="ww-branding-primary">
-                                    <?= htmlspecialchars($branding_first); ?>
-                                </span>
-                            <?php endif; ?>
+                            <div class="ww-branding">
+                                <?php if ($branding_first) : ?>      
+                                    <span class="ww-branding-primary">
+                                        <?= htmlspecialchars($branding_first); ?>
+                                    </span>
+                                <?php endif; ?>
 
-                            <?php if ($branding_second) : ?>
-                                <span class="ww-branding-secondary">
-                                    <?= htmlspecialchars($branding_second); ?>
-                                </span>
-                          <?php endif; ?>  
+                                <?php if ($branding_second) : ?>
+                                    <span class="ww-branding-secondary">
+                                        <?= htmlspecialchars($branding_second); ?>
+                                    </span>
+                                <?php endif; ?>  
+                            </div>      
                             
+                            <div class="ww-balance">
+                                <span class="ww-balance__dot"></span>
+                            </div>
+
                             <?php if ($branding_slogan) : ?>
                                 <p><?= htmlspecialchars($branding_slogan); ?></p>
                             <?php endif; ?>      
-                            
                         </div>
-
                     </div>
 
                     <?php if ($showMenu || $showSearch) : ?>

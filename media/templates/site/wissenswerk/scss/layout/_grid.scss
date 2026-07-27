@@ -1,0 +1,13 @@
+/**
+ * WissensWerk Template
+ * Layout: Grid & Container
+ * --------------------------------------------------------------------------
+ */
+
+.ww-container {
+    width: 100%;
+    max-width: var(--ww-layout-content-width);
+
+    margin-inline: auto;
+    padding-inline: var(--ww-space-4);
+}
