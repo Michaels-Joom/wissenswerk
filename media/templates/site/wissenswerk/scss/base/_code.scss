@@ -1,0 +1,99 @@
+// =============================================================================
+// WissensWerk Template
+// Base - Code
+// =============================================================================
+//
+// File:
+// _code.scss
+//
+// Purpose:
+// Applies the Design System to native HTML code elements.
+//
+// Responsibilities:
+// - Inline code
+// - Code blocks
+// - Keyboard input
+// - Sample output
+//
+// Not responsible for:
+// - Syntax Highlighting
+// - Code Copy Buttons
+// - Code Components
+//
+// =============================================================================
+
+
+// =============================================================================
+// Shared Code Elements
+// =============================================================================
+
+code,
+pre,
+kbd,
+samp {
+    font-family: var(--ww-font-mono-family);
+    font-variant-ligatures: none;
+}
+
+
+// =============================================================================
+// Inline Code
+// =============================================================================
+
+code {
+    padding-inline: .25em;
+
+    font-size: .95em;
+
+    border-radius: var(--ww-radius-sm);
+    background-color: var(--ww-color-surface-alt);
+}
+
+
+// =============================================================================
+// Code Blocks
+// =============================================================================
+
+pre {
+    overflow-x: auto;
+
+    margin-block: var(--ww-space-5);
+    padding: var(--ww-space-4);
+
+    font-size: .95rem;
+    line-height: 1.6;
+
+    border-radius: var(--ww-radius-md);
+    background-color: var(--ww-color-surface-alt);
+}
+
+pre code {
+    padding: 0;
+    background: none;
+}
+
+
+// =============================================================================
+// Keyboard Input
+// =============================================================================
+
+kbd {
+    padding: .15em .45em;
+
+    font-size: .9em;
+    font-weight: var(--ww-font-weight-medium);
+
+    border: 1px solid var(--ww-color-border);
+    border-radius: var(--ww-radius-sm);
+
+    background-color: var(--ww-color-surface);
+}
+
+
+// =============================================================================
+// Sample Output
+// =============================================================================
+
+samp {
+    font-size: .95em;
+}

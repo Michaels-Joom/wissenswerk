@@ -1,0 +1,31 @@
+// =============================================================================
+// WissensWerk Template
+// Base - Document
+// =============================================================================
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: var(--ww-font-family-base);
+    font-size: var(--ww-font-size-base);
+    font-weight: var(--ww-font-weight-normal);
+    line-height: var(--ww-line-height-base);
+
+    color: var(--ww-color-text);
+    background-color: var(--ww-color-background);
+}
+
+main {
+    display: block;
+}

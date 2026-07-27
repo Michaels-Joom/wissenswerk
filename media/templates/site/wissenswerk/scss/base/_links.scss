@@ -1,0 +1,67 @@
+// =============================================================================
+// WissensWerk Template
+// Base - Links
+// =============================================================================
+//
+// File:
+// _links.scss
+//
+// Purpose:
+// Applies the Design System to native HTML links.
+//
+// Responsibilities:
+// - Link colors
+// - Link decoration
+// - Link states
+// - Accessibility
+//
+// Not responsible for:
+// - Navigation
+// - Buttons
+// - Menus
+// - Components
+//
+// =============================================================================
+
+
+// =============================================================================
+// Links
+// =============================================================================
+
+a {
+    color: var(--ww-color-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.15em;
+
+    transition:
+        color 0.2s ease,
+        text-decoration-color 0.2s ease;
+}
+
+
+// =============================================================================
+// Link States
+// =============================================================================
+
+a:hover {
+    color: var(--ww-color-primary-dark);
+}
+
+a:active {
+    color: var(--ww-color-primary-dark);
+}
+
+a:visited {
+    color: var(--ww-color-primary);
+}
+
+
+// =============================================================================
+// Accessibility
+// =============================================================================
+
+a:focus-visible {
+    outline: 2px solid var(--ww-color-primary);
+    outline-offset: 3px;
+}

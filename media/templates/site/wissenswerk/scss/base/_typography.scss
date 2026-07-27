@@ -1,0 +1,141 @@
+// =============================================================================
+// WissensWerk Template
+// Base - Typography
+// =============================================================================
+//
+// File:
+// _typography.scss
+//
+// Purpose:
+// Applies the Design System typography tokens to native HTML text elements.
+//
+// Responsibilities:
+// - Headings
+// - Paragraphs
+// - Text emphasis
+// - Quotes
+// - Code elements
+//
+// Not responsible for:
+// - Components
+// - Forms
+// - Tables
+// - Lists
+//
+// =============================================================================
+
+// Headings
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-block: 0 var(--ww-space-4);
+    color: inherit;
+    text-wrap: balance;
+}
+
+p,
+li,
+blockquote {
+    text-wrap: pretty;
+}
+
+h1 {
+    font-family: var(--ww-font-heading-family);
+    font-size: var(--ww-font-size-h1);
+    font-weight: var(--ww-font-weight-bold);
+    line-height: var(--ww-line-height-heading);
+}
+
+h2 {
+    font-family: var(--ww-font-heading-family);
+    font-size: var(--ww-font-size-h2);
+    font-weight: var(--ww-font-weight-bold);
+    line-height: var(--ww-line-height-heading);
+}
+
+h3 {
+    font-family: var(--ww-font-heading-family);
+    font-size: var(--ww-font-size-h3);
+    font-weight: var(--ww-font-weight-semibold);
+    line-height: var(--ww-line-height-heading);
+}
+
+h4 {
+    font-family: var(--ww-font-heading-family);
+    font-size: var(--ww-font-size-h4);
+    font-weight: var(--ww-font-weight-semibold);
+    line-height: var(--ww-line-height-heading);
+}
+
+h5 {
+    font-family: var(--ww-font-heading-family);
+    font-size: var(--ww-font-size-h5);
+    font-weight: var(--ww-font-weight-medium);
+    line-height: var(--ww-line-height-heading);
+}
+
+h6 {
+    font-family: var(--ww-font-heading-family);
+    font-size: var(--ww-font-size-h6);
+    font-weight: var(--ww-font-weight-medium);
+    line-height: var(--ww-line-height-heading);
+}
+
+// Paragraphs
+
+p {
+    margin-block: 0 var(--ww-space-4);
+
+    font-family: var(--ww-font-body-family);
+    font-size: var(--ww-font-size-body);
+    font-weight: var(--ww-font-weight-normal);
+    line-height: var(--ww-line-height-body);
+}
+
+// Small Text
+
+small {
+    font-size: var(--ww-font-size-small);
+    line-height: inherit;
+}
+
+// Text Emphasis
+
+strong,
+b {
+    font-weight: var(--ww-font-weight-bold);
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+mark {
+    padding-inline: .15em;
+    color: inherit;
+    background-color: var(--ww-color-primary-200);
+    border-radius: var(--ww-radius-xs);
+}
+
+// Quotes
+
+blockquote {
+    margin: var(--ww-space-6) 0;
+    padding-inline-start: var(--ww-space-5);
+    border-inline-start: 4px solid var(--ww-color-primary);
+    font-style: italic;
+}
+
+cite {
+    font-style: normal;
+}
+
+q {
+    quotes: auto;
+}
+

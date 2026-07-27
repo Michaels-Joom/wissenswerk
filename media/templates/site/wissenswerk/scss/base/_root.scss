@@ -1,0 +1,45 @@
+// =============================================================================
+// WissensWerk Template
+// Base - Root
+// =============================================================================
+//
+// File:
+// _root.scss
+//
+// Purpose:
+// Defines global document and browser settings.
+//
+// Responsibilities:
+// - Global document settings
+// - Browser behavior
+// - Root level properties
+//
+// Not responsible for:
+// - Typography
+// - Layout
+// - Components
+// - Colors
+//
+// =============================================================================
+:root {
+    color-scheme: light;
+}
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+hr {
+    margin-block: var(--ww-space-6);
+    border: 0;
+    border-top: 1px solid var(--ww-color-border);
+}

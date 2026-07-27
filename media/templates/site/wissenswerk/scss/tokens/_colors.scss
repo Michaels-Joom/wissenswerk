@@ -41,32 +41,47 @@
     --ww-parchment-100:  #F6F4EF;
     --ww-white:          #FFFFFF;
 
-    // Semantic Colors
+   // Semantic Colors
     
-    // Brand 
+   // Brand 
     --ww-color-primary:      var(--ww-brass-500);
     --ww-color-secondary:    var(--ww-green-700);
 
-    // Background 
+   // Background 
     --ww-color-background:   var(--ww-parchment-100);
     --ww-color-surface:      var(--ww-white);
 
-    // Typography 
+   // Typography 
     --ww-color-text:         var(--ww-bronze-900);
     --ww-color-heading:      var(--ww-bronze-900);
 
-    // Links 
+   // Links 
     --ww-color-link:         var(--ww-green-700);
     --ww-color-link-hover:   var(--ww-brass-500);
 
-    // Borders 
+   // Borders 
     --ww-color-border:       #DDD7CC;
 
-    // Status 
+   // Status 
     --ww-color-success:      #2E7D32;
     --ww-color-warning:      #ED6C02;
     --ww-color-danger:       #C62828;
     --ww-color-info:         #0288D1;
+
+   // Surface Colors
+   --ww-color-surface: #FFFFFF;
+   --ww-color-surface-alt: #F8F7F3;
+
+   // Border Colors
+   --ww-color-border: #D8D2C7;
+
+   // Focus
+   --ww-color-focus: #C39B53;
+
+   // Muted Text
+   --ww-color-text-muted: #6F6763;
+
+
 
     /* =============================================================================
    Bootstrap Mapping

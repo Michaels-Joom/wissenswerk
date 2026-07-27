@@ -1,0 +1,156 @@
+// =============================================================================
+// WissensWerk Template
+// Base - Forms
+// =============================================================================
+//
+// File:
+// _forms.scss
+//
+// Purpose:
+// Applies the Design System to native HTML form elements.
+//
+// Responsibilities:
+// - Native form elements
+// - Typography
+// - Basic spacing
+// - Focus states
+//
+// Not responsible for:
+// - Floating labels
+// - Input groups
+// - Validation
+// - Custom controls
+// - Form layouts
+//
+// =============================================================================
+
+
+// =============================================================================
+// Form
+// =============================================================================
+
+form {
+    margin-block: var(--ww-space-5);
+}
+
+
+// =============================================================================
+// Fieldset
+// =============================================================================
+
+fieldset {
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    min-inline-size: 0;
+}
+
+legend {
+    margin-bottom: var(--ww-space-3);
+
+    font-family: var(--ww-font-heading-family);
+    font-size: var(--ww-font-size-h5);
+    font-weight: var(--ww-font-weight-semibold);
+}
+
+
+// =============================================================================
+// Labels
+// =============================================================================
+
+label {
+    display: inline-block;
+    margin-bottom: var(--ww-space-2);
+
+    font-weight: var(--ww-font-weight-medium);
+
+    cursor: pointer;
+}
+
+
+// =============================================================================
+// Form Controls
+// =============================================================================
+
+input,
+select,
+textarea,
+button {
+    font: inherit;
+}
+
+
+// =============================================================================
+// Inputs
+// =============================================================================
+
+input,
+select,
+textarea {
+    width: 100%;
+    max-width: 100%;
+
+    padding: var(--ww-space-3);
+
+    color: inherit;
+    background-color: transparent;
+
+    border: 1px solid var(--ww-color-border);
+    border-radius: var(--ww-radius-sm);
+
+    appearance: none;
+}
+
+
+// =============================================================================
+// Textarea
+// =============================================================================
+
+textarea {
+    resize: vertical;
+}
+
+
+// =============================================================================
+// Select
+// =============================================================================
+
+select {
+    cursor: pointer;
+}
+
+
+// =============================================================================
+// Buttons
+// =============================================================================
+
+button {
+    cursor: pointer;
+}
+    
+
+// =============================================================================
+// Disabled
+// =============================================================================
+
+input:disabled,
+select:disabled,
+textarea:disabled,
+button:disabled {
+    cursor: not-allowed;
+    opacity: .6;
+}
+
+
+// =============================================================================
+// Focus
+// =============================================================================
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--ww-color-focus);
+    outline-offset: 2px;
+}

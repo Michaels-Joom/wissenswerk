@@ -1,0 +1,96 @@
+// =============================================================================
+// WissensWerk Template
+// Base - Tables
+// =============================================================================
+//
+// File:
+// _tables.scss
+//
+// Purpose:
+// Applies the Design System to native HTML table elements.
+//
+// Responsibilities:
+// - Table layout
+// - Table spacing
+// - Table typography
+// - Table borders
+//
+// Not responsible for:
+// - Responsive tables
+// - Sortable tables
+// - Data tables
+// - Components
+//
+// =============================================================================
+
+
+// =============================================================================
+// Table
+// =============================================================================
+
+table {
+    width: 100%;
+    margin-block: var(--ww-space-5);
+
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    text-align: start;
+}
+
+
+// =============================================================================
+// Caption
+// =============================================================================
+
+caption {
+    margin-bottom: var(--ww-space-2);
+
+    font-size: var(--ww-font-size-small);
+    font-weight: var(--ww-font-weight-medium);
+
+    text-align: left;
+    color: var(--ww-color-text-muted);
+
+    caption-side: bottom;
+}
+
+
+// =============================================================================
+// Table Header
+// =============================================================================
+
+thead {
+    border-bottom: 2px solid var(--ww-color-border);
+}
+
+th {
+    padding: var(--ww-space-3);
+
+    font-weight: var(--ww-font-weight-semibold);
+    text-align: inherit;
+    vertical-align: middle;
+}
+
+
+// =============================================================================
+// Table Body
+// =============================================================================
+
+tbody tr {
+    border-bottom: 1px solid var(--ww-color-border);
+}
+
+td {
+    padding: var(--ww-space-3);
+    vertical-align: top;
+}
+
+
+// =============================================================================
+// Table Footer
+// =============================================================================
+
+tfoot {
+    border-top: 2px solid var(--ww-color-border);
+}
