@@ -165,7 +165,6 @@ Sie werden erst bewertet, wenn ein konkreter Anwendungsfall entsteht.
 | `textarea` | | ✅ | | Formularsystem |
 | `select` | | ✅ | | Formularsystem |
 | `option` | | ✅ | | Formularsystem |
-| `button` | | ✅ | | Button-Komponente |
 
 ---
 
