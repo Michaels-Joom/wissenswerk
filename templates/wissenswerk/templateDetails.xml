@@ -39,13 +39,13 @@
     <!-- ===================================================== -->
 
     <media destination="templates/site/wissenswerk" folder="media">
-
+        
         <folder>css</folder>
-        <folder>fonts</folder>
-        <folder>images</folder>
         <folder>js</folder>
         <folder>scss</folder>
-
+        <folder>images</folder>
+        <folder>fonts</folder>
+        
     </media>
 
     <!-- ===================================================== -->
