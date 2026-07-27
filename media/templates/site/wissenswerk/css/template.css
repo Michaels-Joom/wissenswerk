@@ -1,3 +1,534 @@
-.test {
-  background-color: red;
+:root {
+  /* ==========================================================================
+     Theme: Default (Light)
+     ========================================================================== */
+  --ww-brass-200: #F2E2B5;
+  --ww-brass-500: #B8860B;
+  --ww-brass-700: #8A6508;
+  --ww-green-700: #1F4B43;
+  --ww-bronze-900: #2C2523;
+  --ww-parchment-100: #F6F4EF;
+  --ww-white: #FFFFFF;
+  --ww-neutral-300: #DDD7CC;
+  --ww-neutral-500: #6F6763;
+  --ww-parchment-50: #F8F7F3;
+  --ww-brass-400: #C39B53;
+  --ww-success-500: #2E7D32;
+  --ww-warning-500: #ED6C02;
+  --ww-danger-500: #C62828;
+  --ww-info-500: #0288D1;
+  --ww-color-primary: var(--ww-brass-500);
+  --ww-color-primary-200: var(--ww-brass-200);
+  --ww-color-primary-dark: var(--ww-brass-700);
+  --ww-color-secondary: var(--ww-green-700);
+  --ww-color-background: var(--ww-parchment-100);
+  --ww-color-surface: var(--ww-white);
+  --ww-color-surface-alt: var(--ww-parchment-50);
+  --ww-color-text: var(--ww-bronze-900);
+  --ww-color-heading: var(--ww-bronze-900);
+  --ww-color-text-muted: var(--ww-neutral-500);
+  --ww-color-link: var(--ww-green-700);
+  --ww-color-link-hover: var(--ww-brass-500);
+  --ww-color-border: var(--ww-neutral-300);
+  --ww-color-focus: var(--ww-brass-400);
+  --ww-color-success: var(--ww-success-500);
+  --ww-color-warning: var(--ww-warning-500);
+  --ww-color-danger: var(--ww-danger-500);
+  --ww-color-info: var(--ww-info-500);
+  /* ==========================================================================
+     Bootstrap Mapping
+     --------------------------------------------------------------------------
+     Bootstrap variables are mapped in a dedicated vendor file.
+     Do not redefine Bootstrap variables here.
+     ========================================================================== */
+}
+
+:root {
+  --ww-space-0: 0;
+  --ww-space-1: 0.25rem;
+  --ww-space-2: 0.50rem;
+  --ww-space-3: 0.75rem;
+  --ww-space-4: 1rem;
+  --ww-space-5: 1.50rem;
+  --ww-space-6: 2rem;
+  --ww-space-7: 3rem;
+  --ww-space-8: 4rem;
+  --ww-gap-xs: var(--ww-space-2);
+  --ww-gap-sm: var(--ww-space-3);
+  --ww-gap-md: var(--ww-space-4);
+  --ww-section-spacing: var(--ww-space-8);
+  --ww-content-spacing: var(--ww-space-2);
+  --ww-card-padding: var(--ww-space-5);
+}
+
+:root {
+  --ww-font-family-base: "Source Sans 3", sans-serif;
+  --ww-font-family-heading: "Cormorant Garamond", serif;
+  --ww-font-family-mono: "IBM Plex Mono", monospace;
+  --ww-font-size-xs: .75rem;
+  --ww-font-size-sm: .875rem;
+  --ww-font-size-base: 1rem;
+  --ww-font-size-lg: 1.125rem;
+  --ww-font-size-xl: 1.25rem;
+  --ww-font-size-2xl: 1.5rem;
+  --ww-font-size-3xl: 2rem;
+  --ww-font-size-4xl: 2.75rem;
+  --ww-font-weight-light: 300;
+  --ww-font-weight-normal: 400;
+  --ww-font-weight-medium: 500;
+  --ww-font-weight-semibold: 600;
+  --ww-font-weight-bold: 700;
+  --ww-line-height-tight: 1.2;
+  --ww-line-height-heading: 1.3;
+  --ww-line-height-body: 1.6;
+  --ww-line-height-loose: 1.8;
+  --ww-letter-spacing-tight: -.02em;
+  --ww-letter-spacing-normal: 0;
+  --ww-letter-spacing-wide: .03em;
+  --ww-text-body-font-family: var(--ww-font-family-base);
+  --ww-text-body-font-size: var(--ww-font-size-base);
+  --ww-text-body-font-weight: var(--ww-font-weight-normal);
+  --ww-text-body-line-height: var(--ww-line-height-body);
+  --ww-text-lead-font-size: var(--ww-font-size-lg);
+  --ww-text-lead-line-height: var(--ww-line-height-loose);
+  --ww-text-h1-font-family: var(--ww-font-family-heading);
+  --ww-text-h1-font-size: var(--ww-font-size-4xl);
+  --ww-text-h1-font-weight: var(--ww-font-weight-bold);
+  --ww-text-h2-font-family: var(--ww-font-family-heading);
+  --ww-text-h2-font-size: var(--ww-font-size-3xl);
+  --ww-text-h2-font-weight: var(--ww-font-weight-bold);
+  --ww-text-h3-font-family: var(--ww-font-family-heading);
+  --ww-text-h3-font-size: var(--ww-font-size-2xl);
+  --ww-text-h3-font-weight: var(--ww-font-weight-semibold);
+  --ww-text-h4-font-family: var(--ww-font-family-heading);
+  --ww-text-h4-font-size: var(--ww-font-size-xl);
+  --ww-text-h4-font-weight: var(--ww-font-weight-semibold);
+  --ww-text-h5-font-family: var(--ww-font-family-heading);
+  --ww-text-h5-font-size: var(--ww-font-size-lg);
+  --ww-text-h5-font-weight: var(--ww-font-weight-medium);
+  --ww-text-h6-font-family: var(--ww-font-family-heading);
+  --ww-text-h6-font-size: var(--ww-font-size-base);
+  --ww-text-h6-font-weight: var(--ww-font-weight-medium);
+  --ww-text-small-font-size: var(--ww-font-size-sm);
+  --ww-text-code-font-family: var(--ww-font-family-mono);
+  --ww-text-code-font-size: var(--ww-font-size-sm);
+}
+
+:root {
+  --ww-container-max-width: 82.5rem;
+  --ww-container-padding-inline: var(--ww-space-5);
+  --ww-header-height: 5rem;
+  --ww-footer-min-height: 4rem;
+  --ww-sidebar-width: 18rem;
+  --ww-radius-none: 0;
+  --ww-radius-sm: .25rem;
+  --ww-radius-md: .5rem;
+  --ww-radius-lg: .75rem;
+  --ww-radius-xl: 1rem;
+  --ww-radius-full: 999rem;
+  --ww-shadow-sm:
+      0 1px 2px rgba(44, 37, 35, .08);
+  --ww-shadow-md:
+      0 4px 8px rgba(44, 37, 35, .12);
+  --ww-shadow-lg:
+      0 8px 24px rgba(44, 37, 35, .18);
+  --ww-transition-fast: 150ms;
+  --ww-transition-normal: 250ms;
+  --ww-transition-slow: 400ms;
+  --ww-z-base: 1;
+  --ww-z-dropdown: 1000;
+  --ww-z-sticky: 1020;
+  --ww-z-fixed: 1030;
+  --ww-z-offcanvas: 1045;
+  --ww-z-modal: 1055;
+  --ww-z-popover: 1070;
+  --ww-z-tooltip: 1080;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+    -o-tab-size: 4;
+       tab-size: 4;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+hr {
+  margin-block: var(--ww-space-6);
+  border: 0;
+  border-top: 1px solid var(--ww-color-border);
+}
+
+body {
+  font-family: var(--ww-text-body-font-family);
+  font-size: var(--ww-text-body-font-size);
+  font-weight: var(--ww-text-body-font-weight);
+  line-height: var(--ww-text-body-line-height);
+}
+
+main {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-block: 0 var(--ww-space-4);
+  color: inherit;
+  text-wrap: balance;
+}
+
+p,
+li,
+blockquote {
+  text-wrap: pretty;
+}
+
+h1 {
+  font-family: var(--ww-text-h1-font-family);
+  font-size: var(--ww-text-h1-font-size);
+  font-weight: var(--ww-text-h1-font-weight);
+  line-height: var(--ww-line-height-heading);
+}
+
+h2 {
+  font-family: var(--ww-text-h2-font-family);
+  font-size: var(--ww-text-h2-font-size);
+  font-weight: var(--ww-text-h2-font-weight);
+  line-height: var(--ww-line-height-heading);
+}
+
+h3 {
+  font-family: var(--ww-text-h3-font-family);
+  font-size: var(--ww-text-h3-font-size);
+  font-weight: var(--ww-text-h3-font-weight);
+  line-height: var(--ww-line-height-heading);
+}
+
+h4 {
+  font-family: var(--ww-text-h4-font-family);
+  font-size: var(--ww-text-h4-font-size);
+  font-weight: var(--ww-text-h4-font-weight);
+  line-height: var(--ww-line-height-heading);
+}
+
+h5 {
+  font-family: var(--ww-text-h5-font-family);
+  font-size: var(--ww-text-h5-font-size);
+  font-weight: var(--ww-text-h5-font-weight);
+  line-height: var(--ww-line-height-heading);
+}
+
+h6 {
+  font-family: var(--ww-text-h6-font-family);
+  font-size: var(--ww-text-h6-font-size);
+  font-weight: var(--ww-text-h6-font-weight);
+  line-height: var(--ww-line-height-heading);
+}
+
+p {
+  margin-block: 0 var(--ww-space-4);
+  font-family: var(--ww-text-body-font-family);
+  font-size: var(--ww-text-body-font-size);
+  font-weight: var(--ww-text-body-font-weight);
+  line-height: var(--ww-text-body-line-height);
+}
+
+small {
+  font-size: var(--ww-text-small-font-size);
+  line-height: inherit;
+}
+
+strong,
+b {
+  font-weight: var(--ww-font-weight-bold);
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+mark {
+  padding-inline: 0.15em;
+  color: inherit;
+  background-color: var(--ww-color-primary-200);
+  border-radius: var(--ww-radius-sm);
+}
+
+blockquote {
+  margin: var(--ww-space-6) 0;
+  padding-inline-start: var(--ww-space-5);
+  border-inline-start: 4px solid var(--ww-color-primary);
+  font-style: italic;
+}
+
+cite {
+  font-style: normal;
+}
+
+q {
+  quotes: auto;
+}
+
+a {
+  color: var(--ww-color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;
+  transition: color var(--ww-transition-fast) ease, text-decoration-color var(--ww-transition-fast) ease;
+}
+
+a:hover {
+  color: var(--ww-color-primary-dark);
+}
+
+a:active {
+  color: var(--ww-color-primary-dark);
+}
+
+a:visited {
+  color: var(--ww-color-primary);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--ww-color-primary);
+  outline-offset: 3px;
+}
+
+ul,
+ol {
+  margin-block: 0 var(--ww-space-4);
+  padding-inline-start: var(--ww-space-6);
+}
+
+li {
+  margin-block: var(--ww-space-2);
+}
+
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  margin-block: var(--ww-space-2) 0;
+}
+
+dl {
+  margin-block: 0 var(--ww-space-4);
+}
+
+dt {
+  font-weight: var(--ww-font-weight-semibold);
+}
+
+dd {
+  margin-inline-start: var(--ww-space-5);
+  margin-block-end: var(--ww-space-3);
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  fill: currentColor;
+}
+
+figure {
+  margin: 0 0 var(--ww-space-5);
+}
+
+figcaption {
+  margin-top: var(--ww-space-2);
+  font-size: var(--ww-text-small-font-size);
+  color: var(--ww-color-text-muted);
+}
+
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+audio {
+  width: 100%;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--ww-text-code-font-family);
+  font-variant-ligatures: none;
+}
+
+code {
+  padding-inline: 0.25em;
+  font-size: var(--ww-text-code-font-size);
+  border-radius: var(--ww-radius-sm);
+  background-color: var(--ww-color-surface-alt);
+}
+
+pre {
+  overflow-x: auto;
+  margin-block: var(--ww-space-5);
+  padding: var(--ww-space-4);
+  font-size: var(--ww-text-code-font-size);
+  line-height: var(--ww-line-height-body);
+  border-radius: var(--ww-radius-md);
+  background-color: var(--ww-color-surface-alt);
+}
+
+pre code {
+  padding: 0;
+  background: none;
+}
+
+kbd {
+  padding: 0.15em 0.45em;
+  font-size: var(--ww-text-code-font-size);
+  font-weight: var(--ww-font-weight-medium);
+  border: 1px solid var(--ww-color-border);
+  border-radius: var(--ww-radius-sm);
+  background-color: var(--ww-color-surface);
+}
+
+samp {
+  font-size: var(--ww-text-code-font-size);
+}
+
+table {
+  width: 100%;
+  margin-block: var(--ww-space-5);
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: start;
+}
+
+caption {
+  margin-bottom: var(--ww-space-2);
+  font-size: var(--ww-text-small-font-size);
+  font-weight: var(--ww-font-weight-medium);
+  text-align: left;
+  color: var(--ww-color-text-muted);
+  caption-side: bottom;
+}
+
+thead {
+  border-bottom: 2px solid var(--ww-color-border);
+}
+
+th {
+  padding: var(--ww-space-3);
+  font-weight: var(--ww-font-weight-semibold);
+  text-align: inherit;
+  vertical-align: middle;
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--ww-color-border);
+}
+
+td {
+  padding: var(--ww-space-3);
+  vertical-align: top;
+}
+
+tfoot {
+  border-top: 2px solid var(--ww-color-border);
+}
+
+form {
+  margin-block: var(--ww-space-5);
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+}
+
+legend {
+  font-family: var(--ww-text-h5-font-family);
+  font-size: var(--ww-text-h5-font-size);
+  font-weight: var(--ww-text-h5-font-weight);
+}
+
+label {
+  display: inline-block;
+  margin-bottom: var(--ww-space-2);
+  font-weight: var(--ww-font-weight-medium);
+  cursor: pointer;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: var(--ww-space-3);
+  color: inherit;
+  background-color: transparent;
+  border: 1px solid var(--ww-color-border);
+  border-radius: var(--ww-radius-sm);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+select {
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled,
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--ww-color-focus);
+  outline-offset: 2px;
 }/*# sourceMappingURL=template.css.map */

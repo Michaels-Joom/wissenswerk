@@ -1,4 +1,3 @@
-:root {
 // =============================================================================
 // WissensWerk Template
 // Design Tokens - Colors
@@ -8,7 +7,7 @@
 // _colors.scss
 //
 // Purpose:
-// Defines the complete color system of the WissensWerk design system.
+// Defines the complete color system of the WissensWerk Design System.
 //
 // Architecture:
 // 1. Primitive Tokens
@@ -29,65 +28,97 @@
 // color: var(--ww-color-text);
 // background: var(--ww-color-surface);
 //
-/* =============================================================================
-   Theme: Default (Light)
-    ========================================================================== */
-    
+// =============================================================================
+
+:root {
+
+    /* ==========================================================================
+       Theme: Default (Light)
+       ========================================================================== */
+
+
+    // ==========================================================================
     // Primitive Colors
-    
-    --ww-green-700:      #1F4B43;
+    // ==========================================================================
+
+    // Brand
+
+    --ww-brass-200:      #F2E2B5;
     --ww-brass-500:      #B8860B;
+    --ww-brass-700:      #8A6508;
+
+    --ww-green-700:      #1F4B43;
+
+    // Neutral
+
     --ww-bronze-900:     #2C2523;
     --ww-parchment-100:  #F6F4EF;
     --ww-white:          #FFFFFF;
 
-   // Semantic Colors
-    
-   // Brand 
-    --ww-color-primary:      var(--ww-brass-500);
-    --ww-color-secondary:    var(--ww-green-700);
+    --ww-neutral-300:    #DDD7CC;
+    --ww-neutral-500:    #6F6763;
 
-   // Background 
-    --ww-color-background:   var(--ww-parchment-100);
-    --ww-color-surface:      var(--ww-white);
+    --ww-parchment-50: #F8F7F3;
+    --ww-brass-400: #C39B53;
 
-   // Typography 
-    --ww-color-text:         var(--ww-bronze-900);
-    --ww-color-heading:      var(--ww-bronze-900);
+    // Status
 
-   // Links 
-    --ww-color-link:         var(--ww-green-700);
-    --ww-color-link-hover:   var(--ww-brass-500);
-
-   // Borders 
-    --ww-color-border:       #DDD7CC;
-
-   // Status 
-    --ww-color-success:      #2E7D32;
-    --ww-color-warning:      #ED6C02;
-    --ww-color-danger:       #C62828;
-    --ww-color-info:         #0288D1;
-
-   // Surface Colors
-   --ww-color-surface: #FFFFFF;
-   --ww-color-surface-alt: #F8F7F3;
-
-   // Border Colors
-   --ww-color-border: #D8D2C7;
-
-   // Focus
-   --ww-color-focus: #C39B53;
-
-   // Muted Text
-   --ww-color-text-muted: #6F6763;
+    --ww-success-500:    #2E7D32;
+    --ww-warning-500:    #ED6C02;
+    --ww-danger-500:     #C62828;
+    --ww-info-500:       #0288D1;
 
 
+    // ==========================================================================
+    // Semantic Colors
+    // ==========================================================================
 
-    /* =============================================================================
-   Bootstrap Mapping
-   ---------------------------------------------------------------------------
-   Bootstrap variables are mapped in a dedicated vendor file.
-   Do not redefine Bootstrap variables here.
-   ========================================================================== */
+    // Brand
+
+    --ww-color-primary:        var(--ww-brass-500);
+    --ww-color-primary-200:    var(--ww-brass-200);
+    --ww-color-primary-dark:   var(--ww-brass-700);
+
+    --ww-color-secondary:      var(--ww-green-700);
+
+    // Background
+
+    --ww-color-background:     var(--ww-parchment-100);
+    --ww-color-surface:        var(--ww-white);
+    --ww-color-surface-alt:    var(--ww-parchment-50);
+
+    // Typography
+
+    --ww-color-text:           var(--ww-bronze-900);
+    --ww-color-heading:        var(--ww-bronze-900);
+    --ww-color-text-muted:     var(--ww-neutral-500);
+
+    // Links
+
+    --ww-color-link:           var(--ww-green-700);
+    --ww-color-link-hover:     var(--ww-brass-500);
+
+    // Borders
+
+    --ww-color-border:         var(--ww-neutral-300);
+
+    // Focus
+
+    --ww-color-focus:         var(--ww-brass-400);
+
+    // Status
+
+    --ww-color-success:        var(--ww-success-500);
+    --ww-color-warning:        var(--ww-warning-500);
+    --ww-color-danger:         var(--ww-danger-500);
+    --ww-color-info:           var(--ww-info-500);
+
+
+    /* ==========================================================================
+       Bootstrap Mapping
+       --------------------------------------------------------------------------
+       Bootstrap variables are mapped in a dedicated vendor file.
+       Do not redefine Bootstrap variables here.
+       ========================================================================== */
 
 }

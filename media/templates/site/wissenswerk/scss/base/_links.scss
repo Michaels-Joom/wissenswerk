@@ -34,9 +34,9 @@ a {
     text-decoration-thickness: 0.08em;
     text-underline-offset: 0.15em;
 
-    transition:
-        color 0.2s ease,
-        text-decoration-color 0.2s ease;
+transition:
+    color var(--ww-transition-fast) ease,
+    text-decoration-color var(--ww-transition-fast) ease;
 }
 
 
