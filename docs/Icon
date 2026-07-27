@@ -1,0 +1,62 @@
+# Für WissensWerk würde ich folgende Icons verwenden
+
+Bereich	Icon	Bootstrap
+Manifest	📜	bi-file-earmark-text
+Projektphilosophie	💡	bi-lightbulb
+Designsystem	🎨	bi-palette
+HTML	</>	bi-code-slash
+SCSS	🎨	bi-braces
+Joomla	J	eigenes Logo
+Komponenten	🧩	bi-boxes
+Architektur	🏗️	bi-diagram-3 ⭐
+ADR	📐	bi-diagram-2
+Troubleshooting	🛠	bi-tools
+Glossar	📖	bi-book
+Best Practices	✔	bi-patch-check
+Referenzen	🔗	bi-link-45deg
+
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+
+
+📜 Manifest
+💡 Projektphilosophie
+🎨 Designsystem
+🏛️ Architektur
+📐 ADR (Entscheidungen)
+🛠️ Entwicklung
+Icon	Bootstrap Icon	Bedeutung	Bewertung
+📦	bi-box-seam	Assets als Paket/Bundle	⭐⭐⭐⭐⭐
+🗂️	bi-collection	Sammlung von Assets	⭐⭐⭐⭐☆
+📁	bi-folder2-open	Dateiverwaltung	⭐⭐⭐☆☆
+🧱	bi-boxes	Ressourcen/Bausteine	⭐⭐⭐⭐☆
+⚡	bi-lightning-charge	Laden/Bereitstellen von Assets	⭐⭐⭐☆☆
+
+Für WissensWerk würde ich folgende Icons verwenden
+Bereich	Icon	Bootstrap
+Manifest	📜	bi-file-earmark-text
+Projektphilosophie	💡	bi-lightbulb
+Designsystem	🎨	bi-palette
+HTML	</>	bi-code-slash
+SCSS	🎨	bi-braces
+Joomla	J	eigenes Logo
+Komponenten	🧩	bi-boxes
+Architektur	🏗️	bi-diagram-3 ⭐
+ADR	📐	bi-diagram-2
+Troubleshooting	🛠	bi-tools
+Glossar	📖	bi-book
+Best Practices	✔	bi-patch-check
+Referenzen	🔗	bi-link-45deg
