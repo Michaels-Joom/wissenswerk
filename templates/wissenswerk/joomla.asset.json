@@ -1,0 +1,17 @@
+{
+    "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+    "name": "template.wissenswerk",
+    "version": "0.1.0",
+    "assets": [
+        {
+            "name": "template.wissenswerk",
+            "type": "style",
+            "uri": "css/template.css"
+        },
+        {
+            "name": "template.wissenswerk",
+            "type": "script",
+            "uri": "js/template.js"
+        }
+    ]
+}

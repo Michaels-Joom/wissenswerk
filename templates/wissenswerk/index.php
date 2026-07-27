@@ -20,8 +20,9 @@ $wa  = $this->getWebAssetManager();
 // Web Assets
 // ======================================================
 
-$wa->useStyle('template.main');
-$wa->useScript('template.main');
+$wa->useStyle('template.wissenswerk');
+$wa->useScript('template.wissenswerk');
+//$wa->usePreset('bootstrap');
 
 // ======================================================
 // Meta
@@ -37,7 +38,8 @@ $baseurl         = $this->baseurl;
 $logoFile        = $this->params->get('logoFile');
 $branding_first  = $this->params->get('branding_first');
 $branding_second = $this->params->get('branding_second');
-$siteDescription = $this->params->get('branding_slogan');
+$branding_slogan = $this->params->get('branding_slogan');
+$branding = $branding_first . $branding_second;
 
 // ======================================================
 // Modulpositionen
@@ -94,25 +96,28 @@ $showDebug        = $this->countModules('debug');
 
                         <?php if (!empty($logoFile)) : ?>
                         <a class="ww-header__logo" href="<?= $baseurl; ?>/">
-                            <img src="<?= htmlspecialchars($logoFile); ?>" alt="<?= htmlspecialchars($siteTitle); ?>">
+                            <img src="<?= htmlspecialchars($logoFile); ?>" alt="<?= htmlspecialchars($branding); ?>">
                         </a>
                         <?php endif; ?>
 
                         <div class="ww-header__site">
 
-                             <?php if ($branding_first)?>      
+                             <?php if ($branding_first) : ?>      
                                 <span class="ww-branding-primary">
                                     <?= htmlspecialchars($branding_first); ?>
                                 </span>
-                              <?php endif ?>  
+                            <?php endif; ?>
 
-                            <?php if ($branding_second)?>  
+                            <?php if ($branding_second) : ?>
                                 <span class="ww-branding-secondary">
                                     <?= htmlspecialchars($branding_second); ?>
                                 </span>
-                            <?php endif ?>  
-
-                            <?php if ($siteDescription) : ?><p><?= htmlspecialchars($branding_slogan); ?></p><?php endif; ?>
+                          <?php endif; ?>  
+                            
+                            <?php if ($branding_slogan) : ?>
+                                <p><?= htmlspecialchars($branding_slogan); ?></p>
+                            <?php endif; ?>      
+                            
                         </div>
 
                     </div>
