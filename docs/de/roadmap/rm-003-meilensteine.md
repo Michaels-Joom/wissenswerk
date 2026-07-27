@@ -13,9 +13,11 @@
 
 ## Phase 2 – Templateentwicklung
 
-- SCSS-Architektur mit den ersten Partials
-- Design Tokens
-- Bootstrap-Integration
-- Web Asset API
-- erstes sichtbares Layout
-- index.php als erste produktive Template-Datei
+- Schritt	Status
+- SCSS-Architektur	⏳
+- Design Tokens	⏳
+- Live Sass Compiler	⏳
+- Bootstrap-Integration	⏳
+- Web Asset API	⏳
+- Erste index.php	⏳
+- Erstes Template-Layout	⏳
