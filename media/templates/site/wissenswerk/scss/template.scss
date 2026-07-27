@@ -2,18 +2,87 @@
 // WissensWerk Template
 // Main Stylesheet
 // =============================================================================
+//
+// Joomla 5
+// SCSS Architecture v1.0
+//
+// File:
+// template.scss
+//
+// Purpose:
+// Main SCSS entry point for the WissensWerk template.
+//
+// Responsibilities:
+// - Import Design Tokens
+// - Import Base Layer
+// - Import Layouts
+// - Import Components
+// - Import Utilities
+//
+// =============================================================================
 
-// Vendors
-// Vendors
-@use "vendors/fonts";
 
+// =============================================================================
+// Vendors
+// =============================================================================
+
+// @use "vendors/bootstrap";
+
+// =============================================================================
+// Abstracts
+// =============================================================================
+
+@use "abstracts/settings";
+@use "abstracts/functions";
+@use "abstracts/mixins";
+
+// =============================================================================
 // Design Tokens
+// =============================================================================
+
 @use "tokens/colors";
 @use "tokens/spacing";
-@use "tokens/typography";
+@use "tokens/typography" as typography-tokens;
 @use "tokens/layout";
 
+
+// =============================================================================
 // Base
+// =============================================================================
+
 @use "base/root";
-@use "base/base";
+@use "base/document";
 @use "base/typography";
+@use "base/links";
+@use "base/lists";
+@use "base/media";
+@use "base/code";
+@use "base/tables";
+@use "base/forms";
+
+
+// =============================================================================
+// Layout
+// =============================================================================
+
+// @use "layout/container";
+// @use "layout/grid";
+// @use "layout/header";
+// @use "layout/footer";
+
+
+// =============================================================================
+// Components
+// =============================================================================
+
+// @use "components/button";
+// @use "components/card";
+// @use "components/navigation";
+
+
+// =============================================================================
+// Utilities
+// =============================================================================
+
+// @use "utilities/helpers";
+// @use "utilities/spacing";

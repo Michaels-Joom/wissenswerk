@@ -14,7 +14,6 @@
 // - Paragraphs
 // - Text emphasis
 // - Quotes
-// - Code elements
 //
 // Not responsible for:
 // - Components
@@ -44,44 +43,44 @@ blockquote {
 }
 
 h1 {
-    font-family: var(--ww-font-heading-family);
-    font-size: var(--ww-font-size-h1);
-    font-weight: var(--ww-font-weight-bold);
+    font-family: var(--ww-text-h1-font-family);
+    font-size: var(--ww-text-h1-font-size);
+    font-weight: var(--ww-text-h1-font-weight);
     line-height: var(--ww-line-height-heading);
 }
 
 h2 {
-    font-family: var(--ww-font-heading-family);
-    font-size: var(--ww-font-size-h2);
-    font-weight: var(--ww-font-weight-bold);
+    font-family: var(--ww-text-h2-font-family);
+    font-size: var(--ww-text-h2-font-size);
+    font-weight: var(--ww-text-h2-font-weight);
     line-height: var(--ww-line-height-heading);
 }
 
 h3 {
-    font-family: var(--ww-font-heading-family);
-    font-size: var(--ww-font-size-h3);
-    font-weight: var(--ww-font-weight-semibold);
+    font-family: var(--ww-text-h3-font-family);
+    font-size: var(--ww-text-h3-font-size);
+    font-weight: var(--ww-text-h3-font-weight);
     line-height: var(--ww-line-height-heading);
 }
 
 h4 {
-    font-family: var(--ww-font-heading-family);
-    font-size: var(--ww-font-size-h4);
-    font-weight: var(--ww-font-weight-semibold);
+    font-family: var(--ww-text-h4-font-family);
+    font-size: var(--ww-text-h4-font-size);
+    font-weight: var(--ww-text-h4-font-weight);
     line-height: var(--ww-line-height-heading);
 }
 
 h5 {
-    font-family: var(--ww-font-heading-family);
-    font-size: var(--ww-font-size-h5);
-    font-weight: var(--ww-font-weight-medium);
+    font-family: var(--ww-text-h5-font-family);
+    font-size: var(--ww-text-h5-font-size);
+    font-weight: var(--ww-text-h5-font-weight);
     line-height: var(--ww-line-height-heading);
 }
 
 h6 {
-    font-family: var(--ww-font-heading-family);
-    font-size: var(--ww-font-size-h6);
-    font-weight: var(--ww-font-weight-medium);
+    font-family: var(--ww-text-h6-font-family);
+    font-size: var(--ww-text-h6-font-size);
+    font-weight: var(--ww-text-h6-font-weight);
     line-height: var(--ww-line-height-heading);
 }
 
@@ -90,16 +89,16 @@ h6 {
 p {
     margin-block: 0 var(--ww-space-4);
 
-    font-family: var(--ww-font-body-family);
-    font-size: var(--ww-font-size-body);
-    font-weight: var(--ww-font-weight-normal);
-    line-height: var(--ww-line-height-body);
+    font-family: var(--ww-text-body-font-family);
+    font-size: var(--ww-text-body-font-size);
+    font-weight: var(--ww-text-body-font-weight);
+    line-height: var(--ww-text-body-line-height);
 }
 
 // Small Text
 
 small {
-    font-size: var(--ww-font-size-small);
+    font-size: var(--ww-text-small-font-size);
     line-height: inherit;
 }
 
@@ -119,7 +118,7 @@ mark {
     padding-inline: .15em;
     color: inherit;
     background-color: var(--ww-color-primary-200);
-    border-radius: var(--ww-radius-xs);
+    border-radius: var(--ww-radius-sm);
 }
 
 // Quotes
@@ -138,4 +137,3 @@ cite {
 q {
     quotes: auto;
 }
-

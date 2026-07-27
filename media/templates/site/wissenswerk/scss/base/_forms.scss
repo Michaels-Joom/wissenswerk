@@ -47,11 +47,9 @@ fieldset {
 }
 
 legend {
-    margin-bottom: var(--ww-space-3);
-
-    font-family: var(--ww-font-heading-family);
-    font-size: var(--ww-font-size-h5);
-    font-weight: var(--ww-font-weight-semibold);
+    font-family: var(--ww-text-h5-font-family);
+    font-size: var(--ww-text-h5-font-size);
+    font-weight: var(--ww-text-h5-font-weight);
 }
 
 

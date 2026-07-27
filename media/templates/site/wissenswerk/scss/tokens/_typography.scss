@@ -3,139 +3,107 @@
 // Design Tokens - Typography
 // =============================================================================
 //
-// File:
-// _typography.scss
-//
 // Purpose:
-// Defines the typography system for the WissensWerk design system.
+// Defines the typography design tokens.
 //
-// Architecture:
-// 1. Font Families
-// 2. Font Sizes
-// 3. Font Weights
-// 4. Line Heights
-// 5. Letter Spacing
-// 6. Semantic Text Roles
-//
-// Notes:
-// Components must always use semantic typography tokens.
-// Never hardcode font sizes or font families.
-//
-// Example:
-//
-// font-family: var(--ww-text-body-font-family);
-// font-size: var(--ww-text-body-font-size);
+// Structure:
+// 1. Primitive Tokens
+// 2. Semantic Tokens
 //
 // =============================================================================
 
 :root {
 
+    // =========================================================================
+    // Primitive Typography
+    // =========================================================================
+
     // Font Families
-       
-    --ww-font-family-base:
-        "Libre Franklin",
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
 
-    --ww-font-family-heading:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
+    --ww-font-family-base: "Source Sans 3", sans-serif;
+    --ww-font-family-heading: "Cormorant Garamond", serif;
+    --ww-font-family-mono: "IBM Plex Mono", monospace;
 
-    --ww-font-family-mono:
-        "JetBrains Mono",
-        Consolas,
-        monospace;
-   
     // Font Sizes
-    
-    --ww-font-size-xs:      0.75rem;
-    --ww-font-size-sm:      0.875rem;
-    --ww-font-size-base:    1rem;
-    --ww-font-size-lg:      1.125rem;
-    --ww-font-size-xl:      1.25rem;
-    --ww-font-size-2xl:     1.5rem;
-    --ww-font-size-3xl:     2rem;
-    --ww-font-size-4xl:     2.5rem;
-    --ww-font-size-5xl:     3rem;
-    
+
+    --ww-font-size-xs: .75rem;
+    --ww-font-size-sm: .875rem;
+    --ww-font-size-base: 1rem;
+    --ww-font-size-lg: 1.125rem;
+    --ww-font-size-xl: 1.25rem;
+    --ww-font-size-2xl: 1.5rem;
+    --ww-font-size-3xl: 2rem;
+    --ww-font-size-4xl: 2.75rem;
+
     // Font Weights
-    
-    --ww-font-weight-light:     300;
-    --ww-font-weight-normal:    400;
-    --ww-font-weight-medium:    500;
-    --ww-font-weight-semibold:  600;
-    --ww-font-weight-bold:      700;
+
+    --ww-font-weight-light: 300;
+    --ww-font-weight-normal: 400;
+    --ww-font-weight-medium: 500;
+    --ww-font-weight-semibold: 600;
+    --ww-font-weight-bold: 700;
 
     // Line Heights
 
-    --ww-line-height-tight:     1.2;
-    --ww-line-height-heading:   1.3;
-    --ww-line-height-body:      1.6;
-    --ww-line-height-relaxed:   1.8;
+    --ww-line-height-tight: 1.2;
+    --ww-line-height-heading: 1.3;
+    --ww-line-height-body: 1.6;
+    --ww-line-height-loose: 1.8;
 
     // Letter Spacing
 
-    --ww-letter-spacing-tight:   -0.02em;
-    --ww-letter-spacing-normal:   0;
-    --ww-letter-spacing-wide:     0.05em;
+    --ww-letter-spacing-tight: -.02em;
+    --ww-letter-spacing-normal: 0;
+    --ww-letter-spacing-wide: .03em;
 
-    // Semantic Text Roles
-
+    // =========================================================================
+    // Semantic Typography
+    // =========================================================================
 
     // Body
 
-    --ww-text-body-font-family:      var(--ww-font-family-base);
-    --ww-text-body-font-size:        var(--ww-font-size-base);
-    --ww-text-body-font-weight:      var(--ww-font-weight-normal);
-    --ww-text-body-line-height:      var(--ww-line-height-body);
+    --ww-text-body-font-family: var(--ww-font-family-base);
+    --ww-text-body-font-size: var(--ww-font-size-base);
+    --ww-text-body-font-weight: var(--ww-font-weight-normal);
+    --ww-text-body-line-height: var(--ww-line-height-body);
 
     // Lead
 
-    --ww-text-lead-font-family:      var(--ww-font-family-base);
-    --ww-text-lead-font-size:        var(--ww-font-size-lg);
-    --ww-text-lead-font-weight:      var(--ww-font-weight-normal);
-    --ww-text-lead-line-height:      var(--ww-line-height-relaxed);
+    --ww-text-lead-font-size: var(--ww-font-size-lg);
+    --ww-text-lead-line-height: var(--ww-line-height-loose);
 
-    // Heading 1
+    // Headings
 
-    --ww-text-h1-font-family:        var(--ww-font-family-heading);
-    --ww-text-h1-font-size:          var(--ww-font-size-5xl);
-    --ww-text-h1-font-weight:        var(--ww-font-weight-bold);
-    --ww-text-h1-line-height:        var(--ww-line-height-tight);
-    --ww-text-h1-letter-spacing:     var(--ww-letter-spacing-tight);
+    --ww-text-h1-font-family: var(--ww-font-family-heading);
+    --ww-text-h1-font-size: var(--ww-font-size-4xl);
+    --ww-text-h1-font-weight: var(--ww-font-weight-bold);
 
+    --ww-text-h2-font-family: var(--ww-font-family-heading);
+    --ww-text-h2-font-size: var(--ww-font-size-3xl);
+    --ww-text-h2-font-weight: var(--ww-font-weight-bold);
 
-    // Heading 2
+    --ww-text-h3-font-family: var(--ww-font-family-heading);
+    --ww-text-h3-font-size: var(--ww-font-size-2xl);
+    --ww-text-h3-font-weight: var(--ww-font-weight-semibold);
 
-    --ww-text-h2-font-family:        var(--ww-font-family-heading);
-    --ww-text-h2-font-size:          var(--ww-font-size-4xl);
-    --ww-text-h2-font-weight:        var(--ww-font-weight-semibold);
-    --ww-text-h2-line-height:        var(--ww-line-height-heading);
+    --ww-text-h4-font-family: var(--ww-font-family-heading);
+    --ww-text-h4-font-size: var(--ww-font-size-xl);
+    --ww-text-h4-font-weight: var(--ww-font-weight-semibold);
 
-    // Heading 3
+    --ww-text-h5-font-family: var(--ww-font-family-heading);
+    --ww-text-h5-font-size: var(--ww-font-size-lg);
+    --ww-text-h5-font-weight: var(--ww-font-weight-medium);
 
-    --ww-text-h3-font-family:        var(--ww-font-family-heading);
-    --ww-text-h3-font-size:          var(--ww-font-size-3xl);
-    --ww-text-h3-font-weight:        var(--ww-font-weight-semibold);
-    --ww-text-h3-line-height:        var(--ww-line-height-heading);
+    --ww-text-h6-font-family: var(--ww-font-family-heading);
+    --ww-text-h6-font-size: var(--ww-font-size-base);
+    --ww-text-h6-font-weight: var(--ww-font-weight-medium);
 
+    // Small Text
 
-    // Caption
-
-    --ww-text-caption-font-family:   var(--ww-font-family-base);
-    --ww-text-caption-font-size:     var(--ww-font-size-sm);
-    --ww-text-caption-font-weight:   var(--ww-font-weight-normal);
-    --ww-text-caption-line-height:   var(--ww-line-height-body);
+    --ww-text-small-font-size: var(--ww-font-size-sm);
 
     // Code
 
-    --ww-text-code-font-family:      var(--ww-font-family-mono);
-    --ww-text-code-font-size:        var(--ww-font-size-sm);
-    --ww-text-code-font-weight:      var(--ww-font-weight-normal);
-    --ww-text-code-line-height:      var(--ww-line-height-body);
-
+    --ww-text-code-font-family: var(--ww-font-family-mono);
+    --ww-text-code-font-size: var(--ww-font-size-sm);
 }
