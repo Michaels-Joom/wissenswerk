@@ -102,3 +102,5 @@ Das Design System definiert die visuelle Identität des Templates.
 Bootstrap ergänzt diese Architektur ausschließlich dort, wo vorhandene Komponenten einen funktionalen Mehrwert bieten.
 
 Dadurch bleibt das Projekt unabhängig vom verwendeten Frontend-Framework und vermeidet langfristig unnötige Komplexität durch umfangreiche CSS-Überschreibungen.
+
+Bootstrap arbeitet unter der Regie des WissensWerk Design Systems – nicht umgekehrt.
