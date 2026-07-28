@@ -281,11 +281,16 @@ $showDebug        = $this->countModules('debug');
                         <jdoc:include type="modules" name="copyright" style="none" />
                     
                     <?php else : ?>
-                            <p>
-                                Copyright &copy; <?php echo date('Y'); ?> 
-                                <?php echo htmlspecialchars($branding); ?>. 
+                        
+                        <span class="ww-copyright__text">
+                            Copyright &copy; <?= date('Y'); ?>
+                            <?= htmlspecialchars($branding); ?>.
+
+                            <span class="ww-copyright__rights">
                                 Alle Rechte vorbehalten.
-                            </p>
+                            </span>
+                        </span>
+
                     <?php endif; ?>
                 </div>
             </div>
