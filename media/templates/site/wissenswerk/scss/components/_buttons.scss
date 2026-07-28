@@ -25,8 +25,8 @@
     text-decoration: none;
 
     transition:
-        background-color .2s ease,
-        border-color .2s ease,
+        background-color var(--ww-transition-fast) ease,
+        border-color var(--ww-transition-fast) ease,
         color .2s ease;
 
 }
@@ -71,6 +71,4 @@
 // Icon
 // =============================================================================
 
-.ww-button--icon {
-
-}
+// .ww-button--icon {}

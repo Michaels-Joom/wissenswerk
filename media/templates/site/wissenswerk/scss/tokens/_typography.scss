@@ -56,6 +56,15 @@
     --ww-letter-spacing-normal: 0;
     --ww-letter-spacing-wide: .03em;
 
+
+    // Branding
+
+    --ww-branding-font-size-max: 3rem;
+    --ww-branding-font-size-min: 2.5rem;
+
+    --ww-branding-letter-spacing: .5rem;
+    --ww-branding-gap:1rem;
+
     // =========================================================================
     // Semantic Typography
     // =========================================================================
@@ -101,9 +110,14 @@
     // Small Text
 
     --ww-text-small-font-size: var(--ww-font-size-sm);
-
+    
     // Code
 
     --ww-text-code-font-family: var(--ww-font-family-mono);
     --ww-text-code-font-size: var(--ww-font-size-sm);
+
+
+    $ww-branding-font-size: var(--ww-branding-font-size);
+    $ww-branding-letter-spacing: var(--ww-branding-letter-spacing);
+    // $ww-branding-gap();
 }

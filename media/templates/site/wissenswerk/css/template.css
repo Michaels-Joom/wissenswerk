@@ -86,6 +86,10 @@
   --ww-letter-spacing-tight: -.02em;
   --ww-letter-spacing-normal: 0;
   --ww-letter-spacing-wide: .03em;
+  --ww-branding-font-size-max: 3rem;
+  --ww-branding-font-size-min: 2.5rem;
+  --ww-branding-letter-spacing: .5rem;
+  --ww-branding-gap:1rem;
   --ww-text-body-font-family: var(--ww-font-family-base);
   --ww-text-body-font-size: var(--ww-font-size-base);
   --ww-text-body-font-weight: var(--ww-font-weight-normal);
@@ -890,4 +894,25 @@ body {
   color: var(--ww-brass-700);
   display: flex;
   justify-content: center;
+}
+
+.ww-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--ww-radius-md);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--ww-transition-fast) ease, border-color var(--ww-transition-fast) ease, color 0.2s ease;
+}
+
+.ww-button--service {
+  border-color: var(--ww-brass-700);
+  color: var(--ww-brass-700);
+  background: transparent;
 }/*# sourceMappingURL=template.css.map */
