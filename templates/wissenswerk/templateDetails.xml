@@ -77,8 +77,12 @@
         <position>bottom-b</position>
 
         <!-- Footer -->
-        <position>footer</position>
-        <position>footer-nav</position>
+        <position>footer-logo</position>
+        <position>footer-about</position>
+        <position>footer-project</position>
+        <position>footer-service</position>
+
+        <!-- Copyright -->
         <position>copyright</position>
 
         <!-- Entwicklung -->

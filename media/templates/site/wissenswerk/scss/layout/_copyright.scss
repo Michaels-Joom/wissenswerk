@@ -1,0 +1,27 @@
+@use "../tokens/layout";
+@use "../tokens/_typography.scss";
+// =============================================================================
+// WissensWerk Template
+// Copyright Layout
+// =============================================================================
+
+// =============================================================================
+// Copyright
+// =============================================================================
+    
+.ww-copyright-main{
+
+        background-color:  var(--ww-bronze-900);
+       
+        }
+
+.ww-copyright {
+        
+        line-height: 2.5rem; 
+        font-size: var(--ww-text-small-font-size);
+        
+        color: var(--ww-brass-700);
+        display: flex;
+        justify-content: center;
+
+        }

@@ -1,0 +1,170 @@
+// =============================================================================
+// WissensWerk Template
+// Footer Layout
+// =============================================================================
+
+
+// =============================================================================
+// Footer
+// =============================================================================
+
+.ww-footer-main {
+    background-color: var(--ww-green-700);
+    margin-bottom: .5rem;
+}
+
+.ww-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    // padding-block: 2rem;
+
+    text-align: center;
+}
+
+// =============================================================================
+// Logo
+// =============================================================================
+
+.ww-footer__logo img {
+    display: block;
+
+    width: 100%;
+    max-width: 10rem;
+    height: auto;
+}
+
+// =============================================================================
+// Footer Content
+// =============================================================================
+
+.ww-footer__about,
+.ww-footer__project,
+.ww-footer__service {
+
+    color: var(--ww-color-text-info);
+
+}
+
+.ww-footer h3 {
+    margin: 0 0 0.5rem;
+
+    color: var(--ww-brass-700);
+
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.ww-footer p {
+   //  margin: 0 0 .75rem;
+    margin: 0 0 0;
+}
+
+.ww-footer a {
+    color: var(--ww-brass-700);
+    text-decoration: none;
+
+    transition: color .2s ease;
+}
+
+.ww-footer a:hover {
+    color: var(--ww-brass-500);
+}
+
+.ww-icon-contact::before {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: .5rem;
+
+    background: url("../images/icons/envelope.svg") no-repeat center;
+    background-size: 1rem 1rem;
+    
+}
+
+.ww-icon-impressum::before {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: .5rem;
+
+    background: url("../images/icons/file-earmark-text.svg") no-repeat center;
+    background-size: 1rem 1rem;
+    
+}
+
+.ww-icon-datenschutz::before {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: .5rem;
+
+    background: url("../images/icons/shield.svg") no-repeat center;
+    background-size: 1rem 1rem;
+    
+}
+
+
+
+// =============================================================================
+// Listen
+// =============================================================================
+
+.ww-footer ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.ww-footer li + li {
+    margin-top: .5rem;
+}
+
+// =============================================================================
+// Desktop
+// =============================================================================
+
+@media (min-width: 62rem) {
+
+    .ww-footer {
+
+        display: grid;
+        grid-template-columns: 10rem 1fr 1fr auto;
+        align-items: start;
+        gap: 3rem;
+
+        text-align: left;
+
+    }
+
+    .ww-footer__logo {
+        justify-self: start;
+    }
+
+    .ww-footer__about,
+    .ww-footer__project {
+        // max-width: 20rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        font-size: small;
+    }
+    .ww-footer__about p,
+    .ww-footer__project p{
+        
+        font-size: 0.9rem;
+
+    }
+
+    .ww-footer__service {
+        justify-self: end;
+        margin-top: 0.5rem;
+    
+    }
+
+}

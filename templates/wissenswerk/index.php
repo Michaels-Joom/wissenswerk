@@ -244,29 +244,52 @@ $showDebug        = $this->countModules('debug');
         </section>
         <?php endif; ?>
 
-        <footer class="ww-footer">
+        <footer class="ww-footer-main">
             <div class="ww-container">
 
-                <?php if ($showFooter) : ?>
-                <div class="ww-footer__content">
-                    <jdoc:include type="modules" name="footer" style="none" />
-                </div>
-                <?php endif; ?>
+                <div class="ww-footer">
 
-                <?php if ($showFooterNav) : ?>
-                <nav class="ww-footer__nav">
-                    <jdoc:include type="modules" name="footer-nav" style="none" />
-                </nav>
-                <?php endif; ?>
+                    <div class="ww-footer__logo">
+                        <?php if (!empty($logoFile)) : ?>
+                            <a href="<?= $baseurl; ?>/">
+                                <img src="<?= htmlspecialchars($logoFile); ?>" alt="<?= htmlspecialchars($branding); ?>">
+                            </a>
+                        <?php endif; ?>
+                    </div>
 
-                <?php if ($showCopyright) : ?>
-                <div class="ww-footer__copyright">
-                    <jdoc:include type="modules" name="copyright" style="none" />
+                    <div class="ww-footer__about">
+                        <jdoc:include type="modules" name="footer-about" style="none" />
+                    </div>
+
+                    <div class="ww-footer__project">
+                        <jdoc:include type="modules" name="footer-project" style="none" />
+                    </div>
+
+                    <div class="ww-footer__service">
+                        <jdoc:include type="modules" name="footer-service" style="none" />
+                    </div>
+
                 </div>
-                <?php endif; ?>
 
             </div>
         </footer>
+
+        <section class="ww-copyright-main">
+            <div class="ww-container">
+                <div class="ww-copyright"
+                    <?php if ($showCopyright) : ?>
+                        <jdoc:include type="modules" name="copyright" style="none" />
+                    
+                    <?php else : ?>
+                            <p>
+                                Copyright &copy; <?php echo date('Y'); ?> 
+                                <?php echo htmlspecialchars($branding); ?>. 
+                                Alle Rechte vorbehalten.
+                            </p>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </section>            
 
         <?php if ($showDebug) : ?>
         <div class="ww-debug">
