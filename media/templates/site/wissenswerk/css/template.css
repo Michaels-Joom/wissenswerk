@@ -151,6 +151,13 @@
 }
 
 :root {
+  --ww-button-height: 2.75rem;
+  --ww-button-padding-block: .75rem;
+  --ww-button-padding-inline: 1rem;
+  --ww-button-gap: .5rem;
+}
+
+:root {
   color-scheme: light;
   --ww-layout-content-width: 1320px;
 }
@@ -896,23 +903,39 @@ body {
   justify-content: center;
 }
 
-.ww-button {
+ww-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  min-height: 2.75rem;
-  padding: 0.75rem 1.25rem;
+  gap: var(--ww-button-gap);
+  min-height: var(--ww-button-height);
+  padding: var(--ww-button-padding-block) var(--ww-button-padding-inline);
   border: 1px solid transparent;
   border-radius: var(--ww-radius-md);
   font: inherit;
-  cursor: pointer;
+  line-height: 1;
   text-decoration: none;
-  transition: background-color var(--ww-transition-fast) ease, border-color var(--ww-transition-fast) ease, color 0.2s ease;
+  cursor: pointer;
+  transition: background-color var(--ww-transition-fast), border-color var(--ww-transition-fast), color var(--ww-transition-fast);
+}
+ww-button:focus-visible {
+  outline: 2px solid var(--ww-color-primary);
+  outline-offset: 2px;
+}
+ww-button:disabled, ww-button.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .ww-button--service {
-  border-color: var(--ww-brass-700);
   color: var(--ww-brass-700);
   background: transparent;
+  border-color: var(--ww-brass-700);
+}
+
+.ww-button--service:hover,
+.ww-button--service:focus-visible {
+  background: var(--ww-brass-700);
+  color: var(--ww-color-background);
 }/*# sourceMappingURL=template.css.map */

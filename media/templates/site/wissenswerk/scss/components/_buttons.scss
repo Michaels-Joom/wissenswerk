@@ -1,34 +1,46 @@
+@use "../tokens/components";
 // =============================================================================
 // Base Button
 // =============================================================================
 
-.ww-button {
-
+ww-button {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
+    gap: var(--ww-button-gap);
 
-    gap: .5rem;
+    min-height: var(--ww-button-height);
 
-    min-height: 2.75rem;
-
-    padding: .75rem 1.25rem;
+    padding:
+        var(--ww-button-padding-block)
+        var(--ww-button-padding-inline);
 
     border: 1px solid transparent;
     border-radius: var(--ww-radius-md);
 
     font: inherit;
-
-    cursor: pointer;
+    line-height: 1;
 
     text-decoration: none;
 
-    transition:
-        background-color var(--ww-transition-fast) ease,
-        border-color var(--ww-transition-fast) ease,
-        color .2s ease;
+    cursor: pointer;
 
+    transition:
+        background-color var(--ww-transition-fast),
+        border-color var(--ww-transition-fast),
+        color var(--ww-transition-fast);
+
+    &:focus-visible {
+        outline: 2px solid var(--ww-color-primary);
+        outline-offset: 2px;
+    }
+
+    &:disabled,
+    &.is-disabled {
+        opacity: .5;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
 }
 
 // =============================================================================
@@ -61,9 +73,20 @@
 
 .ww-button--service {
 
-    border-color: var(--ww-brass-700);
     color: var(--ww-brass-700);
+
     background: transparent;
+
+    border-color: var(--ww-brass-700);
+
+}
+
+.ww-button--service:hover,
+.ww-button--service:focus-visible {
+
+    background: var(--ww-brass-700);
+
+    color: var(--ww-color-background);
 
 }
 
