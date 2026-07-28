@@ -26,7 +26,7 @@
 // Vendors
 // =============================================================================
 
-// @use "vendors/bootstrap";
+@use "vendor/_bootstrap-offcanvas";
 
 // =============================================================================
 // Abstracts
@@ -78,6 +78,7 @@
 // Components
 // =============================================================================
 
+@use "components/navigation.scss";
 @use "components/buttons";
 // @use "components/card";
 // @use "components/navigation";

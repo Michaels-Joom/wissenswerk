@@ -22,6 +22,7 @@ $wa  = $this->getWebAssetManager();
 
 $wa->useStyle('template.wissenswerk');
 $wa->useScript('template.wissenswerk');
+//$wa->usePreset('bootstrap');
 
 // ======================================================
 // Meta
@@ -123,22 +124,7 @@ $showDebug        = $this->countModules('debug');
                                 <p><?= htmlspecialchars($branding_slogan); ?></p>
                             <?php endif; ?>  
                             
-                            <?php if ($showMenu) : ?>
-
-                                <button
-                                    class="ww-header__toggle"
-                                    type="button"
-                                    data-bs-toggle="offcanvas"
-                                    data-bs-target="#wwOffcanvas"
-                                    aria-controls="wwOffcanvas"
-                                    aria-label="Navigation öffnen">
-
-                                  ☰
-
-                                </button>
-
-                            <?php endif; ?>
-
+                            
                             <?php if ($showMenu) : ?>
                                 <nav class="ww-header__menu">
                                     <jdoc:include type="modules" name="menu" style="none" />
@@ -164,44 +150,6 @@ $showDebug        = $this->countModules('debug');
                 </div>
             </div>
         </header>
-
-        <?php if ($showMenu) : ?>
-
-            <div
-                class="ww-offcanvas offcanvas offcanvas-end"
-                tabindex="-1"
-                id="wwOffcanvas"
-                aria-labelledby="wwOffcanvasLabel">
-
-                <div class="offcanvas-header">
-
-                    <h5 id="wwOffcanvasLabel">
-                        Menü
-                    </h5>
-
-                    <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="offcanvas"
-                        aria-label="Schließen">
-                    </button>
-
-                </div>
-
-                <div class="offcanvas-body">
-
-                    <nav class="ww-offcanvas__menu">
-
-                        <jdoc:include type="modules" name="menu" style="none" />
-
-                    </nav>
-
-                </div>
-
-            </div>
-
-        <?php endif; ?>
-
 
         <?php if ($showBanner) : ?>
         <section class="ww-banner">

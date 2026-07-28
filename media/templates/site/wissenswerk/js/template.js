@@ -1,7 +1,16 @@
 /**
+ * --------------------------------------------------------------------------
  * WissensWerk Template
+ * --------------------------------------------------------------------------
+ * Zentrale JavaScript-Datei
  *
- * Main JavaScript entry point.
+ * Bootstrap-Komponenten werden über die Joomla Web Asset API geladen.
+ * Eigene Initialisierungen und Funktionen werden hier ergänzt.
+ * --------------------------------------------------------------------------
  */
 
-'use strict';
+document.addEventListener('DOMContentLoaded', () => {
+
+    console.log('WissensWerk Template initialisiert');
+
+});

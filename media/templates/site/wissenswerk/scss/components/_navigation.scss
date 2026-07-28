@@ -1,0 +1,71 @@
+/**
+ * -----------------------------------------------------------------------------
+ * Component: Navigation
+ * -----------------------------------------------------------------------------
+ * Desktop-Hauptnavigation
+ *
+ * Verantwortlich für:
+ * - Horizontale Menüdarstellung
+ * - Linkgestaltung
+ * - Hover-, Active- und Focus-Zustände
+ *
+ * Nicht enthalten:
+ * - Dropdown-Menüs
+ * - Mobile Navigation
+ * - Offcanvas
+ * -----------------------------------------------------------------------------
+ */
+
+.ww-header__menu {
+
+    margin-top: 1rem;
+
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 2rem;
+
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+    }
+
+    li {
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        position: relative;
+        display: block;
+
+        padding: .25rem 0;
+
+        color: var(--ww-color-text);
+        font-family: var(--ww-font-family-base);
+        font-size: var(--ww-font-size-body);
+        font-weight: 400;
+        line-height: 1.5;
+
+        text-decoration: none;
+
+        transition: color .2s ease;
+    }
+
+    a:hover {
+        color: var(--ww-color-primary);
+    }
+
+    a:focus-visible {
+        outline: 2px solid var(--ww-color-primary);
+        outline-offset: 4px;
+    }
+
+    .active > a,
+    .current > a {
+        color: var(--ww-color-primary);
+    }
+
+}
