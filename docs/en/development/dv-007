@@ -1,0 +1,284 @@
+# DV-006 Navigation
+
+**Document Type:** Development Documentation
+**Project:** WissensWerk Template
+**Status:** Draft
+**Version:** 1.0
+**Last Updated:** 28.07.2026
+
+---
+
+# 1. Purpose
+
+This document describes the technical implementation of the website navigation within the WissensWerk Joomla template.
+
+The objective is to provide a navigation system that is:
+
+* responsive
+* accessible (WCAG compliant)
+* maintainable
+* fully compatible with Joomla 5
+* based on Bootstrap 5
+* visually independent through custom SCSS
+
+The navigation shall integrate seamlessly into the overall template architecture while remaining fully update-safe.
+
+---
+
+# 2. Objectives
+
+The navigation should provide:
+
+* Clear and intuitive user guidance
+* Responsive behavior across all device sizes
+* Keyboard accessibility
+* Support for screen readers
+* Clean separation of structure, design and behavior
+* Maximum compatibility with Joomla's menu system
+
+---
+
+# 3. Design Principles
+
+The implementation follows the general project philosophy:
+
+* Joomla Core remains untouched.
+* Bootstrap provides only the functional foundation.
+* Visual appearance is completely controlled by the template.
+* SCSS is the single source of styling.
+* JavaScript is only used where necessary.
+* Accessibility has priority over visual effects.
+
+---
+
+# 4. Navigation Concept
+
+The template provides a primary navigation consisting of:
+
+* Logo / Branding
+* Main Menu
+* Optional Search
+* Optional CTA Button
+
+Desktop devices display a horizontal navigation bar.
+
+Mobile devices use an offcanvas navigation.
+
+---
+
+# 5. Joomla Integration
+
+The navigation is based entirely on the Joomla menu module.
+
+Recommended module position:
+
+```
+menu
+```
+
+The menu module is published once and assigned to the desired menu.
+
+The template itself controls only the layout and styling.
+
+---
+
+# 6. Responsive Behaviour
+
+## Desktop
+
+* Horizontal navigation
+* Dropdown menus
+* Hover support
+* Keyboard navigation
+* Visible active menu item
+
+---
+
+## Tablet
+
+Depending on available width:
+
+* reduced spacing
+* optional earlier switch to mobile menu
+
+---
+
+## Mobile
+
+Navigation is displayed using Bootstrap Offcanvas.
+
+Characteristics:
+
+* Hamburger button
+* Slide-in navigation
+* Touch friendly
+* Automatic closing after menu selection
+* Focus trapping
+* ESC closes navigation
+
+---
+
+# 7. Bootstrap Components
+
+The following Bootstrap components are used:
+
+| Component | Purpose                    |
+| --------- | -------------------------- |
+| Navbar    | Basic navigation structure |
+| Offcanvas | Mobile navigation          |
+| Collapse  | Optional fallback          |
+| Dropdown  | Submenus                   |
+| Container | Layout                     |
+| Utilities | Spacing and alignment      |
+
+Bootstrap provides the functionality only.
+
+Visual appearance is implemented exclusively through custom SCSS.
+
+---
+
+# 8. Accessibility
+
+The navigation follows WCAG recommendations.
+
+Requirements:
+
+* Keyboard navigation
+* Logical tab order
+* Visible focus states
+* ARIA labels
+* Correct button semantics
+* Screen reader compatibility
+* Sufficient contrast
+* No hover-only interaction
+
+Special attention is given to mobile accessibility.
+
+---
+
+# 9. SCSS Structure
+
+```
+scss/
+└── components/
+    ├── _navigation.scss
+    ├── _menu.scss
+    ├── _dropdown.scss
+    └── _offcanvas.scss
+```
+
+Responsibilities:
+
+### _navigation.scss
+
+General navigation layout.
+
+### _menu.scss
+
+Desktop menu styling.
+
+### _dropdown.scss
+
+Dropdown appearance.
+
+### _offcanvas.scss
+
+Mobile navigation.
+
+---
+
+# 10. JavaScript
+
+The template uses Bootstrap's JavaScript components.
+
+Custom JavaScript is only added when Bootstrap functionality is insufficient.
+
+Possible enhancements:
+
+* Scroll detection
+* Sticky navigation effects
+* Dynamic header shrinking
+* Automatic menu closing
+* Active section highlighting
+
+---
+
+# 11. Performance
+
+The navigation should:
+
+* minimise DOM complexity
+* avoid unnecessary JavaScript
+* use CSS transitions instead of JavaScript animations
+* avoid layout shifts
+* load instantly
+
+---
+
+# 12. SEO Considerations
+
+Navigation contributes significantly to internal linking.
+
+Recommendations:
+
+* Semantic `<nav>` element
+* Meaningful menu labels
+* Logical hierarchy
+* Clean HTML structure
+* Crawlable links
+* No JavaScript-only navigation
+
+---
+
+# 13. Future Extensions
+
+Possible future enhancements include:
+
+* Mega Menu
+* Breadcrumb integration
+* Sticky navigation
+* Secondary navigation
+* Language switcher
+* User menu
+* Search overlay
+* Dark mode switch
+
+These features are intentionally excluded from the initial implementation.
+
+---
+
+# 14. Dependencies
+
+The navigation depends on:
+
+* Joomla 5
+* Bootstrap 5
+* Joomla Web Asset API
+* Template SCSS architecture
+
+No third-party navigation libraries are required.
+
+---
+
+# 15. Architecture Decision
+
+The project deliberately relies on Joomla's native menu system combined with Bootstrap's functional components.
+
+This approach offers several advantages:
+
+* Full Joomla compatibility
+* Update safety
+* Reduced maintenance effort
+* Consistent accessibility support
+* Minimal custom JavaScript
+* Easy future extensions
+
+Visual design remains completely under the control of the WissensWerk design system and is independent of Bootstrap's default appearance.
+
+---
+
+# Revision History
+
+| Version | Date       | Description               |
+| ------- | ---------- | ------------------------- |
+| 1.0     | 28.07.2026 | Initial document created. |
