@@ -1,4 +1,4 @@
-# ADR-005 Bootstrap als Komponentenbibliothek
+# ADR-006 Bootstrap als Komponentenbibliothek
 
 > **Status:** Accepted  
 > **Datum:** 27.07.2026
