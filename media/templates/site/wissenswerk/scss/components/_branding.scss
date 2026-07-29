@@ -1,0 +1,45 @@
+/**
+ * -----------------------------------------------------------------------------
+ * Component: Branding
+ * -----------------------------------------------------------------------------
+ * Gemeinsame Markenidentität für WissensWerk.
+ * Wird in Header, Offcanvas und weiteren Komponenten verwendet.
+ * -----------------------------------------------------------------------------
+ */
+
+.ww-branding {
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: .5rem;
+
+}
+
+.ww-branding-primary,
+.ww-branding-secondary {
+
+    display: inline-block;
+
+    margin: 0;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    letter-spacing: .12rem;
+
+}
+
+.ww-branding-primary {
+
+    color: var(--ww-color-text);
+
+}
+
+.ww-branding-secondary {
+
+    color: var(--ww-color-primary);
+
+}

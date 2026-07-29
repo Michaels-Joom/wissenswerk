@@ -1,0 +1,39 @@
+/**
+ * -----------------------------------------------------------------------------
+ * Component: Toggle
+ * -----------------------------------------------------------------------------
+ * Hamburger-Schalter für die mobile Navigation.
+ * -----------------------------------------------------------------------------
+ */
+
+.ww-header__toggle {
+
+    padding: 0;
+
+    background: transparent;
+
+    border: 0;
+
+    cursor: pointer;
+
+}
+
+.ww-header__toggle span {
+
+    display: block;
+
+    width: 1.75rem;
+    height: 2px;
+
+    margin: .35rem 0;
+
+    border-radius: 999px;
+
+    background-color: var(--ww-color-text);
+
+    transition:
+        transform .25s ease,
+        opacity .25s ease,
+        background-color .25s ease;
+
+}

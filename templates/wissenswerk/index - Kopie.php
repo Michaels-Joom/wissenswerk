@@ -99,37 +99,30 @@ $showDebug        = $this->countModules('debug');
                         </a>
                         <?php endif; ?>
 
-
-
                         <div class="ww-header__site">
 
-                            <div class="ww-header__top">
-
-                                <?php require __DIR__ . '/includes/branding.php'; ?>
-
-                                <?php if ($showMenu) : ?>
-
-                                    <button
-                                        class="ww-header__toggle"
-                                        type="button"
-                                        data-bs-toggle="offcanvas"
-                                        data-bs-target="#wwOffcanvas"
-                                        aria-controls="wwOffcanvas"
-                                        aria-label="Navigation öffnen">
-
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-
-                                    </button>
-                                <?php endif; ?>
-
-                            </div>
+                            <?php require __DIR__ . '/includes/branding.php'; ?>
 
                             <?php if ($branding_slogan) : ?>
-                                <p class="ww-header__slogan">
-                                    <?= htmlspecialchars($branding_slogan); ?>
-                                </p>
+                                <p class="ww-header__slogan"><?= htmlspecialchars($branding_slogan); ?></p>
+                            <?php endif; ?>  
+                            
+                            <?php if ($showMenu) : ?>
+
+                                <button
+                                    class="ww-header__toggle"
+                                    type="button"
+                                    data-bs-toggle="offcanvas"
+                                    data-bs-target="#wwOffcanvas"
+                                    aria-controls="wwOffcanvas"
+                                    aria-label="Navigation öffnen">
+
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+
+                                </button>
+
                             <?php endif; ?>
 
                             <?php if ($showMenu) : ?>
@@ -139,12 +132,8 @@ $showDebug        = $this->countModules('debug');
                             <?php endif; ?>
 
                         </div>
-
-
-
-
-
                     </div>
+
                     <?php if ($showSearch) : ?>
                     <div class="ww-header__navigation">
 

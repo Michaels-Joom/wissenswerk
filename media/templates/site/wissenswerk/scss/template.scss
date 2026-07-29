@@ -74,12 +74,18 @@
 @use "layout/copyright";
 
 
+
 // =============================================================================
 // Components
 // =============================================================================
 
-@use "components/navigation.scss";
+@use "components/navigation";
 @use "components/buttons";
+@use "components/balance";
+@use "components/branding";
+@use "components/_toggle";
+
+
 // @use "components/card";
 // @use "components/navigation";
 

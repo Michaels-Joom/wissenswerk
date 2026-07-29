@@ -1,0 +1,55 @@
+/**
+ * -----------------------------------------------------------------------------
+ * Component: Balance
+ * -----------------------------------------------------------------------------
+ * Visuelles Markenelement von WissensWerk.
+ * -----------------------------------------------------------------------------
+ */
+
+.ww-balance {
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+.ww-balance::before,
+.ww-balance::after {
+
+    content: "";
+
+    flex: none;
+
+    height: 2px;
+
+    background: transparent;
+
+}
+
+.ww-balance::before {
+
+    background-color: var(--ww-color-secondary);
+
+}
+
+.ww-balance::after {
+
+    background-color: var(--ww-color-primary);
+
+}
+
+.ww-balance__dot {
+
+    flex: 0 0 .75rem;
+
+    width: .75rem;
+    height: .75rem;
+
+    margin-inline: 1.5rem;
+
+    border-radius: 50%;
+
+    background-color: var(--ww-color-primary);
+
+}

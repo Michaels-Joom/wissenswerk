@@ -12,12 +12,26 @@
     padding-block: 2rem;
     border-bottom: 1px solid var(--ww-color-border);
     background-color: transparent;
+
+   
+    
 }
 
 .ww-header__branding {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.ww-header__top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: var(--ww-space-4);
 }
 
 // =============================================================================
@@ -34,91 +48,11 @@
     height: auto;
 }
 
-
-
-// =============================================================================
-// Branding
-// =============================================================================
-
-.ww-header__site {
-    display: flex;
-    flex-direction: column;
-    // align-items: center; raus wegen Desktop
-}
-
-.ww-branding {
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    gap: .5rem;
-}
-
-.ww-branding-primary,
-.ww-branding-secondary {
-    display: inline-block;
-    margin: 0;
-
-    font-size: clamp(2.5rem, 8vw, 3rem);
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: .12rem;
-}
-
-.ww-branding-primary {
-    color: var(--ww-color-text);
-}
-
-.ww-branding-secondary {
-    color: var(--ww-color-primary);
-}
-
-// =============================================================================
-// Balance
-// =============================================================================
-
-.ww-balance {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.ww-balance::before,
-.ww-balance::after {
-    content: "";
-
-    width: 6.5rem;
-    height: 2px;
-
-    flex: none;
-}
-
-.ww-balance::before {
-    background: var(--ww-color-secondary);
-}
-
-.ww-balance::after {
-    background: var(--ww-color-primary);
-}
-
-.ww-balance__dot {
-    flex: 0 0 .75rem;
-
-    width: .75rem;
-    height: .75rem;
-
-    margin-inline: 1.5rem;
-
-    border-radius: 50%;
-    background-color: var(--ww-color-primary);
-}
-
-
-
 // =============================================================================
 // Slogan
 // =============================================================================
 
-.ww-header__site p {
+.ww-header__slogan {
     margin: 0;
 
     font-size: .95rem;
@@ -136,7 +70,7 @@
 
 .ww-header__menu{
 
-    font-size: var(--ww-navigation-font-size) 
+    font-size: var(--ww-navigation-font-size);
 
 }
 
@@ -163,36 +97,63 @@
         width: 25rem;
     }
 
-    .ww-branding {
-        justify-content: flex-start;
-        gap: .5rem;
-        padding-left: 0.5rem;
-    }
-
-    .ww-branding-primary,
-    .ww-branding-secondary {
-        font-size: 3rem;
-        letter-spacing: .5rem;
-    }
-
-    .ww-balance {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-            
-}
-    .ww-balance::before,
-    .ww-balance::after {
-    content: "";
-    width: 10.0rem;
-    height: 2px;
-
-    flex: none;
-}
-
     .ww-header__site p {
         font-size: 1.1rem;
         letter-spacing: .29rem;
     }
 
+    .ww-header__toggle {
+
+        display: none;
+
+    }
+
+    .ww-branding-primary,
+    .ww-branding-secondary {
+
+        font-size: 3.7rem;
+
+    }
+
+    
+    .ww-balance::before,
+    .ww-balance::after {
+
+        width: 10.25rem;
+
+    }
 }
+
+@media (max-width: 749.99px) {
+
+    .ww-header__toggle {
+
+        display: block;
+
+    }
+
+    .ww-header__menu {
+
+        display: none;
+
+    }
+    
+    .ww-branding-primary,
+    .ww-branding-secondary {
+
+        font-size: 2.4rem;
+
+    }
+
+    
+    .ww-balance::before,
+    .ww-balance::after {
+
+        width: 6.4rem;
+
+    }
+}
+
+
+    
+

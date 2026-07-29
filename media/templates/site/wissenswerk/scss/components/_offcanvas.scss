@@ -1,88 +1,141 @@
 /**
  * -----------------------------------------------------------------------------
- * Component: Offcanvas Navigation
+ * Component: Offcanvas
  * -----------------------------------------------------------------------------
  * Mobile Navigation
  * -----------------------------------------------------------------------------
  */
 
-.ww-header__toggle {
+.ww-offcanvas {
 
-    display: none;
+    /* -------------------------------------------------------------------------
+     * Grundfläche
+     * ---------------------------------------------------------------------- */
 
-    padding: 0;
+    background-color: var(--ww-color-surface);
+    color: var(--ww-color-text);
 
-    background: transparent;
-    border: 0;
+    /* -------------------------------------------------------------------------
+     * Header
+     * ---------------------------------------------------------------------- */
 
-    cursor: pointer;
+    &__header {
 
-    span {
+        display: flex;
 
-        display: block;
+        justify-content: space-between;
 
-        width: 1.75rem;
-        height: 2px;
+        align-items: flex-start;
 
-        margin: .35rem 0;
+        padding: 1.5rem;
 
-        border-radius: 999px;
+        padding: var(--ww-space-5);
 
-        background-color: var(--ww-color-text);
-
-        transition:
-            transform .25s ease,
-            opacity .25s ease,
-            background-color .25s ease;
+        border-bottom: 1px solid var(--ww-color-border);
 
     }
 
-}
+    &__branding {
 
-/* ==========================================
-   Offcanvas Navigation
-   ========================================== */
+        display: flex;
 
+        flex-direction: column;
 
+        align-items: flex-start;
 
+        gap: var(--ww-space-2);
+      
+         }
 
-.ww-offcanvas-menu {
+        
 
-    .mod-menu.mod.list.nav {
-        display: block;
-        background-color: red;
+        .ww-branding {
+
+            font-size: 2rem;
+
+         }
+    
+
+    &__title {
+
+        font-size: 2rem;
+
+        font-weight: 300;
+
+        line-height: 1.2;
+
+        color: var(--ww-color-text);
+
     }
 
-    .mod-menu.nav > li {
-        display: block;
+    &__close {
+
+        flex-shrink: 0;
+
     }
 
-    .mod-menu.nav > li > a {
-        display: block;
-    }
-}
+    /* -------------------------------------------------------------------------
+     * Body
+     * ---------------------------------------------------------------------- */
 
-.ww-offcanvas__menu nav{
-    display: block;
-}
+    &__body {
 
-.nav{
-    display: block !important;
-}
-/*
-|--------------------------------------------------------------------------
-| Responsive
-|--------------------------------------------------------------------------
-*/
+        padding: 0;
 
-@media (max-width: 992px) {
+        padding-block: var(--ww-space-4);
 
-    .ww-header__menu {
-        display: none;
+        display: flex;
+
+        flex-direction: column;
+
     }
 
-    .ww-header__toggle {
-        display: block;
+    /* -------------------------------------------------------------------------
+     * Navigation
+     * ---------------------------------------------------------------------- */
+
+    &__navigation {
+
+        flex: 1;
+
+        .mod-menu {
+
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            list-style: none;
+
+            > .nav-item {
+
+                margin: 0;
+                border-bottom: 1px solid var(--ww-color-border);
+
+                > a {
+
+                        display: block;
+                        padding: 1rem 1.5rem;
+                        font-size: 1.1rem;
+                        font-weight: 400;
+                        color: var(--ww-color-text);
+                        text-decoration: none;
+
+                }
+
+            }
+
+        }
+
+    }
+
+    /* -------------------------------------------------------------------------
+     * Footer
+     * ---------------------------------------------------------------------- */
+
+    &__footer {
+
     }
 
 }
