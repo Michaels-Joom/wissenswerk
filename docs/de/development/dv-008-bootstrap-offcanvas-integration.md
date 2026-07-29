@@ -1,3 +1,7 @@
+[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md)  [🛠️ Entwicklungsübersicht](./dv-000-entwicklunguebersicht.md)
+
+---
+
 # DV-008 Bootstrap-Offcanvas-Integration
 
 ## Ziel
