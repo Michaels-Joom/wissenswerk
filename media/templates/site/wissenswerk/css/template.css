@@ -1602,6 +1602,8 @@ body {
   background: transparent;
   border: 0;
   cursor: pointer;
+  margin-top: 20px;
+  margin-left: 24px;
 }
 
 .ww-header__toggle span {
@@ -1612,4 +1614,120 @@ body {
   border-radius: 999px;
   background-color: var(--ww-color-text);
   transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * Component: Offcanvas
+ * -----------------------------------------------------------------------------
+ * Mobile Navigation
+ * -----------------------------------------------------------------------------
+ */
+.ww-offcanvas {
+  /* -------------------------------------------------------------------------
+   * Bootstrap
+   * ---------------------------------------------------------------------- */
+  --bs-offcanvas-bg: var(--ww-color-background);
+  /* -------------------------------------------------------------------------
+   * Header
+   * ---------------------------------------------------------------------- */
+}
+.ww-offcanvas__header {
+  padding: var(--ww-space-5);
+  border-bottom: 1px solid var(--ww-color-border);
+}
+.ww-offcanvas {
+  /* -------------------------------------------------------------------------
+   * Top
+   * ---------------------------------------------------------------------- */
+}
+.ww-offcanvas__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--ww-space-4);
+  margin-top: 4px;
+}
+.ww-offcanvas .offcanvas-header .btn-close {
+  margin-top: 12px;
+  margin-left: 24px;
+  background-color: var(--ww-green-700);
+}
+.ww-offcanvas {
+  /* -------------------------------------------------------------------------
+   * Brand
+   * ---------------------------------------------------------------------- */
+}
+.ww-offcanvas__brand {
+  flex: 1 1 auto;
+}
+.ww-offcanvas__brand .ww-branding {
+  font-size: 2rem;
+}
+.ww-offcanvas {
+  /* -------------------------------------------------------------------------
+   * Close Button
+   * ---------------------------------------------------------------------- */
+}
+.ww-offcanvas__close {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0.25rem;
+  align-self: flex-start;
+}
+.ww-offcanvas {
+  /* -------------------------------------------------------------------------
+   * Body
+   * ---------------------------------------------------------------------- */
+}
+.ww-offcanvas__body {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  padding-block: var(--ww-space-4);
+}
+.ww-offcanvas {
+  /* -------------------------------------------------------------------------
+   * Navigation
+   * ---------------------------------------------------------------------- */
+}
+.ww-offcanvas__navigation {
+  flex: 1;
+}
+.ww-offcanvas__navigation .mod-menu {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ww-offcanvas__navigation .mod-menu > .nav-item {
+  margin: 0;
+  border-bottom: 1px solid var(--ww-color-border);
+}
+.ww-offcanvas__navigation .mod-menu > .nav-item > a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: var(--ww-color-text);
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+.ww-offcanvas {
+  /* -------------------------------------------------------------------------
+   * Footer
+   * ---------------------------------------------------------------------- */
+}
+.ww-offcanvas__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: var(--ww-space-5);
+  margin-top: auto;
+  background-color: var(--ww-color-secondary);
+}
+.ww-offcanvas__footer .ww-offcanvas__footer-logo {
+  width: 8rem;
+  height: auto;
+  border-bottom: red 2px;
 }/*# sourceMappingURL=template.css.map */

@@ -12,6 +12,13 @@ defined('_JEXEC') or die;
 
 <div class="ww-offcanvas__footer">
 
-    <!-- Platz für zukünftige Inhalte -->
+    <div class="ww-offcanvas__footer">
+
+        <img
+            src="<?= $this->baseurl; ?>/templates/<?= $this->template; ?>/images/logo/logo-icon.svg"
+            class="ww-offcanvas__footer-logo"
+            alt="WissensWerk">
+
+    </div>
 
 </div>

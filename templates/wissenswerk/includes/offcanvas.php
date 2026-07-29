@@ -20,30 +20,22 @@ defined('_JEXEC') or die;
 
     <div class="offcanvas-header ww-offcanvas__header">
 
-        <div class="ww-offcanvas__branding">
+        <div class="ww-offcanvas__top">
 
-        <span class="ww-branding-primary">
-                Wissens
-            </span>
+            <div class="ww-offcanvas__brand">
 
-            <span class="ww-branding-secondary">
-                Werk
-            </span>
+                <?php require __DIR__ . '/branding.php'; ?>
+
+            </div>
+
+            <button
+                type="button"
+                class="btn-close ww-offcanvas__close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Menü schließen">
+            </button>
 
         </div>
-
-        <div class="ww-balance">
-
-            <span class="ww-balance__dot"></span>
-
-        </div>
-
-        <button
-            type="button"
-            class="btn-close ww-offcanvas__close"
-            data-bs-dismiss="offcanvas"
-            aria-label="Menü schließen">
-        </button>
 
     </div>
 
@@ -61,12 +53,15 @@ defined('_JEXEC') or die;
 
     <div class="ww-offcanvas__footer">
 
-        <!-- Erweiterungen:
-             - Social Media
-             - Login
-             - Suche
-             - Copyright
-        -->
+
+    <div class="ww-offcanvas__footer">
+
+        <img
+        src="<?= $this->baseurl; ?>/media/templates/site/wissenswerk/images/logo/wissenswerk_logo_main.png"
+        class="ww-offcanvas__footer-logo"
+        alt="WissensWerk Logo">
+
+    </div>
 
     </div>
 
