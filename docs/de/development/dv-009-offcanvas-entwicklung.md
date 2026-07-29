@@ -1,175 +1,183 @@
-# DV-008 – Entwicklung Offcanvas-Navigation
+[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md)  [🛠️ Entwicklungsübersicht](./dv-000-entwicklungsuebersicht.md)
+
+---
+
+# DV-009 – Entwicklung der Offcanvas-Komponente
 
 ## Dokumentinformationen
 
 | Merkmal | Wert |
 |----------|------|
-| Dokument | DV-008 |
-| Titel | Entwicklung Offcanvas-Navigation |
+| Dokument | DV-009 |
+| Titel | Entwicklung der Offcanvas-Komponente |
 | Projekt | WissensWerk |
-| Status | In Arbeit |
-| Version | 0.1 |
+| Status | Abgeschlossen |
+| Version | 1.0 |
 | Letzte Aktualisierung | 29.07.2026 |
 
 ---
 
-# Zielsetzung
+# Ziel
 
-Ziel war die Entwicklung einer vollständig eigenen Offcanvas-Navigation für das Joomla-Template WissensWerk.
+Ziel war die Entwicklung einer vollständig eigenen Offcanvas-Navigation für das WissensWerk-Template.
 
-Dabei sollte bewusst auf zusätzliche Joomla-Erweiterungen verzichtet werden. Grundlage bilden ausschließlich:
+Dabei sollte bewusst auf Joomla-Erweiterungen verzichtet werden.
 
-- Joomla 5
-- Bootstrap 5 Offcanvas
-- Joomla Web Asset API
-- eigene Template-Komponenten
-
-Die Navigation soll vollständig in die Komponentenarchitektur des Templates integriert werden und langfristig wartbar bleiben.
+Als technische Grundlage dient ausschließlich die Bootstrap-Offcanvas-Komponente. Sämtliche Gestaltung und Komponenten stammen aus dem WissensWerk-Designsystem.
 
 ---
 
 # Ausgangssituation
 
-Bootstrap stellt bereits eine leistungsfähige Offcanvas-Komponente bereit.
+Bootstrap stellt eine technisch ausgereifte Offcanvas-Komponente bereit.
 
-Dennoch existieren zahlreiche Joomla-Erweiterungen, welche eigene Offcanvas- oder Mobile-Menüs bereitstellen.
+Während der Entwicklung zeigte sich jedoch schnell, dass die eigentliche Herausforderung nicht Bootstrap selbst, sondern die Integration in Joomla sowie die Einbindung in die eigene Komponentenarchitektur war.
 
-Während der Entwicklung wurde deutlich, warum dies häufig der Fall ist:
-
-Bootstrap löst ausschließlich das Verhalten des Offcanvas.
-
-Die Integration in Joomla, das Rendering der Module sowie die Einbindung in eine eigene Templatearchitektur bleiben Aufgabe des Templateentwicklers.
+Die Entwicklung begann daher als Mobile-Menü und entwickelte sich Schritt für Schritt zu einer grundlegenden Überarbeitung des gesamten Header-Konzepts.
 
 ---
 
 # Entwicklungsverlauf
 
-## Phase 1 – Bootstrap-Offcanvas
+## Phase 1 – Integration des Bootstrap-Offcanvas
 
-Zunächst wurde das Bootstrap-Offcanvas direkt in das Template integriert.
+Die Bootstrap-Komponente ließ sich problemlos integrieren.
 
-Ziele:
+Probleme entstanden nicht durch Bootstrap, sondern durch die Einbindung des Joomla-Menüs sowie durch die zunächst unklare Trennung zwischen Komponenten und Layout.
 
-- keine zusätzlichen JavaScript-Bibliotheken
-- Nutzung der Bootstrap-Komponente
-- vollständige Integration in das Template
+Bereits in dieser Phase wurde deutlich:
 
-Die Bootstrap-Komponente erwies sich als stabil und zuverlässig.
+Bootstrap übernimmt lediglich die technische Funktion des Offcanvas.
 
-Probleme entstanden nicht durch Bootstrap, sondern durch die Integration in Joomla.
+Die eigentliche Templatearchitektur muss vollständig durch das Template selbst entwickelt werden.
 
 ---
 
-## Phase 2 – Menüdarstellung
+## Phase 2 – Menüintegration
 
-Die erste Herausforderung bestand darin, das Joomla-Menü innerhalb des Offcanvas korrekt darzustellen.
+Die erste Herausforderung bestand darin, das Joomla-Menü korrekt innerhalb des Offcanvas darzustellen.
 
-Während der Entwicklung zeigte sich, dass das Verhalten des Modulrenderings zunächst missverstanden wurde.
+Mehrere Versuche führten zunächst zu keinem Ergebnis.
 
-Nach mehreren Versuchen wurde deutlich:
+Erst nach genauer Analyse wurde deutlich:
 
-Nicht das Bootstrap-Offcanvas war die Ursache, sondern die Art und Weise, wie Joomla Module rendert und anschließend in das Offcanvas eingefügt werden.
+Nicht Bootstrap verhinderte die Darstellung des Menüs.
 
-Diese Erkenntnis war der erste größere Wendepunkt der Entwicklung.
+Die Ursache lag in der Art und Weise, wie Joomla Module rendert und in das Template einbindet.
+
+Diese Erkenntnis stellte den ersten wichtigen Wendepunkt der Entwicklung dar.
 
 ---
 
 ## Phase 3 – Komponentenarchitektur
 
-Während der eigentlichen Offcanvas-Entwicklung wurde deutlich, dass sich der Header zunehmend zu einer eigenständigen Komponentenbibliothek entwickelte.
+Im weiteren Verlauf zeigte sich, dass nicht das Offcanvas selbst überarbeitet werden musste.
 
-Aus einem klassischen Header entstanden einzelne wiederverwendbare Komponenten.
+Vielmehr entstand während der Entwicklung eine neue Komponentenarchitektur.
 
-Hierzu zählen unter anderem:
+Aus dem ursprünglichen Header entwickelten sich eigenständige Komponenten.
+
+Hierzu gehören:
 
 - Branding
 - Balance
 - Toggle
 - Navigation
 
-Diese Komponenten können unabhängig voneinander verwendet werden.
-
-Die Offcanvas-Entwicklung führte somit direkt zu einer Verbesserung der gesamten Templatearchitektur.
+Diese Komponenten werden heute sowohl im Header als auch im Offcanvas wiederverwendet.
 
 ---
 
-# Erkenntnisse
+# Die wichtigste Erkenntnis
 
-## Komponenten besitzen keine Layoutverantwortung
+Während der Entwicklung zeigte sich, dass nahezu sämtliche Probleme nicht durch CSS entstanden.
 
-Eine der wichtigsten Erkenntnisse der Entwicklung war die konsequente Trennung zwischen Komponenten und Layout.
+Die eigentliche Ursache lag fast immer in einer unklaren Verantwortungsverteilung.
+
+Aus dieser Erfahrung entstand ein grundlegendes Architekturprinzip.
+
+> Jede CSS-Eigenschaft besitzt genau einen Verantwortlichen.
+
+Dadurch werden Überschreibungen vermieden.
+
+---
+
+# Komponenten besitzen keine Layoutverantwortung
 
 Komponenten beschreiben ausschließlich ihr eigenes Erscheinungsbild.
 
-Sie entscheiden nicht darüber,
+Sie entscheiden nicht,
 
+- wann sie sichtbar sind,
 - wo sie erscheinen,
-- wann sie erscheinen,
-- wie groß sie dargestellt werden.
+- wie groß sie dargestellt werden,
+- oder wie sie positioniert werden.
 
-Diese Verantwortung liegt ausschließlich beim jeweiligen Layout.
+Diese Entscheidungen trifft ausschließlich das jeweilige Layout.
 
 ---
 
-## Beispiel Branding
+# Beispiel Toggle
 
-Die Branding-Komponente definiert:
+Anfangs enthielt die Toggle-Komponente
+
+```scss
+display: none;
+```
+
+Später musste diese Eigenschaft an anderer Stelle wieder überschrieben werden.
+
+Dies führte zu unnötigen Abhängigkeiten zwischen Komponenten und Layout.
+
+Nach der Überarbeitung entscheidet ausschließlich der Header darüber,
+
+- wann der Toggle sichtbar ist,
+- wann das Desktop-Menü verschwindet,
+- wann das Branding ausgeblendet wird.
+
+Die Toggle-Komponente beschreibt heute lediglich ihr eigenes Erscheinungsbild.
+
+---
+
+# Beispiel Branding
+
+Die Branding-Komponente definiert ausschließlich
 
 - Farben
-- Schriftbild
-- Grundstruktur
+- Typografie
+- Aufbau
+- Markenidentität
 
-Nicht Bestandteil der Komponente sind beispielsweise:
+Nicht Bestandteil der Komponente sind
 
 - Schriftgröße
-- Ausrichtung
-- Positionierung
+- Position
 - Responsive Verhalten
+- Ausrichtung
 
-Diese Eigenschaften werden durch den Header oder das Offcanvas bestimmt.
+Diese Eigenschaften werden durch Header oder Offcanvas festgelegt.
+
+Dadurch kann dieselbe Branding-Komponente an mehreren Stellen wiederverwendet werden.
 
 ---
 
-## Beispiel Balance
+# Beispiel Balance
 
-Die Balance definiert:
+Auch die Balance folgt diesem Prinzip.
+
+Die Komponente beschreibt ausschließlich
 
 - Linien
 - Punkt
 - Farben
-- Grundaufbau
 
-Nicht Bestandteil der Balance sind:
+Nicht Bestandteil der Komponente sind
 
 - Linienlänge
-- Positionierung
-- Ausrichtung
+- Position
+- Abstände
 
-Diese Eigenschaften werden ebenfalls durch das Layout bestimmt.
-
----
-
-## Beispiel Toggle
-
-Besonders deutlich wurde dieses Prinzip beim Toggle.
-
-Anfangs enthielt die Komponente selbst:
-
-display: none;
-
-Dadurch musste der Header die Komponente später wieder überschreiben.
-
-Nach der Überarbeitung wurde diese Verantwortung vollständig in den Header verlagert.
-
-Die Komponente beschreibt seitdem ausschließlich ihr Erscheinungsbild.
-
-Der Header entscheidet,
-
-- wann der Toggle sichtbar ist,
-- wann das Desktop-Menü ausgeblendet wird,
-- wann das Logo verschwindet.
-
-Dadurch existiert nur noch eine einzige Stelle, an der über die Sichtbarkeit entschieden wird.
+Diese Eigenschaften werden ebenfalls durch das jeweilige Layout definiert.
 
 ---
 
@@ -177,88 +185,132 @@ Dadurch existiert nur noch eine einzige Stelle, an der über die Sichtbarkeit en
 
 Während der Entwicklung entstand eine weitere wichtige Erkenntnis.
 
-Branding und Balance gehören logisch zusammen.
+Branding und Balance bilden gemeinsam die Markenidentität.
 
 Hieraus entstand die zusammengesetzte Komponente
 
+```
 ww-brand
+```
 
-Sie bildet die eigentliche Markenidentität.
+Sie wird heute sowohl im Header als auch im Offcanvas verwendet.
 
-Diese besteht aus
-
-- Schriftzug
-- Balance
-
-und kann sowohl im Desktop-Header als auch im Offcanvas wiederverwendet werden.
+Dadurch existiert nur noch eine zentrale Definition der Markenidentität.
 
 ---
 
-# Architekturprinzipien
+# Bootstrap als technische Bibliothek
 
-Aus der Entwicklung ergeben sich folgende Regeln.
+Während der Entwicklung wurde deutlich, dass Bootstrap nicht bekämpft werden sollte.
 
-## Komponenten
+Bootstrap liefert bereits sämtliche technischen Funktionen.
 
-Komponenten definieren ausschließlich:
+Das WissensWerk-Template ergänzt lediglich die Gestaltung.
 
-- Erscheinungsbild
-- Farben
-- Typografie
-- Animationen
-- Eigenes Verhalten
+Ein Beispiel hierfür ist die Verwendung der Bootstrap-CSS-Variablen.
 
-Komponenten treffen keine Entscheidungen über ihre Verwendung.
+Anstatt Bootstrap-Regeln zu überschreiben, werden vorhandene Variablen genutzt.
+
+Beispielsweise:
+
+```scss
+--bs-offcanvas-bg
+```
+
+Damit bleibt Bootstrap vollständig updatefähig.
 
 ---
 
-## Layout
+# Typische Fehler während der Entwicklung
 
-Layout-Dateien definieren:
+## CSS überschreiben
 
-- Position
-- Ausrichtung
-- Größen
-- Responsive Verhalten
-- Sichtbarkeit
-- Reihenfolge
+Mehrfach wurde versucht, Probleme ausschließlich über zusätzliche CSS-Regeln zu lösen.
 
-Damit existiert für jede Entscheidung genau eine Verantwortlichkeit.
+Dies führte zu immer komplexeren Selektoren.
+
+Erst die konsequente Zuordnung der Verantwortlichkeiten führte zu einer stabilen Lösung.
+
+---
+
+## Verschachtelte Selektoren
+
+Während der Entwicklung entstand versehentlich folgender Selektor:
+
+```scss
+.ww-offcanvas {
+
+    .ww-offcanvas {
+
+    }
+
+}
+```
+
+Dieser erzeugte
+
+```css
+.ww-offcanvas .ww-offcanvas
+```
+
+Da ein entsprechendes HTML-Element nicht existierte, konnten die Regeln niemals greifen.
+
+Die Ursache lag somit nicht bei Bootstrap, sondern in einer fehlerhaften SCSS-Verschachtelung.
+
+---
+
+## Bootstrap überschreiben
+
+Mehrfach wurde versucht, Bootstrap-Regeln direkt zu überschreiben.
+
+Später zeigte sich, dass Bootstrap hierfür bereits eigene Variablen bereitstellt.
+
+Die Verwendung dieser Variablen führte zu einer deutlich saubereren Integration.
+
+---
+
+# Gestaltung
+
+Das Offcanvas orientiert sich bewusst am Desktop-Header.
+
+Es verwendet dieselbe Markenidentität.
+
+Der Aufbau gliedert sich in drei Bereiche.
+
+- Header
+- Navigation
+- Footer
+
+Der Footer dient ausschließlich als visueller Abschluss.
+
+Das Logo bildet den letzten Blickpunkt innerhalb des Menüs.
+
+Auf zusätzliche Informationen oder Navigationselemente wird bewusst verzichtet.
 
 ---
 
 # Erfahrungen
 
-Während der Entwicklung wurde mehrfach versucht, Probleme ausschließlich über CSS zu lösen.
+Während der Entwicklung entstand eine wichtige Erkenntnis.
 
-Im weiteren Verlauf zeigte sich jedoch, dass nahezu alle Schwierigkeiten ihre Ursache nicht im Styling, sondern in der HTML-Struktur oder in einer unklaren Verantwortungsverteilung hatten.
+Ein erfolgreich integriertes Framework tritt im fertigen Template in den Hintergrund.
 
-Erst die konsequente Trennung zwischen Komponenten und Layout führte zu einer stabilen und gut wartbaren Architektur.
+Bootstrap übernimmt die technische Funktion.
+
+Das Erscheinungsbild entsteht vollständig durch das WissensWerk-Designsystem.
+
+Am Ende der Entwicklung war Bootstrap im fertigen Template kaum noch sichtbar.
+
+Genau dieses Ziel sollte erreicht werden.
 
 ---
 
 # Fazit
 
-Die Entwicklung des Offcanvas erwies sich nicht als reine Implementierung einer Bootstrap-Komponente.
+Die Entwicklung des Offcanvas führte nicht nur zu einer mobilen Navigation.
 
-Vielmehr führte sie zu einer grundlegenden Weiterentwicklung der Templatearchitektur.
+Sie führte zur Entwicklung einer konsistenten Komponentenarchitektur für das gesamte Template.
 
-Das Ergebnis ist eine Komponentenstruktur, welche künftig nicht nur für das Offcanvas, sondern für sämtliche Bereiche des Templates verwendet werden kann.
+Die während dieser Entwicklung entstandenen Regeln bilden heute die Grundlage sämtlicher weiterer Template-Komponenten.
 
-Die während dieser Entwicklung gewonnenen Erkenntnisse bilden die Grundlage für alle weiteren Komponenten des Projekts WissensWerk.
-
----
-
-# Offene Punkte
-
-Dieses Dokument wird während der weiteren Offcanvas-Entwicklung fortlaufend ergänzt.
-
-Insbesondere sollen folgende Themen dokumentiert werden:
-
-- endgültiger Aufbau der Offcanvas-Komponente
-- Navigation innerhalb des Offcanvas
-- Animationen
-- Accessibility
-- Tastatursteuerung
-- Fokusmanagement
-- Performance
+Die Offcanvas-Komponente markiert damit einen wesentlichen Meilenstein innerhalb der Templateentwicklung.

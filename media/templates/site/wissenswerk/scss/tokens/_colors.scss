@@ -102,6 +102,10 @@
     // Borders
 
     --ww-color-border:         var(--ww-neutral-300);
+    --ww-border-subtle:       rgba(44, 37, 35, 0.08);
+    --ww-border-default:      rgba(44, 37, 35, 0.15);
+    --ww-border-strong:       rgba(44, 37, 35, 0.25);
+
 
     // Focus
 
@@ -114,11 +118,19 @@
     --ww-color-danger:         var(--ww-danger-500);
     --ww-color-info:           var(--ww-info-500);
 
-    /* ==========================================================================
-       Bootstrap Mapping
-       --------------------------------------------------------------------------
-       Bootstrap variables are mapped in a dedicated vendor file.
-       Do not redefine Bootstrap variables here.
-       ========================================================================== */
+    // Surface Colors
 
+    --ww-surface: #F6F4EF;
+    --ww-surface-alt: #F1ECE3;
+
+/* ==========================================================================
+   Bootstrap Mapping
+   --------------------------------------------------------------------------
+   This file defines only WissensWerk design tokens.
+
+   Bootstrap variables are mapped separately in the vendor layer to keep
+   the design system independent from the framework.
+
+   Do not define or override Bootstrap variables here.
+   ========================================================================== */
 }

@@ -211,9 +211,12 @@ $showDebug        = $this->countModules('debug');
 
         <?php if ($showBreadcrumbs) : ?>
         <nav class="ww-breadcrumbs" aria-label="Breadcrumb">
-            <div class="ww-container">
-                <jdoc:include type="modules" name="breadcrumbs" style="none" />
+            <div class="ww-container-main">
+                <div class="ww-container">
+                    <jdoc:include type="modules" name="breadcrumbs" style="none" />
+                </div>
             </div>
+
         </nav>
         <?php endif; ?>
 

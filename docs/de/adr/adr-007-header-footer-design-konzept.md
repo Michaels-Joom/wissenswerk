@@ -1,4 +1,4 @@
-# ADR-006 – Header- und Footer- Designkonzept
+# ADR-007 Header- und Footer- Designkonzept
 
 Status: Accepted
 Datum: 28.07.2026

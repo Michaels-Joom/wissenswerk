@@ -584,16 +584,25 @@
   --ww-color-link: var(--ww-green-700);
   --ww-color-link-hover: var(--ww-brass-500);
   --ww-color-border: var(--ww-neutral-300);
+  --ww-border-subtle: rgba(44, 37, 35, 0.08);
+  --ww-border-default: rgba(44, 37, 35, 0.15);
+  --ww-border-strong: rgba(44, 37, 35, 0.25);
   --ww-color-focus: var(--ww-brass-400);
   --ww-color-success: var(--ww-success-500);
   --ww-color-warning: var(--ww-warning-500);
   --ww-color-danger: var(--ww-danger-500);
   --ww-color-info: var(--ww-info-500);
+  --ww-surface: #F6F4EF;
+  --ww-surface-alt: #F1ECE3;
   /* ==========================================================================
      Bootstrap Mapping
      --------------------------------------------------------------------------
-     Bootstrap variables are mapped in a dedicated vendor file.
-     Do not redefine Bootstrap variables here.
+     This file defines only WissensWerk design tokens.
+
+     Bootstrap variables are mapped separately in the vendor layer to keep
+     the design system independent from the framework.
+
+     Do not define or override Bootstrap variables here.
      ========================================================================== */
 }
 
@@ -1429,6 +1438,83 @@ body {
   }
 }
 /**
+ * ------------------------------------------------------------------------
+ * WissensWerk Template
+ * Component: Breadcrumb
+ * ------------------------------------------------------------------------
+ * Die Breadcrumb-Komponente dient der Orientierung innerhalb der Website.
+ * Sie bildet den visuellen Übergang zwischen Header und Seiteninhalt.
+ *
+ * Architektur:
+ * - Unabhängig von Bootstrap-Komponenten
+ * - Eigene BEM-Klassen
+ * - Designsystem mit Design Tokens
+ * - Spätere Erweiterung um SVG-Pattern vorgesehen
+ * ------------------------------------------------------------------------
+ */
+.ww-breadcrumb {
+  position: relative;
+  padding-block: 0.75rem;
+  background-color: var(--ds-surface);
+  border-top: 1px solid var(--ds-border-light);
+  border-bottom: 1px solid var(--ds-border-light);
+}
+
+.ww-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: transparent;
+}
+
+.ww-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--ds-text-muted);
+}
+
+.ww-breadcrumb__item + .ww-breadcrumb__item::before {
+  content: "›";
+  margin-inline: 0.75rem;
+  color: var(--ds-text-muted);
+  opacity: 0.6;
+}
+
+.ww-breadcrumb__link {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.ww-breadcrumb__link:hover,
+.ww-breadcrumb__link:focus {
+  color: var(--ds-primary);
+}
+
+.ww-breadcrumb__item--active {
+  color: var(--ds-text);
+  font-weight: 500;
+}
+
+@media (max-width: 576px) {
+  .ww-breadcrumb {
+    padding-block: 0.6rem;
+  }
+  .ww-breadcrumb__item {
+    font-size: 0.85rem;
+  }
+}
+/**
  * -----------------------------------------------------------------------------
  * Component: Navigation
  * -----------------------------------------------------------------------------
@@ -1730,4 +1816,68 @@ body {
   width: 8rem;
   height: auto;
   border-bottom: red 2px;
+}
+
+/**
+ * ------------------------------------------------------------------------
+ * WissensWerk Template
+ * Component: Breadcrumb
+ * ------------------------------------------------------------------------
+ * Die Breadcrumb-Komponente dient der Orientierung innerhalb der Website.
+ * Sie bildet den visuellen Übergang zwischen Header und Seiteninhalt und
+ * verwendet das WissensWerk-Designsystem.
+ * ------------------------------------------------------------------------
+ */
+.ww-breadcrumb {
+  position: relative;
+  padding: 0.875rem 0;
+  background-color: var(--ds-surface);
+}
+
+.ww-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: transparent;
+}
+
+.ww-breadcrumb__item {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+  color: var(--ds-text-muted);
+}
+
+.ww-breadcrumb__link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+.ww-breadcrumb__link:hover, .ww-breadcrumb__link:focus {
+  color: var(--ds-primary);
+}
+
+.ww-breadcrumb__item--active {
+  color: var(--ds-text);
+  font-weight: 500;
+}
+
+.ww-breadcrumb__item + .ww-breadcrumb__item::before {
+  content: "›";
+  margin: 0 0.65rem;
+  color: var(--ds-text-muted);
+}
+
+@media (max-width: 575.98px) {
+  .ww-breadcrumb {
+    padding: 0.75rem 0;
+  }
+  .ww-breadcrumb__item {
+    font-size: 0.85rem;
+  }
 }/*# sourceMappingURL=template.css.map */

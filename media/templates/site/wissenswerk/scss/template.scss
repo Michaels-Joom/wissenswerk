@@ -40,12 +40,7 @@
 // Design Tokens
 // =============================================================================
 
-@use "tokens/colors";
-@use "tokens/spacing";
-@use "tokens/typography" as typography-tokens;
-@use "tokens/layout";
-@use "tokens/components";
-
+@use "tokens";
 
 // =============================================================================
 // Base
@@ -66,25 +61,14 @@
 // Layout
 // =============================================================================
 
-//@use "layout/container";
-@use "layout/grid";
-@use "layout/_body";
-@use "layout/header";
-@use "layout/footer";
-@use "layout/copyright";
-
+@use "layout";
 
 
 // =============================================================================
 // Components
 // =============================================================================
 
-@use "components/navigation";
-@use "components/buttons";
-@use "components/balance";
-@use "components/branding";
-@use "components/_toggle";
-@use "components/_offcanvas";
+@use "components";
 
 
 // @use "components/card";
