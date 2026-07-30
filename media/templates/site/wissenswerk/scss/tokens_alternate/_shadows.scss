@@ -1,0 +1,58 @@
+/*!
+ * ==========================================================================
+ * WissensWerk Design System
+ * Shadow Tokens v1.0
+ * ==========================================================================
+ *
+ * Sehr dezente Tiefenwirkung.
+ * Weniger Bootstrap, mehr Editorial Design.
+ */
+
+:root {
+
+    /* Primitive Shadows */
+
+    --ww-shadow-none: none;
+
+    --ww-shadow-xs:
+        0 1px 2px rgba(0,0,0,.04);
+
+    --ww-shadow-sm:
+        0 2px 6px rgba(0,0,0,.05);
+
+    --ww-shadow-md:
+        0 8px 18px rgba(0,0,0,.06);
+
+    --ww-shadow-lg:
+        0 16px 32px rgba(0,0,0,.08);
+
+    --ww-shadow-xl:
+        0 24px 48px rgba(0,0,0,.10);
+
+    /* Semantic Shadows */
+
+    --ww-card-shadow:
+        var(--ww-shadow-xs);
+
+    --ww-card-shadow-hover:
+        var(--ww-shadow-md);
+
+    --ww-button-shadow:
+        none;
+
+    --ww-button-shadow-hover:
+        var(--ww-shadow-sm);
+
+    --ww-dropdown-shadow:
+        var(--ww-shadow-lg);
+
+    --ww-modal-shadow:
+        var(--ww-shadow-xl);
+
+    --ww-tooltip-shadow:
+        var(--ww-shadow-sm);
+
+    --ww-navbar-shadow:
+        var(--ww-shadow-xs);
+
+}

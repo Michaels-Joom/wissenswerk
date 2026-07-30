@@ -1,0 +1,113 @@
+
+/* ==========================================================================
+   WissensWerk Design System
+   Typography Tokens v2.0
+   ========================================================================== */
+
+/* ==========================================================================
+   FONT FAMILIES
+   ========================================================================== */
+
+:root {
+
+  /* Branding */
+  --ww-font-family-brand: "Cormorant Garamond", serif;
+
+  /* Headings */
+  --ww-font-family-heading: "Libre Franklin", sans-serif;
+
+  /* Body */
+  --ww-font-family-body: "Source Sans 3", sans-serif;
+
+  /* Code */
+  --ww-font-family-mono: "IBM Plex Mono", monospace;
+
+  /* ==========================================================================
+     FONT WEIGHTS
+     ========================================================================== */
+
+  --ww-font-weight-light: 300;
+  --ww-font-weight-regular: 400;
+  --ww-font-weight-medium: 500;
+  --ww-font-weight-semibold: 600;
+  --ww-font-weight-bold: 700;
+
+  /* ==========================================================================
+     FONT SIZES
+     ========================================================================== */
+
+  --ww-font-size-xs: .75rem;      /* 12 */
+  --ww-font-size-sm: .875rem;     /* 14 */
+  --ww-font-size-base: 1rem;      /* 16 */
+  --ww-font-size-md: 1.125rem;    /* 18 */
+  --ww-font-size-lg: 1.25rem;     /* 20 */
+  --ww-font-size-xl: 1.5rem;      /* 24 */
+  --ww-font-size-2xl: 2rem;       /* 32 */
+  --ww-font-size-3xl: 2.5rem;     /* 40 */
+  --ww-font-size-4xl: 3.5rem;     /* 56 */
+
+  /* ==========================================================================
+     LINE HEIGHT
+     ========================================================================== */
+
+  --ww-line-height-heading: 1.25;
+  --ww-line-height-body: 1.6;
+  --ww-line-height-tight: 1.15;
+
+  /* ==========================================================================
+     LETTER SPACING
+     ========================================================================== */
+
+  --ww-letter-spacing-tight: -.02em;
+  --ww-letter-spacing-normal: 0;
+  --ww-letter-spacing-wide: .04em;
+  --ww-letter-spacing-xl: .08em;
+
+  /* Branding */
+  --ww-branding-letter-spacing: .50rem;
+  --ww-branding-font-size-min: 1.75rem;
+  --ww-branding-font-size-max: 2.50rem;
+
+  /* ==========================================================================
+     SEMANTIC TOKENS
+     ========================================================================== */
+
+  --ww-navigation-font-family: var(--ww-font-family-heading);
+  --ww-navigation-font-size: 1rem;
+  --ww-navigation-font-weight: var(--ww-font-weight-medium);
+  --ww-navigation-letter-spacing: .04em;
+
+  --ww-button-font-family: var(--ww-font-family-heading);
+  --ww-button-font-size: var(--ww-font-size-base);
+  --ww-button-font-weight: var(--ww-font-weight-semibold);
+
+  --ww-card-title-font-family: var(--ww-font-family-heading);
+  --ww-card-title-font-size: var(--ww-font-size-lg);
+
+  --ww-breadcrumb-font-size: var(--ww-font-size-sm);
+  --ww-caption-font-size: var(--ww-font-size-sm);
+  --ww-meta-font-size: var(--ww-font-size-xs);
+
+  /* ==========================================================================
+     HEADINGS
+     ========================================================================== */
+
+  --ww-h1-size: var(--ww-font-size-4xl);
+  --ww-h2-size: var(--ww-font-size-3xl);
+  --ww-h3-size: var(--ww-font-size-2xl);
+  --ww-h4-size: var(--ww-font-size-xl);
+  --ww-h5-size: var(--ww-font-size-lg);
+  --ww-h6-size: var(--ww-font-size-md);
+}
+
+/* ==========================================================================
+   SCSS Helper Variables (optional)
+   ========================================================================== */
+
+$ww-font-heading: var(--ww-font-family-heading);
+$ww-font-body: var(--ww-font-family-body);
+$ww-font-brand: var(--ww-font-family-brand);
+$ww-font-mono: var(--ww-font-family-mono);
+
+$ww-navigation-font-size: var(--ww-navigation-font-size);
+$ww-button-font-size: var(--ww-button-font-size);

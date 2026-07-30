@@ -1,0 +1,132 @@
+/*!
+ * ==========================================================================
+ * WissensWerk Design System
+ * Startseite
+ * ==========================================================================
+ *
+ * Seitenlayout der Startseite.
+ * Verwendet ausschließlich Design Tokens.
+ */
+
+.page-home {
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--ww-section-gap);
+
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.page-home__hero {
+
+    display: grid;
+    align-items: center;
+    gap: var(--ww-grid-gap-lg);
+
+    min-height: var(--ww-hero-min-height);
+
+    padding-block: var(--ww-hero-padding-top)
+                   var(--ww-hero-padding-bottom);
+
+}
+
+/* ==========================================================================
+   Quicklinks
+   ========================================================================== */
+
+.page-home__quicklinks {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: var(--ww-grid-gap);
+
+}
+
+/* ==========================================================================
+   Einleitung
+   ========================================================================== */
+
+.page-home__intro {
+
+    max-width: var(--ww-content-max-width);
+
+    margin-inline: auto;
+
+}
+
+/* ==========================================================================
+   Projekte
+   ========================================================================== */
+
+.page-home__projects {
+
+    display: grid;
+
+    gap: var(--ww-grid-gap);
+
+}
+
+/* ==========================================================================
+   Wissen
+   ========================================================================== */
+
+.page-home__knowledge {
+
+    display: grid;
+
+    gap: var(--ww-grid-gap);
+
+}
+
+/* ==========================================================================
+   Call to Action
+   ========================================================================== */
+
+.page-home__cta {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: var(--ww-space-6);
+
+    text-align: center;
+
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 991px) {
+
+    .page-home__hero {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .page-home__quicklinks {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .page-home__quicklinks {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}

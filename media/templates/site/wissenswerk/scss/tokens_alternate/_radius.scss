@@ -1,0 +1,43 @@
+/*!
+ * ==========================================================================
+ * WissensWerk Design System
+ * Radius Tokens v1.0
+ * ==========================================================================
+ *
+ * Einheitliche Rundungen für alle UI-Komponenten.
+ */
+
+:root {
+
+    /* Primitive Radius */
+
+    --ww-radius-none: 0;
+
+    --ww-radius-xs: .25rem;      /* 4px  */
+    --ww-radius-sm: .5rem;       /* 8px  */
+    --ww-radius-md: .75rem;      /* 12px */
+    --ww-radius-lg: 1rem;        /* 16px */
+    --ww-radius-xl: 1.5rem;      /* 24px */
+
+    --ww-radius-pill: 999rem;
+    --ww-radius-circle: 50%;
+
+    /* Semantic Tokens */
+
+    --ww-button-radius: var(--ww-radius-sm);
+
+    --ww-input-radius: var(--ww-radius-sm);
+
+    --ww-card-radius: var(--ww-radius-md);
+
+    --ww-modal-radius: var(--ww-radius-lg);
+
+    --ww-dropdown-radius: var(--ww-radius-sm);
+
+    --ww-tooltip-radius: var(--ww-radius-xs);
+
+    --ww-badge-radius: var(--ww-radius-pill);
+
+    --ww-avatar-radius: var(--ww-radius-circle);
+
+}

@@ -1,0 +1,181 @@
+/*!
+ * ==========================================================================
+ * WissensWerk Design System
+ * Spacing Tokens v2.0
+ * ==========================================================================
+ *
+ * 8pt/4pt Hybrid Scale
+ * Alle Abstände werden ausschließlich über Tokens verwendet.
+ */
+
+/* ==========================================================================
+   PRIMITIVE SPACING TOKENS
+   ========================================================================== */
+
+:root {
+
+  /* Base Scale */
+
+  --ww-space-0: 0;
+  --ww-space-1: .25rem;   /* 4px  */
+  --ww-space-2: .50rem;   /* 8px  */
+  --ww-space-3: .75rem;   /* 12px */
+  --ww-space-4: 1rem;     /* 16px */
+  --ww-space-5: 1.25rem;  /* 20px */
+  --ww-space-6: 1.5rem;   /* 24px */
+  --ww-space-7: 2rem;     /* 32px */
+  --ww-space-8: 2.5rem;   /* 40px */
+  --ww-space-9: 3rem;     /* 48px */
+  --ww-space-10: 4rem;    /* 64px */
+  --ww-space-11: 5rem;    /* 80px */
+  --ww-space-12: 6rem;    /* 96px */
+
+  /* ==========================================================================
+     PAGE LAYOUT
+     ========================================================================== */
+
+  --ww-page-padding-x: var(--ww-space-7);
+  --ww-page-padding-y: var(--ww-space-8);
+
+  --ww-container-padding: var(--ww-space-6);
+  --ww-container-max-width: 1440px;
+
+  --ww-content-gap: var(--ww-space-7);
+  --ww-section-gap: var(--ww-space-10);
+
+  /* ==========================================================================
+     HEADER & NAVIGATION
+     ========================================================================== */
+
+  --ww-header-height: 5rem;
+  --ww-header-padding-y: var(--ww-space-4);
+  --ww-header-padding-x: var(--ww-space-6);
+
+  --ww-nav-item-gap: var(--ww-space-6);
+  --ww-nav-group-gap: var(--ww-space-8);
+
+  /* ==========================================================================
+     HERO
+     ========================================================================== */
+
+  --ww-hero-padding-top: var(--ww-space-11);
+  --ww-hero-padding-bottom: var(--ww-space-11);
+  --ww-hero-content-gap: var(--ww-space-8);
+
+  /* ==========================================================================
+     SECTIONS
+     ========================================================================== */
+
+  --ww-section-padding-top: var(--ww-space-10);
+  --ww-section-padding-bottom: var(--ww-space-10);
+
+  --ww-component-gap: var(--ww-space-6);
+
+  /* ==========================================================================
+     CARDS
+     ========================================================================== */
+
+  --ww-card-padding-sm: var(--ww-space-4);
+  --ww-card-padding: var(--ww-space-6);
+  --ww-card-padding-lg: var(--ww-space-8);
+
+  --ww-card-gap: var(--ww-space-6);
+
+  /* ==========================================================================
+     BUTTONS
+     ========================================================================== */
+
+  --ww-button-padding-x: var(--ww-space-6);
+  --ww-button-padding-y: var(--ww-space-3);
+  --ww-button-gap: var(--ww-space-2);
+
+  /* ==========================================================================
+     FORMS
+     ========================================================================== */
+
+  --ww-form-gap: var(--ww-space-6);
+
+  --ww-input-padding-x: var(--ww-space-4);
+  --ww-input-padding-y: var(--ww-space-3);
+
+  --ww-field-gap: var(--ww-space-5);
+
+  /* ==========================================================================
+     GRID
+     ========================================================================== */
+
+  --ww-grid-gap-sm: var(--ww-space-4);
+  --ww-grid-gap: var(--ww-space-6);
+  --ww-grid-gap-lg: var(--ww-space-8);
+
+  /* ==========================================================================
+     SIDEBAR / OFFCANVAS
+     ========================================================================== */
+
+  --ww-sidebar-gap: var(--ww-space-6);
+  --ww-offcanvas-padding: var(--ww-space-6);
+
+  /* ==========================================================================
+     BREADCRUMB
+     ========================================================================== */
+
+  --ww-breadcrumb-gap: var(--ww-space-2);
+  --ww-breadcrumb-margin-bottom: var(--ww-space-6);
+
+  /* ==========================================================================
+     TABLES
+     ========================================================================== */
+
+  --ww-table-cell-padding-x: var(--ww-space-4);
+  --ww-table-cell-padding-y: var(--ww-space-3);
+
+  /* ==========================================================================
+     FOOTER
+     ========================================================================== */
+
+  --ww-footer-padding-top: var(--ww-space-10);
+  --ww-footer-padding-bottom: var(--ww-space-8);
+  --ww-footer-column-gap: var(--ww-space-8);
+
+  /* ==========================================================================
+     DOCUMENTATION
+     ========================================================================== */
+
+  --ww-doc-block-gap: var(--ww-space-8);
+  --ww-doc-section-gap: var(--ww-space-10);
+
+  /* ==========================================================================
+     CODE BLOCKS
+     ========================================================================== */
+
+  --ww-code-padding: var(--ww-space-5);
+  --ww-code-line-gap: var(--ww-space-2);
+
+  /* ==========================================================================
+     MODAL / DIALOG
+     ========================================================================== */
+
+  --ww-modal-padding: var(--ww-space-8);
+  --ww-modal-content-gap: var(--ww-space-6);
+
+  /* ==========================================================================
+     TOAST / ALERT
+     ========================================================================== */
+
+  --ww-toast-padding: var(--ww-space-4);
+  --ww-alert-padding: var(--ww-space-5);
+
+}
+
+/* ==========================================================================
+   OPTIONAL SCSS HELPERS
+   ========================================================================== */
+
+$ww-page-padding-x: var(--ww-page-padding-x);
+$ww-container-padding: var(--ww-container-padding);
+$ww-section-gap: var(--ww-section-gap);
+$ww-card-padding: var(--ww-card-padding);
+$ww-grid-gap: var(--ww-grid-gap);
+$ww-form-gap: var(--ww-form-gap);
+$ww-button-padding-x: var(--ww-button-padding-x);
+$ww-button-padding-y: var(--ww-button-padding-y);
