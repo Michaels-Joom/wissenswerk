@@ -12,9 +12,7 @@
     padding-block: 2rem;
     border-bottom: 1px solid var(--ww-color-border);
     background-color: transparent;
-
    
-    
 }
 
 .ww-header__branding {
@@ -24,13 +22,9 @@
 }
 
 .ww-header__top {
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: flex-start;
-
     gap: var(--ww-space-4);
 }
 
@@ -78,7 +72,7 @@
 // Desktop ≥ 750 px
 // =============================================================================
 
-@media (min-width: layout.$ww-breakpoint-branding) {
+@media (min-width: var(  --ww-breakpoint-branding)) {
 
     .ww-header__branding {
         justify-content: flex-start;

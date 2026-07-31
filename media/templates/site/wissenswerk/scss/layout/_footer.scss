@@ -1,281 +1,173 @@
-@use "../tokens/layout";
-// =============================================================================
-// WissensWerk Template
-// Footer Layout
-// =============================================================================
-
+@use "../tokens/layout" as *;
 
 // =============================================================================
 // Footer
 // =============================================================================
 
-.ww-footer-main {
-    background-color: var(--ww-green-700);
-    margin-bottom: .25rem;
-}
-
 .ww-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+    position: relative;
+    background-color: var(--ww-color-surface);
+    color: var(--ww-color-text);
 
-    // padding-block: 2rem;
+    padding-block: var(--ww-spacing-lg);
 
-    text-align: center;
+    border-top: 1px solid var(--ww-border-color);
 
-    padding-bottom: 1rem;
+    overflow: hidden;
 }
 
 // =============================================================================
-// Logo
+// Branding
 // =============================================================================
 
-.ww-footer__logo img {
-    display: block;
+.ww-footer__logo {
+    display: inline-block;
+    margin-bottom: var(ww-spacing-md);
 
-    width: 100%;
-    max-width: (layout.$ww-logo-footer-width);
-    height: auto;
+    img {
+        max-width: 220px;
+        height: auto;
+    }
+}
+
+.ww-footer__claim {
+    margin-bottom: var(--ww-spacing-lg);
+    color: var(--ww-color-text-muted);
+    line-height: 1.7;
 }
 
 // =============================================================================
-// Footer Content
+// Überschriften
 // =============================================================================
 
-.ww-footer__about,
-.ww-footer__project,
-.ww-footer__service {
+.ww-footer__title {
+    margin-bottom: var(--ww-spacing-md);
 
-    color: var(--ww-color-text-info);
-
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
 }
-
-.ww-footer h3 {
-    margin: 0 0 0.5rem;
-
-    color: var(--ww-brass-700);
-
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-.ww-footer p {
-   //  margin: 0 0 .75rem;
-    margin: 0 0 0;
-}
-
-.ww-footer a {
-    color: var(--ww-brass-700);
-    text-decoration: none;
-
-    transition: color .2s ease;
-}
-
-.ww-footer a:hover {
-    color: var(--ww-brass-500);
-}
-
-.ww-icon-contact::before {
-    content: "";
-    display: inline-block;
-    vertical-align: -.125em;
-    width: 1rem;
-    height: 1rem;
-    margin-right: .5rem;
-
-    background: url("../images/icons/envelope.svg") no-repeat center;
-    background-size: 1rem 1rem;
-    
-}
-
-.ww-icon-impressum::before {
-    content: "";
-    display: inline-block;
-    vertical-align: -.125em;
-    width: 1rem;
-    height: 1rem;
-    margin-right: .5rem;
-
-    background: url("../images/icons/file-earmark-text.svg") no-repeat center;
-    background-size: 1rem 1rem;
-    
-}
-
-.ww-icon-datenschutz::before {
-    content: "";
-    display: inline-block;
-    vertical-align: -.125em;
-    width: 1rem;
-    height: 1rem;
-    margin-right: .5rem;
-
-    background: url("../images/icons/shield.svg") no-repeat center;
-    background-size: 1rem 1rem;
-    
-}
-
-.ww-icon-cookierichtlinie::before {
-    content: "";
-    display: inline-block;
-    vertical-align: -.125em;
-    width: 1rem;
-    height: 1rem;
-    margin-right: .5rem;
-
-    background: url("../images/icons/sliders.svg") no-repeat center;
-    background-size: 1rem 1rem;
-    
-}
-
-
 
 // =============================================================================
 // Listen
 // =============================================================================
 
-.ww-footer ul {
-    margin: 0;
-    padding: 0;
-
+.ww-footer__list {
     list-style: none;
-}
-
-.ww-footer li + li {
-    margin-top: .5rem;
-}
-
-// =============================================================================
-// Service Navigation
-// =============================================================================
-
-.ww-footer__service ul {
-    display: flex;
-    flex-direction: column;
-    gap: .75rem;
 
     margin: 0;
     padding: 0;
 
-    list-style: none;
+    li {
+        margin-bottom: .45rem;
+    }
+
+    a {
+        color: var(--ww-color-text-muted);
+        text-decoration: none;
+        transition: color .2s ease;
+
+        &:hover {
+            color: var(--ww-color-primary);
+        }
+    }
 }
 
-.ww-footer__service li {
-    margin: 0;
+// =============================================================================
+// Kontakt
+// =============================================================================
+
+.ww-footer__address {
+    font-style: normal;
+    line-height: 1.8;
+
+    a {
+        color: var(--ww-color-text-muted);
+        text-decoration: none;
+
+        &:hover {
+            color: var(--ww-color-primary);
+        }
+    }
 }
 
-.ww-footer__service a {
+// =============================================================================
+// Social Icons
+// =============================================================================
+
+.ww-footer__social {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .75rem;
+    gap: var(--ww-spacing-md);
 
-    min-height: 2.75rem;
-    padding: .75rem 1rem;
+    a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
 
-    border: 1px solid var(--ww-brass-700);
-    border-radius: .5rem;
+        width: 2.25rem;
+        height: 2.25rem;
 
-    background-color: transparent;
+        color: var(--ww-color-text-muted);
 
-    color: var(--ww-brass-700);
-    text-decoration: none;
+        border-radius: 50%;
 
-    transition:
-        background-color .2s ease,
-        border-color .2s ease,
-        color .2s ease;
-}
+        transition: all .2s ease;
 
-.ww-footer__service a:hover,
-.ww-footer__service a:focus-visible {
-    background-color: var(--ww-brass-700);
-    border-color: var(--ww-brass-700);
+        &:hover {
+            color: var(--ww-color-primary);
+            transform: translateY(-2px);
+        }
+    }
 
-    color: var(--ww-color-background);
-}
-
-.ww-footer__service .bi {
-    font-size: 1rem;
+    i {
+        font-size: 1.2rem;
+    }
 }
 
 // =============================================================================
-// Desktop
+// Bottom Bar
 // =============================================================================
 
-@media (min-width: 62rem) {
+.ww-footer-bottom {
+
+    margin-top: var(--ww-spacing-2xl);
+    padding-top: var(--ww-spacing-lg);
+
+    border-top: 1px solid var(--ww-border-color);
+
+    font-size: .875rem;
+    color: var(--ww-color-text-muted);
+
+    .bi-heart-fill {
+        color: var(--ww-color-primary);
+    }
+}
+
+// =============================================================================
+// Responsive
+// =============================================================================
+
+@media (max-width: $ww-breakpoint-md) {
 
     .ww-footer {
 
-        display: grid;
-        grid-template-columns: 10rem 1fr 1fr auto;
-        align-items: start;
-        gap: 3rem;
-
-        text-align: left;
-
+        text-align: center;
     }
 
-    .ww-footer__logo {
-        justify-self: start;
+    .ww-footer__social {
+
+        justify-content: center;
     }
 
-    .ww-footer__about,
-    .ww-footer__project {
-        // max-width: 20rem;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        font-size: small;
-    }
-    .ww-footer__about p,
-    .ww-footer__project p{
-        
-        font-size: 0.9rem;
+    .ww-footer-bottom {
 
-    }
+        text-align: center;
 
-    .ww-footer__service {
-        justify-self: end;
-        margin-top: 0.5rem;
-    
-    }
-
-}
-
-// =============================================================================
-// wechsel von Mobile Menu => desktop Menü (Footer Servie Menu)
-// =============================================================================
-
-@media (min-width: layout.$ww-breakpoint-branding) {
-
-    .ww-footer { 
-        padding: 0, 
-    }
-
-    .ww-footer__service ul {
-        display:block;
-        gap: 0.25rem !important;
-    }
-
-    .ww-footer__service a {
-        display: inline-flex;
-        justify-content: flex-start;
-
-        min-height: auto;
-        padding: 0;
-
-        border: 0;
-        border-radius: 0;
-
-        background: transparent;
-    }
-
-    .ww-footer__service a:hover,
-    .ww-footer__service a:focus-visible {
-        background: transparent;
-
-        color: var(--ww-brass-500);
-        text-decoration: underline;
+        .text-md-end,
+        .text-center {
+            text-align: center !important;
+        }
     }
 
 }

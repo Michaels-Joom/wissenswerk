@@ -1,599 +1,65 @@
 @charset "UTF-8";
-.btn-close {
-  --bs-btn-close-color: #000;
-  --bs-btn-close-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414'/%3e%3c/svg%3e");
-  --bs-btn-close-opacity: 0.5;
-  --bs-btn-close-hover-opacity: 0.75;
-  --bs-btn-close-focus-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-  --bs-btn-close-focus-opacity: 1;
-  --bs-btn-close-disabled-opacity: 0.25;
-  box-sizing: content-box;
-  width: 1em;
-  height: 1em;
-  padding: 0.25em 0.25em;
-  color: var(--bs-btn-close-color);
-  background: transparent var(--bs-btn-close-bg) center/1em auto no-repeat;
-  filter: var(--bs-btn-close-filter);
-  border: 0;
-  border-radius: 0.375rem;
-  opacity: var(--bs-btn-close-opacity);
-}
-.btn-close:hover {
-  color: var(--bs-btn-close-color);
-  text-decoration: none;
-  opacity: var(--bs-btn-close-hover-opacity);
-}
-.btn-close:focus {
-  outline: 0;
-  box-shadow: var(--bs-btn-close-focus-shadow);
-  opacity: var(--bs-btn-close-focus-opacity);
-}
-.btn-close:disabled, .btn-close.disabled {
-  pointer-events: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  opacity: var(--bs-btn-close-disabled-opacity);
-}
-
-.btn-close-white {
-  --bs-btn-close-filter: invert(1) grayscale(100%) brightness(200%);
-}
-
-:root,
-[data-bs-theme=light] {
-  --bs-btn-close-filter: ;
-}
-
-[data-bs-theme=dark] {
-  --bs-btn-close-filter: invert(1) grayscale(100%) brightness(200%);
-}
-
-.offcanvas, .offcanvas-xxl, .offcanvas-xl, .offcanvas-lg, .offcanvas-md, .offcanvas-sm {
-  --bs-offcanvas-zindex: 1045;
-  --bs-offcanvas-width: 400px;
-  --bs-offcanvas-height: 30vh;
-  --bs-offcanvas-padding-x: 1rem;
-  --bs-offcanvas-padding-y: 1rem;
-  --bs-offcanvas-color: var(--bs-body-color);
-  --bs-offcanvas-bg: var(--bs-body-bg);
-  --bs-offcanvas-border-width: var(--bs-border-width);
-  --bs-offcanvas-border-color: var(--bs-border-color-translucent);
-  --bs-offcanvas-box-shadow: var(--bs-box-shadow-sm);
-  --bs-offcanvas-transition: transform 0.3s ease-in-out;
-  --bs-offcanvas-title-line-height: 1.5;
-}
-
-@media (max-width: 575.98px) {
-  .offcanvas-sm {
-    position: fixed;
-    bottom: 0;
-    z-index: var(--bs-offcanvas-zindex);
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    color: var(--bs-offcanvas-color);
-    visibility: hidden;
-    background-color: var(--bs-offcanvas-bg);
-    background-clip: padding-box;
-    outline: 0;
-    transition: var(--bs-offcanvas-transition);
-  }
-}
-@media (max-width: 575.98px) and (prefers-reduced-motion: reduce) {
-  .offcanvas-sm {
-    transition: none;
-  }
-}
-@media (max-width: 575.98px) {
-  .offcanvas-sm.offcanvas-start {
-    top: 0;
-    left: 0;
-    width: var(--bs-offcanvas-width);
-    border-right: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateX(-100%);
-  }
-  .offcanvas-sm.offcanvas-end {
-    top: 0;
-    right: 0;
-    width: var(--bs-offcanvas-width);
-    border-left: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateX(100%);
-  }
-  .offcanvas-sm.offcanvas-top {
-    top: 0;
-    right: 0;
-    left: 0;
-    height: var(--bs-offcanvas-height);
-    max-height: 100%;
-    border-bottom: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateY(-100%);
-  }
-  .offcanvas-sm.offcanvas-bottom {
-    right: 0;
-    left: 0;
-    height: var(--bs-offcanvas-height);
-    max-height: 100%;
-    border-top: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateY(100%);
-  }
-  .offcanvas-sm.showing, .offcanvas-sm.show:not(.hiding) {
-    transform: none;
-  }
-  .offcanvas-sm.showing, .offcanvas-sm.hiding, .offcanvas-sm.show {
-    visibility: visible;
-  }
-}
-@media (min-width: 576px) {
-  .offcanvas-sm {
-    --bs-offcanvas-height: auto;
-    --bs-offcanvas-border-width: 0;
-    background-color: transparent !important;
-  }
-  .offcanvas-sm .offcanvas-header {
-    display: none;
-  }
-  .offcanvas-sm .offcanvas-body {
-    display: flex;
-    flex-grow: 0;
-    padding: 0;
-    overflow-y: visible;
-    background-color: transparent !important;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .offcanvas-md {
-    position: fixed;
-    bottom: 0;
-    z-index: var(--bs-offcanvas-zindex);
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    color: var(--bs-offcanvas-color);
-    visibility: hidden;
-    background-color: var(--bs-offcanvas-bg);
-    background-clip: padding-box;
-    outline: 0;
-    transition: var(--bs-offcanvas-transition);
-  }
-}
-@media (max-width: 767.98px) and (prefers-reduced-motion: reduce) {
-  .offcanvas-md {
-    transition: none;
-  }
-}
-@media (max-width: 767.98px) {
-  .offcanvas-md.offcanvas-start {
-    top: 0;
-    left: 0;
-    width: var(--bs-offcanvas-width);
-    border-right: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateX(-100%);
-  }
-  .offcanvas-md.offcanvas-end {
-    top: 0;
-    right: 0;
-    width: var(--bs-offcanvas-width);
-    border-left: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateX(100%);
-  }
-  .offcanvas-md.offcanvas-top {
-    top: 0;
-    right: 0;
-    left: 0;
-    height: var(--bs-offcanvas-height);
-    max-height: 100%;
-    border-bottom: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateY(-100%);
-  }
-  .offcanvas-md.offcanvas-bottom {
-    right: 0;
-    left: 0;
-    height: var(--bs-offcanvas-height);
-    max-height: 100%;
-    border-top: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateY(100%);
-  }
-  .offcanvas-md.showing, .offcanvas-md.show:not(.hiding) {
-    transform: none;
-  }
-  .offcanvas-md.showing, .offcanvas-md.hiding, .offcanvas-md.show {
-    visibility: visible;
-  }
-}
-@media (min-width: 768px) {
-  .offcanvas-md {
-    --bs-offcanvas-height: auto;
-    --bs-offcanvas-border-width: 0;
-    background-color: transparent !important;
-  }
-  .offcanvas-md .offcanvas-header {
-    display: none;
-  }
-  .offcanvas-md .offcanvas-body {
-    display: flex;
-    flex-grow: 0;
-    padding: 0;
-    overflow-y: visible;
-    background-color: transparent !important;
-  }
-}
-
-@media (max-width: 991.98px) {
-  .offcanvas-lg {
-    position: fixed;
-    bottom: 0;
-    z-index: var(--bs-offcanvas-zindex);
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    color: var(--bs-offcanvas-color);
-    visibility: hidden;
-    background-color: var(--bs-offcanvas-bg);
-    background-clip: padding-box;
-    outline: 0;
-    transition: var(--bs-offcanvas-transition);
-  }
-}
-@media (max-width: 991.98px) and (prefers-reduced-motion: reduce) {
-  .offcanvas-lg {
-    transition: none;
-  }
-}
-@media (max-width: 991.98px) {
-  .offcanvas-lg.offcanvas-start {
-    top: 0;
-    left: 0;
-    width: var(--bs-offcanvas-width);
-    border-right: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateX(-100%);
-  }
-  .offcanvas-lg.offcanvas-end {
-    top: 0;
-    right: 0;
-    width: var(--bs-offcanvas-width);
-    border-left: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateX(100%);
-  }
-  .offcanvas-lg.offcanvas-top {
-    top: 0;
-    right: 0;
-    left: 0;
-    height: var(--bs-offcanvas-height);
-    max-height: 100%;
-    border-bottom: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateY(-100%);
-  }
-  .offcanvas-lg.offcanvas-bottom {
-    right: 0;
-    left: 0;
-    height: var(--bs-offcanvas-height);
-    max-height: 100%;
-    border-top: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateY(100%);
-  }
-  .offcanvas-lg.showing, .offcanvas-lg.show:not(.hiding) {
-    transform: none;
-  }
-  .offcanvas-lg.showing, .offcanvas-lg.hiding, .offcanvas-lg.show {
-    visibility: visible;
-  }
-}
-@media (min-width: 992px) {
-  .offcanvas-lg {
-    --bs-offcanvas-height: auto;
-    --bs-offcanvas-border-width: 0;
-    background-color: transparent !important;
-  }
-  .offcanvas-lg .offcanvas-header {
-    display: none;
-  }
-  .offcanvas-lg .offcanvas-body {
-    display: flex;
-    flex-grow: 0;
-    padding: 0;
-    overflow-y: visible;
-    background-color: transparent !important;
-  }
-}
-
-@media (max-width: 1199.98px) {
-  .offcanvas-xl {
-    position: fixed;
-    bottom: 0;
-    z-index: var(--bs-offcanvas-zindex);
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    color: var(--bs-offcanvas-color);
-    visibility: hidden;
-    background-color: var(--bs-offcanvas-bg);
-    background-clip: padding-box;
-    outline: 0;
-    transition: var(--bs-offcanvas-transition);
-  }
-}
-@media (max-width: 1199.98px) and (prefers-reduced-motion: reduce) {
-  .offcanvas-xl {
-    transition: none;
-  }
-}
-@media (max-width: 1199.98px) {
-  .offcanvas-xl.offcanvas-start {
-    top: 0;
-    left: 0;
-    width: var(--bs-offcanvas-width);
-    border-right: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateX(-100%);
-  }
-  .offcanvas-xl.offcanvas-end {
-    top: 0;
-    right: 0;
-    width: var(--bs-offcanvas-width);
-    border-left: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateX(100%);
-  }
-  .offcanvas-xl.offcanvas-top {
-    top: 0;
-    right: 0;
-    left: 0;
-    height: var(--bs-offcanvas-height);
-    max-height: 100%;
-    border-bottom: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateY(-100%);
-  }
-  .offcanvas-xl.offcanvas-bottom {
-    right: 0;
-    left: 0;
-    height: var(--bs-offcanvas-height);
-    max-height: 100%;
-    border-top: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateY(100%);
-  }
-  .offcanvas-xl.showing, .offcanvas-xl.show:not(.hiding) {
-    transform: none;
-  }
-  .offcanvas-xl.showing, .offcanvas-xl.hiding, .offcanvas-xl.show {
-    visibility: visible;
-  }
-}
-@media (min-width: 1200px) {
-  .offcanvas-xl {
-    --bs-offcanvas-height: auto;
-    --bs-offcanvas-border-width: 0;
-    background-color: transparent !important;
-  }
-  .offcanvas-xl .offcanvas-header {
-    display: none;
-  }
-  .offcanvas-xl .offcanvas-body {
-    display: flex;
-    flex-grow: 0;
-    padding: 0;
-    overflow-y: visible;
-    background-color: transparent !important;
-  }
-}
-
-@media (max-width: 1399.98px) {
-  .offcanvas-xxl {
-    position: fixed;
-    bottom: 0;
-    z-index: var(--bs-offcanvas-zindex);
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    color: var(--bs-offcanvas-color);
-    visibility: hidden;
-    background-color: var(--bs-offcanvas-bg);
-    background-clip: padding-box;
-    outline: 0;
-    transition: var(--bs-offcanvas-transition);
-  }
-}
-@media (max-width: 1399.98px) and (prefers-reduced-motion: reduce) {
-  .offcanvas-xxl {
-    transition: none;
-  }
-}
-@media (max-width: 1399.98px) {
-  .offcanvas-xxl.offcanvas-start {
-    top: 0;
-    left: 0;
-    width: var(--bs-offcanvas-width);
-    border-right: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateX(-100%);
-  }
-  .offcanvas-xxl.offcanvas-end {
-    top: 0;
-    right: 0;
-    width: var(--bs-offcanvas-width);
-    border-left: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateX(100%);
-  }
-  .offcanvas-xxl.offcanvas-top {
-    top: 0;
-    right: 0;
-    left: 0;
-    height: var(--bs-offcanvas-height);
-    max-height: 100%;
-    border-bottom: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateY(-100%);
-  }
-  .offcanvas-xxl.offcanvas-bottom {
-    right: 0;
-    left: 0;
-    height: var(--bs-offcanvas-height);
-    max-height: 100%;
-    border-top: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-    transform: translateY(100%);
-  }
-  .offcanvas-xxl.showing, .offcanvas-xxl.show:not(.hiding) {
-    transform: none;
-  }
-  .offcanvas-xxl.showing, .offcanvas-xxl.hiding, .offcanvas-xxl.show {
-    visibility: visible;
-  }
-}
-@media (min-width: 1400px) {
-  .offcanvas-xxl {
-    --bs-offcanvas-height: auto;
-    --bs-offcanvas-border-width: 0;
-    background-color: transparent !important;
-  }
-  .offcanvas-xxl .offcanvas-header {
-    display: none;
-  }
-  .offcanvas-xxl .offcanvas-body {
-    display: flex;
-    flex-grow: 0;
-    padding: 0;
-    overflow-y: visible;
-    background-color: transparent !important;
-  }
-}
-
-.offcanvas {
-  position: fixed;
-  bottom: 0;
-  z-index: var(--bs-offcanvas-zindex);
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  color: var(--bs-offcanvas-color);
-  visibility: hidden;
-  background-color: var(--bs-offcanvas-bg);
-  background-clip: padding-box;
-  outline: 0;
-  transition: var(--bs-offcanvas-transition);
-}
-@media (prefers-reduced-motion: reduce) {
-  .offcanvas {
-    transition: none;
-  }
-}
-.offcanvas.offcanvas-start {
-  top: 0;
-  left: 0;
-  width: var(--bs-offcanvas-width);
-  border-right: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-  transform: translateX(-100%);
-}
-.offcanvas.offcanvas-end {
-  top: 0;
-  right: 0;
-  width: var(--bs-offcanvas-width);
-  border-left: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-  transform: translateX(100%);
-}
-.offcanvas.offcanvas-top {
-  top: 0;
-  right: 0;
-  left: 0;
-  height: var(--bs-offcanvas-height);
-  max-height: 100%;
-  border-bottom: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-  transform: translateY(-100%);
-}
-.offcanvas.offcanvas-bottom {
-  right: 0;
-  left: 0;
-  height: var(--bs-offcanvas-height);
-  max-height: 100%;
-  border-top: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
-  transform: translateY(100%);
-}
-.offcanvas.showing, .offcanvas.show:not(.hiding) {
-  transform: none;
-}
-.offcanvas.showing, .offcanvas.hiding, .offcanvas.show {
-  visibility: visible;
-}
-
-.offcanvas-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1040;
-  width: 100vw;
-  height: 100vh;
-  background-color: #000;
-}
-.offcanvas-backdrop.fade {
-  opacity: 0;
-}
-.offcanvas-backdrop.show {
-  opacity: 0.5;
-}
-
-.offcanvas-header {
-  display: flex;
-  align-items: center;
-  padding: var(--bs-offcanvas-padding-y) var(--bs-offcanvas-padding-x);
-}
-.offcanvas-header .btn-close {
-  padding: calc(var(--bs-offcanvas-padding-y) * 0.5) calc(var(--bs-offcanvas-padding-x) * 0.5);
-  margin-top: calc(-0.5 * var(--bs-offcanvas-padding-y));
-  margin-right: calc(-0.5 * var(--bs-offcanvas-padding-x));
-  margin-bottom: calc(-0.5 * var(--bs-offcanvas-padding-y));
-  margin-left: auto;
-}
-
-.offcanvas-title {
-  margin-bottom: 0;
-  line-height: var(--bs-offcanvas-title-line-height);
-}
-
-.offcanvas-body {
-  flex-grow: 1;
-  padding: var(--bs-offcanvas-padding-y) var(--bs-offcanvas-padding-x);
-  overflow-y: auto;
-}
-
 :root {
   /* ==========================================================================
      Theme: Default (Light)
      ========================================================================== */
-  --ww-brass-200: #F2E2B5;
-  --ww-brass-500: #B8860B;
-  --ww-brass-700: #8A6508;
-  --ww-green-700: #1F4B43;
-  --ww-bronze-900: #2C2523;
-  --ww-parchment-100: #faf4ec;
-  --ww-white: #FFFFFF;
-  --ww-neutral-300: #DDD7CC;
-  --ww-neutral-500: #6F6763;
-  --ww-parchment-50: #F8F7F3;
+  /* ==========================================================================
+     Brand
+     ========================================================================== */
+  /* Brass */
+  --ww-brass-100: #F5E8C8;
+  --ww-brass-200: #E8D09A;
+  --ww-brass-300: #D4B56C;
   --ww-brass-400: #C39B53;
+  --ww-brass-500: #B8860B;
+  --ww-brass-600: #9D7208;
+  --ww-brass-700: #7F5C07;
+  /* Green */
+  --ww-green-100: #E8F0EC;
+  --ww-green-200: #D3E0DA;
+  --ww-green-300: #AAB8A1;
+  --ww-green-400: #5C7E73;
+  --ww-green-500: #2E6658;
+  --ww-green-700: #1F4B43;
+  /* Neutral */
+  --ww-cream-50: #FCFBF8;
+  --ww-cream-100: #F8F6F2;
+  --ww-cream-200: #F6F4EF;
+  --ww-cream-300: #F1ECE3;
+  --ww-warmgray-100: #EEE9E2;
+  --ww-warmgray-200: #DDD7CC;
+  --ww-warmgray-300: #CFC7BC;
+  --ww-warmgray-500: #847B74;
+  --ww-bronze-900: #2C2523;
+  --ww-white: #FFFFFF;
   --ww-success-500: #2E7D32;
   --ww-warning-500: #ED6C02;
   --ww-danger-500: #C62828;
   --ww-info-500: #0288D1;
-  --ww-color-primary: var(--ww-brass-500);
-  --ww-color-primary-200: var(--ww-brass-200);
-  --ww-color-primary-dark: var(--ww-brass-700);
-  --ww-color-secondary: var(--ww-green-700);
-  --ww-color-background: var(--ww-parchment-100);
+  /* Brand */
+  --ww-color-primary: var(--ww-green-700);
+  --ww-color-secondary: var(--ww-brass-500);
+  --ww-color-accent: var(--ww-green-300);
+  /* Background */
+  --ww-color-background: var(--ww-cream-200);
   --ww-color-surface: var(--ww-white);
-  --ww-color-surface-alt: var(--ww-parchment-50);
-  --ww-color-text: var(--ww-bronze-900);
-  --ww-color-text-info: var(--ww-parchment-100);
+  --ww-color-surface-alt: var(--ww-cream-300);
+  --ww-color-surface-soft: var(--ww-green-100);
+  /* Text */
   --ww-color-heading: var(--ww-bronze-900);
-  --ww-color-text-muted: var(--ww-neutral-500);
+  --ww-color-text: var(--ww-bronze-900);
+  --ww-color-text-muted: var(--ww-warmgray-500);
+  --ww-color-text-light: var(--ww-white);
+  /* Links */
   --ww-color-link: var(--ww-green-700);
   --ww-color-link-hover: var(--ww-brass-500);
-  --ww-color-border: var(--ww-neutral-300);
-  --ww-border-subtle: rgba(44, 37, 35, 0.08);
-  --ww-border-default: rgba(44, 37, 35, 0.15);
-  --ww-border-strong: rgba(44, 37, 35, 0.25);
+  /* Borders */
+  --ww-color-border: var(--ww-warmgray-200);
+  --ww-border-subtle: rgba(44,37,35,.06);
+  --ww-border-default: rgba(44,37,35,.12);
+  --ww-border-strong: rgba(44,37,35,.22);
+  /* Focus */
   --ww-color-focus: var(--ww-brass-400);
-  --ww-color-success: var(--ww-success-500);
-  --ww-color-warning: var(--ww-warning-500);
-  --ww-color-danger: var(--ww-danger-500);
-  --ww-color-info: var(--ww-info-500);
-  --ww-surface: #F6F4EF;
-  --ww-surface-alt: #F1ECE3;
   /* ==========================================================================
      Bootstrap Mapping
      --------------------------------------------------------------------------
@@ -606,123 +72,546 @@
      ========================================================================== */
 }
 
+/* ==========================================================================
+   WissensWerk Design System
+   Typography Tokens v2.0
+   ========================================================================== */
+/* ==========================================================================
+   FONT FAMILIES
+   ========================================================================== */
 :root {
-  --ww-space-0: 0;
-  --ww-space-1: 0.25rem;
-  --ww-space-2: 0.50rem;
-  --ww-space-3: 0.75rem;
-  --ww-space-4: 1rem;
-  --ww-space-5: 1.50rem;
-  --ww-space-6: 2rem;
-  --ww-space-7: 3rem;
-  --ww-space-8: 4rem;
-  --ww-gap-xs: var(--ww-space-2);
-  --ww-gap-sm: var(--ww-space-3);
-  --ww-gap-md: var(--ww-space-4);
-  --ww-section-spacing: var(--ww-space-8);
-  --ww-content-spacing: var(--ww-space-2);
-  --ww-card-padding: var(--ww-space-5);
-}
-
-:root {
-  --ww-font-family-base: "Source Sans 3", sans-serif;
-  --ww-font-family-heading: "Cormorant Garamond", serif;
+  /* Branding */
+  --ww-font-family-brand: "Cormorant Garamond", serif;
+  /* Headings */
+  --ww-font-family-heading: "Libre Franklin", sans-serif;
+  /* Body */
+  --ww-font-family-body: "Source Sans 3", sans-serif;
+  /* Code */
   --ww-font-family-mono: "IBM Plex Mono", monospace;
-  --ww-font-size-xs: .75rem;
-  --ww-font-size-sm: .875rem;
-  --ww-font-size-base: 1rem;
-  --ww-font-size-lg: 1.125rem;
-  --ww-font-size-xl: 1.25rem;
-  --ww-font-size-2xl: 1.5rem;
-  --ww-font-size-3xl: 2rem;
-  --ww-font-size-4xl: 2.75rem;
+  /* ==========================================================================
+     FONT WEIGHTS
+     ========================================================================== */
   --ww-font-weight-light: 300;
-  --ww-font-weight-normal: 400;
+  --ww-font-weight-regular: 400;
   --ww-font-weight-medium: 500;
   --ww-font-weight-semibold: 600;
   --ww-font-weight-bold: 700;
-  --ww-line-height-tight: 1.2;
-  --ww-line-height-heading: 1.3;
+  /* ==========================================================================
+     FONT SIZES
+     ========================================================================== */
+  --ww-font-size-xs: .75rem; /* 12 */
+  --ww-font-size-sm: .875rem; /* 14 */
+  --ww-font-size-base: 1rem; /* 16 */
+  --ww-font-size-md: 1.125rem; /* 18 */
+  --ww-font-size-lg: 1.25rem; /* 20 */
+  --ww-font-size-xl: 1.5rem; /* 24 */
+  --ww-font-size-2xl: 2rem; /* 32 */
+  --ww-font-size-3xl: 2.5rem; /* 40 */
+  --ww-font-size-4xl: 3.5rem; /* 56 */
+  /* ==========================================================================
+     LINE HEIGHT
+     ========================================================================== */
+  --ww-line-height-heading: 1.25;
   --ww-line-height-body: 1.6;
-  --ww-line-height-loose: 1.8;
+  --ww-line-height-tight: 1.15;
+  /* ==========================================================================
+     LETTER SPACING
+     ========================================================================== */
   --ww-letter-spacing-tight: -.02em;
   --ww-letter-spacing-normal: 0;
-  --ww-letter-spacing-wide: .03em;
-  --ww-branding-font-size-max: 3rem;
-  --ww-branding-font-size-min: 2.5rem;
-  --ww-branding-letter-spacing: .5rem;
-  --ww-branding-gap:1rem;
-  --ww-navigation-font-size: 1.25rem;
-  --ww-text-body-font-family: var(--ww-font-family-base);
-  --ww-text-body-font-size: var(--ww-font-size-base);
-  --ww-text-body-font-weight: var(--ww-font-weight-normal);
-  --ww-text-body-line-height: var(--ww-line-height-body);
-  --ww-text-lead-font-size: var(--ww-font-size-lg);
-  --ww-text-lead-line-height: var(--ww-line-height-loose);
-  --ww-text-h1-font-family: var(--ww-font-family-heading);
-  --ww-text-h1-font-size: var(--ww-font-size-4xl);
-  --ww-text-h1-font-weight: var(--ww-font-weight-bold);
-  --ww-text-h2-font-family: var(--ww-font-family-heading);
-  --ww-text-h2-font-size: var(--ww-font-size-3xl);
-  --ww-text-h2-font-weight: var(--ww-font-weight-bold);
-  --ww-text-h3-font-family: var(--ww-font-family-heading);
-  --ww-text-h3-font-size: var(--ww-font-size-2xl);
-  --ww-text-h3-font-weight: var(--ww-font-weight-semibold);
-  --ww-text-h4-font-family: var(--ww-font-family-heading);
-  --ww-text-h4-font-size: var(--ww-font-size-xl);
-  --ww-text-h4-font-weight: var(--ww-font-weight-semibold);
-  --ww-text-h5-font-family: var(--ww-font-family-heading);
-  --ww-text-h5-font-size: var(--ww-font-size-lg);
-  --ww-text-h5-font-weight: var(--ww-font-weight-medium);
-  --ww-text-h6-font-family: var(--ww-font-family-heading);
-  --ww-text-h6-font-size: var(--ww-font-size-base);
-  --ww-text-h6-font-weight: var(--ww-font-weight-medium);
-  --ww-text-small-font-size: var(--ww-font-size-sm);
-  --ww-text-code-font-family: var(--ww-font-family-mono);
-  --ww-text-code-font-size: var(--ww-font-size-sm);
+  --ww-letter-spacing-wide: .04em;
+  --ww-letter-spacing-xl: .08em;
+  /* Branding */
+  --ww-branding-letter-spacing: .50rem;
+  --ww-branding-font-size-min: 1.75rem;
+  --ww-branding-font-size-max: 2.50rem;
+  /* ==========================================================================
+     SEMANTIC TOKENS
+     ========================================================================== */
+  --ww-navigation-font-family: var(--ww-font-family-heading);
+  --ww-navigation-font-size: 1rem;
+  --ww-navigation-font-weight: var(--ww-font-weight-medium);
+  --ww-navigation-letter-spacing: .04em;
+  --ww-button-font-family: var(--ww-font-family-heading);
+  --ww-button-font-size: var(--ww-font-size-base);
+  --ww-button-font-weight: var(--ww-font-weight-semibold);
+  --ww-card-title-font-family: var(--ww-font-family-heading);
+  --ww-card-title-font-size: var(--ww-font-size-lg);
+  --ww-breadcrumb-font-size: var(--ww-font-size-sm);
+  --ww-caption-font-size: var(--ww-font-size-sm);
+  --ww-meta-font-size: var(--ww-font-size-xs);
+  /* ==========================================================================
+     HEADINGS
+     ========================================================================== */
+  --ww-h1-size: var(--ww-font-size-4xl);
+  --ww-h2-size: var(--ww-font-size-3xl);
+  --ww-h3-size: var(--ww-font-size-2xl);
+  --ww-h4-size: var(--ww-font-size-xl);
+  --ww-h5-size: var(--ww-font-size-lg);
+  --ww-h6-size: var(--ww-font-size-md);
 }
 
+/* ==========================================================================
+   SCSS Helper Variables (optional)
+   ========================================================================== */
+/*!
+ * ==========================================================================
+ * WissensWerk Design System
+ * Spacing Tokens v2.0
+ * ==========================================================================
+ *
+ * 8pt/4pt Hybrid Scale
+ * Alle Abstände werden ausschließlich über Tokens verwendet.
+ */
+/* ==========================================================================
+   PRIMITIVE SPACING TOKENS
+   ========================================================================== */
 :root {
-  --ww-container-max-width: 82.5rem;
-  --ww-container-padding-inline: var(--ww-space-5);
+  /* Base Scale */
+  --ww-space-0: 0;
+  --ww-space-1: .25rem; /* 4px  */
+  --ww-space-2: .50rem; /* 8px  */
+  --ww-space-3: .75rem; /* 12px */
+  --ww-space-4: 1rem; /* 16px */
+  --ww-space-5: 1.25rem; /* 20px */
+  --ww-space-6: 1.5rem; /* 24px */
+  --ww-space-7: 2rem; /* 32px */
+  --ww-space-8: 2.5rem; /* 40px */
+  --ww-space-9: 3rem; /* 48px */
+  --ww-space-10: 4rem; /* 64px */
+  --ww-space-11: 5rem; /* 80px */
+  --ww-space-12: 6rem; /* 96px */
+  /* ==========================================================================
+     PAGE LAYOUT
+     ========================================================================== */
+  --ww-page-padding-x: var(--ww-space-7);
+  --ww-page-padding-y: var(--ww-space-8);
+  --ww-container-padding: var(--ww-space-6);
+  --ww-container-max-width: 1440px;
+  --ww-content-gap: var(--ww-space-7);
+  --ww-section-gap: var(--ww-space-10);
+  /* ==========================================================================
+     HEADER & NAVIGATION
+     ========================================================================== */
   --ww-header-height: 5rem;
-  --ww-footer-min-height: 4rem;
-  --ww-sidebar-width: 18rem;
-  --ww-radius-none: 0;
-  --ww-radius-sm: .25rem;
-  --ww-radius-md: .5rem;
-  --ww-radius-lg: .75rem;
-  --ww-radius-xl: 1rem;
-  --ww-radius-full: 999rem;
-  --ww-shadow-sm:
-      0 1px 2px rgba(44, 37, 35, .08);
-  --ww-shadow-md:
-      0 4px 8px rgba(44, 37, 35, .12);
-  --ww-shadow-lg:
-      0 8px 24px rgba(44, 37, 35, .18);
-  --ww-transition-fast: 150ms;
-  --ww-transition-normal: 250ms;
-  --ww-transition-slow: 400ms;
-  --ww-z-base: 1;
-  --ww-z-dropdown: 1000;
-  --ww-z-sticky: 1020;
-  --ww-z-fixed: 1030;
-  --ww-z-offcanvas: 1045;
-  --ww-z-modal: 1055;
-  --ww-z-popover: 1070;
-  --ww-z-tooltip: 1080;
+  --ww-header-padding-y: var(--ww-space-4);
+  --ww-header-padding-x: var(--ww-space-6);
+  --ww-nav-item-gap: var(--ww-space-6);
+  --ww-nav-group-gap: var(--ww-space-8);
+  /* ==========================================================================
+     HERO
+     ========================================================================== */
+  --ww-hero-padding-top: var(--ww-space-11);
+  --ww-hero-padding-bottom: var(--ww-space-11);
+  --ww-hero-content-gap: var(--ww-space-8);
+  /* ==========================================================================
+     SECTIONS
+     ========================================================================== */
+  --ww-section-padding-top: var(--ww-space-10);
+  --ww-section-padding-bottom: var(--ww-space-10);
+  --ww-component-gap: var(--ww-space-6);
+  /* ==========================================================================
+     CARDS
+     ========================================================================== */
+  --ww-card-padding-sm: var(--ww-space-4);
+  --ww-card-padding: var(--ww-space-6);
+  --ww-card-padding-lg: var(--ww-space-8);
+  --ww-card-gap: var(--ww-space-6);
+  /* ==========================================================================
+     BUTTONS
+     ========================================================================== */
+  --ww-button-padding-x: var(--ww-space-6);
+  --ww-button-padding-y: var(--ww-space-3);
+  --ww-button-gap: var(--ww-space-2);
+  /* ==========================================================================
+     FORMS
+     ========================================================================== */
+  --ww-form-gap: var(--ww-space-6);
+  --ww-input-padding-x: var(--ww-space-4);
+  --ww-input-padding-y: var(--ww-space-3);
+  --ww-field-gap: var(--ww-space-5);
+  /* ==========================================================================
+     GRID
+     ========================================================================== */
+  --ww-grid-gap-sm: var(--ww-space-4);
+  --ww-grid-gap: var(--ww-space-6);
+  --ww-grid-gap-lg: var(--ww-space-8);
+  /* ==========================================================================
+     SIDEBAR / OFFCANVAS
+     ========================================================================== */
+  --ww-sidebar-gap: var(--ww-space-6);
+  --ww-offcanvas-padding: var(--ww-space-6);
+  /* ==========================================================================
+     BREADCRUMB
+     ========================================================================== */
+  --ww-breadcrumb-gap: var(--ww-space-2);
+  --ww-breadcrumb-margin-bottom: var(--ww-space-6);
+  /* ==========================================================================
+     TABLES
+     ========================================================================== */
+  --ww-table-cell-padding-x: var(--ww-space-4);
+  --ww-table-cell-padding-y: var(--ww-space-3);
+  /* ==========================================================================
+     FOOTER
+     ========================================================================== */
+  --ww-footer-padding-top: var(--ww-space-10);
+  --ww-footer-padding-bottom: var(--ww-space-8);
+  --ww-footer-column-gap: var(--ww-space-8);
+  /* ==========================================================================
+     DOCUMENTATION
+     ========================================================================== */
+  --ww-doc-block-gap: var(--ww-space-8);
+  --ww-doc-section-gap: var(--ww-space-10);
+  /* ==========================================================================
+     CODE BLOCKS
+     ========================================================================== */
+  --ww-code-padding: var(--ww-space-5);
+  --ww-code-line-gap: var(--ww-space-2);
+  /* ==========================================================================
+     MODAL / DIALOG
+     ========================================================================== */
+  --ww-modal-padding: var(--ww-space-8);
+  --ww-modal-content-gap: var(--ww-space-6);
+  /* ==========================================================================
+     TOAST / ALERT
+     ========================================================================== */
+  --ww-toast-padding: var(--ww-space-4);
+  --ww-alert-padding: var(--ww-space-5);
 }
 
+/* ==========================================================================
+   OPTIONAL SCSS HELPERS
+   ========================================================================== */
+/*!
+ * ==========================================================================
+ * WissensWerk Design System
+ * Radius Tokens v1.0
+ * ==========================================================================
+ *
+ * Einheitliche Rundungen für alle UI-Komponenten.
+ */
 :root {
+  /* Primitive Radius */
+  --ww-radius-none: 0;
+  --ww-radius-xs: .25rem; /* 4px  */
+  --ww-radius-sm: .5rem; /* 8px  */
+  --ww-radius-md: .75rem; /* 12px */
+  --ww-radius-lg: 1rem; /* 16px */
+  --ww-radius-xl: 1.5rem; /* 24px */
+  --ww-radius-pill: 999rem;
+  --ww-radius-circle: 50%;
+  /* Semantic Tokens */
+  --ww-button-radius: var(--ww-radius-sm);
+  --ww-input-radius: var(--ww-radius-sm);
+  --ww-card-radius: var(--ww-radius-md);
+  --ww-modal-radius: var(--ww-radius-lg);
+  --ww-dropdown-radius: var(--ww-radius-sm);
+  --ww-tooltip-radius: var(--ww-radius-xs);
+  --ww-badge-radius: var(--ww-radius-pill);
+  --ww-avatar-radius: var(--ww-radius-circle);
+}
+
+/*!
+ * ==========================================================================
+ * WissensWerk Design System
+ * Border Tokens v1.0
+ * ==========================================================================
+ */
+:root {
+  /* Border Width */
+  --ww-border-width-none: 0;
+  --ww-border-width-xs: 1px;
+  --ww-border-width-sm: 2px;
+  --ww-border-width-md: 3px;
+  /* Border Colors */
+  --ww-border-subtle: rgba(44,37,35,.06);
+  --ww-border-default: rgba(44,37,35,.12);
+  --ww-border-strong: rgba(44,37,35,.24);
+  --ww-border-focus: var(--ww-color-secondary);
+  --ww-border-success: #2E7D32;
+  --ww-border-warning: #C39B53;
+  --ww-border-danger: #C62828;
+  /* Semantic Borders */
+  --ww-card-border:
+      var(--ww-border-width-xs)
+      solid
+      var(--ww-border-default);
+  --ww-input-border:
+      var(--ww-border-width-xs)
+      solid
+      var(--ww-border-default);
+  --ww-button-border:
+      var(--ww-border-width-xs)
+      solid
+      transparent;
+  --ww-table-border:
+      var(--ww-border-width-xs)
+      solid
+      var(--ww-border-subtle);
+  --ww-divider-border:
+      var(--ww-border-width-xs)
+      solid
+      var(--ww-border-subtle);
+}
+
+/*!
+ * ==========================================================================
+ * WissensWerk Design System
+ * Shadow Tokens v1.0
+ * ==========================================================================
+ *
+ * Sehr dezente Tiefenwirkung.
+ * Weniger Bootstrap, mehr Editorial Design.
+ */
+:root {
+  /* Primitive Shadows */
+  --ww-shadow-none: none;
+  --ww-shadow-xs:
+      0 1px 2px rgba(0,0,0,.04);
+  --ww-shadow-sm:
+      0 2px 6px rgba(0,0,0,.05);
+  --ww-shadow-md:
+      0 8px 18px rgba(0,0,0,.06);
+  --ww-shadow-lg:
+      0 16px 32px rgba(0,0,0,.08);
+  --ww-shadow-xl:
+      0 24px 48px rgba(0,0,0,.10);
+  /* Semantic Shadows */
+  --ww-card-shadow:
+      var(--ww-shadow-xs);
+  --ww-card-shadow-hover:
+      var(--ww-shadow-md);
+  --ww-button-shadow:
+      none;
+  --ww-button-shadow-hover:
+      var(--ww-shadow-sm);
+  --ww-dropdown-shadow:
+      var(--ww-shadow-lg);
+  --ww-modal-shadow:
+      var(--ww-shadow-xl);
+  --ww-tooltip-shadow:
+      var(--ww-shadow-sm);
+  --ww-navbar-shadow:
+      var(--ww-shadow-xs);
+}
+
+/*!
+ * ==========================================================================
+ * WissensWerk Design System
+ * Layout Tokens v2.0
+ * ==========================================================================
+ *
+ * Definiert ausschließlich Layout- und Struktur-Tokens.
+ * Keine CSS-Klassen.
+ */
+:root {
+  --ww-breakpoint-branding: 768px;
+  /* ======================================================================
+     VIEWPORT
+     ====================================================================== */
+  --ww-viewport-min-width: 320px;
+  --ww-viewport-max-width: 1920px;
+  /* ======================================================================
+     CONTAINER
+     ====================================================================== */
+  --ww-container-xs: 480px;
+  --ww-container-sm: 640px;
+  --ww-container-md: 768px;
+  --ww-container-lg: 1024px;
+  --ww-container-xl: 1280px;
+  --ww-container-2xl: 1440px;
+  --ww-container-max-width: var(--ww-container-2xl);
+  /* ======================================================================
+     GRID
+     ====================================================================== */
+  --ww-grid-columns: 12;
+  --ww-grid-gap-sm: var(--ww-space-4);
+  --ww-grid-gap: var(--ww-space-6);
+  --ww-grid-gap-lg: var(--ww-space-8);
+  /* ======================================================================
+     HEADER
+     ====================================================================== */
+  --ww-header-height: 5rem;
+  --ww-header-height-sticky: 4.5rem;
+  --ww-header-max-width: var(--ww-container-max-width);
+  --ww-header-offset-top: 0;
+  /* ======================================================================
+     HERO
+     ====================================================================== */
+  --ww-hero-min-height: 34rem;
+  --ww-hero-max-width: var(--ww-container-max-width);
+  --ww-hero-content-width: 42rem;
+  --ww-hero-image-width: 34rem;
+  /* ======================================================================
+     MAIN
+     ====================================================================== */
+  --ww-main-max-width: var(--ww-container-max-width);
+  --ww-main-content-width: 72rem;
+  --ww-main-gap: var(--ww-space-10);
+  /* ======================================================================
+     CONTENT
+     ====================================================================== */
+  --ww-content-max-width: 60rem;
+  --ww-content-gap: var(--ww-space-8);
+  /* ======================================================================
+     SECTIONS
+     ====================================================================== */
+  --ww-section-max-width: var(--ww-container-max-width);
+  --ww-section-gap: var(--ww-space-10);
+  --ww-section-padding-top: var(--ww-space-10);
+  --ww-section-padding-bottom: var(--ww-space-10);
+  /* ======================================================================
+     SIDEBAR
+     ====================================================================== */
+  --ww-sidebar-width: 18rem;
+  --ww-sidebar-gap: var(--ww-space-8);
+  /* ======================================================================
+     ASIDE
+     ====================================================================== */
+  --ww-aside-width: 20rem;
+  /* ======================================================================
+     FOOTER
+     ====================================================================== */
+  --ww-footer-max-width: var(--ww-container-max-width);
+  --ww-footer-columns: 4;
+  --ww-footer-gap: var(--ww-space-8);
+  --ww-logo-footer-width: 12rem;
+  /* ======================================================================
+     OFFCANVAS
+     ====================================================================== */
+  --ww-offcanvas-width: 24rem;
+  /* ======================================================================
+     DIALOG
+     ====================================================================== */
+  --ww-modal-width-sm: 32rem;
+  --ww-modal-width-md: 42rem;
+  --ww-modal-width-lg: 60rem;
+  /* ======================================================================
+     Z-INDEX
+     ====================================================================== */
+  --ww-z-base: 1;
+  --ww-z-dropdown: 100;
+  --ww-z-sticky: 200;
+  --ww-z-overlay: 300;
+  --ww-z-offcanvas: 400;
+  --ww-z-modal: 500;
+  --ww-z-toast: 600;
+}
+
+/*!
+ * ==========================================================================
+ * WissensWerk Design System
+ * Component Tokens v2.0
+ * ==========================================================================
+ *
+ * Semantische Komponenten-Tokens
+ * Baut ausschließlich auf den Basis-Tokens auf.
+ */
+:root {
+  /* ======================================================================
+     BUTTONS
+     ====================================================================== */
   --ww-button-height: 2.75rem;
-  --ww-button-padding-block: .75rem;
-  --ww-button-padding-inline: 1rem;
-  --ww-button-gap: .5rem;
+  --ww-button-padding-inline: var(--ww-button-padding-x);
+  --ww-button-padding-block: var(--ww-button-padding-y);
+  --ww-button-gap: var(--ww-button-gap);
+  --ww-button-radius: var(--ww-button-radius);
+  --ww-button-border: var(--ww-button-border);
+  --ww-button-shadow: var(--ww-button-shadow);
+  --ww-button-shadow-hover: var(--ww-button-shadow-hover);
+  /* ======================================================================
+     CARDS
+     ====================================================================== */
+  --ww-card-padding: var(--ww-card-padding);
+  --ww-card-padding-lg: var(--ww-card-padding-lg);
+  --ww-card-gap: var(--ww-card-gap);
+  --ww-card-radius: var(--ww-card-radius);
+  --ww-card-border: var(--ww-card-border);
+  --ww-card-shadow: var(--ww-card-shadow);
+  --ww-card-shadow-hover: var(--ww-card-shadow-hover);
+  /* ======================================================================
+     FORM ELEMENTS
+     ====================================================================== */
+  --ww-input-padding-inline: var(--ww-input-padding-x);
+  --ww-input-padding-block: var(--ww-input-padding-y);
+  --ww-input-radius: var(--ww-input-radius);
+  --ww-input-border: var(--ww-input-border);
+  --ww-form-gap: var(--ww-form-gap);
+  --ww-field-gap: var(--ww-field-gap);
+  /* ======================================================================
+     NAVIGATION
+     ====================================================================== */
+  --ww-navigation-height: var(--ww-header-height);
+  --ww-navigation-gap: var(--ww-nav-item-gap);
+  --ww-navigation-padding-inline: var(--ww-header-padding-x);
+  --ww-navigation-padding-block: var(--ww-header-padding-y);
+  --ww-navigation-shadow: var(--ww-navbar-shadow);
+  /* ======================================================================
+     MODAL
+     ====================================================================== */
+  --ww-modal-padding: var(--ww-modal-padding);
+  --ww-modal-radius: var(--ww-modal-radius);
+  --ww-modal-shadow: var(--ww-modal-shadow);
+  /* ======================================================================
+     DROPDOWN
+     ====================================================================== */
+  --ww-dropdown-radius: var(--ww-dropdown-radius);
+  --ww-dropdown-shadow: var(--ww-dropdown-shadow);
+  /* ======================================================================
+     BADGES
+     ====================================================================== */
+  --ww-badge-radius: var(--ww-badge-radius);
+  --ww-badge-padding-inline: var(--ww-space-3);
+  --ww-badge-padding-block: var(--ww-space-1);
+  /* ======================================================================
+     ALERTS
+     ====================================================================== */
+  --ww-alert-padding: var(--ww-alert-padding);
+  --ww-alert-radius: var(--ww-card-radius);
+  --ww-alert-border: var(--ww-card-border);
+  /* ======================================================================
+     TABLES
+     ====================================================================== */
+  --ww-table-cell-padding-inline: var(--ww-table-cell-padding-x);
+  --ww-table-cell-padding-block: var(--ww-table-cell-padding-y);
+  --ww-table-border: var(--ww-table-border);
+  /* ======================================================================
+     BREADCRUMB
+     ====================================================================== */
+  --ww-breadcrumb-gap: var(--ww-breadcrumb-gap);
+  --ww-breadcrumb-margin-bottom: var(--ww-breadcrumb-margin-bottom);
+  /* ======================================================================
+     CODE
+     ====================================================================== */
+  --ww-code-padding: var(--ww-code-padding);
+  --ww-code-radius: var(--ww-radius-sm);
+  /* ======================================================================
+     TOOLTIP
+     ====================================================================== */
+  --ww-tooltip-radius: var(--ww-tooltip-radius);
+  --ww-tooltip-shadow: var(--ww-tooltip-shadow);
+  /* ======================================================================
+     OFFCANVAS
+     ====================================================================== */
+  --ww-offcanvas-padding: var(--ww-offcanvas-padding);
+  --ww-offcanvas-shadow: var(--ww-modal-shadow);
+  /* ======================================================================
+     HERO
+     ====================================================================== */
+  --ww-hero-padding-top: var(--ww-hero-padding-top);
+  --ww-hero-padding-bottom: var(--ww-hero-padding-bottom);
+  --ww-hero-gap: var(--ww-hero-content-gap);
+  /* ======================================================================
+     FOOTER
+     ====================================================================== */
+  --ww-footer-padding-top: var(--ww-footer-padding-top);
+  --ww-footer-padding-bottom: var(--ww-footer-padding-bottom);
+  --ww-footer-column-gap: var(--ww-footer-column-gap);
 }
 
 :root {
   color-scheme: light;
-  --ww-layout-content-width: 1320px;
+  --ww-layout-content-width: {layout-tokens.$content-width};
 }
 
 html {
@@ -1172,7 +1061,7 @@ body {
   font-size: var(--ww-navigation-font-size);
 }
 
-@media (min-width: 46.875rem) {
+@media (min-width: var(--ww-breakpoint-branding)) {
   .ww-header__branding {
     justify-content: flex-start;
     gap: 2rem;
@@ -1217,195 +1106,113 @@ body {
     width: 6.4rem;
   }
 }
-.ww-footer-main {
-  background-color: var(--ww-green-700);
-  margin-bottom: 0.25rem;
-}
-
 .ww-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  text-align: center;
-  padding-bottom: 1rem;
+  position: relative;
+  background-color: var(--ww-color-surface);
+  color: var(--ww-color-text);
+  padding-block: var(--ww-spacing-lg);
+  border-top: 1px solid var(--ww-border-color);
+  overflow: hidden;
 }
 
+.ww-footer__logo {
+  display: inline-block;
+  margin-bottom: var(ww-spacing-md);
+}
 .ww-footer__logo img {
-  display: block;
-  width: 100%;
-  max-width: 12rem;
+  max-width: 220px;
   height: auto;
 }
 
-.ww-footer__about,
-.ww-footer__project,
-.ww-footer__service {
-  color: var(--ww-color-text-info);
+.ww-footer__claim {
+  margin-bottom: var(--ww-spacing-lg);
+  color: var(--ww-color-text-muted);
+  line-height: 1.7;
 }
 
-.ww-footer h3 {
-  margin: 0 0 0.5rem;
-  color: var(--ww-brass-700);
-  font-size: 1.2rem;
-  font-weight: 600;
+.ww-footer__title {
+  margin-bottom: var(--ww-spacing-md);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.ww-footer p {
-  margin: 0 0 0;
+.ww-footer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-
-.ww-footer a {
-  color: var(--ww-brass-700);
+.ww-footer__list li {
+  margin-bottom: 0.45rem;
+}
+.ww-footer__list a {
+  color: var(--ww-color-text-muted);
   text-decoration: none;
   transition: color 0.2s ease;
 }
-
-.ww-footer a:hover {
-  color: var(--ww-brass-500);
+.ww-footer__list a:hover {
+  color: var(--ww-color-primary);
 }
 
-.ww-icon-contact::before {
-  content: "";
-  display: inline-block;
-  vertical-align: -0.125em;
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
-  background: url("../images/icons/envelope.svg") no-repeat center;
-  background-size: 1rem 1rem;
+.ww-footer__address {
+  font-style: normal;
+  line-height: 1.8;
+}
+.ww-footer__address a {
+  color: var(--ww-color-text-muted);
+  text-decoration: none;
+}
+.ww-footer__address a:hover {
+  color: var(--ww-color-primary);
 }
 
-.ww-icon-impressum::before {
-  content: "";
-  display: inline-block;
-  vertical-align: -0.125em;
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
-  background: url("../images/icons/file-earmark-text.svg") no-repeat center;
-  background-size: 1rem 1rem;
-}
-
-.ww-icon-datenschutz::before {
-  content: "";
-  display: inline-block;
-  vertical-align: -0.125em;
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
-  background: url("../images/icons/shield.svg") no-repeat center;
-  background-size: 1rem 1rem;
-}
-
-.ww-icon-cookierichtlinie::before {
-  content: "";
-  display: inline-block;
-  vertical-align: -0.125em;
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
-  background: url("../images/icons/sliders.svg") no-repeat center;
-  background-size: 1rem 1rem;
-}
-
-.ww-footer ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.ww-footer li + li {
-  margin-top: 0.5rem;
-}
-
-.ww-footer__service ul {
+.ww-footer__social {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  gap: var(--ww-spacing-md);
 }
-
-.ww-footer__service li {
-  margin: 0;
-}
-
-.ww-footer__service a {
-  display: flex;
+.ww-footer__social a {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  min-height: 2.75rem;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--ww-brass-700);
-  border-radius: 0.5rem;
-  background-color: transparent;
-  color: var(--ww-brass-700);
-  text-decoration: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--ww-color-text-muted);
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+.ww-footer__social a:hover {
+  color: var(--ww-color-primary);
+  transform: translateY(-2px);
+}
+.ww-footer__social i {
+  font-size: 1.2rem;
 }
 
-.ww-footer__service a:hover,
-.ww-footer__service a:focus-visible {
-  background-color: var(--ww-brass-700);
-  border-color: var(--ww-brass-700);
-  color: var(--ww-color-background);
+.ww-footer-bottom {
+  margin-top: var(--ww-spacing-2xl);
+  padding-top: var(--ww-spacing-lg);
+  border-top: 1px solid var(--ww-border-color);
+  font-size: 0.875rem;
+  color: var(--ww-color-text-muted);
+}
+.ww-footer-bottom .bi-heart-fill {
+  color: var(--ww-color-primary);
 }
 
-.ww-footer__service .bi {
-  font-size: 1rem;
-}
-
-@media (min-width: 62rem) {
+@media (max-width: 768px) {
   .ww-footer {
-    display: grid;
-    grid-template-columns: 10rem 1fr 1fr auto;
-    align-items: start;
-    gap: 3rem;
-    text-align: left;
+    text-align: center;
   }
-  .ww-footer__logo {
-    justify-self: start;
+  .ww-footer__social {
+    justify-content: center;
   }
-  .ww-footer__about,
-  .ww-footer__project {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    font-size: small;
+  .ww-footer-bottom {
+    text-align: center;
   }
-  .ww-footer__about p,
-  .ww-footer__project p {
-    font-size: 0.9rem;
-  }
-  .ww-footer__service {
-    justify-self: end;
-    margin-top: 0.5rem;
-  }
-}
-@media (min-width: 46.875rem) {
-  .ww-footer {
-    padding: 0;
-  }
-  .ww-footer__service ul {
-    display: block;
-    gap: 0.25rem !important;
-  }
-  .ww-footer__service a {
-    display: inline-flex;
-    justify-content: flex-start;
-    min-height: auto;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-  }
-  .ww-footer__service a:hover,
-  .ww-footer__service a:focus-visible {
-    background: transparent;
-    color: var(--ww-brass-500);
-    text-decoration: underline;
+  .ww-footer-bottom .text-md-end,
+  .ww-footer-bottom .text-center {
+    text-align: center !important;
   }
 }
 .ww-copyright-main {
@@ -1429,7 +1236,7 @@ body {
   display: block;
 }
 
-@media (min-width: 46.875rem) {
+@media (min-width: var(ww-breakpoint-branding)) {
   .ww-copyright {
     text-align: center;
   }

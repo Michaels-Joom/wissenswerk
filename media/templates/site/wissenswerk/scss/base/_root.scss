@@ -24,7 +24,7 @@
 // =============================================================================
 :root {
     color-scheme: light;
-     --ww-layout-content-width: #{layout-tokens.$content-width};
+     --ww-layout-content-width: {layout-tokens.$content-width};
 }
 
 html {

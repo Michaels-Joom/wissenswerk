@@ -43,30 +43,47 @@
 
     // Brand
 
-    --ww-brass-200:      #F2E2B5;
-    --ww-brass-500:      #B8860B;
-    --ww-brass-700:      #8A6508;
+/* ==========================================================================
+   Brand
+   ========================================================================== */
 
-    --ww-green-700:      #1F4B43;
+/* Brass */
+      --ww-brass-100: #F5E8C8;
+      --ww-brass-200: #E8D09A;
+      --ww-brass-300: #D4B56C;
+      --ww-brass-400: #C39B53;
+      --ww-brass-500: #B8860B;
+      --ww-brass-600: #9D7208;
+      --ww-brass-700: #7F5C07;
 
-    // Neutral
+      /* Green */
+      --ww-green-100: #E8F0EC;
+      --ww-green-200: #D3E0DA;
+      --ww-green-300: #AAB8A1;      // Salbei
+      --ww-green-400: #5C7E73;
+      --ww-green-500: #2E6658;
+      --ww-green-700: #1F4B43;
 
-    --ww-bronze-900:     #2C2523;
-    --ww-parchment-100:  #faf4ec;
-    --ww-white:          #FFFFFF;
+      /* Neutral */
+      --ww-cream-50:  #FCFBF8;
+      --ww-cream-100: #F8F6F2;
+      --ww-cream-200: #F6F4EF;
+      --ww-cream-300: #F1ECE3;
 
-    --ww-neutral-300:    #DDD7CC;
-    --ww-neutral-500:    #6F6763;
+      --ww-warmgray-100: #EEE9E2;
+      --ww-warmgray-200: #DDD7CC;
+      --ww-warmgray-300: #CFC7BC;
+      --ww-warmgray-500: #847B74;
 
-    --ww-parchment-50: #F8F7F3;
-    --ww-brass-400: #C39B53;
+      --ww-bronze-900: #2C2523;
+      --ww-white:      #FFFFFF;
 
-    // Status
+   // Status
 
-    --ww-success-500:    #2E7D32;
-    --ww-warning-500:    #ED6C02;
-    --ww-danger-500:     #C62828;
-    --ww-info-500:       #0288D1;
+      --ww-success-500:    #2E7D32;
+      --ww-warning-500:    #ED6C02;
+      --ww-danger-500:     #C62828;
+      --ww-info-500:       #0288D1;
 
 
     // ==========================================================================
@@ -75,53 +92,42 @@
 
     // Brand
 
-    --ww-color-primary:        var(--ww-brass-500);
-    --ww-color-primary-200:    var(--ww-brass-200);
-    --ww-color-primary-dark:   var(--ww-brass-700);
+  /* Brand */
 
-    --ww-color-secondary:      var(--ww-green-700);
+--ww-color-primary:          var(--ww-green-700);
+--ww-color-secondary:        var(--ww-brass-500);
+--ww-color-accent:           var(--ww-green-300);
 
-    // Background
+/* Background */
 
-    --ww-color-background:     var(--ww-parchment-100);
-    --ww-color-surface:        var(--ww-white);
-    --ww-color-surface-alt:    var(--ww-parchment-50);
+--ww-color-background:       var(--ww-cream-200);
+--ww-color-surface:          var(--ww-white);
+--ww-color-surface-alt:      var(--ww-cream-300);
+--ww-color-surface-soft:     var(--ww-green-100);
 
-    // Typography
+/* Text */
 
-    --ww-color-text:           var(--ww-bronze-900);
-    --ww-color-text-info:      var(--ww-parchment-100);
-    --ww-color-heading:        var(--ww-bronze-900);
-    --ww-color-text-muted:     var(--ww-neutral-500);
+--ww-color-heading:          var(--ww-bronze-900);
+--ww-color-text:             var(--ww-bronze-900);
+--ww-color-text-muted:       var(--ww-warmgray-500);
+--ww-color-text-light:       var(--ww-white);
 
-    // Links
+/* Links */
 
-    --ww-color-link:           var(--ww-green-700);
-    --ww-color-link-hover:     var(--ww-brass-500);
+--ww-color-link:             var(--ww-green-700);
+--ww-color-link-hover:       var(--ww-brass-500);
 
-    // Borders
+/* Borders */
 
-    --ww-color-border:         var(--ww-neutral-300);
-    --ww-border-subtle:       rgba(44, 37, 35, 0.08);
-    --ww-border-default:      rgba(44, 37, 35, 0.15);
-    --ww-border-strong:       rgba(44, 37, 35, 0.25);
+--ww-color-border:           var(--ww-warmgray-200);
 
+--ww-border-subtle: rgba(44,37,35,.06);
+--ww-border-default: rgba(44,37,35,.12);
+--ww-border-strong: rgba(44,37,35,.22);
 
-    // Focus
+/* Focus */
 
-    --ww-color-focus:         var(--ww-brass-400);
-
-    // Status
-
-    --ww-color-success:        var(--ww-success-500);
-    --ww-color-warning:        var(--ww-warning-500);
-    --ww-color-danger:         var(--ww-danger-500);
-    --ww-color-info:           var(--ww-info-500);
-
-    // Surface Colors
-
-    --ww-surface: #F6F4EF;
-    --ww-surface-alt: #F1ECE3;
+--ww-color-focus: var(--ww-brass-400);
 
 /* ==========================================================================
    Bootstrap Mapping

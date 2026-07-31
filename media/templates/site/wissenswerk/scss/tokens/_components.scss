@@ -1,15 +1,193 @@
-// =============================================================================
-// Components
-// Buttons
-// =============================================================================
+/*!
+ * ==========================================================================
+ * WissensWerk Design System
+ * Component Tokens v2.0
+ * ==========================================================================
+ *
+ * Semantische Komponenten-Tokens
+ * Baut ausschließlich auf den Basis-Tokens auf.
+ */
 
 :root {
 
+    /* ======================================================================
+       BUTTONS
+       ====================================================================== */
+
     --ww-button-height: 2.75rem;
 
-    --ww-button-padding-block: .75rem;
-    --ww-button-padding-inline: 1rem;
+    --ww-button-padding-inline: var(--ww-button-padding-x);
+    --ww-button-padding-block: var(--ww-button-padding-y);
 
-    --ww-button-gap: .5rem;
+    --ww-button-gap: var(--ww-button-gap);
+
+    --ww-button-radius: var(--ww-button-radius);
+
+    --ww-button-border: var(--ww-button-border);
+
+    --ww-button-shadow: var(--ww-button-shadow);
+    --ww-button-shadow-hover: var(--ww-button-shadow-hover);
+
+
+    /* ======================================================================
+       CARDS
+       ====================================================================== */
+
+    --ww-card-padding: var(--ww-card-padding);
+
+    --ww-card-padding-lg: var(--ww-card-padding-lg);
+
+    --ww-card-gap: var(--ww-card-gap);
+
+    --ww-card-radius: var(--ww-card-radius);
+
+    --ww-card-border: var(--ww-card-border);
+
+    --ww-card-shadow: var(--ww-card-shadow);
+
+    --ww-card-shadow-hover: var(--ww-card-shadow-hover);
+
+
+    /* ======================================================================
+       FORM ELEMENTS
+       ====================================================================== */
+
+    --ww-input-padding-inline: var(--ww-input-padding-x);
+
+    --ww-input-padding-block: var(--ww-input-padding-y);
+
+    --ww-input-radius: var(--ww-input-radius);
+
+    --ww-input-border: var(--ww-input-border);
+
+    --ww-form-gap: var(--ww-form-gap);
+
+    --ww-field-gap: var(--ww-field-gap);
+
+
+    /* ======================================================================
+       NAVIGATION
+       ====================================================================== */
+
+    --ww-navigation-height: var(--ww-header-height);
+
+    --ww-navigation-gap: var(--ww-nav-item-gap);
+
+    --ww-navigation-padding-inline: var(--ww-header-padding-x);
+
+    --ww-navigation-padding-block: var(--ww-header-padding-y);
+
+    --ww-navigation-shadow: var(--ww-navbar-shadow);
+
+
+    /* ======================================================================
+       MODAL
+       ====================================================================== */
+
+    --ww-modal-padding: var(--ww-modal-padding);
+
+    --ww-modal-radius: var(--ww-modal-radius);
+
+    --ww-modal-shadow: var(--ww-modal-shadow);
+
+
+    /* ======================================================================
+       DROPDOWN
+       ====================================================================== */
+
+    --ww-dropdown-radius: var(--ww-dropdown-radius);
+
+    --ww-dropdown-shadow: var(--ww-dropdown-shadow);
+
+
+    /* ======================================================================
+       BADGES
+       ====================================================================== */
+
+    --ww-badge-radius: var(--ww-badge-radius);
+
+    --ww-badge-padding-inline: var(--ww-space-3);
+
+    --ww-badge-padding-block: var(--ww-space-1);
+
+
+    /* ======================================================================
+       ALERTS
+       ====================================================================== */
+
+    --ww-alert-padding: var(--ww-alert-padding);
+
+    --ww-alert-radius: var(--ww-card-radius);
+
+    --ww-alert-border: var(--ww-card-border);
+
+
+    /* ======================================================================
+       TABLES
+       ====================================================================== */
+
+    --ww-table-cell-padding-inline: var(--ww-table-cell-padding-x);
+
+    --ww-table-cell-padding-block: var(--ww-table-cell-padding-y);
+
+    --ww-table-border: var(--ww-table-border);
+
+
+    /* ======================================================================
+       BREADCRUMB
+       ====================================================================== */
+
+    --ww-breadcrumb-gap: var(--ww-breadcrumb-gap);
+
+    --ww-breadcrumb-margin-bottom: var(--ww-breadcrumb-margin-bottom);
+
+
+    /* ======================================================================
+       CODE
+       ====================================================================== */
+
+    --ww-code-padding: var(--ww-code-padding);
+
+    --ww-code-radius: var(--ww-radius-sm);
+
+
+    /* ======================================================================
+       TOOLTIP
+       ====================================================================== */
+
+    --ww-tooltip-radius: var(--ww-tooltip-radius);
+
+    --ww-tooltip-shadow: var(--ww-tooltip-shadow);
+
+
+    /* ======================================================================
+       OFFCANVAS
+       ====================================================================== */
+
+    --ww-offcanvas-padding: var(--ww-offcanvas-padding);
+
+    --ww-offcanvas-shadow: var(--ww-modal-shadow);
+
+
+    /* ======================================================================
+       HERO
+       ====================================================================== */
+
+    --ww-hero-padding-top: var(--ww-hero-padding-top);
+
+    --ww-hero-padding-bottom: var(--ww-hero-padding-bottom);
+
+    --ww-hero-gap: var(--ww-hero-content-gap);
+
+
+    /* ======================================================================
+       FOOTER
+       ====================================================================== */
+
+    --ww-footer-padding-top: var(--ww-footer-padding-top);
+
+    --ww-footer-padding-bottom: var(--ww-footer-padding-bottom);
+
+    --ww-footer-column-gap: var(--ww-footer-column-gap);
 
 }
