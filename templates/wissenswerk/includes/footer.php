@@ -7,134 +7,193 @@
  */
 
 defined('_JEXEC') or die;
+
+// =============================================================================
+// Branding
+// =============================================================================
+
+$baseurl               = $this->baseurl;
+$logoFile              = $this->params->get('logoFile');
+
+$brandingFirst         = $this->params->get('branding_first');
+$brandingSecond        = $this->params->get('branding_second');
+$brandingFooterClaim   = $this->params->get('branding_footer_claim');
+
+$branding = trim($brandingFirst . ' ' . $brandingSecond);
+
 ?>
 
 <footer class="ww-footer">
 
-    <div class="container">
+    <div class="ww-footer__inner">
 
-        <div class="row gy-5">
+        <div class="container">
 
-            <!-- ==========================================================
-                 Branding
-            =========================================================== -->
-            <div class="col-12 col-lg-3">
+            <div class="row gy-5">
 
-                <a class="ww-footer__logo" href="<?php echo $this->baseurl; ?>/">
-                    <img
-                        src="<?php echo $this->baseurl; ?>/media/templates/site/wissenswerk/images/logo.svg"
-                        alt="WissensWerk"
-                        class="img-fluid">
-                </a>
+                <!-- ==========================================================
+                     Branding
+                =========================================================== -->
 
-                <p class="ww-footer__claim">
-                    Wissen schaffen.<br>
-                    Wissen dokumentieren.<br>
-                    Wissen nutzen.
-                </p>
+                <div class="col-12 col-lg-3">
 
-                <div class="ww-footer__social">
+                    <?php if (!empty($logoFile)) : ?>
 
-                    <a href="#" aria-label="GitHub">
-                        <i class="bi bi-github"></i>
-                    </a>
+                        <a class="ww-footer__logo"
+                           href="<?= $baseurl; ?>/">
 
-                    <a href="#" aria-label="LinkedIn">
-                        <i class="bi bi-linkedin"></i>
-                    </a>
+                            <img
+                                src="<?= htmlspecialchars($logoFile); ?>"
+                                alt="<?= htmlspecialchars($branding); ?>"
+                                class="img-fluid">
 
-                    <a href="mailto:info@wissenswerk.de" aria-label="E-Mail">
-                        <i class="bi bi-envelope-fill"></i>
-                    </a>
+                        </a>
+
+                    <?php endif; ?>
+
+
+                    <?php if (!empty($brandingFooterClaim)) : ?>
+
+                        <p class="ww-footer__claim">
+
+                            <?= nl2br(htmlspecialchars($brandingFooterClaim)); ?>
+
+                        </p>
+
+                    <?php endif; ?>
+
+
+                    <div class="ww-footer__social">
+
+                        <a href="#"
+                           aria-label="GitHub">
+
+                            <i class="bi bi-github"></i>
+
+                        </a>
+
+                        <a href="#"
+                           aria-label="LinkedIn">
+
+                            <i class="bi bi-linkedin"></i>
+
+                        </a>
+
+                        <a href="mailto:info@wissenswerk.de"
+                           aria-label="E-Mail">
+
+                            <i class="bi bi-envelope-fill"></i>
+
+                        </a>
+
+                    </div>
 
                 </div>
 
-            </div>
 
-            <!-- ==========================================================
-                 Navigation
-            =========================================================== -->
-            <div class="col-6 col-md-4 col-lg-2">
+                <!-- ==========================================================
+                     Navigation
+                =========================================================== -->
 
-                <h3 class="ww-footer__title">
-                    Navigation
-                </h3>
+                <div class="col-6 col-md-4 col-lg-2">
 
-                <ul class="ww-footer__list">
-                    <li><a href="#">Startseite</a></li>
-                    <li><a href="#">Über uns</a></li>
-                    <li><a href="#">Leistungen</a></li>
-                    <li><a href="#">Projekte</a></li>
-                    <li><a href="#">Wissen</a></li>
-                    <li><a href="#">Kontakt</a></li>
-                </ul>
+                    <h3 class="ww-footer__title">
+                        Navigation
+                    </h3>
 
-            </div>
+                    <ul class="ww-footer__list">
 
-            <!-- ==========================================================
-                 Wissen
-            =========================================================== -->
-            <div class="col-6 col-md-4 col-lg-2">
+                        <li><a href="#">Startseite</a></li>
+                        <li><a href="#">Über uns</a></li>
+                        <li><a href="#">Leistungen</a></li>
+                        <li><a href="#">Projekte</a></li>
+                        <li><a href="#">Wissen</a></li>
+                        <li><a href="#">Kontakt</a></li>
 
-                <h3 class="ww-footer__title">
-                    Wissen
-                </h3>
+                    </ul>
 
-                <ul class="ww-footer__list">
-                    <li><a href="#">Dokumente</a></li>
-                    <li><a href="#">Guides</a></li>
-                    <li><a href="#">Design System</a></li>
-                    <li><a href="#">Entwicklung</a></li>
-                    <li><a href="#">Prozesse</a></li>
-                    <li><a href="#">Ressourcen</a></li>
-                </ul>
+                </div>
 
-            </div>
 
-            <!-- ==========================================================
-                 Rechtliches
-            =========================================================== -->
-            <div class="col-6 col-md-4 col-lg-2">
+                <!-- ==========================================================
+                     Wissen
+                =========================================================== -->
 
-                <h3 class="ww-footer__title">
-                    Rechtliches
-                </h3>
+                <div class="col-6 col-md-4 col-lg-2">
 
-                <ul class="ww-footer__list">
-                    <li><a href="#">Impressum</a></li>
-                    <li><a href="#">Datenschutz</a></li>
-                    <li><a href="#">Nutzungsbedingungen</a></li>
-                </ul>
+                    <h3 class="ww-footer__title">
+                        Wissen
+                    </h3>
 
-            </div>
+                    <ul class="ww-footer__list">
 
-            <!-- ==========================================================
-                 Kontakt
-            =========================================================== -->
-            <div class="col-12 col-lg-3">
+                        <li><a href="#">Dokumente</a></li>
+                        <li><a href="#">Guides</a></li>
+                        <li><a href="#">Design System</a></li>
+                        <li><a href="#">Entwicklung</a></li>
+                        <li><a href="#">Prozesse</a></li>
+                        <li><a href="#">Ressourcen</a></li>
 
-                <h3 class="ww-footer__title">
-                    Kontakt
-                </h3>
+                    </ul>
 
-                <address class="ww-footer__address">
+                </div>
 
-                    Musterstraße 12<br>
-                    59065 Hamm<br><br>
 
-                    Deutschland<br><br>
+                <!-- ==========================================================
+                     Rechtliches
+                =========================================================== -->
 
-                    <a href="mailto:info@wissenswerk.de">
-                        info@wissenswerk.de
-                    </a>
+                <div class="col-6 col-md-4 col-lg-2">
 
-                    <br>
+                    <h3 class="ww-footer__title">
+                        Rechtliches
+                    </h3>
 
-                    <a href="tel:+49234567890">
-                        +49 123 4567890
-                    </a>
+                    <ul class="ww-footer__list">
 
-                </address>
+                        <li><a href="#">Impressum</a></li>
+                        <li><a href="#">Datenschutz</a></li>
+                        <li><a href="#">Nutzungsbedingungen</a></li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- ==========================================================
+                     Kontakt
+                =========================================================== -->
+
+                <div class="col-12 col-lg-3">
+
+                    <h3 class="ww-footer__title">
+                        Kontakt
+                    </h3>
+
+                    <address class="ww-footer__address">
+
+                        Musterstraße 12<br>
+                        59065 Hamm<br><br>
+
+                        Deutschland<br><br>
+
+                        <a href="mailto:info@wissenswerk.de">
+
+                            info@wissenswerk.de
+
+                        </a>
+
+                        <br>
+
+                        <a href="tel:+49234567890">
+
+                            +49 123 4567890
+
+                        </a>
+
+                    </address>
+
+                </div>
 
             </div>
 
@@ -142,9 +201,10 @@ defined('_JEXEC') or die;
 
     </div>
 
+
     <!-- ==============================================================
          Footer Bottom
-    =============================================================== -->
+    ============================================================== -->
 
     <div class="ww-footer-bottom">
 
@@ -153,21 +213,39 @@ defined('_JEXEC') or die;
             <div class="row align-items-center gy-3">
 
                 <div class="col-12 col-md-4">
+
                     <p class="mb-0">
-                        © <?php echo date('Y'); ?> WissensWerk. Alle Rechte vorbehalten.
+
+                        © <?= date('Y'); ?>
+
+                        <?= htmlspecialchars($branding); ?>
+
                     </p>
+
                 </div>
+
 
                 <div class="col-12 col-md-4 text-center">
+
                     <p class="mb-0">
-                        Version 1.0.0
+
+                        WissensWerk · Version 1.0.0
+
                     </p>
+
                 </div>
 
+
                 <div class="col-12 col-md-4 text-md-end">
+
                     <p class="mb-0">
-                        Mit <i class="bi bi-heart-fill"></i> in Hamm entwickelt.
+
+                        Mit
+                        <i class="bi bi-heart-fill"></i>
+                        in Hamm entwickelt.
+
                     </p>
+
                 </div>
 
             </div>

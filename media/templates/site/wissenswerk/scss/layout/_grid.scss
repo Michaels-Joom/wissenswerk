@@ -1,13 +1,43 @@
-/**
- * WissensWerk Template
- * Layout: Grid & Container
- * --------------------------------------------------------------------------
- */
+// =============================================================================
+// WissensWerk Design System
+// Layout Layer
+// Grid
+// =============================================================================
+//
+// File:
+// _grid.scss
+//
+// Purpose:
+// Defines the global container system.
+//
+// Responsibilities:
+// - Content width
+// - Horizontal page spacing
+// - Container alignment
+//
+// Not responsible for:
+// - Bootstrap Grid
+// - Columns
+// - Components
+//
+// Status:
+// ✓ Final
+//
+// =============================================================================
+
+
+// =============================================================================
+// Container
+// =============================================================================
 
 .ww-container {
+
     width: 100%;
+
     max-width: var(--ww-layout-content-width);
 
     margin-inline: auto;
+
     padding-inline: var(--ww-space-4);
+
 }

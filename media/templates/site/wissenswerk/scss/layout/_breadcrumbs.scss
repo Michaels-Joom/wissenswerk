@@ -1,103 +1,137 @@
-/**
- * ------------------------------------------------------------------------
- * WissensWerk Template
- * Component: Breadcrumb
- * ------------------------------------------------------------------------
- * Die Breadcrumb-Komponente dient der Orientierung innerhalb der Website.
- * Sie bildet den visuellen Übergang zwischen Header und Seiteninhalt.
- *
- * Architektur:
- * - Unabhängig von Bootstrap-Komponenten
- * - Eigene BEM-Klassen
- * - Designsystem mit Design Tokens
- * - Spätere Erweiterung um SVG-Pattern vorgesehen
- * ------------------------------------------------------------------------
- */
+// =============================================================================
+// WissensWerk Design System
+// Layout Layer
+// Breadcrumb
+// =============================================================================
+//
+// File:
+// _breadcrumbs.scss
+//
+// Purpose:
+// Defines the layout and appearance of the breadcrumb navigation.
+//
+// Responsibilities:
+// - Breadcrumb layout
+// - Visual hierarchy
+// - Responsive behavior
+//
+// Not responsible for:
+// - Joomla output
+// - Navigation logic
+// - Bootstrap styling
+//
+// Status:
+// ✓ Final
+//
+// =============================================================================
+
+
+// =============================================================================
+// Breadcrumb
+// =============================================================================
 
 .ww-breadcrumb {
+
     position: relative;
 
-    padding-block: 0.75rem;
+    padding-block: var(--ww-space-3);
 
-    background-color: var(--ds-surface);
+    background-color: var(--ww-color-surface);
 
-    border-top: 1px solid var(--ds-border-light);
-    border-bottom: 1px solid var(--ds-border-light);
+    border-block: 1px solid var(--ww-color-border);
 
-    // SVG-Pattern (später aktivieren)
+    // SVG-Pattern (optional)
     // background-image: var(--ww-pattern);
-    // background-repeat: repeat;
-    // background-size: 220px;
+
 }
 
+
 .ww-breadcrumb__list {
+
     display: flex;
+
     flex-wrap: wrap;
+
     align-items: center;
 
+    gap: var(--ww-space-2);
+
     margin: 0;
+
     padding: 0;
 
     list-style: none;
 
-    background: transparent;
 }
 
+
 .ww-breadcrumb__item {
-    display: flex;
+
+    display: inline-flex;
+
     align-items: center;
 
-    margin: 0;
-    padding: 0;
+    color: var(--ww-color-text-muted);
+
+    font-size: var(--ww-font-size-sm);
 
     white-space: nowrap;
 
-    font-size: 0.9rem;
-    font-weight: 400;
-
-    color: var(--ds-text-muted);
 }
+
 
 .ww-breadcrumb__item + .ww-breadcrumb__item::before {
+
     content: "›";
 
-    margin-inline: 0.75rem;
+    margin-inline: var(--ww-space-2);
 
-    color: var(--ds-text-muted);
-    opacity: 0.6;
+    color: var(--ww-color-text-muted);
+
+    opacity: .6;
+
 }
 
+
 .ww-breadcrumb__link {
-    display: inline-flex;
-    align-items: center;
 
     color: inherit;
 
     text-decoration: none;
 
     transition:
-        color 0.25s ease,
-        opacity 0.25s ease;
+        color var(--ww-transition-fast);
+
 }
+
 
 .ww-breadcrumb__link:hover,
-.ww-breadcrumb__link:focus {
-    color: var(--ds-primary);
+.ww-breadcrumb__link:focus-visible {
+
+    color: var(--ww-color-primary);
+
 }
+
 
 .ww-breadcrumb__item--active {
-    color: var(--ds-text);
-    font-weight: 500;
+
+    color: var(--ww-color-text);
+
+    font-weight: var(--ww-font-weight-medium);
+
 }
 
-@media (max-width: 576px) {
+
+// =============================================================================
+// Responsive
+// =============================================================================
+
+@media (max-width: $ww-breakpoint-sm) {
 
     .ww-breadcrumb {
-        padding-block: 0.6rem;
-    }
 
-    .ww-breadcrumb__item {
-        font-size: 0.85rem;
+        padding-block: var(--ww-space-2);
+
     }
 
 }

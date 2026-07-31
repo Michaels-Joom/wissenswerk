@@ -1,6 +1,28 @@
 @use "../tokens/components";
 // =============================================================================
-// Base Button
+// WissensWerk Design System
+// Component Layer
+// Buttons
+// =============================================================================
+//
+// File:
+// _buttons.scss
+//
+// Purpose:
+// Reusable button component.
+//
+// Responsibilities:
+// - Base button
+// - Button variants
+// - States
+//
+// Not responsible for:
+// - Layout
+// - Forms
+//
+// Status:
+// ✓ Final
+//
 // =============================================================================
 
 .ww-button {
@@ -73,18 +95,18 @@
 
 .ww-button--service {
 
-    color: var(--ww-brass-700);
+    color: var(--ww-color-secondary);
 
     background: transparent;
 
-    border-color: var(--ww-brass-700);
+    border-color: var(--ww-color-secondary);
 
 }
 
 .ww-button--service:hover,
 .ww-button--service:focus-visible {
 
-    background: var(--ww-brass-700);
+    background: var(--ww-color-secondary);
 
     color: var(--ww-color-background);
 

@@ -1,41 +1,91 @@
-/**
- * -----------------------------------------------------------------------------
- * Component: Toggle
- * -----------------------------------------------------------------------------
- * Hamburger-Schalter für die mobile Navigation.
- * -----------------------------------------------------------------------------
- */
+// =============================================================================
+// WissensWerk Design System
+// Component Layer
+// Toggle
+// =============================================================================
+//
+// File:
+// _toggle.scss
+//
+// Purpose:
+// Mobile navigation toggle (hamburger button).
+//
+// Responsibilities:
+// - Toggle button
+// - Hamburger icon
+// - Focus state
+//
+// Not responsible for:
+// - Offcanvas
+// - Navigation logic
+//
+// Status:
+// ✓ Final
+//
+// =============================================================================
+
+
+// =============================================================================
+// Toggle Button
+// =============================================================================
 
 .ww-header__toggle {
 
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-block-start: var(--ww-space-5);
+
+    margin-inline-start: var(--ww-space-6);
+
     padding: 0;
+
     background: transparent;
+
     border: 0;
+
     cursor: pointer;
 
-    margin-top: 20px;
-    margin-left: 24px;
-    
+}
+
+
+// =============================================================================
+// Accessibility
+// =============================================================================
+
+.ww-header__toggle:focus-visible {
+
+    outline: 2px solid var(--ww-color-focus);
+
+    outline-offset: 4px;
 
 }
+
+
+// =============================================================================
+// Hamburger
+// =============================================================================
 
 .ww-header__toggle span {
 
     display: block;
 
     width: 1.75rem;
+
     height: 2px;
 
-    margin: .35rem 0;
+    margin-block: .35rem;
 
     border-radius: 999px;
 
     background-color: var(--ww-color-text);
 
     transition:
-        transform .25s ease,
-        opacity .25s ease,
-        background-color .25s ease;
+        transform var(--ww-transition-fast) ease,
+        opacity var(--ww-transition-fast) ease,
+        background-color var(--ww-transition-fast) ease;
 
 }
-

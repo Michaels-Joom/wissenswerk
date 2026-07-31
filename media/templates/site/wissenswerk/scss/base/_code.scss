@@ -1,6 +1,7 @@
 // =============================================================================
-// WissensWerk Template
-// Base - Code
+// WissensWerk Design System
+// Base Layer
+// Code
 // =============================================================================
 //
 // File:
@@ -20,6 +21,9 @@
 // - Code Copy Buttons
 // - Code Components
 //
+// Status:
+// ✓ Final
+//
 // =============================================================================
 
 
@@ -31,8 +35,11 @@ code,
 pre,
 kbd,
 samp {
-    font-family: var(--ww-text-code-font-family);
+
+    font-family: var(--ww-font-family-monospace);
+
     font-variant-ligatures: none;
+
 }
 
 
@@ -41,12 +48,15 @@ samp {
 // =============================================================================
 
 code {
+
     padding-inline: .25em;
 
-    font-size: var(--ww-text-code-font-size);
+    font-size: var(--ww-font-size-sm);
 
     border-radius: var(--ww-radius-sm);
+
     background-color: var(--ww-color-surface-alt);
+
 }
 
 
@@ -55,21 +65,29 @@ code {
 // =============================================================================
 
 pre {
+
     overflow-x: auto;
 
     margin-block: var(--ww-space-5);
+
     padding: var(--ww-space-4);
 
-    font-size: var(--ww-text-code-font-size);
+    font-size: var(--ww-font-size-sm);
+
     line-height: var(--ww-line-height-body);
 
     border-radius: var(--ww-radius-md);
+
     background-color: var(--ww-color-surface-alt);
+
 }
 
 pre code {
+
     padding: 0;
+
     background: none;
+
 }
 
 
@@ -78,15 +96,19 @@ pre code {
 // =============================================================================
 
 kbd {
+
     padding: .15em .45em;
 
-    font-size: var(--ww-text-code-font-size);
+    font-size: var(--ww-font-size-sm);
+
     font-weight: var(--ww-font-weight-medium);
 
     border: 1px solid var(--ww-color-border);
+
     border-radius: var(--ww-radius-sm);
 
     background-color: var(--ww-color-surface);
+
 }
 
 
@@ -95,5 +117,7 @@ kbd {
 // =============================================================================
 
 samp {
-    font-size: var(--ww-text-code-font-size);
+
+    font-size: var(--ww-font-size-sm);
+
 }

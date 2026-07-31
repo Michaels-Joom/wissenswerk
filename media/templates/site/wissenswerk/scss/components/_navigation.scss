@@ -1,71 +1,128 @@
-/**
- * -----------------------------------------------------------------------------
- * Component: Navigation
- * -----------------------------------------------------------------------------
- * Desktop-Hauptnavigation
- *
- * Verantwortlich für:
- * - Horizontale Menüdarstellung
- * - Linkgestaltung
- * - Hover-, Active- und Focus-Zustände
- *
- * Nicht enthalten:
- * - Dropdown-Menüs
- * - Mobile Navigation
- * - Offcanvas
- * -----------------------------------------------------------------------------
- */
+// =============================================================================
+// WissensWerk Design System
+// Component Layer
+// Navigation
+// =============================================================================
+//
+// File:
+// _navigation.scss
+//
+// Purpose:
+// Defines the desktop main navigation component.
+//
+// Responsibilities:
+// - Horizontal navigation layout
+// - Link styling
+// - Hover, active and focus states
+//
+// Not responsible for:
+// - Dropdown menus
+// - Mobile navigation
+// - Offcanvas navigation
+//
+// Status:
+// ✓ Final
+//
+// =============================================================================
+
+
+// =============================================================================
+// Main Navigation
+// =============================================================================
 
 .ww-header__menu {
 
-    margin-top: 1rem;
+    margin-block-start: var(--ww-space-4);
 
-    ul {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 2rem;
+}
 
-        margin: 0;
-        padding: 0;
+.ww-header__menu ul {
 
-        list-style: none;
-    }
+    display: flex;
 
-    li {
-        margin: 0;
-        padding: 0;
-    }
+    align-items: center;
 
-    a {
-        position: relative;
-        display: block;
+    justify-content: flex-start;
 
-        padding: .25rem 0;
+    gap: var(--ww-space-8);
 
-        color: var(--ww-color-text);
-        font-family: var(--ww-font-family-base);
-        font-size: var(--ww-font-size-body);
-        font-weight: 400;
-        line-height: 1.5;
+    margin: 0;
 
-        text-decoration: none;
+    padding: 0;
 
-        transition: color .2s ease;
-    }
+    list-style: none;
 
-    a:hover {
-        color: var(--ww-color-primary);
-    }
+}
 
-    a:focus-visible {
-        outline: 2px solid var(--ww-color-primary);
-        outline-offset: 4px;
-    }
+.ww-header__menu li {
 
-    .active > a,
-    .current > a {
-        color: var(--ww-color-primary);
+    margin: 0;
+
+    padding: 0;
+
+}
+
+.ww-header__menu a {
+
+    position: relative;
+
+    display: block;
+
+    padding-block: var(--ww-space-1);
+
+    color: var(--ww-color-text);
+
+    font-family: var(--ww-font-family-body);
+
+    font-size: var(--ww-font-size-base);
+
+    font-weight: var(--ww-font-weight-regular);
+
+    line-height: var(--ww-line-height-body);
+
+    text-decoration: none;
+
+    transition:
+        color var(--ww-transition-fast) ease;
+
+}
+
+.ww-header__menu a:hover,
+.ww-header__menu a:focus-visible {
+
+    color: var(--ww-color-primary);
+
+}
+
+.ww-header__menu a:focus-visible {
+
+    outline: 2px solid var(--ww-color-focus);
+
+    outline-offset: 4px;
+
+}
+
+.ww-header__menu .active > a,
+.ww-header__menu .current > a,
+.ww-header__menu [aria-current="page"] {
+
+    color: var(--ww-color-primary);
+
+    font-weight: var(--ww-font-weight-medium);
+
+}
+
+
+// =============================================================================
+// Responsive
+// =============================================================================
+
+@media (max-width: $ww-breakpoint-lg) {
+
+    .ww-header__menu {
+
+        display: none;
+
     }
 
 }

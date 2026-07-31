@@ -1,67 +1,87 @@
 // =============================================================================
-// WissensWerk Template
-// Base - Links
+// WissensWerk Design System
+// Base Layer
+// Lists
 // =============================================================================
 //
 // File:
-// _links.scss
+// _lists.scss
 //
 // Purpose:
-// Applies the Design System to native HTML links.
+// Applies the Design System to native HTML list elements.
 //
 // Responsibilities:
-// - Link colors
-// - Link decoration
-// - Link states
-// - Accessibility
+// - Unordered lists
+// - Ordered lists
+// - Definition lists
 //
 // Not responsible for:
 // - Navigation
-// - Buttons
 // - Menus
 // - Components
+//
+// Status:
+// ✓ Final
 //
 // =============================================================================
 
 
 // =============================================================================
-// Links
+// Unordered & Ordered Lists
 // =============================================================================
 
-a {
-    color: var(--ww-color-primary);
-    text-decoration: underline;
-    text-decoration-thickness: 0.08em;
-    text-underline-offset: 0.15em;
+ul,
+ol {
 
-transition:
-    color var(--ww-transition-fast) ease,
-    text-decoration-color var(--ww-transition-fast) ease;
+    margin-block: 0 var(--ww-space-4);
+
+    padding-inline-start: var(--ww-space-6);
+
+}
+
+li {
+
+    margin-block-end: var(--ww-space-2);
+
 }
 
 
 // =============================================================================
-// Link States
+// Nested Lists
 // =============================================================================
 
-a:hover {
-    color: var(--ww-color-primary-dark);
-}
+ul ul,
+ul ol,
+ol ul,
+ol ol {
 
-a:active {
-    color: var(--ww-color-primary-dark);
-}
+    margin-block: var(--ww-space-2) 0;
 
-a:visited {
-    color: var(--ww-color-primary);
 }
 
 
 // =============================================================================
-// Accessibility
+// Definition Lists
 // =============================================================================
 
-a:focus-visible {
-    outline: 2px solid var(--ww-color-primary);
-    outline-offset: 3px;
+dl {
+
+    margin-block: 0 var(--ww-space-4);
+
+}
+
+dt {
+
+    margin-bottom: var(--ww-space-1);
+
+    font-weight: var(--ww-font-weight-semibold);
+
+}
+
+dd {
+
+    margin-inline-start: var(--ww-space-5);
+
+    margin-block-end: var(--ww-space-3);
+
 }

@@ -1,37 +1,46 @@
 {
-  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
-  "name": "template.wissenswerk",
-  "version": "0.1.0",
-  "assets": [
-    {
-      "name": "template.wissenswerk",
-      "type": "style",
-      "uri": "media/templates/site/wissenswerk/css/template.css"
-    },
-    {
-      "name": "bootstrap.css",
-      "type": "style",
-      "uri": "media/templates/site/wissenswerk/css/bootstrap.min.css"
-    },
-    {
-      "name": "vendor.bootstrap",
-      "type": "script",
-      "uri": "media/templates/site/wissenswerk/js/bootstrap.bundle.min.js",
-      "attributes": {
-        "defer": true
-      }
-    },
-    {
-      "name": "template.wissenswerk",
-      "type": "script",
-      "uri": "media/templates/site/wissenswerk/js/template.js",
-      "dependencies": [
-        "core",
-        "vendor.bootstrap"
-      ],
-      "attributes": {
-        "defer": true
-      }
-    }
-  ]
+    "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+    "name": "template.wissenswerk",
+    "version": "0.1.0",
+
+    "assets": [
+
+        {
+            "name": "vendor.bootstrap",
+            "type": "style",
+            "uri": "media/templates/site/wissenswerk/css/bootstrap.css"
+        },
+
+        {
+            "name": "template.wissenswerk",
+            "type": "style",
+            "uri": "media/templates/site/wissenswerk/css/template.css",
+            "dependencies": [
+                "vendor.bootstrap"
+            ]
+        },
+
+        {
+            "name": "vendor.bootstrap",
+            "type": "script",
+            "uri": "media/templates/site/wissenswerk/js/bootstrap.bundle.min.js",
+            "attributes": {
+                "defer": true
+            }
+        },
+
+        {
+            "name": "template.wissenswerk",
+            "type": "script",
+            "uri": "media/templates/site/wissenswerk/js/template.js",
+            "dependencies": [
+                "core",
+                "vendor.bootstrap"
+            ],
+            "attributes": {
+                "defer": true
+            }
+        }
+
+    ]
 }

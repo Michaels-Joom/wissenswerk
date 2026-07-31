@@ -1,10 +1,27 @@
-/**
- * -----------------------------------------------------------------------------
- * Component: Balance
- * -----------------------------------------------------------------------------
- * Visuelles Markenelement von WissensWerk.
- * -----------------------------------------------------------------------------
- */
+// =============================================================================
+// WissensWerk Design System
+// Component Layer
+// Balance
+// =============================================================================
+//
+// File:
+// _balance.scss
+//
+// Purpose:
+// Visual brand element used throughout WissensWerk.
+//
+// Responsibilities:
+// - Decorative balance element
+// - Color accent
+//
+// Not responsible for:
+// - Layout
+// - Branding block
+//
+// Status:
+// ✓ Final
+//
+// =============================================================================
 
 .ww-balance {
 
@@ -44,9 +61,10 @@
     flex: 0 0 .75rem;
 
     width: .75rem;
+
     height: .75rem;
 
-    margin-inline: 1.5rem;
+    margin-inline: var(--ww-space-6);
 
     border-radius: 50%;
 

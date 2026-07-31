@@ -1,10 +1,36 @@
-body {
-    background-color: var(--ww-color-background);
-    color: var(--ww-color-text);
+// =============================================================================
+// WissensWerk Design System
+// Layout Layer
+// Body
+// =============================================================================
+//
+// File:
+// _body.scss
+//
+// Purpose:
+// Defines the global page layout.
+//
+// Responsibilities:
+// - Viewport height
+// - Page layout
+// - Sticky footer foundation
+//
+// Not responsible for:
+// - Typography
+// - Colors
+// - Components
+//
+// Status:
+// ✓ Final
+//
+// =============================================================================
 
-    font-family: var(--ww-font-family-base);
-    font-size: var(--ww-font-size-base);
-    line-height: 1.6;
+body {
 
     min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
 }

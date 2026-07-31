@@ -1,50 +1,73 @@
-@use "../tokens/layout";
-@use "../tokens/_typography.scss";
 // =============================================================================
-// WissensWerk Template
-// Copyright Layout
+// WissensWerk Design System
+// Layout Layer
+// Copyright
 // =============================================================================
+//
+// File:
+// _copyright.scss
+//
+// Purpose:
+// Styles the copyright section below the footer.
+//
+// Responsibilities:
+// - Copyright layout
+// - Copyright typography
+// - Responsive behaviour
+//
+// Not responsible for:
+// - Footer layout
+// - Branding
+//
+// Status:
+// ✓ Final
+//
+// =============================================================================
+
 
 // =============================================================================
 // Copyright
 // =============================================================================
 
 .ww-copyright-main {
+
     background-color: var(--ww-bronze-900);
-    
+
 }
 
 .ww-copyright {
-    text-align: center;
 
-    line-height: 1.5rem;
-    font-size: var(--ww-text-small-font-size);
+    padding-block: var(--ww-space-2);
 
     color: var(--ww-brass-700);
 
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    font-size: var(--ww-font-size-sm);
+
+    line-height: var(--ww-line-height-body);
+
+    text-align: center;
 
 }
 
 .ww-copyright__text {
+
     text-align: center;
+
 }
 
 .ww-copyright__rights {
+
     display: block;
+
 }
 
-@media (min-width: var(ww-breakpoint-branding)) {
 
-    .ww-copyright {
-
-        text-align: center;
-
-    }
+@media (min-width: $ww-breakpoint-md) {
 
     .ww-copyright__rights {
+
         display: inline;
+
     }
 
 }

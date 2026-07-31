@@ -1,173 +1,58 @@
-@use "../tokens/layout" as *;
+/*!
+ * =============================================================================
+ * WissensWerk Design System
+ * Footer v1.0 (Mockup Basis)
+ * =============================================================================
+ */
 
-// =============================================================================
-// Footer
-// =============================================================================
+@use "../tokens" as *;
 
-.ww-footer {
-    position: relative;
-    background-color: var(--ww-color-surface);
-    color: var(--ww-color-text);
-
-    padding-block: var(--ww-spacing-lg);
-
-    border-top: 1px solid var(--ww-border-color);
-
-    overflow: hidden;
+.ww-footer{
+  position:relative;
+  overflow:hidden;
+  background:var(--ww-color-surface);
+  color:var(--ww-color-text);
+  border-top:1px solid var(--ww-border-color);
 }
-
-// =============================================================================
-// Branding
-// =============================================================================
-
-.ww-footer__logo {
-    display: inline-block;
-    margin-bottom: var(ww-spacing-md);
-
-    img {
-        max-width: 220px;
-        height: auto;
+.ww-footer__inner
+    {
+        padding-block:var(--ww-spacing-4xl);
     }
+.ww-footer .row{align-items:flex-start;}
+.ww-footer__logo{display:inline-block;margin-bottom:var(--ww-spacing-xl);}
+.ww-footer__logo img{display:block;max-width:220px;height:auto;}
+.ww-footer__claim{margin:0 0 var(--ww-spacing-2xl);color:var(--ww-color-text-muted);line-height:1.8;}
+.ww-footer__title{margin:0 0 var(--ww-spacing-xl);font-size:.85rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ww-color-text);}
+.ww-footer__list{margin:0;padding:0;list-style:none;}
+.ww-footer__list li{margin-bottom:.9rem;}
+.ww-footer__list a{color:var(--ww-color-text-muted);text-decoration:none;transition:color .2s ease;}
+.ww-footer__list a:hover{color:var(--ww-color-primary);}
+.ww-footer__address{margin:0;font-style:normal;line-height:1.9;color:var(--ww-color-text-muted);}
+.ww-footer__address a{color:inherit;text-decoration:none;}
+.ww-footer__address a:hover{color:var(--ww-color-primary);}
+.ww-footer__social{display:flex;gap:var(--ww-spacing-lg);margin-top:var(--ww-spacing-xl);}
+.ww-footer__social a{display:inline-flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--ww-color-text-muted);text-decoration:none;transition:color .2s ease,transform .2s ease;}
+.ww-footer__social a:hover{color:var(--ww-color-primary);transform:scale(1.08);}
+.ww-footer-bottom{border-top:1px solid var(--ww-border-color);padding-block:var(--ww-spacing-xl);font-size:var(--ww-font-size-sm);color:var(--ww-color-text-muted);}
+.ww-footer-bottom p{margin:0;}
+.ww-footer-bottom .bi-heart-fill{color:var(--ww-color-primary);}
+.ww-footer::after{
+content:"";
+position:absolute;
+right:0;
+bottom:0;
+width:520px;
+height:300px;
+opacity:.12;
+pointer-events:none;
+background-repeat:no-repeat;
+background-position:right bottom;
+background-size:contain;
+/* background-image:url("../images/footer-circuit.svg"); */
 }
-
-.ww-footer__claim {
-    margin-bottom: var(--ww-spacing-lg);
-    color: var(--ww-color-text-muted);
-    line-height: 1.7;
-}
-
-// =============================================================================
-// Überschriften
-// =============================================================================
-
-.ww-footer__title {
-    margin-bottom: var(--ww-spacing-md);
-
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-}
-
-// =============================================================================
-// Listen
-// =============================================================================
-
-.ww-footer__list {
-    list-style: none;
-
-    margin: 0;
-    padding: 0;
-
-    li {
-        margin-bottom: .45rem;
-    }
-
-    a {
-        color: var(--ww-color-text-muted);
-        text-decoration: none;
-        transition: color .2s ease;
-
-        &:hover {
-            color: var(--ww-color-primary);
-        }
-    }
-}
-
-// =============================================================================
-// Kontakt
-// =============================================================================
-
-.ww-footer__address {
-    font-style: normal;
-    line-height: 1.8;
-
-    a {
-        color: var(--ww-color-text-muted);
-        text-decoration: none;
-
-        &:hover {
-            color: var(--ww-color-primary);
-        }
-    }
-}
-
-// =============================================================================
-// Social Icons
-// =============================================================================
-
-.ww-footer__social {
-    display: flex;
-    gap: var(--ww-spacing-md);
-
-    a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-
-        width: 2.25rem;
-        height: 2.25rem;
-
-        color: var(--ww-color-text-muted);
-
-        border-radius: 50%;
-
-        transition: all .2s ease;
-
-        &:hover {
-            color: var(--ww-color-primary);
-            transform: translateY(-2px);
-        }
-    }
-
-    i {
-        font-size: 1.2rem;
-    }
-}
-
-// =============================================================================
-// Bottom Bar
-// =============================================================================
-
-.ww-footer-bottom {
-
-    margin-top: var(--ww-spacing-2xl);
-    padding-top: var(--ww-spacing-lg);
-
-    border-top: 1px solid var(--ww-border-color);
-
-    font-size: .875rem;
-    color: var(--ww-color-text-muted);
-
-    .bi-heart-fill {
-        color: var(--ww-color-primary);
-    }
-}
-
-// =============================================================================
-// Responsive
-// =============================================================================
-
-@media (max-width: $ww-breakpoint-md) {
-
-    .ww-footer {
-
-        text-align: center;
-    }
-
-    .ww-footer__social {
-
-        justify-content: center;
-    }
-
-    .ww-footer-bottom {
-
-        text-align: center;
-
-        .text-md-end,
-        .text-center {
-            text-align: center !important;
-        }
-    }
-
+@media (max-width:$ww-breakpoint-lg){
+.ww-footer{text-align:center;}
+.ww-footer__logo{display:inline-block;}
+.ww-footer__social{justify-content:center;}
+.ww-footer-bottom,.ww-footer-bottom .text-md-end{text-align:center!important;}
 }

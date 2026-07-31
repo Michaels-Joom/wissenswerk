@@ -1,6 +1,7 @@
 // =============================================================================
-// WissensWerk Template
-// Base - Media
+// WissensWerk Design System
+// Base Layer
+// Media
 // =============================================================================
 //
 // File:
@@ -21,6 +22,9 @@
 // - Sliders
 // - Components
 //
+// Status:
+// ✓ Final
+//
 // =============================================================================
 
 
@@ -30,9 +34,13 @@
 
 img,
 picture {
+
     display: block;
+
     max-width: 100%;
+
     height: auto;
+
 }
 
 
@@ -41,10 +49,15 @@ picture {
 // =============================================================================
 
 svg {
+
     display: block;
+
     max-width: 100%;
+
     height: auto;
+
     fill: currentColor;
+
 }
 
 
@@ -53,14 +66,19 @@ svg {
 // =============================================================================
 
 figure {
-    margin: 0 0 var(--ww-space-5);
+
+    margin-block-end: var(--ww-space-5);
+
 }
 
 figcaption {
-    margin-top: var(--ww-space-2);
 
-    font-size: var(--ww-text-small-font-size);
+    margin-block-start: var(--ww-space-2);
+
+    font-size: var(--ww-font-size-sm);
+
     color: var(--ww-color-text-muted);
+
 }
 
 
@@ -70,11 +88,17 @@ figcaption {
 
 video,
 canvas {
+
     display: block;
+
     max-width: 100%;
+
     height: auto;
+
 }
 
 audio {
+
     width: 100%;
+
 }

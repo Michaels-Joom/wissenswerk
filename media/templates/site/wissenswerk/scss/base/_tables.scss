@@ -1,6 +1,7 @@
 // =============================================================================
-// WissensWerk Template
-// Base - Tables
+// WissensWerk Design System
+// Base Layer
+// Tables
 // =============================================================================
 //
 // File:
@@ -21,6 +22,9 @@
 // - Data tables
 // - Components
 //
+// Status:
+// ✓ Final
+//
 // =============================================================================
 
 
@@ -29,13 +33,17 @@
 // =============================================================================
 
 table {
+
     width: 100%;
+
     margin-block: var(--ww-space-5);
 
     border-collapse: collapse;
+
     border-spacing: 0;
 
     text-align: start;
+
 }
 
 
@@ -44,15 +52,19 @@ table {
 // =============================================================================
 
 caption {
+
     margin-bottom: var(--ww-space-2);
 
-    font-size: var(--ww-text-small-font-size);
+    font-size: var(--ww-font-size-sm);
+
     font-weight: var(--ww-font-weight-medium);
 
-    text-align: left;
     color: var(--ww-color-text-muted);
 
+    text-align: left;
+
     caption-side: bottom;
+
 }
 
 
@@ -61,15 +73,21 @@ caption {
 // =============================================================================
 
 thead {
+
     border-bottom: 2px solid var(--ww-color-border);
+
 }
 
 th {
+
     padding: var(--ww-space-3);
 
     font-weight: var(--ww-font-weight-semibold);
+
     text-align: inherit;
+
     vertical-align: middle;
+
 }
 
 
@@ -78,12 +96,17 @@ th {
 // =============================================================================
 
 tbody tr {
+
     border-bottom: 1px solid var(--ww-color-border);
+
 }
 
 td {
+
     padding: var(--ww-space-3);
+
     vertical-align: top;
+
 }
 
 
@@ -92,5 +115,7 @@ td {
 // =============================================================================
 
 tfoot {
+
     border-top: 2px solid var(--ww-color-border);
+
 }

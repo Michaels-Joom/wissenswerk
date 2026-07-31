@@ -1,6 +1,7 @@
 // =============================================================================
-// WissensWerk Template
-// Base - Forms
+// WissensWerk Design System
+// Base Layer
+// Forms
 // =============================================================================
 //
 // File:
@@ -22,6 +23,9 @@
 // - Custom controls
 // - Form layouts
 //
+// Status:
+// ✓ Final
+//
 // =============================================================================
 
 
@@ -30,7 +34,9 @@
 // =============================================================================
 
 form {
+
     margin-block: var(--ww-space-5);
+
 }
 
 
@@ -39,17 +45,27 @@ form {
 // =============================================================================
 
 fieldset {
+
     margin: 0;
+
     padding: 0;
 
-    border: 0;
     min-inline-size: 0;
+
+    border: 0;
+
 }
 
 legend {
-    font-family: var(--ww-text-h5-font-family);
-    font-size: var(--ww-text-h5-font-size);
-    font-weight: var(--ww-text-h5-font-weight);
+
+    font-family: var(--ww-font-family-heading);
+
+    font-size: var(--ww-h5-size);
+
+    font-weight: var(--ww-font-weight-semibold);
+
+    line-height: var(--ww-line-height-heading);
+
 }
 
 
@@ -58,12 +74,15 @@ legend {
 // =============================================================================
 
 label {
+
     display: inline-block;
+
     margin-bottom: var(--ww-space-2);
 
     font-weight: var(--ww-font-weight-medium);
 
     cursor: pointer;
+
 }
 
 
@@ -75,7 +94,9 @@ input,
 select,
 textarea,
 button {
+
     font: inherit;
+
 }
 
 
@@ -86,18 +107,29 @@ button {
 input,
 select,
 textarea {
+
+    box-sizing: border-box;
+
     width: 100%;
+
     max-width: 100%;
 
     padding: var(--ww-space-3);
 
     color: inherit;
+
     background-color: transparent;
 
     border: 1px solid var(--ww-color-border);
+
     border-radius: var(--ww-radius-sm);
 
+    transition:
+        border-color var(--ww-transition-fast),
+        box-shadow var(--ww-transition-fast);
+
     appearance: none;
+
 }
 
 
@@ -106,7 +138,9 @@ textarea {
 // =============================================================================
 
 textarea {
+
     resize: vertical;
+
 }
 
 
@@ -115,7 +149,9 @@ textarea {
 // =============================================================================
 
 select {
+
     cursor: pointer;
+
 }
 
 
@@ -124,9 +160,11 @@ select {
 // =============================================================================
 
 button {
+
     cursor: pointer;
+
 }
-    
+
 
 // =============================================================================
 // Disabled
@@ -136,8 +174,11 @@ input:disabled,
 select:disabled,
 textarea:disabled,
 button:disabled {
+
     cursor: not-allowed;
+
     opacity: .6;
+
 }
 
 
@@ -149,6 +190,9 @@ input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
 button:focus-visible {
+
     outline: 2px solid var(--ww-color-focus);
+
     outline-offset: 2px;
+
 }
