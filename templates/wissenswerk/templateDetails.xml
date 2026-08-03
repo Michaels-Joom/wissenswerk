@@ -78,9 +78,14 @@
 
         <!-- Footer -->
         <position>footer-logo</position>
-        <position>footer-about</position>
-        <position>footer-project</position>
-        <position>footer-service</position>
+        <position>footer-social</position>
+        
+
+        <position>footer-navigation</position>
+		<position>footer-knowledge</position>
+		<position>footer-legal</position>
+        <position>footer-contact</position>
+        
 
         <!-- Copyright -->
         <position>copyright</position>
@@ -152,6 +157,38 @@
                     description="TPL_WISSENSWERK_SITE_BRANDING_SLOGAN_DESC"
                     filter="string"
                     default=""
+                />
+
+            </fieldset>
+
+            <fieldset name="footer" label="TPL_WISSENSWERK_FIELDSET_FOOTER">
+
+                <field
+                    name="branding_footer_slogan"
+                    type="textarea"
+                    label="TPL_WISSENSWERK_FOOTER_SLOGAN_LABEL"
+                    description="TPL_WISSENSWERK_FOOTER_SLOGAN_DESC"
+                    filter="raw"
+                    rows="5"
+                    default=""
+                />
+
+                <field
+                    name="footer_version"
+                    type="text"
+                    label="TPL_WISSENSWERK_FOOTER_VERSION_LABEL"
+                    description="TPL_WISSENSWERK_FOOTER_VERSION_DESC"
+                    filter="string"
+                    default="1.0.0"
+                />
+
+                <field
+                    name="footer_developed"
+                    type="text"
+                    label="TPL_WISSENSWERK_FOOTER_DEVELOPED_LABEL"
+                    description="TPL_WISSENSWERK_FOOTER_DEVELOPED_DESC"
+                    filter="string"
+                    default="Mit ❤ in Hamm entwickelt."
                 />
 
             </fieldset>

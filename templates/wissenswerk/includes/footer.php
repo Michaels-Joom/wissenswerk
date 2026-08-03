@@ -12,246 +12,188 @@ defined('_JEXEC') or die;
 // Branding
 // =============================================================================
 
-$baseurl               = $this->baseurl;
-$logoFile              = $this->params->get('logoFile');
+$baseurl = $this->baseurl;
+$logoFile = $this->params->get('logoFile');
 
-$brandingFirst         = $this->params->get('branding_first');
-$brandingSecond        = $this->params->get('branding_second');
-$brandingFooterClaim   = $this->params->get('branding_footer_claim');
+$brandingFirst  = $this->params->get('branding_first');
+$brandingSecond = $this->params->get('branding_second');
+
+$footerSlogan    = $this->params->get('branding_footer_slogan');
+$footerVersion   = $this->params->get('footer_version');
+
+$footerDeveloped = $this->params->get('footer_developed');
+$footerDevelopedParts = explode('Herz', $footerDeveloped, 2);
 
 $branding = trim($brandingFirst . ' ' . $brandingSecond);
 
 ?>
 
-<footer class="ww-footer">
-
-    <div class="ww-footer__inner">
-
-        <div class="container">
-
+<footer class="ww-footer" role="contentinfo">
+    <div class="ww-container">
+        <div class="ww-footer__inner">
             <div class="row gy-5">
 
                 <!-- ==========================================================
                      Branding
                 =========================================================== -->
+                <div class="col-12 col-lg-4">
+                    <section class="ww-footer__branding">
+                        <div class="ww-footer__brand">
+                            <?php if (!empty($logoFile)) : ?>
 
-                <div class="col-12 col-lg-3">
+                                <a
+                                    class="ww-footer__logo"
+                                    href="<?= htmlspecialchars($baseurl, ENT_QUOTES, 'UTF-8'); ?>">
 
-                    <?php if (!empty($logoFile)) : ?>
+                                    <img
+                                        src="<?= htmlspecialchars($logoFile, ENT_QUOTES, 'UTF-8'); ?>"
+                                        alt="<?= htmlspecialchars($branding, ENT_QUOTES, 'UTF-8'); ?>">
 
-                        <a class="ww-footer__logo"
-                           href="<?= $baseurl; ?>/">
+                                </a>
 
-                            <img
-                                src="<?= htmlspecialchars($logoFile); ?>"
-                                alt="<?= htmlspecialchars($branding); ?>"
-                                class="img-fluid">
+                            <?php endif; ?>
 
-                        </a>
-
-                    <?php endif; ?>
-
-
-                    <?php if (!empty($brandingFooterClaim)) : ?>
-
-                        <p class="ww-footer__claim">
-
-                            <?= nl2br(htmlspecialchars($brandingFooterClaim)); ?>
-
-                        </p>
-
-                    <?php endif; ?>
+                            <div class="ww-footer__brand-title">
+                                <?php if (!empty($brandingFirst)) : ?>
+                                    <span class="ww-footer__brand-first">
+                                        <?= htmlspecialchars($brandingFirst); ?>
+                                    </span>
+                                <?php endif; ?>
 
 
-                    <div class="ww-footer__social">
+                                <?php if (!empty($brandingSecond)) : ?>
+                                    <span class="ww-footer__brand-second">
+                                        <?= htmlspecialchars($brandingSecond); ?>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                        </div>
 
-                        <a href="#"
-                           aria-label="GitHub">
 
-                            <i class="bi bi-github"></i>
+                        <?php if (!empty($footerSlogan)) : ?>
+                            <p class="ww-footer__claim">
+                                <?= nl2br(htmlspecialchars($footerSlogan)); ?>
+                            </p>
+                        <?php endif; ?>
 
-                        </a>
 
-                        <a href="#"
-                           aria-label="LinkedIn">
-
-                            <i class="bi bi-linkedin"></i>
-
-                        </a>
-
-                        <a href="mailto:info@wissenswerk.de"
-                           aria-label="E-Mail">
-
-                            <i class="bi bi-envelope-fill"></i>
-
-                        </a>
-
-                    </div>
-
+                        <div class="ww-footer__social">
+                            <jdoc:include
+                                type="modules"
+                                name="footer-social"
+                                style="none" />
+                        </div>
+                    </section>
                 </div>
-
 
                 <!-- ==========================================================
                      Navigation
                 =========================================================== -->
 
-                <div class="col-6 col-md-4 col-lg-2">
-
-                    <h3 class="ww-footer__title">
-                        Navigation
-                    </h3>
-
-                    <ul class="ww-footer__list">
-
-                        <li><a href="#">Startseite</a></li>
-                        <li><a href="#">Über uns</a></li>
-                        <li><a href="#">Leistungen</a></li>
-                        <li><a href="#">Projekte</a></li>
-                        <li><a href="#">Wissen</a></li>
-                        <li><a href="#">Kontakt</a></li>
-
-                    </ul>
-
+                <div class="col-6 col-lg-2">
+                    <section class="ww-footer__section">
+                        <h2 class="ww-footer__title">
+                            Navigation
+                        </h2>
+                        <jdoc:include type="modules" name="footer-navigation" style="none" />
+                    </section>
                 </div>
-
 
                 <!-- ==========================================================
                      Wissen
                 =========================================================== -->
 
-                <div class="col-6 col-md-4 col-lg-2">
-
-                    <h3 class="ww-footer__title">
-                        Wissen
-                    </h3>
-
-                    <ul class="ww-footer__list">
-
-                        <li><a href="#">Dokumente</a></li>
-                        <li><a href="#">Guides</a></li>
-                        <li><a href="#">Design System</a></li>
-                        <li><a href="#">Entwicklung</a></li>
-                        <li><a href="#">Prozesse</a></li>
-                        <li><a href="#">Ressourcen</a></li>
-
-                    </ul>
-
+                <div class="col-6 col-lg-2">
+                    <section class="ww-footer__section">
+                        <h2 class="ww-footer__title">
+                            Wissen
+                        </h2>
+                        <jdoc:include type="modules" name="footer-knowledge" style="none" />
+                    </section>
                 </div>
-
-
-                <!-- ==========================================================
+		  <!-- ==========================================================
                      Rechtliches
                 =========================================================== -->
 
-                <div class="col-6 col-md-4 col-lg-2">
-
-                    <h3 class="ww-footer__title">
-                        Rechtliches
-                    </h3>
-
-                    <ul class="ww-footer__list">
-
-                        <li><a href="#">Impressum</a></li>
-                        <li><a href="#">Datenschutz</a></li>
-                        <li><a href="#">Nutzungsbedingungen</a></li>
-
-                    </ul>
-
+                <div class="col-6 col-lg-2">
+                    <section class="ww-footer__section">
+                        <h2 class="ww-footer__title">
+                            Rechtliches
+                        </h2>
+                        <jdoc:include type="modules" name="footer-legal" style="none" />
+                    </section>
                 </div>
-
 
                 <!-- ==========================================================
                      Kontakt
                 =========================================================== -->
 
-                <div class="col-12 col-lg-3">
+                <div class="col-6 col-lg-2">
+                    <section class="ww-footer__section">
+                        <h2 class="ww-footer__title">
+                            Kontakt
+                        </h2>
 
-                    <h3 class="ww-footer__title">
-                        Kontakt
-                    </h3>
-
-                    <address class="ww-footer__address">
-
-                        Musterstraße 12<br>
-                        59065 Hamm<br><br>
-
-                        Deutschland<br><br>
-
-                        <a href="mailto:info@wissenswerk.de">
-
-                            info@wissenswerk.de
-
-                        </a>
-
-                        <br>
-
-                        <a href="tel:+49234567890">
-
-                            +49 123 4567890
-
-                        </a>
-
-                    </address>
-
+                        <address class="ww-footer__address">
+                            <jdoc:include type="modules" name="footer-contact" style="none" />
+                        </address>
+                    </section>
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 
     <!-- ==============================================================
          Footer Bottom
     ============================================================== -->
 
-    <div class="ww-footer-bottom">
+    <div class="ww-footer__bottom">
+        <div class="ww-container">
+            <div class="row align-items-center">
 
-        <div class="container">
+                <!-- ======================================================
+                     Copyright
+                ======================================================= -->
 
-            <div class="row align-items-center gy-3">
-
-                <div class="col-12 col-md-4">
-
-                    <p class="mb-0">
-
-                        © <?= date('Y'); ?>
-
-                        <?= htmlspecialchars($branding); ?>
-
+                <div class="col-12 col-lg-4">
+                    <p class="ww-footer__copyright">
+                        &copy; <?= date('Y'); ?>
+                        <?= htmlspecialchars($branding, ENT_QUOTES, 'UTF-8'); ?>.
+                        Alle Rechte vorbehalten.
                     </p>
-
                 </div>
 
+                <!-- ======================================================
+                     Version
+                ======================================================= -->
 
-                <div class="col-12 col-md-4 text-center">
-
-                    <p class="mb-0">
-
-                        WissensWerk · Version 1.0.0
-
-                    </p>
-
+                <div class="col-12 col-lg-4 text-center">
+                    <?php if (!empty($footerVersion)) : ?>
+                        <p class="ww-footer__version">
+                            Version
+                            <?= htmlspecialchars($footerVersion, ENT_QUOTES, 'UTF-8'); ?>
+                        </p>
+                    <?php endif; ?>
                 </div>
 
+                <!-- ======================================================
+                     Developed
+                ======================================================= -->
 
-                <div class="col-12 col-md-4 text-md-end">
+                <div class="col-12 col-lg-4 text-lg-end">
+                    <?php if (!empty($footerDeveloped)) : ?>
 
-                    <p class="mb-0">
+                        <p class="ww-footer__developed">
 
-                        Mit
-                        <i class="bi bi-heart-fill"></i>
-                        in Hamm entwickelt.
+                            <?= htmlspecialchars($footerDevelopedParts[0], ENT_QUOTES, 'UTF-8'); ?>
+                            <i class="bi bi-heart-fill ww-footer__heart" aria-hidden="true"></i>
+                            <?= htmlspecialchars($footerDevelopedParts[1], ENT_QUOTES, 'UTF-8'); ?>
 
-                    </p>
+                        </p>
 
+                    <?php endif; ?>
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </footer>

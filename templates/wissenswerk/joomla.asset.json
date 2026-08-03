@@ -10,7 +10,11 @@
             "type": "style",
             "uri": "media/templates/site/wissenswerk/css/bootstrap.css"
         },
-
+                {
+            "name": "bootstrap-icons",
+            "type": "style",
+            "uri": "media/templates/site/wissenswerk/vendor/bootstrap-icons/bootstrap-icons.css"
+        },
         {
             "name": "template.wissenswerk",
             "type": "style",
@@ -19,7 +23,6 @@
                 "vendor.bootstrap"
             ]
         },
-
         {
             "name": "vendor.bootstrap",
             "type": "script",

@@ -20,6 +20,7 @@ $wa  = $this->getWebAssetManager();
 // Web Assets
 // =============================================================================
 
+$wa->useStyle('bootstrap-icons');
 $wa->useStyle('template.wissenswerk');
 $wa->useScript('template.wissenswerk');
 
