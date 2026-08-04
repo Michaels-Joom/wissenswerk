@@ -7,77 +7,116 @@
 }
 
 // =============================================================================
-// Hero Inner
+// Hero Illustration Layer
 // =============================================================================
 
-.ww-hero__inner {
+.ww-hero__illustration {
     position: relative;
     overflow: hidden;
-
-    min-height: 300px;
+    min-height: 340px;
 }
+
+
 // =============================================================================
-// Hero Background Graphic
+// Hero Background (Leiterbahnen)
 // =============================================================================
 
-.ww-hero__inner::before {
+
+.page-home .ww-hero__illustration::before {
 
     content: "";
-
     position: absolute;
     inset: 0;
-
-    background-image: url("/media/templates/site/wissenswerk/images/grafik/grafik_leiterbahn_001.png");
+    background-image: url("../images/grafik/grafik_leiterbahn_001.png");
     background-repeat: no-repeat;
     background-position: right center;
-    background-size: 34% auto;      
-    margin-right: 5rem;
-
+    background-size: 36% auto;
+    margin-right: 6rem;
     opacity: .48;
-
     pointer-events: none;
-
-    z-index: 0;
+    z-index: 1;
 }
 
+.page-leistungen .ww-hero__illustration::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/grafik/grafik_leiterbahn_001.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 36% auto;
+    margin-right: 6rem;
+    opacity: .48;
+    pointer-events: none;
+    z-index: 1;
+}
 
 // =============================================================================
-// Hero Graphic Polygon
+// Hero Polygon
 // =============================================================================
 
-.ww-hero__inner::after {
+.ww-hero__illustration::after {
 
     content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 58%;
+    height: 40%;
+    background: var(--ww-color-surface-salbei);
+    clip-path: polygon(
+        8% 100%,
+        100% 100%,
+        100% 25%
+    );
+
+    z-index: 2;
+}
+
+// =============================================================================
+// Hero Book
+// =============================================================================
+
+.ww-hero__book {
 
     position: absolute;
 
-    right: 0;
-    bottom: 0;
+    right: 30%;
+    bottom: 25%;
 
-    width: 58%;
-    height: 42%;
+    width: 320px;
+    height: 260px;
 
-    background: var(--ww-color-surface-salbei);
+    background-image: url("../images/grafik/template-entwicklung.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
 
-    clip-path: polygon(
-        10% 100%,
-        100% 100%,
-        100% 20%
-    );
+    z-index: 3;
 
-    z-index: 1;
+    pointer-events: none;
 }
+
 
 // =============================================================================
 // Hero Content
 // =============================================================================
 
-.ww-hero__content {
-    position: relative;
-    z-index: 2;
+.ww-hero__inner {
 
-    max-width: 50%;
+    position: relative;
+
+    z-index: 3;
+
+    max-width: 52%;
+
+    padding-block: var(--ww-space-7);
 }
+
+
+// =============================================================================
+// Typography
+// =============================================================================
 
 .ww-hero__title {
     margin-bottom: var(--ww-space-4);

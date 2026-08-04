@@ -1075,42 +1075,71 @@ body {
   padding-block: var(--ww-space-6);
 }
 
-.ww-hero__inner {
+.ww-hero__illustration {
   position: relative;
   overflow: hidden;
-  min-height: 300px;
+  min-height: 340px;
 }
 
-.ww-hero__inner::before {
+.page-home .ww-hero__illustration::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/media/templates/site/wissenswerk/images/grafik/grafik_leiterbahn_001.png");
+  background-image: url("../images/grafik/grafik_leiterbahn_001.png");
   background-repeat: no-repeat;
   background-position: right center;
-  background-size: 34% auto;
-  margin-right: 5rem;
+  background-size: 36% auto;
+  margin-right: 6rem;
   opacity: 0.48;
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
 
-.ww-hero__inner::after {
+.page-leistungen .ww-hero__illustration::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/grafik/grafik_leiterbahn_001.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 36% auto;
+  margin-right: 6rem;
+  opacity: 0.48;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ww-hero__illustration::after {
   content: "";
   position: absolute;
   right: 0;
   bottom: 0;
   width: 58%;
-  height: 42%;
+  height: 40%;
   background: var(--ww-color-surface-salbei);
-  clip-path: polygon(10% 100%, 100% 100%, 100% 20%);
-  z-index: 1;
+  clip-path: polygon(8% 100%, 100% 100%, 100% 25%);
+  z-index: 2;
 }
 
-.ww-hero__content {
+.ww-hero__book {
+  position: absolute;
+  right: 30%;
+  bottom: 25%;
+  width: 320px;
+  height: 260px;
+  background-image: url("../images/grafik/template-entwicklung.png");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.ww-hero__inner {
   position: relative;
-  z-index: 2;
-  max-width: 50%;
+  z-index: 3;
+  max-width: 52%;
+  padding-block: var(--ww-space-7);
 }
 
 .ww-hero__title {

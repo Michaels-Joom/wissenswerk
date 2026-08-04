@@ -15,6 +15,7 @@ use Joomla\CMS\Factory;
 
 $app = Factory::getApplication();
 $wa  = $this->getWebAssetManager();
+$app  = Factory::getApplication();
 
 // =============================================================================
 // Web Assets
@@ -41,6 +42,10 @@ $branding_second = $this->params->get('branding_second');
 $branding_slogan = $this->params->get('branding_slogan');
 
 $branding = trim($branding_first . ' ' . $branding_second);
+
+$menu = $app->getMenu();
+$active = $menu->getActive();
+
 
 // =============================================================================
 // Modulpositionen
@@ -94,7 +99,7 @@ if ($showSidebarLeft && $showSidebarRight) {
 
 </head>
 
-<body>
+<body class="page-<?= $active->alias; ?>">>
     
     <!-- ==============================================================
          Header
@@ -119,8 +124,13 @@ if ($showSidebarLeft && $showSidebarRight) {
     <?php if ($showHero) : ?>
         <section class="ww-hero">
             <div class="ww-container">
-                 <div class="ww-hero__inner">
-                    <jdoc:include type="modules" name="hero" style="xhtml"/>
+                <div class="ww-hero__illustration">  
+
+                    <div class="ww-hero__book"></div>
+                     
+                    <div class="ww-hero__inner">
+                        <jdoc:include type="modules" name="hero" style="xhtml"/>
+                    </div>
                 </div>
             </div>
         </section>
