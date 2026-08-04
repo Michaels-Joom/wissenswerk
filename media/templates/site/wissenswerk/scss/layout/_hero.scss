@@ -1,0 +1,92 @@
+// =============================================================================
+// Hero
+// =============================================================================
+
+.ww-hero {
+    padding-block: var(--ww-space-6);
+}
+
+// =============================================================================
+// Hero Inner
+// =============================================================================
+
+.ww-hero__inner {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 300px;
+}
+// =============================================================================
+// Hero Background Graphic
+// =============================================================================
+
+.ww-hero__inner::before {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image: url("/media/templates/site/wissenswerk/images/grafik/grafik_leiterbahn_001.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 34% auto;      
+    margin-right: 5rem;
+
+    opacity: .48;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+// =============================================================================
+// Hero Graphic Polygon
+// =============================================================================
+
+.ww-hero__inner::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+
+    width: 58%;
+    height: 42%;
+
+    background: var(--ww-color-surface-salbei);
+
+    clip-path: polygon(
+        10% 100%,
+        100% 100%,
+        100% 20%
+    );
+
+    z-index: 1;
+}
+
+// =============================================================================
+// Hero Content
+// =============================================================================
+
+.ww-hero__content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 50%;
+}
+
+.ww-hero__title {
+    margin-bottom: var(--ww-space-4);
+}
+
+.ww-hero__subtitle {
+    margin-bottom: var(--ww-space-4);
+}
+
+.ww-hero__text {
+    max-width: 42rem;
+}

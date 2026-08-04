@@ -118,8 +118,10 @@ if ($showSidebarLeft && $showSidebarRight) {
     ============================================================== -->
     <?php if ($showHero) : ?>
         <section class="ww-hero">
-            <div class="ww-ww-container">
-                <jdoc:include type="modules" name="hero" />
+            <div class="ww-container">
+                 <div class="ww-hero__inner">
+                    <jdoc:include type="modules" name="hero" style="xhtml"/>
+                </div>
             </div>
         </section>
     <?php endif; ?>
