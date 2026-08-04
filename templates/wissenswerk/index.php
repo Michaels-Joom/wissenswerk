@@ -102,35 +102,47 @@ if ($showSidebarLeft && $showSidebarRight) {
 
     <?php require __DIR__ . '/includes/header.php'; ?>
     
-
-
     <!-- ==============================================================
-         Banner
+         Breadcrumbs
     ============================================================== -->
-
-    <?php if ($showBanner) : ?>
-
-        <section class="ww-banner">
-            <div class="container">
-                <jdoc:include type="modules" name="banner" />
+    <?php if ($showBreadcrumbs) : ?>
+        <section class="ww-breadcrumbs">
+            <div class="ww-container">
+                <jdoc:include type="modules" name="breadcrumbs" style="none" />
             </div>
         </section>
-
     <?php endif; ?>
-
 
     <!-- ==============================================================
          Hero
     ============================================================== -->
-
     <?php if ($showHero) : ?>
-
         <section class="ww-hero">
-            <div class="container">
+            <div class="ww-ww-container">
                 <jdoc:include type="modules" name="hero" />
             </div>
         </section>
+    <?php endif; ?>
 
+     <!-- ==============================================================
+         Untermenu
+    ============================================================== -->   
+
+
+
+
+
+
+    <!-- ==============================================================
+         Banner ??
+    ============================================================== -->
+
+    <?php if ($showBanner) : ?>
+        <section class="ww-banner">
+            <div class="ww-container">
+                <jdoc:include type="modules" name="banner" />
+            </div>
+        </section>
     <?php endif; ?>
 
 
@@ -141,7 +153,7 @@ if ($showSidebarLeft && $showSidebarRight) {
     <?php if ($showTopA) : ?>
 
         <section class="ww-top-a">
-            <div class="container">
+            <div class="ww-container">
                 <jdoc:include type="modules" name="top-a" />
             </div>
         </section>
@@ -152,38 +164,15 @@ if ($showSidebarLeft && $showSidebarRight) {
     <!-- ==============================================================
          Top B
     ============================================================== -->
-
     <?php if ($showTopB) : ?>
-
         <section class="ww-top-b">
-            <div class="container">
+            <div class="ww-container">
                 <jdoc:include type="modules" name="top-b" />
             </div>
         </section>
-
     <?php endif; ?>
 
 
-    <!-- ==============================================================
-         Breadcrumbs
-    ============================================================== -->
-
-    <?php if ($showBreadcrumbs) : ?>
-
-        <nav class="ww-breadcrumbs" aria-label="Breadcrumb">
-
-            <div class="container">
-
-                <jdoc:include
-                    type="modules"
-                    name="breadcrumbs"
-                    style="none" />
-
-            </div>
-
-        </nav>
-
-    <?php endif; ?>
 
 
     <!-- ==============================================================
@@ -191,135 +180,72 @@ if ($showSidebarLeft && $showSidebarRight) {
     ============================================================== -->
 
     <?php if ($showMainTop) : ?>
-
         <section class="ww-main-top">
-
-            <div class="container">
-
+            <div class="ww-container">
                 <jdoc:include
                     type="modules"
                     name="main-top" />
-
             </div>
-
         </section>
-
     <?php endif; ?>
-
 
     <!-- ==============================================================
          Main Content
     ============================================================== -->
 
     <main class="ww-main">
-
-        <div class="container">
-
+        <div class="ww-container">
             <div class="row g-5">
-
                 <?php if ($showSidebarLeft) : ?>
-
                     <aside class="col-12 col-lg-3">
-
-                        <jdoc:include
-                            type="modules"
-                            name="sidebar-left"
-                            style="html5" />
-
+                        <jdoc:include type="modules" name="sidebar-left" style="html5" />
                     </aside>
-
                 <?php endif; ?>
-
 
                 <section class="<?= $contentClass; ?>">
-
                     <jdoc:include type="component" />
-
                 </section>
 
-
                 <?php if ($showSidebarRight) : ?>
-
                     <aside class="col-12 col-lg-3">
-
-                        <jdoc:include
-                            type="modules"
-                            name="sidebar-right"
-                            style="html5" />
-
+                        <jdoc:include type="modules" name="sidebar-right" style="html5" />
                     </aside>
-
                 <?php endif; ?>
-
             </div>
-
         </div>
-
     </main>
-
 
     <!-- ==============================================================
          Main Bottom
     ============================================================== -->
-
     <?php if ($showMainBottom) : ?>
-
         <section class="ww-main-bottom">
-
-            <div class="container">
-
-                <jdoc:include
-                    type="modules"
-                    name="main-bottom" />
-
+            <div class="ww-container">
+                <jdoc:include type="modules" name="main-bottom" />
             </div>
-
         </section>
-
     <?php endif; ?>
-
 
     <!-- ==============================================================
          Bottom A
     ============================================================== -->
-
     <?php if ($showBottomA) : ?>
-
         <section class="ww-bottom-a">
-
-            <div class="container">
-
-                <jdoc:include
-                    type="modules"
-                    name="bottom-a" />
-
+            <div class="ww-container">
+                <jdoc:include type="modules" name="bottom-a" />
             </div>
-
         </section>
-
     <?php endif; ?>
-
 
     <!-- ==============================================================
          Bottom B
     ============================================================== -->
-
     <?php if ($showBottomB) : ?>
-
         <section class="ww-bottom-b">
-
-            <div class="container">
-
-                <jdoc:include
-                    type="modules"
-                    name="bottom-b" />
-
-            </div>
-
+            <div class="ww-container">
+                <jdoc:include type="modules" name="bottom-b" /> </div>
         </section>
-
     <?php endif; ?>
-
 
     <!-- ==============================================================
          Footer
@@ -327,28 +253,16 @@ if ($showSidebarLeft && $showSidebarRight) {
 
     <?php require __DIR__ . '/includes/footer.php'; ?>
 
-
     <!-- ==============================================================
          Debug
     ============================================================== -->
 
     <?php if ($showDebug) : ?>
-
         <div class="ww-debug">
-
-            <div class="container">
-
-                <jdoc:include
-                    type="modules"
-                    name="debug"
-                    style="none" />
-
+            <div class="ww-container">
+                <jdoc:include type="modules" name="debug" style="none" />
             </div>
-
         </div>
-
     <?php endif; ?>
-
 </body>
-
 </html>
