@@ -88,7 +88,6 @@ if ($showSidebarLeft && $showSidebarRight) {
 <html lang="<?= $this->language; ?>" dir="<?= $this->direction; ?>">
 
 <head>
-
     <jdoc:include type="metas" />
     <jdoc:include type="styles" />
     <jdoc:include type="scripts" />
@@ -96,9 +95,12 @@ if ($showSidebarLeft && $showSidebarRight) {
 </head>
 
 <body>
-
     
+    <!-- ==============================================================
+         Header
+    ============================================================== -->
 
+    <?php require __DIR__ . '/includes/header.php'; ?>
     
 
 

@@ -1,0 +1,86 @@
+// =============================================================================
+// WissensWerk Design System
+// Component Layer
+// Branding
+// =============================================================================
+//
+// File:
+// _branding.scss
+//
+// Purpose:
+// Defines the reusable WissensWerk branding component.
+//
+// Responsibilities:
+// - Brand typography
+// - Brand colors
+// - Wordmark layout
+//
+// Not responsible for:
+// - Header layout
+// - Logo images
+//
+// Status:
+// ✓ Final
+//
+// =============================================================================
+
+// =============================================================================
+// Brand
+// =============================================================================
+
+.ww-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--ww-space-5);
+}
+
+.ww-brand__logo {
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.ww-brand__logo img {
+    display: block;
+    width: 60px;
+    height: auto;
+}
+
+.ww-brand__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    line-height: 1.15;
+}
+
+.ww-brand__first,
+.ww-brand__second {
+    font-size: large;
+    letter-spacing: 0.2rem;
+    font-size: 1.55rem;
+    font-weight: 500;
+    letter-spacing: 0.18rem;
+    text-transform: uppercase;
+}
+
+.ww-brand__first {
+    color: var(--ww-color-text);
+}
+
+.ww-brand__second {
+    color: var(--ww-color-secondary);
+}
+
+.ww-brand__link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    text-decoration: none;
+    color: inherit;
+}
+
+.ww-brand__link:hover,
+.ww-brand__link:focus-visible {
+    text-decoration: none;
+    color: inherit;
+}

@@ -1,3 +1,5 @@
+@use "../tokens" as *;
+
 // =============================================================================
 // WissensWerk Design System
 // Layout Layer
@@ -24,3 +26,59 @@
 // ✓ Final
 //
 // =============================================================================
+
+/* ==========================================================
+   Header
+   ========================================================== */
+
+.ww-header {
+    background: var(ww-color-surface);
+    width: 100%;
+}
+
+.ww-header__container {
+    max-width: 1440px;
+    height: 96px;
+
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    display: flex;
+    align-items: center;
+}
+
+.ww-brand {
+    flex: 0 0 auto;
+}
+
+.ww-header__navigation {
+    flex: 1;
+}
+
+.ww-header__actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.ww-header__search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+
+    color: var(--ww-color-text);
+}
+
+.ww-header__search .bi {
+    font-size: 1.4rem;
+}
