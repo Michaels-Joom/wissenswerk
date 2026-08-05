@@ -1514,23 +1514,6 @@ ww-header__search {
   transform: scaleX(1);
 }
 
-.ww-topic-inner .mod-menu > li > a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.ww-topic-nav__icon {
-  width: 1rem;
-  height: 1rem;
-  fill: currentColor;
-  flex-shrink: 0;
-}
-
-.ww-topic-nav__text {
-  display: inline-block;
-}
-
 .ww-header__toggle {
   display: inline-flex;
   align-items: center;
