@@ -1121,7 +1121,7 @@ body {
   z-index: 2;
 }
 
-.ww-hero__book {
+.page-leistungen .ww-hero__book {
   position: absolute;
   right: 30%;
   bottom: 25%;

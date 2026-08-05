@@ -139,11 +139,14 @@ if ($showSidebarLeft && $showSidebarRight) {
      <!-- ==============================================================
          Untermenu
     ============================================================== -->   
+    <section class="ww-topic-nav">
 
+        <div class="ww-container">
 
+            <jdoc:include type="modules" name="topics" style="none" />
 
-
-
+        </div>
+    </section>    
 
     <!-- ==============================================================
          Banner ??
