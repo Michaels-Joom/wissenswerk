@@ -39,43 +39,14 @@ $branding = trim($brandingFirst . ' ' . $brandingSecond);
                 <div class="col-12 col-lg-4">
                     <section class="ww-footer__branding">
                         <div class="ww-footer__brand">
-                            <?php if (!empty($logoFile)) : ?>
-
-                                <a
-                                    class="ww-footer__logo"
-                                    href="<?= htmlspecialchars($baseurl, ENT_QUOTES, 'UTF-8'); ?>">
-
-                                    <img
-                                        src="<?= htmlspecialchars($logoFile, ENT_QUOTES, 'UTF-8'); ?>"
-                                        alt="<?= htmlspecialchars($branding, ENT_QUOTES, 'UTF-8'); ?>">
-
-                                </a>
-
-                            <?php endif; ?>
-
-                            <div class="ww-footer__brand-title">
-                                <?php if (!empty($brandingFirst)) : ?>
-                                    <span class="ww-footer__brand-first">
-                                        <?= htmlspecialchars($brandingFirst); ?>
-                                    </span>
-                                <?php endif; ?>
-
-
-                                <?php if (!empty($brandingSecond)) : ?>
-                                    <span class="ww-footer__brand-second">
-                                        <?= htmlspecialchars($brandingSecond); ?>
-                                    </span>
-                                <?php endif; ?>
-                            </div>
+                            <?php require __DIR__ . '/brand.php'; ?>
                         </div>
-
 
                         <?php if (!empty($footerSlogan)) : ?>
                             <p class="ww-footer__claim">
                                 <?= nl2br(htmlspecialchars($footerSlogan)); ?>
                             </p>
                         <?php endif; ?>
-
 
                         <div class="ww-footer__social">
                             <jdoc:include
@@ -146,7 +117,6 @@ $branding = trim($brandingFirst . ' ' . $brandingSecond);
     <!-- ==============================================================
          Footer Bottom
     ============================================================== -->
-
     <div class="ww-footer__bottom">
         <div class="ww-container">
             <div class="row align-items-center">
@@ -154,7 +124,6 @@ $branding = trim($brandingFirst . ' ' . $brandingSecond);
                 <!-- ======================================================
                      Copyright
                 ======================================================= -->
-
                 <div class="col-12 col-lg-4">
                     <p class="ww-footer__copyright">
                         &copy; <?= date('Y'); ?>
@@ -166,7 +135,6 @@ $branding = trim($brandingFirst . ' ' . $brandingSecond);
                 <!-- ======================================================
                      Version
                 ======================================================= -->
-
                 <div class="col-12 col-lg-4 text-center">
                     <?php if (!empty($footerVersion)) : ?>
                         <p class="ww-footer__version">
@@ -179,18 +147,13 @@ $branding = trim($brandingFirst . ' ' . $brandingSecond);
                 <!-- ======================================================
                      Developed
                 ======================================================= -->
-
                 <div class="col-12 col-lg-4 text-lg-end">
                     <?php if (!empty($footerDeveloped)) : ?>
-
                         <p class="ww-footer__developed">
-
                             <?= htmlspecialchars($footerDevelopedParts[0], ENT_QUOTES, 'UTF-8'); ?>
                             <i class="bi bi-heart-fill ww-footer__heart" aria-hidden="true"></i>
                             <?= htmlspecialchars($footerDevelopedParts[1], ENT_QUOTES, 'UTF-8'); ?>
-
                         </p>
-
                     <?php endif; ?>
                 </div>
             </div>

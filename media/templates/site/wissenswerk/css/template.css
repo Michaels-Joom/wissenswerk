@@ -1181,25 +1181,13 @@ body {
   margin-bottom: var(--ww-space-6);
 }
 
-.ww-footer__logo {
-  flex-shrink: 0;
-  text-decoration: none;
-}
-
-.ww-footer__logo img {
-  display: block;
-  width: 60px;
+.ww-footer__brand .ww-brand__logo img {
+  width: 40px;
   height: auto;
 }
-
-.ww-footer__brand-first,
-.ww-footer__brand-second {
-  font-size: large;
-  letter-spacing: 0.2rem;
-}
-
-.ww-footer__brand-second {
-  color: var(--ww-color-secondary);
+.ww-footer__brand .ww-brand__first,
+.ww-footer__brand .ww-brand__second {
+  font-size: 1rem;
 }
 
 .ww-footer__claim {
