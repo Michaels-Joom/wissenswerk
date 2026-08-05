@@ -1,0 +1,122 @@
+// =============================================================================
+// Topic Navigation
+// =============================================================================
+//
+// Bereichsnavigation innerhalb eines Hauptmenüpunktes.
+// Desktop-Version.
+//
+// =============================================================================
+
+
+.ww-topic-inner {
+    
+    border-top: 2px solid var(--ww-color-surface-alt);          
+    border-bottom: 2px solid var(--ww-color-surface-alt);
+
+    padding-block: var(--ww-space-4);
+    margin-left: var(--ww-space-4);
+    margin-right: var(--ww-space-4);
+
+
+}
+
+
+
+// =============================================================================
+// Menu
+// =============================================================================
+
+.ww-topic-inner .mod-menu {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--ww-space-12);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+// =============================================================================
+// Menu Items
+// =============================================================================
+
+.ww-topic-inner .mod-menu > li {
+
+    margin: 0;
+    padding: 0;
+}
+
+
+// =============================================================================
+// Links
+// =============================================================================
+
+.ww-topic-inner .mod-menu > li > a {
+
+    position: relative;
+    display: block;
+    padding-block: var(--ww-space-1);
+    color: var(--ww-color-text);
+    font-family: var(--ww-font-family-base);
+    font-size: var(--ww-font-size-sm);
+    font-weight: var(--ww-font-weight-medium);
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+        color var(--ww-transition-fast);
+}
+
+
+// =============================================================================
+// Active Indicator
+// =============================================================================
+
+.ww-topic-inner .mod-menu > li > a::after {
+
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(-1 * var(--ww-space-2));
+    height: 2px;
+    background: var(--ww-color-secondary);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform var(--ww-transition-fast);
+}
+
+// =============================================================================
+// Hover
+// =============================================================================
+
+.ww-topic-inner .mod-menu > li > a:hover,
+.ww-topic-inner .mod-menu > li > a:focus-visible {
+
+    color: var(--ww-color-secondary);
+}
+
+.ww-topic-inner .mod-menu > li > a:hover::after,
+.ww-topic-inner .mod-menu > li > a:focus-visible::after {
+
+    transform: scaleX(1);
+}
+
+
+// =============================================================================
+// Active
+// =============================================================================
+
+.ww-topic-inner .mod-menu > li.current > a,
+.ww-topic-inner .mod-menu > li.active > a {
+
+    color: var(--ww-color-secondary);
+}
+
+.ww-topic-inner .mod-menu > li.current > a::after,
+.ww-topic-inner .mod-menu > li.active > a::after {
+
+    transform: scaleX(1);
+}

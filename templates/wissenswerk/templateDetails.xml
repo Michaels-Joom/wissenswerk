@@ -62,9 +62,11 @@
         <!-- Oberhalb des Inhalts -->
         <position>banner</position>
         <position>hero</position>
+        <position>topics</position>
         <position>top-a</position>
         <position>top-b</position>
         <position>breadcrumbs</position>
+
 
         <!-- Hauptbereich -->
         <position>main-top</position>

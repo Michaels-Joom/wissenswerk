@@ -58,6 +58,8 @@ $showSearch       = $this->countModules('search');
 $showBanner       = $this->countModules('banner');
 $showHero         = $this->countModules('hero');
 
+$showTopic         = $this->countModules('topics'); 
+
 $showTopA         = $this->countModules('top-a');
 $showTopB         = $this->countModules('top-b');
 
@@ -125,28 +127,35 @@ if ($showSidebarLeft && $showSidebarRight) {
         <section class="ww-hero">
             <div class="ww-container">
                 <div class="ww-hero__illustration">  
-
-                    <div class="ww-hero__book"></div>
-                     
-                    <div class="ww-hero__inner">
-                        <jdoc:include type="modules" name="hero" style="xhtml"/>
+                    <div class="ww-hero__book">
+                    </div>
+                        <div class="ww-hero__inner">
+                            <jdoc:include type="modules" name="hero" style="xhtml"/>
+                        </div>
                     </div>
                 </div>
-            </div>
         </section>
     <?php endif; ?>
 
      <!-- ==============================================================
          Untermenu
     ============================================================== -->   
-    <section class="ww-topic-nav">
+    <?php if ($showTopic) : ?>
+    
+        <section class="ww-topic-nav">
+            
+            <div class="ww-container">
 
-        <div class="ww-container">
+                <div class="ww-topic-inner">
+                
+                    <jdoc:include type="modules" name="topics" style="none" />
 
-            <jdoc:include type="modules" name="topics" style="none" />
+                </div>
 
-        </div>
-    </section>    
+
+            </div>
+        </section>
+      <?php endif; ?>    
 
     <!-- ==============================================================
          Banner ??
