@@ -1,5 +1,5 @@
 @use "../tokens" as *;
-
+@use "../abstracts" as*;
 // =============================================================================
 // WissensWerk Design System
 // Layout Layer
@@ -32,12 +32,13 @@
    ========================================================== */
 
 .ww-header {
-    background: var(ww-color-surface);
+    //background: var(--ww-color-surface);
     width: 100%;
 }
 
 .ww-header__container {
-    max-width: 1440px;
+    max-width: var(--ww-container-xl);
+    padding-inline: 30PX;
     height: 96px;
 
     margin: 0 auto;
@@ -82,3 +83,4 @@
 .ww-header__search .bi {
     font-size: 1.4rem;
 }
+

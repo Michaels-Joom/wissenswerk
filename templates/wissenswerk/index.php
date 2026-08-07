@@ -84,10 +84,13 @@ $contentClass = 'col-12';
 if ($showSidebarLeft && $showSidebarRight) {
 
     $contentClass = 'col-lg-6';
+    $sidebarClass = 'col-12 col-lg-3';
+
 
 } elseif ($showSidebarLeft || $showSidebarRight) {
 
-    $contentClass = 'col-lg-9';
+      $contentClass = 'col-12 col-lg-8';
+      $sidebarClass = 'col-12 col-lg-4';
 
 }
 
@@ -101,13 +104,17 @@ if ($showSidebarLeft && $showSidebarRight) {
 
 </head>
 
-<body class="page-<?= $active->alias; ?>">>
+<body class="page-<?= $active->alias; ?>">
     
     <!-- ==============================================================
          Header
     ============================================================== -->
-
     <?php require __DIR__ . '/includes/header.php'; ?>
+
+     <!-- ==============================================================
+         Offcanvas
+    ============================================================== -->
+    <?php require __DIR__ . '/includes/offcanvas.php'; ?>
     
     <!-- ==============================================================
          Breadcrumbs
@@ -125,7 +132,7 @@ if ($showSidebarLeft && $showSidebarRight) {
     ============================================================== -->
     <?php if ($showHero) : ?>
         <section class="ww-hero">
-            <div class="ww-container">
+            <div class="ww-container ww-divider">
                 <div class="ww-hero__illustration">  
                     <div class="ww-hero__book">
                     </div>
@@ -143,16 +150,10 @@ if ($showSidebarLeft && $showSidebarRight) {
     <?php if ($showTopic) : ?>
     
         <section class="ww-topic-nav">
-            
             <div class="ww-container">
-
                 <div class="ww-topic-inner">
-                
                     <jdoc:include type="modules" name="topics" style="none" />
-
                 </div>
-
-
             </div>
         </section>
       <?php endif; ?>    
@@ -160,7 +161,6 @@ if ($showSidebarLeft && $showSidebarRight) {
     <!-- ==============================================================
          Banner ??
     ============================================================== -->
-
     <?php if ($showBanner) : ?>
         <section class="ww-banner">
             <div class="ww-container">
@@ -169,11 +169,9 @@ if ($showSidebarLeft && $showSidebarRight) {
         </section>
     <?php endif; ?>
 
-
     <!-- ==============================================================
          Top A
     ============================================================== -->
-
     <?php if ($showTopA) : ?>
 
         <section class="ww-top-a">
@@ -212,32 +210,35 @@ if ($showSidebarLeft && $showSidebarRight) {
             </div>
         </section>
     <?php endif; ?>
-
+    
     <!-- ==============================================================
-         Main Content
+        Main Content
     ============================================================== -->
 
     <main class="ww-main">
         <div class="ww-container">
-            <div class="row g-5">
+
+            <div class="row ww-reading-layout">
+
                 <?php if ($showSidebarLeft) : ?>
-                    <aside class="col-12 col-lg-3">
+                    <aside class="ww-sidebar ww-sidebar--left <?= $sidebarClass; ?>">
                         <jdoc:include type="modules" name="sidebar-left" style="html5" />
                     </aside>
                 <?php endif; ?>
 
-                <section class="<?= $contentClass; ?>">
+                <section class="ww-content <?= $contentClass; ?>">
                     <jdoc:include type="component" />
                 </section>
 
                 <?php if ($showSidebarRight) : ?>
-                    <aside class="col-12 col-lg-3">
+                    <aside class="ww-sidebar ww-sidebar--right <?= $sidebarClass; ?>">
                         <jdoc:include type="modules" name="sidebar-right" style="html5" />
                     </aside>
                 <?php endif; ?>
+
             </div>
         </div>
-    </main>
+    </main> 
 
     <!-- ==============================================================
          Main Bottom

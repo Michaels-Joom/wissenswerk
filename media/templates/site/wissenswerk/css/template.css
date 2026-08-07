@@ -3,7 +3,7 @@
   --ww-container-sm: 720px;
   --ww-container-md: 960px;
   --ww-container-lg: 1200px;
-  --ww-container-xl: 1440px;
+  --ww-container-xl: 1320px;
   --ww-container-max-width: var(--ww-container-xl);
 }
 
@@ -644,25 +644,6 @@ hr {
   border-top: 1px solid var(--ww-color-border);
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  background-color: var(--ww-color-background);
-  color: var(--ww-color-text);
-  font-family: var(--ww-font-family-body);
-  font-size: var(--ww-font-size-base);
-  font-weight: var(--ww-font-weight-regular);
-  line-height: var(--ww-line-height-body);
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-main {
-  display: block;
-  flex: 1 0 auto;
-}
-
 h1,
 h2,
 h3,
@@ -752,100 +733,23 @@ q {
   quotes: auto;
 }
 
-ul,
-ol {
-  margin-block: 0 var(--ww-space-4);
-  padding-inline-start: var(--ww-space-6);
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: var(--ww-color-background);
+  color: var(--ww-color-text);
+  font-family: var(--ww-font-family-body);
+  font-size: var(--ww-font-size-base);
+  font-weight: var(--ww-font-weight-regular);
+  line-height: var(--ww-line-height-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-li {
-  margin-block-end: var(--ww-space-2);
-}
-
-ul ul,
-ul ol,
-ol ul,
-ol ol {
-  margin-block: var(--ww-space-2) 0;
-}
-
-dl {
-  margin-block: 0 var(--ww-space-4);
-}
-
-dt {
-  margin-bottom: var(--ww-space-1);
-  font-weight: var(--ww-font-weight-semibold);
-}
-
-dd {
-  margin-inline-start: var(--ww-space-5);
-  margin-block-end: var(--ww-space-3);
-}
-
-ul,
-ol {
-  margin-block: 0 var(--ww-space-4);
-  padding-inline-start: var(--ww-space-6);
-}
-
-li {
-  margin-block: var(--ww-space-2);
-}
-
-ul ul,
-ul ol,
-ol ul,
-ol ol {
-  margin-block: var(--ww-space-2) 0;
-}
-
-dl {
-  margin-block: 0 var(--ww-space-4);
-}
-
-dt {
-  font-weight: var(--ww-font-weight-semibold);
-}
-
-dd {
-  margin-inline-start: var(--ww-space-5);
-  margin-block-end: var(--ww-space-3);
-}
-
-img,
-picture {
+main {
   display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  fill: currentColor;
-}
-
-figure {
-  margin-block-end: var(--ww-space-5);
-}
-
-figcaption {
-  margin-block-start: var(--ww-space-2);
-  font-size: var(--ww-font-size-sm);
-  color: var(--ww-color-text-muted);
-}
-
-video,
-canvas {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-audio {
-  width: 100%;
+  flex: 1 0 auto;
 }
 
 code,
@@ -889,47 +793,6 @@ kbd {
 
 samp {
   font-size: var(--ww-font-size-sm);
-}
-
-table {
-  width: 100%;
-  margin-block: var(--ww-space-5);
-  border-collapse: collapse;
-  border-spacing: 0;
-  text-align: start;
-}
-
-caption {
-  margin-bottom: var(--ww-space-2);
-  font-size: var(--ww-font-size-sm);
-  font-weight: var(--ww-font-weight-medium);
-  color: var(--ww-color-text-muted);
-  text-align: left;
-  caption-side: bottom;
-}
-
-thead {
-  border-bottom: 2px solid var(--ww-color-border);
-}
-
-th {
-  padding: var(--ww-space-3);
-  font-weight: var(--ww-font-weight-semibold);
-  text-align: inherit;
-  vertical-align: middle;
-}
-
-tbody tr {
-  border-bottom: 1px solid var(--ww-color-border);
-}
-
-td {
-  padding: var(--ww-space-3);
-  vertical-align: top;
-}
-
-tfoot {
-  border-top: 2px solid var(--ww-color-border);
 }
 
 form {
@@ -1009,11 +872,203 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
+table {
+  width: 100%;
+  margin-block: var(--ww-space-5);
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: start;
+}
+
+caption {
+  margin-bottom: var(--ww-space-2);
+  font-size: var(--ww-font-size-sm);
+  font-weight: var(--ww-font-weight-medium);
+  color: var(--ww-color-text-muted);
+  text-align: left;
+  caption-side: bottom;
+}
+
+thead {
+  border-bottom: 2px solid var(--ww-color-border);
+}
+
+th {
+  padding: var(--ww-space-3);
+  font-weight: var(--ww-font-weight-semibold);
+  text-align: inherit;
+  vertical-align: middle;
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--ww-color-border);
+}
+
+td {
+  padding: var(--ww-space-3);
+  vertical-align: top;
+}
+
+tfoot {
+  border-top: 2px solid var(--ww-color-border);
+}
+
+ul,
+ol {
+  margin-block: 0 var(--ww-space-4);
+  padding-inline-start: var(--ww-space-6);
+}
+
+li {
+  margin-block: var(--ww-space-2);
+}
+
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  margin-block: var(--ww-space-2) 0;
+}
+
+dl {
+  margin-block: 0 var(--ww-space-4);
+}
+
+dt {
+  font-weight: var(--ww-font-weight-semibold);
+}
+
+dd {
+  margin-inline-start: var(--ww-space-5);
+  margin-block-end: var(--ww-space-3);
+}
+
+ul,
+ol {
+  margin-block: 0 var(--ww-space-4);
+  padding-inline-start: var(--ww-space-6);
+}
+
+li {
+  margin-block-end: var(--ww-space-2);
+}
+
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  margin-block: var(--ww-space-2) 0;
+}
+
+dl {
+  margin-block: 0 var(--ww-space-4);
+}
+
+dt {
+  margin-bottom: var(--ww-space-1);
+  font-weight: var(--ww-font-weight-semibold);
+}
+
+dd {
+  margin-inline-start: var(--ww-space-5);
+  margin-block-end: var(--ww-space-3);
+}
+
+img,
+picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  fill: currentColor;
+}
+
+figure {
+  margin-block-end: var(--ww-space-5);
+}
+
+figcaption {
+  margin-block-start: var(--ww-space-2);
+  font-size: var(--ww-font-size-sm);
+  color: var(--ww-color-text-muted);
+}
+
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+audio {
+  width: 100%;
+}
+
 .ww-container {
   width: 100%;
-  max-width: var(--ww-container-max-width);
+  max-width: var(--ww-container-xl);
   margin-inline: auto;
-  padding-inline: var(--ww-space-4);
+  padding-inline: 30px;
+}
+
+.ww-content-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(18rem, 22rem);
+  gap: var(--ww-space-10);
+  align-items: start;
+}
+
+.ww-main {
+  min-width: 0;
+}
+
+.ww-sidebar {
+  min-width: 0;
+}
+
+@media (max-width: 992px) {
+  .ww-content-layout {
+    grid-template-columns: 1fr;
+  }
+  .ww-main {
+    order: 1;
+  }
+  .ww-sidebar {
+    order: 2;
+  }
+}
+/* ==========================================================================
+   Reading Layout
+   ==========================================================================
+   Layout für Inhaltsseiten (Artikel, Dokumentation, Blog)
+   ========================================================================== */
+.ww-main {
+  width: 100%;
+}
+
+.ww-reading-layout {
+  align-items: flex-start;
+}
+
+/* ==========================================================
+   Content
+   ========================================================== */
+.ww-content {
+  min-width: 0;
+  padding-inline: 60px 30px;
+}
+
+/* ==========================================================
+   Sidebar
+   ========================================================== */
+.ww-sidebar {
+  min-width: 0;
+  padding-inline: 30px 60px;
 }
 
 body {
@@ -1026,12 +1081,12 @@ body {
    Header
    ========================================================== */
 .ww-header {
-  background: var(ww-color-surface);
   width: 100%;
 }
 
 .ww-header__container {
-  max-width: 1440px;
+  max-width: var(--ww-container-xl);
+  padding-inline: 30PX;
   height: 96px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -1154,6 +1209,53 @@ body {
   max-width: 42rem;
 }
 
+.ww-divider {
+  border-bottom: 1px solid var(--ww-color-surface-salbei);
+  padding-bottom: 1rem;
+}
+
+/* ==========================================================================
+   Reading Layout
+   ==========================================================================
+   Seitenlayout für Wissensartikel, Dokumentationen und Blogbeiträge.
+   Bootstrap übernimmt das Grid und die Responsive-Logik.
+   WissensWerk ergänzt das Layout durch projektspezifische Abstände.
+   ========================================================================== */
+.ww-main {
+  width: 100%;
+}
+
+/* ==========================================================
+   Reading Layout
+   ========================================================== */
+.ww-reading-layout {
+  align-items: flex-start;
+  padding-top: 2rem;
+}
+
+/* ==========================================================
+   Content
+   ========================================================== */
+.ww-content {
+  min-width: 0;
+  padding-inline: 60px 30px;
+}
+
+/* ==========================================================
+   Sidebar
+   ========================================================== */
+.ww-sidebar {
+  min-width: 0;
+  padding-inline: 15px 30px;
+}
+
+.ww_info__box {
+  background-color: var(--ww-color-surface-alt);
+  padding-inline: 5px;
+  font-size: smaller;
+  padding: 1rem;
+}
+
 .ww-footer {
   position: relative;
   overflow: hidden;
@@ -1210,6 +1312,7 @@ body {
   font-weight: var(--ww-font-weight-semibold);
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  padding-top: 0.7rem;
 }
 
 .ww-footer__section ul {
@@ -1445,9 +1548,8 @@ ww-header__search {
 }
 
 .ww-topic-inner {
-  border-top: 2px solid var(--ww-color-surface-alt);
   border-bottom: 2px solid var(--ww-color-surface-alt);
-  padding-block: var(--ww-space-4);
+  padding-bottom: var(--ww-space-4);
   margin-left: var(--ww-space-4);
   margin-right: var(--ww-space-4);
 }
@@ -1515,30 +1617,78 @@ ww-header__search {
 }
 
 .ww-header__toggle {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  margin-block-start: var(--ww-space-5);
-  margin-inline-start: var(--ww-space-6);
+  width: 44px;
+  height: 44px;
   padding: 0;
-  background: transparent;
   border: 0;
+  background: transparent;
   cursor: pointer;
+  transition: opacity 0.2s ease;
+  margin-bottom: 0.5rem;
+}
+.ww-header__toggle:hover {
+  opacity: 0.75;
 }
 
-.ww-header__toggle:focus-visible {
-  outline: 2px solid var(--ww-color-focus);
-  outline-offset: 4px;
+.ww-header__toggle-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 22px;
+  height: 16px;
 }
 
-.ww-header__toggle span {
+.ww-header__toggle-icon span {
   display: block;
-  width: 1.75rem;
+  width: 100%;
   height: 2px;
-  margin-block: 0.35rem;
-  border-radius: 999px;
+  background: var(--ww-color-text);
+  border-radius: 2px;
+  transition: all 0.25s ease;
+}
+
+/* ==========================================================
+   Offcanvas Close
+   ========================================================== */
+.ww-offcanvas__close {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.ww-offcanvas__close:hover {
+  opacity: 0.7;
+}
+.ww-offcanvas__close:focus-visible {
+  outline: 2px solid var(--ww-color-primary);
+  outline-offset: 2px;
+}
+.ww-offcanvas__close::before, .ww-offcanvas__close::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 2px;
   background-color: var(--ww-color-text);
-  transition: transform var(--ww-transition-fast) ease, opacity var(--ww-transition-fast) ease, background-color var(--ww-transition-fast) ease;
+  left: 50%;
+  top: 50%;
+  transform-origin: center;
+}
+.ww-offcanvas__close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.ww-offcanvas__close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .ww-offcanvas {
@@ -1619,6 +1769,126 @@ ww-header__search {
   display: block;
 }
 
+/* ==========================================================================
+   Offcanvas Navigation
+   ========================================================================== */
+/* ==========================================================
+   Block
+   ========================================================== */
+.ww-offcanvas__navigation {
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================
+   Menü
+   ========================================================== */
+.ww-offcanvas__navigation > .mod-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ==========================================================
+   Menüeinträge
+   ========================================================== */
+.ww-offcanvas__navigation > .mod-menu > .nav-item {
+  margin: 0;
+  border-bottom: 1px solid var(--ww-color-border);
+}
+
+/* ==========================================================
+   Hauptnavigation
+   ========================================================== */
+.ww-offcanvas__navigation > .mod-menu > .nav-item > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+  padding-inline: 1.5rem;
+  color: var(--ww-color-text);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+/* ==========================================================
+   Parent
+   ========================================================== */
+.ww-offcanvas__navigation > .mod-menu > .parent > a {
+  position: relative;
+  padding-right: 3rem;
+}
+
+/* Chevron */
+.ww-offcanvas__navigation > .mod-menu > .parent > a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-60%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.ww-offcanvas__navigation > .mod-menu > .parent.is-open > a::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* ==========================================================
+   Hover
+   ========================================================== */
+.ww-offcanvas__navigation > .mod-menu > .nav-item > a:hover {
+  background-color: var(--ww-color-surface-hover);
+}
+
+/* ==========================================================
+   Aktiver Menüpunkt
+   ========================================================== */
+.ww-offcanvas__navigation > .mod-menu > .current > a {
+  color: var(--ww-color-primary);
+  font-weight: 600;
+}
+
+/* ==========================================================
+   Modifier
+   ========================================================== */
+/* ==========================================================
+   Toggle
+   ========================================================== */
+/* ==========================================================
+   Toggle
+   ========================================================== */
+.ww-menu__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* ==========================================================
+   States
+   ========================================================== */
+/* folgt später */
+/*
+.is-open
+.is-active
+*/
+/* ==========================================================
+   Responsive
+   ========================================================== */
 .ww-brand {
   display: flex;
   align-items: center;

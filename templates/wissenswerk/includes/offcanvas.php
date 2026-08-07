@@ -19,50 +19,62 @@ defined('_JEXEC') or die;
     aria-labelledby="wwOffcanvasLabel">
 
     <div class="offcanvas-header ww-offcanvas__header">
-
         <div class="ww-offcanvas__top">
-
             <div class="ww-offcanvas__brand">
-
-                <?php require __DIR__ . '/branding.php'; ?>
-
+                <?php require __DIR__ . '/brand.php'; ?>
             </div>
 
             <button
+                class="ww-offcanvas__close"
                 type="button"
-                class="btn-close ww-offcanvas__close"
                 data-bs-dismiss="offcanvas"
                 aria-label="Menü schließen">
             </button>
 
         </div>
-
     </div>
 
+    <!-- ==========================================================
+         Body
+    ========================================================== -->
+
+    <!-- Navigation -->
     <div class="offcanvas-body ww-offcanvas__body">
 
-        <nav
-            class="ww-offcanvas__navigation"
-            aria-label="Mobile Navigation">
+         <nav class="ww-offcanvas__navigation" aria-label="Mobile Navigation">
 
-            <?= $offcanvasMenu; ?>
+            <jdoc:include type="modules" name="menu" style="none" />
 
         </nav>
+    
+
+        <!-- Suche -->    
+        <div class="ww-offcanvas__search">
+
+            <button
+                class="ww-offcanvas__search-button"
+                type="button"
+                aria-label="Suche öffnen">
+
+                <span class="bi bi-search"></span>
+            </button>
+
+        </div>    
+
+        <!-- CTA -->
+        <div class="ww-offcanvas__cta">
+
+            <jdoc:include type="modules" name="header-button" style="none" />
+
+        </div>
+    </div>
+  
+<!-- ==========================================================
+         Footer
+    ========================================================== -->
+    <div class="offcanvas-footer ww-offcanvas__footer">
+
+        <!-- reserviert -->
 
     </div>
-
-    <div class="ww-offcanvas__footer">
-
-
-    <div class="ww-offcanvas__footer">
-
-        <img
-        src="<?= $this->baseurl; ?>/media/templates/site/wissenswerk/images/logo/wissenswerk_logo_main.png"
-        class="ww-offcanvas__footer-logo"
-        alt="WissensWerk Logo">
-
-    </div>
-
-    </div>
-
 </div>

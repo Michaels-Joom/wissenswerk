@@ -1,0 +1,47 @@
+/* ==========================================================================
+   Reading Layout
+   ==========================================================================
+   Seitenlayout für Wissensartikel, Dokumentationen und Blogbeiträge.
+   Bootstrap übernimmt das Grid und die Responsive-Logik.
+   WissensWerk ergänzt das Layout durch projektspezifische Abstände.
+   ========================================================================== */
+
+.ww-main {
+    width: 100%;
+}
+
+/* ==========================================================
+   Reading Layout
+   ========================================================== */
+
+.ww-reading-layout {
+    align-items: flex-start;
+    padding-top: 2rem;
+}
+
+/* ==========================================================
+   Content
+   ========================================================== */
+
+.ww-content {
+    min-width: 0;
+    padding-inline: 60px 30px;
+}
+
+/* ==========================================================
+   Sidebar
+   ========================================================== */
+
+.ww-sidebar {
+    min-width: 0;
+    padding-inline: 15px 30px;
+    
+}
+
+.ww_info__box{
+    background-color: var(--ww-color-surface-alt);
+    padding-inline: 5px;
+    font-size:smaller;
+    padding: 1rem;
+
+}

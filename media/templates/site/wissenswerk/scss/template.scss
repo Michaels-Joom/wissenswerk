@@ -26,9 +26,8 @@
 // Abstracts
 // =============================================================================
 
-@use "abstracts/settings";
-@use "abstracts/functions";
-@use "abstracts/mixins";
+@use "abstracts";
+
 
 // =============================================================================
 // Design Tokens
@@ -40,16 +39,7 @@
 // Base
 // =============================================================================
 
-@use "base/root";
-@use "base/document";
-@use "base/typography";
-@use "base/links";
-@use "base/lists";
-@use "base/media";
-@use "base/code";
-@use "base/tables";
-@use "base/forms";
-
+@use "base";
 
 // =============================================================================
 // Layout

@@ -31,61 +31,113 @@
 
 .ww-header__toggle {
 
-    display: inline-flex;
-
+    display: flex;
     align-items: center;
-
     justify-content: center;
 
-    margin-block-start: var(--ww-space-5);
-
-    margin-inline-start: var(--ww-space-6);
+    width: 44px;
+    height: 44px;
 
     padding: 0;
-
-    background: transparent;
-
     border: 0;
-
+    background: transparent;
     cursor: pointer;
 
+    transition: opacity .2s ease;
+
+    margin-bottom: 0.5rem;
+
+    &:hover {
+        opacity: .75;
+    }
 }
 
+.ww-header__toggle-icon {
 
-// =============================================================================
-// Accessibility
-// =============================================================================
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-.ww-header__toggle:focus-visible {
-
-    outline: 2px solid var(--ww-color-focus);
-
-    outline-offset: 4px;
-
+    width: 22px;
+    height: 16px;
 }
 
-
-// =============================================================================
-// Hamburger
-// =============================================================================
-
-.ww-header__toggle span {
+.ww-header__toggle-icon span {
 
     display: block;
 
-    width: 1.75rem;
-
+    width: 100%;
     height: 2px;
 
-    margin-block: .35rem;
+    background: var(--ww-color-text);
+    border-radius: 2px;
 
-    border-radius: 999px;
+    transition: all .25s ease;
+}
 
-    background-color: var(--ww-color-text);
+/* ==========================================================
+   Offcanvas Close
+   ========================================================== */
 
-    transition:
-        transform var(--ww-transition-fast) ease,
-        opacity var(--ww-transition-fast) ease,
-        background-color var(--ww-transition-fast) ease;
+.ww-offcanvas__close {
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+    margin: 0;
+
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: opacity .2s ease;
+
+    &:hover {
+        opacity: .7;
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--ww-color-primary);
+        outline-offset: 2px;
+    }
+
+    &::before,
+    &::after {
+
+        content: "";
+
+        position: absolute;
+
+        width: 18px;
+        height: 2px;
+
+        background-color: var(--ww-color-text);
+
+        left: 50%;
+        top: 50%;
+
+        transform-origin: center;
+
+    }
+
+    &::before {
+
+        transform: translate(-50%, -50%) rotate(45deg);
+
+    }
+
+    &::after {
+
+        transform: translate(-50%, -50%) rotate(-45deg);
+
+    }
 
 }
