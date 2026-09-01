@@ -1,0 +1,306 @@
+@use "../tokens" as *;
+
+// =============================================================================
+// WissensWerk Design System
+// Component Layer
+// Sidebar Navigation
+// =============================================================================
+//
+// File:
+// _sidebar-navigation.scss
+//
+// Purpose:
+// Defines the vertical navigation used in the sidebar.
+//
+// Responsibilities:
+// - Vertical menu layout
+// - Sidebar menu item presentation
+// - Submenu positioning
+// - Parent / current state presentation
+// - Toggle presentation
+// - Keyboard focus states
+//
+// Not responsible for:
+// - Menu generation
+// - Menu hierarchy
+// - Collapse behaviour
+// - JavaScript
+// - Main navigation
+// - Offcanvas navigation
+//
+// MetisMenu provides the menu structure and collapse states.
+// This component only defines the visual presentation.
+//
+// =============================================================================
+
+
+// =============================================================================
+// Sidebar Navigation
+// =============================================================================
+
+// -------------------------------------------------------------------------
+// Sidebar navigation boundary
+// -------------------------------------------------------------------------
+
+.ww-sidebar .moduletable {
+    border-inline-start: 1px solid var(--ww-color-border);
+    padding-inline-start: 0.75rem;
+}
+
+.ww-sidebar {
+
+    // -------------------------------------------------------------------------
+    // Menu base
+    // -------------------------------------------------------------------------
+
+    .metismenu {
+        width: 100%;
+
+        padding: 0;
+        margin: 0;
+
+        list-style: none;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Menu items
+    // -------------------------------------------------------------------------
+
+    .metismenu-item {
+        position: relative;
+
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    // -------------------------------------------------------------------------
+    // Menu links
+    // -------------------------------------------------------------------------
+
+    .metismenu-item > a {
+        display: block;
+        flex: 1 1 auto;
+
+        padding: 0.65rem 0.75rem;
+
+        color: currentColor;
+        text-decoration: none;
+
+        transition:
+            color 0.2s ease,
+            background-color 0.2s ease;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Link interaction
+    // -------------------------------------------------------------------------
+
+    .metismenu-item > a:hover,
+    .metismenu-item > a:focus-visible {
+        color: var(--ww-color-secondary);
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Current item
+    // -------------------------------------------------------------------------
+
+    .metismenu-item.current > a,
+    .metismenu-item.active > a {
+        color: var(--ww-color-secondary);
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Parent items
+    // -------------------------------------------------------------------------
+
+    .metismenu-item.parent {
+        position: relative;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Toggle
+    // -------------------------------------------------------------------------
+
+    .metismenu-item > .mm-toggler {
+        flex: 0 0 auto;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        min-width: 2.5rem;
+        min-height: 2.5rem;
+
+        padding: 0;
+
+        color: currentColor;
+
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+
+        cursor: pointer;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Toggle indicator
+    // -------------------------------------------------------------------------
+
+    .metismenu-item > .mm-toggler::after {
+        width: 0;
+        height: 0;
+
+        margin-inline-start: 0.25rem;
+
+        content: "";
+
+        border-top: 0.45rem solid currentColor;
+        border-right: 0.35rem solid transparent;
+        border-left: 0.35rem solid transparent;
+
+        transition:
+            transform 0.3s ease,
+            color 0.2s ease;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Expanded state
+    // -------------------------------------------------------------------------
+
+    .metismenu-item.mm-active > .mm-toggler::after,
+    .metismenu-item > .mm-toggler[aria-expanded="true"]::after {
+        transform: rotateX(-180deg);
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Current / active parent
+    // -------------------------------------------------------------------------
+
+    .metismenu-item.current > .mm-toggler,
+    .metismenu-item.active > .mm-toggler,
+    .metismenu-item.mm-active > .mm-toggler {
+        color: var(--ww-color-secondary);
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Submenus
+    //
+    // The generic MetisMenu component uses absolute positioning for
+    // horizontal dropdown navigation. The sidebar must explicitly override
+    // this behaviour and keep submenus in the normal document flow.
+    // -------------------------------------------------------------------------
+
+    .metismenu.mod-menu .metismenu-item > ul {
+        position: static;
+        top: auto;
+        left: auto;
+        z-index: auto;
+
+        flex: 0 0 100%;
+
+        width: 100%;
+
+        padding: 0;
+        margin: 0;
+
+        list-style: none;
+
+        background-color: var(--ww-color-surface-alt);
+        box-shadow: none;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Collapse state
+    //
+    // MetisMenu controls the state through .mm-show / .mm-collapse.
+    // -------------------------------------------------------------------------
+
+    .metismenu.mod-menu .metismenu-item > ul.mm-collapse {
+        display: none;
+    }
+
+    .metismenu.mod-menu .metismenu-item > ul.mm-collapse.mm-show {
+        display: block;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Submenu hierarchy
+    //
+    // Each submenu level receives an additional horizontal indentation.
+    // The indentation is deliberately moderate so that the navigation
+    // remains usable even with deeper menu structures.
+    // -------------------------------------------------------------------------
+
+    // Level 2
+    .metismenu-item > ul > .metismenu-item > a,
+    .metismenu-item > ul > .metismenu-item > .mm-toggler {
+        padding-inline-start: 0.75rem;
+    }
+
+
+    // Level 3
+    .metismenu-item > ul > .metismenu-item > ul > .metismenu-item > a,
+    .metismenu-item > ul > .metismenu-item > ul > .metismenu-item > .mm-toggler {
+        padding-inline-start: 2.25rem;
+    }
+
+
+    // Level 4
+    .metismenu-item > ul > .metismenu-item > ul > .metismenu-item > ul > .metismenu-item > a,
+    .metismenu-item > ul > .metismenu-item > ul > .metismenu-item > ul > .metismenu-item > .mm-toggler {
+        padding-inline-start: 3rem;
+    }
+
+
+    // Level 5 and deeper
+    //
+    // Keep the hierarchy visually consistent without requiring a separate
+    // rule for every possible menu depth.
+    .metismenu-item > ul > .metismenu-item > ul > .metismenu-item > ul > .metismenu-item > ul {
+        padding-inline-start: 0.75rem;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Active hierarchy
+    //
+    // The active path is represented through Joomla / MetisMenu state classes.
+    // JavaScript does not control the visual styling.
+    // -------------------------------------------------------------------------
+
+    .metismenu-item.mm-active > a {
+        color: var(--ww-color-secondary);
+    }
+
+    .metismenu-item.current > a {
+        color: var(--ww-color-secondary);
+        font-weight: 500;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Keyboard focus
+    // -------------------------------------------------------------------------
+
+    .metismenu-item > a:focus-visible,
+    .metismenu-item > .mm-toggler:focus-visible {
+        outline: 2px solid var(--ww-color-secondary);
+        outline-offset: -2px;
+    }
+}

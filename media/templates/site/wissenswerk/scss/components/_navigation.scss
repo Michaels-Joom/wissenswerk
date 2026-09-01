@@ -1,4 +1,5 @@
 @use "../tokens" as *;
+
 // =============================================================================
 // WissensWerk Design System
 // Component Layer
@@ -9,113 +10,228 @@
 // _navigation.scss
 //
 // Purpose:
-// Defines the desktop main navigation component.
+// Defines the visual integration of the main navigation into the header.
 //
 // Responsibilities:
-// - Horizontal navigation layout
-// - Link styling
-// - Hover, active and focus states
+// - Header navigation layout
+// - Horizontal arrangement of level-1 menu items
+// - Typography of the main navigation
+// - Main navigation link states
+// - Main navigation toggle presentation
+// - Header search interaction
 //
 // Not responsible for:
-// - Dropdown menus
+// - MetisMenu functionality
+// - Dropdown positioning
+// - Submenu styling
+// - Collapse behaviour
 // - Mobile navigation
 // - Offcanvas navigation
 //
-// Status:
-// ✓ Final
+// MetisMenu functionality is defined in:
+// _metismenu.scss
 //
 // =============================================================================
 
 
-/* =============================================================================
-   Navigation
-   ============================================================================= */
+// =============================================================================
+// Header Navigation
+// =============================================================================
 
 .ww-header__navigation {
     flex: 1;
+
     display: flex;
     justify-content: flex-end;
+
     margin-right: 1rem;
+
+
+    // -------------------------------------------------------------------------
+    // Bootstrap / Joomla navigation toggle
+    // -------------------------------------------------------------------------
+    //
+    // Responsive handling is intentionally deferred.
+    //
+    // -------------------------------------------------------------------------
 
     .navbar-toggler {
         display: none;
     }
-    
 }
+
+
+// =============================================================================
+// Main Menu – Level 1
+// =============================================================================
+//
+// The MetisMenu component provides the menu structure and behaviour.
+// This file only defines how the first level is integrated into the header.
+//
+// =============================================================================
 
 .ww-header__navigation .mod-menu {
     display: flex;
     align-items: center;
+
     gap: 2.5rem;
 
     margin: 0;
     padding: 0;
-    list-style: none;
 
+    list-style: none;
 }
+
+
+// =============================================================================
+// Main Menu Items – Level 1
+// =============================================================================
 
 .ww-header__navigation .mod-menu > li {
     margin: 0;
     padding: 0;
+
     list-style: none;
 }
 
-.ww-header__navigation .mod-menu > li > a {
-    position:relative;
-    display: block;
+
+// =============================================================================
+// Main Menu Links and Parent Toggles
+// =============================================================================
+//
+// Parent items consist of:
+// - the level-1 link
+// - the MetisMenu toggle button
+//
+// Both receive the same visual treatment.
+//
+// =============================================================================
+
+.ww-header__navigation .mod-menu > li > a,
+.ww-header__navigation .mod-menu > li > button {
+    position: relative;
+
+    padding: 0 0 .5rem;
 
     color: var(--ww-color-text);
     text-decoration: none;
-    
 
-    transition:
-        color 0.2s ease,
-        border-color 0.2s ease;
-
-    font-size: 0.85rem;
+    font-size: .85rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    line-height: 1.5;
 
-    
+    text-transform: uppercase;
+    letter-spacing: .08em;
+
     white-space: nowrap;
 
+    transition:
+        color .2s ease,
+        border-color .2s ease;
 }
+
+
+// =============================================================================
+// Parent Toggle
+// =============================================================================
+//
+// MetisMenu supplies the actual chevron through ::after.
+// The button itself inherits the visual language of the main navigation.
+//
+// =============================================================================
+
+.ww-header__navigation .mod-menu > li > button {
+    color: currentColor;
+
+    background: none;
+    border: 0;
+
+    cursor: pointer;
+}
+
+
+// =============================================================================
+// Main Menu – Hover and Focus
+// =============================================================================
 
 .ww-header__navigation .mod-menu > li > a:hover,
-.ww-header__navigation .mod-menu > li > a:focus-visible {
+.ww-header__navigation .mod-menu > li > a:focus-visible,
+.ww-header__navigation .mod-menu > li > button:hover,
+.ww-header__navigation .mod-menu > li > button:focus-visible {
     color: var(--ww-color-secondary);
+
+    text-decoration: none;
 }
 
-.ww-header__navigation .mod-menu > .current > a,
-.ww-header__navigation .mod-menu > .active > a {
+
+// =============================================================================
+// Main Menu – Current Item
+// =============================================================================
+//
+// Joomla marks the current menu item with .current.
+// Parent highlighting of a current submenu is handled by MetisMenu:
+//
+// .metismenu-item.parent:has(> ul .metismenu-item.current)
+//
+// Therefore this rule intentionally only addresses level-1 current items.
+//
+// =============================================================================
+
+.ww-header__navigation .mod-menu > .current > a {
     color: var(--ww-color-secondary);
+
     border-bottom: 2px solid var(--ww-color-secondary);
 }
 
-.ww-header__navigation .mod-menu > li > a {
-    padding-bottom: 0.5rem;
-}
 
-ww-header__search {
+// =============================================================================
+// Main Menu – Current Parent
+// =============================================================================
+//
+// The parent of a current submenu item is highlighted by the generic
+// MetisMenu state rules in _metismenu.scss.
+//
+// No duplicate selector is required here.
+//
+// =============================================================================
+
+
+// =============================================================================
+// Header Search
+// =============================================================================
+
+.ww-header__search {
     color: var(--ww-color-text);
 
     transition:
-        color 0.2s ease,
-        transform 0.2s ease;
+        color .2s ease,
+        transform .2s ease;
 }
+
 
 .ww-header__search:hover,
 .ww-header__search:focus-visible {
     color: var(--ww-color-secondary);
 }
 
+
 .ww-header__search:hover i,
 .ww-header__search:focus-visible i {
     transform: scale(1.08);
 }
 
+
+// =============================================================================
+// Keyboard Focus
+// =============================================================================
+//
+// Keep the focus indicator visible and consistent with the WissensWerk
+// design system. MetisMenu handles submenu-specific focus states.
+//
+// =============================================================================
+
 .ww-header__navigation a:focus-visible,
+.ww-header__navigation button:focus-visible,
 .ww-header__search:focus-visible {
     outline: 2px solid var(--ww-color-secondary);
     outline-offset: 3px;
