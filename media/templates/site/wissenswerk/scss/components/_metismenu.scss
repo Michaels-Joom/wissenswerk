@@ -1,0 +1,247 @@
+@use "../tokens" as *;
+
+// =============================================================================
+// WissensWerk Design System
+// Component Layer
+// Navigation
+// =============================================================================
+//
+// File:
+// metismenu.scss
+//
+// Purpose:
+// Defines the desktop main navigation component.
+//
+// Responsibilities:
+// - Horizontal navigation layout
+// - MetisMenu structure
+// - MetisMenu collapse behaviour
+// - Toggle presentation
+// - Keyboard focus states
+//
+// Not responsible for:
+// - Mobile navigation
+// - Offcanvas navigation
+//
+// =============================================================================
+
+
+// =============================================================================
+// MetisMenu – Main Navigation
+// =============================================================================
+
+.metismenu {
+
+    // -------------------------------------------------------------------------
+    // Horizontal menu
+    // -------------------------------------------------------------------------
+
+    &.menu-horizontal {
+        display: flex;
+        flex: 1 0 100%;
+        flex-direction: row;
+
+        padding: 0;
+        margin: 0;
+
+        list-style: none;
+
+        > li {
+            position: relative;
+        }
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Menu items
+    // -------------------------------------------------------------------------
+
+    &.mod-menu {
+
+        .metismenu-item {
+            position: relative;
+
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+
+        // ---------------------------------------------------------------------
+        // Parent items
+        // ---------------------------------------------------------------------
+
+        .metismenu-item.parent {
+            position: relative;
+        }
+
+
+        // ---------------------------------------------------------------------
+        // Submenu positioning
+        // ---------------------------------------------------------------------
+
+        .metismenu-item > ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+
+            z-index: 1001;
+
+            min-width: 14rem;
+
+            padding: .5rem 0;
+            margin: 0;
+
+            background-color: var(--ww-color-surface-alt);
+            border: 1px solid var(--ww-color-border);
+            box-shadow: 0 .5rem 1.25rem rgb(0 0 0 / 8%);
+
+            list-style: none;
+        }
+
+        // -------------------------------------------------------------------------
+        // Submenu links
+        // -------------------------------------------------------------------------
+
+        .metismenu-item > ul > .metismenu-item > a {
+            display: block;
+
+            padding: .65rem 1rem;
+
+            color: currentColor;
+            text-decoration: none;
+
+            white-space: nowrap;
+
+            transition:
+                color .2s ease,
+                background-color .2s ease;
+        }
+
+
+        // -------------------------------------------------------------------------
+        // Submenu hover
+        // -------------------------------------------------------------------------
+
+        .metismenu-item > ul > .metismenu-item > a:hover {
+            color: var(--ww-color-secondary);
+            text-decoration: none;
+            background-color: rgb(0 0 0 / 3%);
+        }
+
+        // -------------------------------------------------------------------------
+        // Current submenu item
+        // -------------------------------------------------------------------------
+
+        .metismenu-item > ul > .metismenu-item.current > a {
+            color: var(--ww-color-secondary);
+            text-decoration: none;
+        }
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Collapse
+    // -------------------------------------------------------------------------
+
+    .mm-collapse {
+        display: none;
+    }
+
+    .mm-collapse.mm-show {
+        display: block;
+    }
+
+    // -------------------------------------------------------------------------
+    // Collapse animation
+    // -------------------------------------------------------------------------
+
+    .mm-collapsing {
+        height: 0;
+        overflow: hidden;
+
+        transition:
+            height .35s ease,
+            visibility .35s ease;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Toggle
+    // -------------------------------------------------------------------------
+
+    .mm-toggler {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+
+        padding: 0;
+
+        color: currentColor;
+
+        background: none;
+        border: 0;
+        box-shadow: none;
+
+        cursor: pointer;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Toggle indicator
+    // -------------------------------------------------------------------------
+
+    .mm-toggler::after {
+        width: 0;
+        height: 0;
+
+        margin-inline-start: .5em;
+
+        content: "";
+
+        border-top: .5em solid currentColor;
+        border-right: .5em solid transparent;
+        border-left: .5em solid transparent;
+       
+
+        transition: transform .3s ease;
+    }
+
+    .mm-toggler[aria-expanded="true"]::after {
+        transform: rotateX(-180deg);
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Keyboard focus
+    // -------------------------------------------------------------------------
+
+    .metismenu-item > a:focus-visible,
+    .metismenu-item > button:focus-visible {
+        outline: 2px solid  var(--ww-color-secondary);
+        outline-offset: 2px;
+    }
+
+    // -------------------------------------------------------------------------
+    // Active navigation state
+    // -------------------------------------------------------------------------
+    //
+    // Joomla marks the current page with .current.
+    // If the current item is a submenu item, :has() keeps the parent
+    // highlighted even when MetisMenu is collapsed.
+    //
+    // -------------------------------------------------------------------------
+    
+    .metismenu-item.current > a,
+    .metismenu-item.current > button {
+        color: var(--ww-color-secondary);
+    }
+
+    .metismenu-item.parent:has(> ul .metismenu-item.current) > a,
+    .metismenu-item.parent:has(> ul .metismenu-item.current) > button {
+        color: var(--ww-color-secondary);
+    }
+
+}
+
