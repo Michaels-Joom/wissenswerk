@@ -1,3 +1,5 @@
+[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [📐 Architekturentscheidungen (ADR)](./adr-000-architekturentscheidungen.md)
+
 # ADR-007 – Header- und Footer-Designkonzept
 
 **Status:** Angenommen  
