@@ -88,7 +88,7 @@ defined('_JEXEC') or die;
         </div>
 
         <div class="ww-offcanvas__copyright">
-            © <?= date('Y'); ?> WissensWerk
+            © <?= date('Y'); ?> WissensWerk Alle Rechte vorbehalten.
         </div>
 
     </div>

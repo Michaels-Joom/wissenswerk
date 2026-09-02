@@ -24,7 +24,7 @@ $footerVersion   = $this->params->get('footer_version');
 $footerDeveloped = $this->params->get('footer_developed');
 $footerDevelopedParts = explode('Herz', $footerDeveloped, 2);
 
-$branding = trim($brandingFirst . ' ' . $brandingSecond);
+$branding = trim($brandingFirst . $brandingSecond);
 
 ?>
 
