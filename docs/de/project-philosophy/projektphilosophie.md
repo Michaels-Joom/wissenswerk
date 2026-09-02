@@ -1,3 +1,5 @@
+[⋮⋮⋮ Zurück zur Übersicht](./../../README.de.md)
+
 # Projektphilosophie
 
 **WissensWerk versteht sich nicht als fertiges Nachschlagewerk, sondern als offene Werkstatt. Jeder dokumentierte Schritt ist eine Einladung, mitzudenken, auszuprobieren und eigene Erfahrungen zu sammeln.**
