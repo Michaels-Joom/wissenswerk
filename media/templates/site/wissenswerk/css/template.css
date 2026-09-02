@@ -2006,126 +2006,167 @@ body {
   display: block;
 }
 
-/* ==========================================================================
-   Offcanvas Navigation
-   ========================================================================== */
-/* ==========================================================
-   Block
-   ========================================================== */
 .ww-offcanvas__navigation {
+  width: 100%;
   margin: 0;
   padding: 0;
 }
-
-/* ==========================================================
-   Menü
-   ========================================================== */
-.ww-offcanvas__navigation > .mod-menu {
+.ww-offcanvas__navigation .metismenu {
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
 }
-
-/* ==========================================================
-   Menüeinträge
-   ========================================================== */
-.ww-offcanvas__navigation > .mod-menu > .nav-item {
-  margin: 0;
-  border-bottom: 1px solid var(--ww-color-border);
-}
-
-/* ==========================================================
-   Hauptnavigation
-   ========================================================== */
-.ww-offcanvas__navigation > .mod-menu > .nav-item > a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 56px;
-  padding-inline: 1.5rem;
-  color: var(--ww-color-text);
-  font-size: 1.125rem;
-  font-weight: 500;
-  line-height: 1.4;
-  text-decoration: none;
-  transition: color 0.2s ease, background-color 0.2s ease;
-}
-
-/* ==========================================================
-   Parent
-   ========================================================== */
-.ww-offcanvas__navigation > .mod-menu > .parent > a {
+.ww-offcanvas__navigation .metismenu-item {
   position: relative;
-  padding-right: 3rem;
-}
-
-/* Chevron */
-.ww-offcanvas__navigation > .mod-menu > .parent > a::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 1.5rem;
-  width: 10px;
-  height: 10px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: translateY(-60%) rotate(45deg);
-  transition: transform 0.2s ease;
-}
-
-.ww-offcanvas__navigation > .mod-menu > .parent.is-open > a::after {
-  transform: translateY(-50%) rotate(45deg);
-}
-
-/* ==========================================================
-   Hover
-   ========================================================== */
-.ww-offcanvas__navigation > .mod-menu > .nav-item > a:hover {
-  background-color: var(--ww-color-surface-hover);
-}
-
-/* ==========================================================
-   Aktiver Menüpunkt
-   ========================================================== */
-.ww-offcanvas__navigation > .mod-menu > .current > a {
-  color: var(--ww-color-primary);
-  font-weight: 600;
-}
-
-/* ==========================================================
-   Modifier
-   ========================================================== */
-/* ==========================================================
-   Toggle
-   ========================================================== */
-/* ==========================================================
-   Toggle
-   ========================================================== */
-.ww-menu__toggle {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  flex: 0 0 56px;
-  width: 56px;
-  height: 56px;
+  width: 100%;
   margin: 0;
   padding: 0;
-  border: 0;
+  border-bottom: 1px solid var(--ww-color-border);
+}
+.ww-offcanvas__navigation .metismenu > .metismenu-item > a {
+  display: block;
+  flex: 1 1 auto;
+  min-height: 3.5rem;
+  padding-block: var(--ww-space-4);
+  padding-inline: var(--ww-space-6);
+  color: var(--ww-color-text);
+  font-family: var(--ww-font-family-body);
+  font-size: var(--ww-font-size-lg);
+  font-weight: var(--ww-font-weight-regular);
+  line-height: var(--ww-line-height-body);
+  text-decoration: none;
+  transition: color var(--ww-transition-fast), background-color var(--ww-transition-fast);
+}
+.ww-offcanvas__navigation .metismenu-item > ul .metismenu-item > a {
+  display: block;
+  flex: 1 1 auto;
+  min-height: 3.25rem;
+  padding-block: var(--ww-space-3);
+  padding-inline: var(--ww-space-6);
+  color: var(--ww-color-text);
+  font-family: var(--ww-font-family-body);
+  font-size: var(--ww-font-size-base);
+  font-weight: var(--ww-font-weight-regular);
+  line-height: var(--ww-line-height-body);
+  text-decoration: none;
+  transition: color var(--ww-transition-fast), background-color var(--ww-transition-fast);
+}
+.ww-offcanvas__navigation .metismenu-item > a:hover,
+.ww-offcanvas__navigation .metismenu-item > a:focus-visible {
+  color: var(--ww-color-secondary);
+  background-color: var(--ww-color-surface-hover);
+}
+.ww-offcanvas__navigation .metismenu-item > .mm-toggler {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 3.5rem;
+  width: 3.5rem;
+  min-height: 3.5rem;
+  margin: 0;
+  padding: 0;
+  color: var(--ww-color-text);
   background: transparent;
+  border: 0;
+  box-shadow: none;
   cursor: pointer;
+  transition: color var(--ww-transition-fast), background-color var(--ww-transition-fast);
+}
+.ww-offcanvas__navigation .metismenu-item > .mm-toggler:hover,
+.ww-offcanvas__navigation .metismenu-item > .mm-toggler:focus-visible {
+  color: var(--ww-color-secondary);
+  background-color: var(--ww-color-surface-hover);
+}
+.ww-offcanvas__navigation .metismenu-item > .mm-toggler::after {
+  width: 0;
+  height: 0;
+  margin: 0;
+  content: "";
+  border-top: 0.45rem solid currentColor;
+  border-right: 0.35rem solid transparent;
+  border-left: 0.35rem solid transparent;
+  transition: transform var(--ww-transition-fast), color var(--ww-transition-fast);
+}
+.ww-offcanvas__navigation .metismenu-item.mm-active > .mm-toggler::after,
+.ww-offcanvas__navigation .metismenu-item > .mm-toggler[aria-expanded=true]::after {
+  transform: rotateX(180deg);
+}
+.ww-offcanvas__navigation .metismenu-item.current > a,
+.ww-offcanvas__navigation .metismenu-item.active > a {
+  color: var(--ww-color-secondary);
+  font-weight: 500;
+}
+.ww-offcanvas__navigation .metismenu-item.mm-active > a {
+  color: var(--ww-color-secondary);
+}
+.ww-offcanvas__navigation .metismenu-item.current > .mm-toggler,
+.ww-offcanvas__navigation .metismenu-item.active > .mm-toggler,
+.ww-offcanvas__navigation .metismenu-item.mm-active > .mm-toggler {
+  color: var(--ww-color-secondary);
+}
+.ww-offcanvas__navigation .metismenu.mod-menu .metismenu-item > ul {
+  position: static;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: auto;
+  display: block;
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: var(--ww-color-surface-alt);
+  box-shadow: none;
+}
+.ww-offcanvas__navigation .metismenu.mod-menu .metismenu-item > ul.mm-collapse {
+  display: none;
+}
+.ww-offcanvas__navigation .metismenu.mod-menu .metismenu-item > ul.mm-collapse.mm-show {
+  display: block;
+}
+.ww-offcanvas__navigation .metismenu.mod-menu .metismenu-item > ul.mm-collapsing {
+  display: block;
+  overflow: hidden;
+}
+.ww-offcanvas__navigation .metismenu > .metismenu-item > ul > .metismenu-item > a {
+  padding-inline-start: calc(var(--ww-space-6) + 1rem);
+}
+.ww-offcanvas__navigation .metismenu > .metismenu-item > ul > .metismenu-item > .mm-toggler {
+  flex-basis: 3.5rem;
+}
+.ww-offcanvas__navigation .metismenu > .metismenu-item > ul > .metismenu-item > ul > .metismenu-item > a {
+  padding-inline-start: calc(var(--ww-space-6) + 2rem);
+}
+.ww-offcanvas__navigation .metismenu > .metismenu-item > ul > .metismenu-item > ul > .metismenu-item > ul > .metismenu-item > a {
+  padding-inline-start: calc(var(--ww-space-6) + 3rem);
+}
+.ww-offcanvas__navigation .metismenu > .metismenu-item > ul > .metismenu-item > ul > .metismenu-item > ul > .metismenu-item > ul {
+  padding-inline-start: 1rem;
+}
+.ww-offcanvas__navigation .metismenu-item > ul .metismenu-item {
+  background-color: var(--ww-color-surface-alt);
+}
+.ww-offcanvas__navigation .metismenu-item > ul .metismenu-item > a:hover,
+.ww-offcanvas__navigation .metismenu-item > ul .metismenu-item > a:focus-visible {
+  color: var(--ww-color-secondary);
+  background-color: var(--ww-color-surface-hover);
+}
+.ww-offcanvas__navigation .metismenu-item > a:focus-visible,
+.ww-offcanvas__navigation .metismenu-item > .mm-toggler:focus-visible {
+  outline: 2px solid var(--ww-color-secondary);
+  outline-offset: -2px;
+}
+.ww-offcanvas__navigation .metismenu > .metismenu-item:last-child {
+  border-bottom: 0;
 }
 
-/* ==========================================================
-   States
-   ========================================================== */
-/* folgt später */
-/*
-.is-open
-.is-active
-*/
-/* ==========================================================
-   Responsive
-   ========================================================== */
 .ww-brand {
   display: flex;
   align-items: center;
