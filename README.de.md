@@ -1,3 +1,7 @@
+_This documentation is also available in: [🇬🇧 English](./README.md)_
+
+---
+
 # WissensWerk
 
 **Verstehen – Entwickeln – Dokumentieren.**
