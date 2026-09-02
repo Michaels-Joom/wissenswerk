@@ -21,3 +21,5 @@ Dieses Kapitel beschreibt den technischen Aufbau von WissensWerk. Die einzelnen 
 - [🏗️ AR-013 Entwicklungsumgebung](./ar-013-entwicklungsumgebung.md)
 - [🏗️ AR-014 Deployment](./ar-014-deployment.md)
 - [🏗️ AR-015 Design System](./ar-015-design-system.md)
+- [🏗️ AR-016 Offcanvas-Architektur](./ar-016-offcanvas-architektur.md)
+- [🏗️ AR-017 Namenskonventionen](./ar-017-namenskonventionen-namensraeume.md)
