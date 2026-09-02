@@ -1,3 +1,5 @@
+[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md)
+
 # ADR-001 – Bootstrap wird über Design Tokens gesteuert
 
 **Status:** Angenommen  
