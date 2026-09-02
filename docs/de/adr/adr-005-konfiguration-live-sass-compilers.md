@@ -1,3 +1,5 @@
+[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [📐 Architekturentscheidungen (ADR)](./adr-000-architekturentscheidungen.md)
+
 # ADR-005 – Konfiguration des Live Sass Compilers
 
 **Status:** Angenommen  
