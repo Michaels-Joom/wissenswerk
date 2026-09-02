@@ -54,6 +54,7 @@ WissensWerk Designsystem
 - [🎨 DS-010 Responsive Design](./ds-010-responsive-design.md)
 - [🎨 DS-011 Dark Mode](./ds-011-dark-mode.md)
 - [🎨 DS-012 Design Tokens](./ds-012-design-tokens.md)
+- [🎨 DS-013 Entwicklungsstrategie](./ds-013-entwicklungsstrategie.md)
 
 ---
 
