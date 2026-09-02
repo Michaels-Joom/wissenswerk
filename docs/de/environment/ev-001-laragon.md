@@ -1,220 +1,191 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [💻 Entwicklungs Umgebungs Übersicht](./ev-000-entwicklungsumgebung-uebersicht.md)
+[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [💻 Entwicklungsumgebung – Übersicht](./ev-000-entwicklungsumgebung-uebersicht.md)
 
 ---
 
 # EV-001 Laragon
 
-## Ziel
-Dieses Dokument beschreibt die lokale Entwicklungsumgebung des Projekts **WissensWerk** auf Basis von **Laragon**.
+**Dokumenttyp:** Entwicklungsumgebung  
+**Projekt:** WissensWerk Template  
+**Status:** Aktiv  
+**Version:** 2.0  
+**Stand:** 02.09.2026
 
-Neben der Installation werden die Gründe für die Auswahl, die verwendete Projektkonfiguration sowie die Einbindung in den Entwicklungsprozess dokumentiert. Ziel ist eine reproduzierbare Entwicklungsumgebung, die jederzeit auf einem anderen System identisch eingerichtet werden kann.
+---
 
-## Hintergrund
+## 1. Ziel
+
+Dieses Dokument beschreibt die lokale Entwicklungsumgebung des Projekts WissensWerk auf Basis von Laragon.
+
+Neben der Auswahl und Einrichtung werden die für das Projekt relevanten Komponenten sowie die Einbindung in den Entwicklungsprozess dokumentiert.
+
+---
+
+## 2. Hintergrund
 
 Für die Entwicklung eines Joomla-Templates wird eine lokale Webserverumgebung benötigt.
-Eine lokale Entwicklungsumgebung bietet gegenüber einer direkten Entwicklung auf einem Webserver zahlreiche Vorteile:
-- vollständige Kontrolle über die Entwicklungsumgebung
+
+Eine lokale Umgebung ermöglicht:
+
 - kurze Entwicklungs- und Testzyklen
-- keine Auswirkungen auf produktive Systeme
-- einfache Versionsverwaltung
-- gefahrloses Experimentieren
-- unabhängiges Arbeiten ohne Internetverbindung
+- isolierte Entwicklung ohne Auswirkungen auf ein Produktivsystem
+- lokale Datenbanktests
+- reproduzierbare Änderungen
+- direkte Integration mit Visual Studio Code und Git
 
-Grundsätzlich kommen verschiedene Entwicklungsumgebungen in Betracht:
-- Laragon
-- XAMPP
-- WampServer
-- Docker
-- DDEV
+Für WissensWerk wird Laragon als lokale Entwicklungsumgebung eingesetzt.
 
-Für WissensWerk wurde bewusst **Laragon** ausgewählt.
+---
 
-## Architekturentscheidung
-Laragon bildet die Grundlage der lokalen Entwicklungsumgebung.
-Die Auswahl erfolgte aufgrund folgender Eigenschaften.
+## 3. Architekturentscheidung
+
+Laragon bildet die technische Grundlage der lokalen Joomla-Entwicklung.
+
+Die Auswahl erfolgt insbesondere aufgrund der einfachen Verwaltung der lokalen Webserver-, PHP- und Datenbankkomponenten sowie der vorhandenen Node.js-Integration.
 
 | Kriterium | Bewertung |
-|-----------|-----------|
-| Einfache Installation | ✔ |
-| Portable Installation | ✔ |
+|---|---|
+| Lokale Webentwicklung | ✔ |
+| Apache verfügbar | ✔ |
 | Mehrere PHP-Versionen | ✔ |
-| Apache und Nginx verfügbar | ✔ |
-| MariaDB integriert | ✔ |
-| Virtuelle Hosts automatisch | ✔ |
-| Composer integriert | ✔ |
-| Gute Performance | ✔ |
-| Geringer Ressourcenverbrauch | ✔ |
+| MariaDB verfügbar | ✔ |
+| Virtuelle Hosts | ✔ |
+| Composer | ✔ |
+| Node.js-Verwaltung | ✔ |
+| Integration mit VS Code | ✔ |
 
-### Entscheidung
-Für WissensWerk wird Laragon als Standardentwicklungsumgebung verwendet.
+---
 
-Die Umgebung bildet die Grundlage für sämtliche Entwicklungs-, Test- und Dokumentationsarbeiten.
+## 4. Projektumgebung
 
-## Bezugsquellen
-Laragon wird ausschließlich aus offiziellen Quellen bezogen.
+Das WissensWerk-Projekt befindet sich innerhalb des Laragon-Webverzeichnisses.
 
-### Offizielle Webseite
-https://laragon.org
-
-Download der aktuellen stabilen Version sowie allgemeine Projektinformationen.
-
-### Dokumentation
-https://laragon.org/docs/
-
-Offizielle Dokumentation mit Installations- und Konfigurationshinweisen.
-
-### GitHub
-https://github.com/leokhoa/laragon
-
-Quellcode, Änderungsverlauf und Projektinformationen.
-
-> [!NOTE]
-> Für WissensWerk wird grundsätzlich die jeweils aktuelle stabile Version verwendet.
-
-## Systemvoraussetzungen
-
-Die Entwicklungsumgebung basiert derzeit auf folgender Plattform.
-
-| Komponente | Version |
-|------------|----------|
-| Betriebssystem | Windows 11 Pro |
-| Laragon | aktuelle stabile Version |
-| PHP | siehe Projektkonfiguration |
-| Apache | integriert |
-| MariaDB | integriert |
-| Composer | integriert |
-
-## Installation
-Die Installation erfolgt über den Standardinstaller von Laragon.
-### Installationsschritte
-
-1. Installationsdatei herunterladen.
-2. Installer starten.
-3. Zielverzeichnis auswählen.
-4. Installation abschließen.
-5. Laragon starten.
-
-Während der Installation sind keine besonderen Anpassungen erforderlich.
-
-> [!NOTE]
-> Es wird empfohlen, Laragon in das Standardverzeichnis zu installieren.
-
-## Erste Inbetriebnahme
-Nach dem ersten Start sollten folgende Komponenten erfolgreich gestartet werden.
-
-- Apache
-- MariaDB
-
-Anschließend sollte die Laragon-Startseite im Browser erreichbar sein.
-Dadurch wird die erfolgreiche Installation überprüft.
-
-## Projektkonfiguration
-
-### Projektverzeichnis
-
-Alle Projekte befinden sich innerhalb des Laragon-Webverzeichnisses.
+Beispiel:
 
 ```text
-C:\Laragon
+C:\laragon
 │
 ├── bin
 ├── etc
 ├── usr
 ├── www
-│   └── WissensWerk
-│
+│   └── wissenswerk
 └── ...
 ```
 
+Die konkrete Groß-/Kleinschreibung des Projektverzeichnisses richtet sich nach der tatsächlichen lokalen Installation.
+
 ---
 
-### Virtuelle Hosts
+## 5. Virtueller Host
 
-Laragon erstellt virtuelle Hosts automatisch.
-Für WissensWerk wird ein eigener virtueller Host verwendet.
+Laragon stellt für das lokale Projekt einen eigenen virtuellen Host bereit.
+
 Beispiel:
 
 ```text
 http://wissenswerk.test
 ```
 
-### PHP
-Die verwendete PHP-Version richtet sich nach den Systemanforderungen der eingesetzten Joomla-Version.
-Bei Bedarf können verschiedene PHP-Versionen für Kompatibilitätstests verwendet werden.
+Dadurch kann das Template unter einer realistischen Domainstruktur getestet werden.
 
-### Datenbank
-Für jedes Projekt wird eine eigene MariaDB-Datenbank angelegt.
-Dadurch bleiben Projekte vollständig voneinander getrennt.
+---
 
-### Composer
-Composer wird über die Laragon-Installation bereitgestellt.
-Separate Installationen sind nicht erforderlich.
+## 6. Verwendete Komponenten
 
-## Verwendete Konfiguration in WissensWerk
+| Komponente | Aufgabe |
+|---|---|
+| Apache | lokaler Webserver |
+| PHP | Laufzeitumgebung für Joomla |
+| MariaDB | Joomla-Datenbank |
+| Composer | PHP-Abhängigkeiten, sofern erforderlich |
+| Node.js | Frontend-Buildwerkzeuge |
+| npm | Node-Paketverwaltung |
 
-| Einstellung | Wert |
-|-------------|------|
-| Webserver | Apache |
-| Datenbank | MariaDB |
-| Virtuelle Hosts | aktiviert |
-| Composer | aktiviert |
-| PHP | aktuell verwendete Projektversion |
-| SSL | lokale Entwicklung |
-| Pretty URLs | aktiviert |
+Node.js und npm werden dabei ausschließlich für die lokale Entwicklung bzw. den Build eingesetzt.
 
-## Integration in den Entwicklungsprozess
-Laragon bildet die Grundlage der gesamten Entwicklungsumgebung.
+---
+
+## 7. Node.js über Laragon
+
+Die lokale Laragon-Installation stellt auch Node.js bereit.
+
+Der aktuell verwendete Pfad lautet:
+
+```text
+C:\laragonin
+odejs
+ode-v22
+```
+
+Die konkreten Node.js-/npm-Versionen sind im Dokument [EV-005 Node.js und npm](./ev-005-nodejs-npm.md) dokumentiert.
+
+---
+
+## 8. Datenbank
+
+Für WissensWerk wird eine eigene MariaDB-Datenbank verwendet.
+
+Dadurch bleibt die Joomla-Installation unabhängig von anderen lokalen Projekten.
+
+Datenbankzugangsdaten gehören nicht in das Git-Repository.
+
+---
+
+## 9. Integration in den Entwicklungsprozess
 
 ```text
 Laragon
-        │
-        ▼
+   ↓
 Joomla
-        │
-        ▼
+   ↓
 Visual Studio Code
-        │
-        ▼
+   ↓
+SCSS / JavaScript
+   ↓
 Git
-        │
-        ▼
+   ↓
 GitHub
 ```
 
-Alle weiteren Werkzeuge bauen auf dieser Entwicklungsumgebung auf.
+Laragon stellt dabei die lokale Laufzeitumgebung bereit.
 
-## Vorteile für WissensWerk
-Die Verwendung von Laragon bietet für dieses Projekt insbesondere folgende Vorteile.
-- schnelle Einrichtung neuer Projekte
-- automatische virtuelle Hosts
-- einfache Verwaltung verschiedener PHP-Versionen
-- geringe Systembelastung
-- vollständige lokale Entwicklung
-- problemlose Integration in Visual Studio Code
-- direkte Zusammenarbeit mit Git und GitHub
+Die eigentliche Versionsverwaltung erfolgt über Git und GitHub.
 
-## Best Practices
-Für WissensWerk gelten folgende Empfehlungen.
-- Entwicklung ausschließlich lokal durchführen.
-- Keine Entwicklung direkt auf Produktivsystemen.
+---
+
+## 10. Best Practices
+
+Für WissensWerk gelten:
+
+- Entwicklung lokal durchführen.
+- Produktivsysteme nicht direkt bearbeiten.
 - Änderungen zunächst lokal testen.
-- Erst nach erfolgreichem Test in Git übernehmen.
-- Anschließend auf GitHub veröffentlichen.
-- Regelmäßig Sicherungen der lokalen Datenbank erstellen.
-- PHP-Versionen dokumentieren.
-- Änderungen an der Entwicklungsumgebung nachvollziehbar dokumentieren.
+- Datenbankzugangsdaten nicht versionieren.
+- PHP-Versionen bei relevanten Änderungen dokumentieren.
+- Entwicklungsumgebung nicht unnötig verändern.
+- Änderungen an der Umgebung nachvollziehbar dokumentieren.
 
-## Weiterführende Dokumente
+---
 
-- [💻 EV-002 Visual Studio Code](./ev-002-visual-studio-code.md)
-- [💻 EV-003 Git](./ev-003-git.md)
-- [💻 EV-004 Git Hub](./ev-004-git-hub.md)
-- DV-001 Template erstellen
+## 11. Bezugsquellen
 
-## Fazit
+- [Laragon](https://laragon.org/)
+- [Laragon Dokumentation](https://laragon.org/docs/)
+- [Laragon auf GitHub](https://github.com/leokhoa/laragon)
 
-Laragon wurde als Entwicklungsumgebung ausgewählt, weil es die Anforderungen des Projekts hinsichtlich Einfachheit, Flexibilität und Wartbarkeit optimal erfüllt.
+---
 
-Als Fundament der lokalen Entwicklungsumgebung bildet Laragon die Basis für alle weiteren Werkzeuge und Prozesse – von der Joomla-Installation über die Templateentwicklung bis hin zur Versionsverwaltung mit Git und GitHub.
+## 12. Ergebnis
 
-Die Dokumentation dieser Architekturentscheidung stellt sicher, dass die Entwicklungsumgebung nicht nur eingerichtet, sondern auch verstanden und langfristig reproduzierbar bleibt. Sie schafft damit eine verlässliche Grundlage für die weitere Entwicklung von WissensWerk.
+Laragon stellt die lokale technische Basis für die Joomla-Entwicklung von WissensWerk bereit.
+
+Die Umgebung integriert Webserver, PHP, Datenbank und Node.js in einer für das Projekt geeigneten lokalen Entwicklungsplattform.
+
+---
+
+# Änderungshistorie
+
+| Version | Datum | Beschreibung |
+|---|---|---|
+| 1.0 | Juli 2026 | Ursprüngliche Laragon-Dokumentation erstellt. |
+| 2.0 | 02.09.2026 | Dokument an die aktuelle lokale Umgebung und die Nutzung von Node.js über Laragon angepasst. |

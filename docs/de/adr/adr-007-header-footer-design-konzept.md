@@ -1,128 +1,108 @@
-# ADR-007 Header- und Footer- Designkonzept
+# ADR-007 – Header- und Footer-Designkonzept
 
-Status: Accepted
-Datum: 28.07.2026
+**Status:** Angenommen  
+**Version:** 2.0  
+**Datum:** 02.09.2026  
+**Projekt:** WissensWerk
 
-Kontext
+## Kontext
 
-Während der Entwicklung des WissensWerk-Templates wurden für Header und Footer mehrere grundlegende Gestaltungs- und Architekturentscheidungen getroffen. Ziel ist eine klare, ruhige und wiedererkennbare Benutzeroberfläche, die sowohl auf Desktop- als auch auf mobilen Geräten funktioniert.
-Diese Entscheidungen bilden die Grundlage für alle weiteren Layoutbereiche.
+Während der Entwicklung des WissensWerk-Templates wurden für Header und Footer grundlegende Gestaltungs- und Architekturentscheidungen getroffen.
+
+Ziel ist eine ruhige, klare und wiedererkennbare Benutzeroberfläche, die auf unterschiedlichen Bildschirmgrößen funktioniert.
 
 ## Entscheidung
 
-## 1. Mobile First
-Alle Layouts werden grundsätzlich Mobile First entwickelt.
-Desktop-Layouts erweitern die mobile Darstellung und ersetzen sie nicht.
-Responsive Anpassungen orientieren sich an den definierten Design-Tokens und Breakpoints.
+### 1. Mobile First
 
-## 2. Header
+Alle Layouts werden grundsätzlich Mobile First entwickelt. Desktop-Darstellungen erweitern die mobile Struktur.
 
-Der Header dient ausschließlich der Identität des Projekts.
-Er besteht aus:
+### 2. Header
+
+Der Header bildet Markenidentität und primäre Navigation als getrennte Verantwortungsbereiche ab.
+
+Das Branding umfasst:
 
 - Logo
 - Wortmarke
 - Balance-Element
 - Slogan
 
-Navigationselemente gehören nicht zum Branding und werden getrennt behandelt.
+Die Navigation ist eine eigenständige Komponente.
 
-## 3. Responsive Branding
-Mobile (< Branding-Breakpoint)
-Logo wird ausgeblendet.
-Die Wortmarke übernimmt die gesamte Markenwirkung.
-Das Branding bleibt horizontal zentriert.
-Die Balance orientiert sich an der Breite der Wortmarke.
-Desktop (≥ Branding-Breakpoint)
-Das Logo wird eingeblendet.
-Die Logo-Größe bleibt konstant.
-Das Branding verschiebt sich optisch nach rechts.
-Das Logo skaliert oberhalb des Breakpoints nicht weiter.
+### 3. Responsive Branding
 
-## 4. Balance
-Das Balance-Element ist Bestandteil der Markenidentität.
-Es besteht aus:
+Unterhalb des definierten Branding-Breakpoints kann das Logo ausgeblendet werden. Die Wortmarke bleibt als zentrale Markeninformation erhalten.
 
-- linker Linie
-- Mittelpunkt
-- rechter Linie
+Ab dem Branding-Breakpoint wird das Logo eingeblendet. Seine Größe bleibt innerhalb des vorgesehenen Bereichs konstant.
 
-Die Gesamtbreite orientiert sich an der Wortmarke und nicht am Container.
-Optische Harmonie besitzt Vorrang gegenüber mathematischer Zentrierung.
+Die Balance orientiert sich optisch an der Wortmarke.
 
-## 5. Footer
-Der Footer bildet den inhaltlichen Abschluss der Seite.
-Er besteht aus vier eigenständigen Bereichen:
+### 4. Balance
+
+Das Balance-Element besteht aus linker Linie, Mittelpunkt und rechter Linie. Seine Gesamtbreite orientiert sich an der Wortmarke. Optische Harmonie hat Vorrang vor rein mathematischer Zentrierung.
+
+### 5. Footer
+
+Der Footer bildet den inhaltlichen Abschluss der Seite und besteht aus eigenständigen Bereichen für:
 
 - Logo
 - Über mich
 - Über das Projekt
 - Service
 
-Jeder Bereich besitzt eine klar definierte Aufgabe.
+### 6. Copyright
 
-## 6. Copyright
+Der Copyright-Bereich ist vom eigentlichen Footer-Inhalt getrennt und wird als eigene Section behandelt.
 
-Der Copyright-Bereich ist bewusst vom Footer getrennt.
-Dadurch entsteht ein klarer Seitenabschluss.
-Der Copyright-Bereich wird als eigene Section behandelt.
+### 7. Servicebereich
 
-## 7. Servicebereich
+Der Servicebereich enthält unterstützende Seiten und gehört nicht zur Hauptnavigation.
 
-Die Service-Navigation enthält ausschließlich unterstützende Seiten.
-
-Beispiele:
+Dazu können insbesondere gehören:
 
 - Kontakt
 - Impressum
 - Datenschutz
--
 - Cookie-Richtlinie
 
-Sie gehört nicht zur Hauptnavigation.
+Die tatsächliche Zusammenstellung wird über die Joomla-Menü- beziehungsweise Modulstruktur gesteuert.
 
-## 8. Mobile Bedienbarkeit
+### 8. Mobile Bedienbarkeit
 
-In der Desktopansicht werden Serviceeinträge als klassische Textlinks dargestellt.
-In der mobilen Ansicht werden dieselben Einträge als Buttons dargestellt.
+Serviceeinträge werden auf kleinen Bildschirmgrößen so dargestellt, dass ausreichend große Touch-Ziele zur Verfügung stehen. Die zugrunde liegenden Elemente bleiben semantische Links.
 
-Gründe:
+### 9. Section-orientierte Architektur
 
-- größere Touch-Fläche
-- bessere Erreichbarkeit
-- höhere Barrierefreiheit
-- bessere Bedienbarkeit auf Smartphones
+Header und Footer besitzen jeweils eigene Container und organisieren ihr internes Layout selbst.
 
-## 9. Section-orientierte Architektur
-
-Header und Footer besitzen jeweils einen eigenen Container und organisieren ihr internes Layout selbst.
-Es wird bewusst kein globales Seiten-Grid verwendet.
-Jede Section entscheidet unabhängig, ob Flexbox oder CSS Grid eingesetzt wird.
-Dadurch bleiben die einzelnen Layoutbereiche unabhängig voneinander.
+Es wird bewusst kein globales Seiten-Grid erzwungen. Jede Section entscheidet abhängig von ihrer Aufgabe über Flexbox oder CSS Grid.
 
 ## Konsequenzen
 
 ### Vorteile
+
 - klare Informationsarchitektur
-- hohe Wartbarkeit
 - konsequente Mobile-First-Strategie
-- wiedererkennbare Markenidentität
-- einfache Erweiterbarkeit
-- saubere Trennung der Layoutbereiche
+- eigenständige Markenidentität
+- gute Wartbarkeit
+- unabhängige Weiterentwicklung der Sections
+- konsistentes Responsive Design
 
 ### Nachteile
-- jede Section benötigt ein eigenes Layout
-- geringfügig höherer Entwicklungsaufwand als bei einem globalen Seiten-Grid
-- Begründung
 
-```
-Die gewählte Architektur unterstützt die Ziele von WissensWerk:
+- einzelne Sections benötigen eigenes Layout
+- etwas höherer Entwicklungsaufwand als bei einem globalen Seiten-Grid
+- Responsive Verhalten muss je Section bewusst geplant werden
+
+## Begründung
+
+Die gewählte Architektur unterstützt die zentralen Ziele von WissensWerk:
 
 - ruhiges Erscheinungsbild
 - nachhaltige Wartbarkeit
 - klare Trennung der Verantwortlichkeiten
 - konsistentes Responsive Design
-- eigenständige Designidentität unabhängig vom Cassiopeia-Template
-- ein Hinweis
+- eigenständige Designidentität unabhängig von Cassiopeia
 
-```
+Header und Footer werden dadurch als eigenständige Layoutbereiche behandelt.

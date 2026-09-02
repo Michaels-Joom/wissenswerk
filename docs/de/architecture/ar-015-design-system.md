@@ -1,276 +1,336 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [🏗️ Architektur Übersicht](./ar-000-architektur-uebersicht.md)
+[[[ Inhaltsverzeichnis ]](./../table-of-contents.md) [🏗️ Architektur Übersicht](./ar-000-architektur-uebersicht.md)
 
 ---
 
 # AR-015 Design System
 
 > **Status:** Aktiv  
-> **Version:** 1.0  
-> **Stand:** 27.07.2026
+> **Version:** 2.0  
+> **Stand:** 02.09.2026  
+> **Projekt:** WissensWerk Template
 
-## Ziel
+## 1. Ziel
 
-Das Design System definiert die visuelle Sprache des WissensWerk-Templates unabhängig von Joomla und Bootstrap.
+Das Designsystem definiert die visuelle Sprache des WissensWerk-Templates.
 
-Es stellt eine zentrale Grundlage für sämtliche gestalterischen Entscheidungen dar und sorgt für Konsistenz, Wartbarkeit und Erweiterbarkeit.
+Es bildet die zentrale Grundlage für Farben, Typografie, Abstände, Zustände und weitere wiederkehrende Gestaltungsentscheidungen.
 
-Das Design System bildet die einzige Quelle für alle visuellen Eigenschaften des Templates.
+Joomla und Bootstrap bleiben technische Bestandteile der Gesamtarchitektur. Das Designsystem definiert jedoch die visuelle Identität des Templates.
 
-## Ziele des Design Systems
+## 2. Ziele des Designsystems
 
-Das Design System verfolgt folgende Ziele:
+Das Designsystem verfolgt folgende Ziele:
 
-- Einheitliches Erscheinungsbild
-- Klare Trennung zwischen Design und technischer Umsetzung
-- Zentrale Verwaltung aller Designentscheidungen
-- Wiederverwendbarkeit im gesamten Projekt
-- Hohe Wartbarkeit
-- Vorbereitung auf zukünftige Erweiterungen (z. B. Dark Mode)
+- einheitliches Erscheinungsbild
+- zentrale Verwaltung visueller Entscheidungen
+- Wiederverwendbarkeit
+- klare Trennung von Design und technischer Implementierung
+- hohe Wartbarkeit
+- konsistente Komponenten- und Layoutgestaltung
+- gute Grundlage für responsive Gestaltung
+- Möglichkeit zukünftiger Varianten
 
-## Architektur
+## 3. Architektur
 
-Das Design System bildet die Grundlage der gesamten Frontend-Architektur.
+Die aktuelle Beziehung der Ebenen lautet:
 
 ```text
 Corporate Identity
         │
         ▼
-Design System
+WissensWerk Designsystem
+        │
+        ├── Design Tokens
         │
         ▼
-Bootstrap-Integration
+WissensWerk SCSS
+        │
+        ├── Komponenten
+        ├── Layout
+        └── Templatebereiche
         │
         ▼
-Basis-Styles
+Bootstrap-Integration / Browser
         │
         ▼
-Komponenten
-        │
-        ▼
-Layouts
-        │
-        ▼
-Joomla-Template
+Joomla Template
 ```
 
-Das Design System definiert ausschließlich das Erscheinungsbild.
+Das Designsystem definiert die visuelle Sprache.
 
-Bootstrap übernimmt die technische Umsetzung.
+Bootstrap liefert technische Grundlagen.
 
-Joomla stellt die Template-Struktur bereit.
+Joomla stellt Struktur und Inhalte bereit.
 
-## Aufbau des Design Systems
+## 4. Design Tokens
 
-```text
-scss/
+Design Tokens sind die zentrale technische Umsetzung der Designentscheidungen.
 
-├── tokens/
-│   ├── _colors.scss
-│   ├── _spacing.scss
-│   ├── _typography.scss
-│   ├── _layout.scss
-│   └── _index.scss
-│
-├── base/
-│
-├── components/
-│
-├── layout/
-│
-└── vendors/
-```
-
-## Token-Architektur
-
-Das Design System basiert auf zwei Ebenen.
-
-```text
-Primitive Tokens
-        │
-        ▼
-Semantische Tokens
-        │
-        ▼
-Komponenten
-        │
-        ▼
-Layouts
-```
-
-### Primitive Tokens
-Primitive Tokens enthalten ausschließlich die eigentlichen Designwerte.
-
-Beispiele:
+Sie definieren wiederkehrende Werte beispielsweise für:
 
 - Farben
-- Schriftgrößen
 - Abstände
+- Typografie
 - Radien
-
-Primitive Tokens besitzen keine fachliche Bedeutung.
-
-### Semantische Tokens
-Semantische Tokens beschreiben die Funktion eines Wertes.
-
-Beispiele:
-
-- Primärfarbe
-- Hintergrundfarbe
-- Textfarbe
-- Standardabstand
-- Überschrift H1
-
-Komponenten verwenden ausschließlich semantische Tokens.
-
-## Bestandteile
-
-### Farben
-Definiert die komplette Farbwelt.
-
-Beinhaltet unter anderem:
-
-- Markenfarben
-- Hintergrundfarben
-- Textfarben
-- Rahmenfarben
-- Statusfarben
-
-### Typografie
-Definiert das vollständige Schriftsystem.
-
-Beinhaltet:
-
-- Schriftfamilien
-- Schriftgrößen
-- Schriftgewichte
-- Zeilenhöhen
-- Buchstabenabstände
-- Typografische Rollen
-
-### Abstände
-Definiert das einheitliche Abstandssystem.
-Alle Komponenten greifen auf dieselbe Abstandsskala zurück.
-
-### Layout
-Definiert globale Layout-Eigenschaften.
-
-Beispielsweise:
-
-- Maximale Containerbreite
-- Border Radius
 - Schatten
-- Transitionen
-- Ebenen (Z-Index)
+- Layoutwerte
+- Übergänge
+- Ebenen
 
----
-
-## Grundprinzipien
-
-### 1. Farben werden nur einmal definiert
-
-Hexadezimale Farbwerte dürfen ausschließlich in
+Projektspezifische CSS Custom Properties verwenden den Namensraum:
 
 ```text
-tokens/_colors.scss
+--ww-
 ```
 
-definiert werden.
+## 5. Token-Prinzip
 
-### 2. Komponenten verwenden ausschließlich semantische Farb-Tokens
+Das Designsystem unterscheidet zwischen konkreten Designwerten und semantischer Verwendung.
 
-Richtig
+Grundprinzip:
+
+```text
+Designwert
+    ↓
+semantischer Token
+    ↓
+Komponente
+    ↓
+Layout
+```
+
+Komponenten sollen bevorzugt semantische Tokens verwenden.
+
+Beispiel:
 
 ```scss
-color: var(--ww-color-primary);
+color: var(--ww-color-text);
 ```
 
-Falsch
+statt einer direkt eingebetteten konkreten Farbe.
 
-```scss
-color: #B8860B;
-```
-
-### 3. Abstände erfolgen ausschließlich über Design Tokens
-
-Richtig
+Ebenso:
 
 ```scss
 padding: var(--ww-space-4);
 ```
 
-Falsch
+statt einer beliebigen lokalen Abstandszahl, wenn der benötigte Abstand bereits durch das Designsystem abgedeckt ist.
 
-```scss
-padding: 18px;
+## 6. Farben
+
+Die Farbwelt wird zentral über die Design-Tokens definiert.
+
+Dabei werden semantische Rollen gegenüber konkreten Farbnamen bevorzugt.
+
+Beispiele:
+
+```text
+Primary
+Secondary
+Background
+Surface
+Surface Alt
+Text
+Border
 ```
 
-### 4. Typografie ist rollenbasiert
+Konkrete Farbwerte gehören in die dafür vorgesehenen Token-Definitionen.
 
-Komponenten definieren keine eigenen Schriftgrößen.
+Komponenten sollen keine eigenen, unkoordinierten Farbwerte einführen.
 
-Richtig
+## 7. Typografie
 
-```scss
-font-size: var(--ww-text-body-font-size);
-```
+Die Typografie wird zentral definiert.
 
-Falsch
-
-```scss
-font-size: 1rem;
-```
-
-### 5. Bootstrap ist eine Implementierungsschicht
-Bootstrap dient ausschließlich als Frontend-Framework.
-Bootstrap bestimmt nicht das Erscheinungsbild des Templates.
-
-### 6. Klare Verantwortlichkeiten
-Jede Ebene besitzt genau eine Aufgabe.
-
-| Ebene | Verantwortung |
-|--------|---------------|
-| Corporate Identity | Markenidentität |
-| Design System | Gestaltung |
-| Bootstrap | Technische Umsetzung |
-| Joomla | Template-Struktur |
-
-Dadurch bleiben Design und Implementierung konsequent voneinander getrennt.
-
-## Schriftkonzept
-Alle Schriftarten werden lokal eingebunden.
-
-Aktuelle Schriftfamilien:
+Aktuell vorgesehene Schriftfamilien:
 
 | Verwendung | Schrift |
-|------------|----------|
+|---|---|
 | Überschriften | Cormorant Garamond |
 | Fließtext | Source Sans 3 |
 | Code | IBM Plex Mono |
 
-Die Schriftarten werden zentral registriert und ausschließlich über Design Tokens verwendet.
+Schriftgrößen, Gewichte und Zeilenhöhen werden über die typografischen Design-Tokens organisiert.
 
-# Erweiterbarkeit
-Das Design System wurde von Beginn an auf zukünftige Erweiterungen ausgelegt.
+Komponenten sollen keine konkurrierenden lokalen Typografiesysteme aufbauen.
 
-Geplante Möglichkeiten:
+## 8. Abstände
 
+Das Designsystem stellt eine zentrale Abstandsskala bereit.
+
+Beispiel:
+
+```scss
+padding: var(--ww-space-4);
+margin-block: var(--ww-space-6);
+```
+
+Die Verwendung der bestehenden Token-Skala ist gegenüber frei gewählten Einzelwerten zu bevorzugen.
+
+Das verbessert die visuelle Konsistenz und reduziert spätere Anpassungsarbeit.
+
+## 9. Layout
+
+Globale Layoutwerte gehören zum Designsystem beziehungsweise zur zugehörigen Layoutarchitektur.
+
+Dazu gehören beispielsweise:
+
+- Containerbreiten
+- Radien
+- Schatten
+- Übergänge
+- Ebenen
+- responsive Grundwerte
+
+Die konkrete Seitenstruktur wird dagegen durch die Layoutarchitektur des Templates definiert.
+
+Damit bleiben Designwerte und Seitenstruktur voneinander getrennt.
+
+## 10. Komponenten
+
+Komponenten verwenden die Design Tokens als zentrale visuelle Grundlage.
+
+Beispiel:
+
+```text
+Design Token
+      ↓
+SCSS-Komponente
+      ↓
+UI-Komponente
+      ↓
+Layout
+```
+
+Die aktuelle Umsetzung zeigt dies insbesondere bei:
+
+- Branding
+- Header
+- Navigation
+- Sidebar
+- Offcanvas
+
+Die Navigation verwendet dabei MetisMenu für das Verhalten, während WissensWerk-SCSS die visuelle Darstellung steuert.
+
+## 11. Bootstrap
+
+Bootstrap ist technische Integrationsschicht und nicht das WissensWerk-Designsystem.
+
+Bootstrap stellt beispielsweise bereit:
+
+- Grid
+- responsive Grundlagen
+- Utilities
+- Offcanvas
+
+WissensWerk bestimmt:
+
+- Farben
+- Typografie
+- visuelle Hierarchie
+- Komponentenstil
+- Abstände im Rahmen des Designsystems
+- Zustandsdarstellung
+
+Bootstrap-Core-Dateien werden nicht verändert.
+
+## 12. Responsive Design
+
+Das Designsystem berücksichtigt responsive Anforderungen.
+
+Dabei werden nicht nur Breakpoints betrachtet, sondern auch:
+
+- verfügbare Breite
+- Lesbarkeit
+- Touch-Bedienung
+- Fokuszustände
+- Menüverhalten
+- Abstände
+
+Die technische responsive Umsetzung erfolgt durch das Zusammenspiel von Bootstrap und WissensWerk-SCSS.
+
+## 13. Barrierefreiheit
+
+Barrierefreiheit ist Bestandteil des Designsystems.
+
+Bei visuellen Zuständen werden insbesondere berücksichtigt:
+
+- ausreichender Kontrast
+- sichtbare Fokuszustände
+- verständliche Zustandsunterscheidung
+- ausreichende Bedienflächen
+- Lesbarkeit
+- responsive Bedienbarkeit
+
+Das Designsystem allein garantiert keine vollständige Barrierefreiheit. Die konkrete Umsetzung muss zusätzlich in HTML, JavaScript und Komponenten geprüft werden.
+
+## 14. Erweiterbarkeit
+
+Das Designsystem ist auf spätere Erweiterungen ausgelegt.
+
+Mögliche Erweiterungen:
+
+- alternative Farbschemata
 - Dark Mode
-- Alternative Farbschemata
-- Barrierefreie Themes
-- Benutzerdefinierte Themes
-- Erweiterte Typografieprofile
+- weitere typografische Rollen
+- zusätzliche Komponentenvarianten
+- weitere responsive Ausprägungen
 
-Diese Erweiterungen können umgesetzt werden, ohne bestehende Komponenten anzupassen.
+Neue Varianten sollen bevorzugt über Tokens und definierte Variantenmechanismen umgesetzt werden, statt bestehende Komponenten durch verstreute Sonderregeln zu verändern.
 
-## Vorteile
-Das Design System bietet:
+## 15. Verzeichnisstruktur
 
-- Einheitliches Erscheinungsbild
-- Hohe Wartbarkeit
-- Wiederverwendbare Designentscheidungen
-- Unabhängigkeit vom verwendeten Framework
-- Gute Skalierbarkeit
-- Einfache zukünftige Redesigns
+Die konkrete Token- und SCSS-Struktur wird in **AR-004 SCSS-Architektur** dokumentiert.
 
-Alle gestalterischen Entscheidungen stammen aus einer zentralen Quelle und bilden damit die Grundlage für das gesamte WissensWerk-Template.
+Das Designsystem ist damit nicht auf eine einzelne Datei beschränkt, sondern wird durch die definierte Token- und SCSS-Struktur technisch umgesetzt.
 
+## 16. Verwandte Dokumente
+
+- [🏗️ AR-004 SCSS-Architektur](./ar-004-scss-architektur.md)
+- [🏗️ AR-007 Bootstrap-Integration](./ar-007-bootstrap-integration.md)
+- [🏗️ AR-010 Layout-Architektur](./ar-010-layout-architektur.md)
+- [🏗️ AR-011 UI-Komponenten](./ar-011-ui-komponenten.md)
+- [🏗️ AR-017 Namenskonventionen und Namensräume](./ar-017-namenskonventionen-namensraeume.md)
+
+## 17. Aktueller Stand
+
+Das Designsystem ist die Grundlage der bisher umgesetzten visuellen Gestaltung.
+
+Insbesondere die gemeinsame Gestaltung von Header, Sidebar und Offcanvas basiert auf den zentralen Design Tokens.
+
+Die aktuelle Entwicklung hat die Trennung zwischen Designsystem und technischer Funktion bestätigt:
+
+```text
+Designsystem
+    → visuelle Sprache
+
+SCSS
+    → konkrete Gestaltung
+
+Bootstrap
+    → technische Grundlage
+
+MetisMenu
+    → Menüverhalten
+
+Joomla
+    → Struktur und Inhalte
+```
+
+## 18. Ergebnis
+
+Das WissensWerk-Designsystem bildet die zentrale visuelle Grundlage des Templates.
+
+Es verhindert, dass Komponenten und Layoutbereiche eigene, voneinander unabhängige Gestaltungssysteme entwickeln.
+
+Durch die Kombination aus Design Tokens, SCSS und klaren Verantwortlichkeiten bleibt das Erscheinungsbild konsistent und kann später kontrolliert erweitert oder verändert werden.
+
+---
+
+# Änderungshistorie
+
+| Version | Datum | Beschreibung |
+|---|---|---|
+| 1.0 | 27.07.2026 | Ursprüngliche Definition des Designsystems. |
+| 2.0 | 02.09.2026 | Designsystem an die aktuelle Bootstrap-, MetisMenu-, Offcanvas- und SCSS-Architektur angepasst; Verantwortlichkeiten und Tokenprinzip präzisiert. |

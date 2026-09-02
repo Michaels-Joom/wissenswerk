@@ -1,200 +1,249 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [💻 Entwicklungs Umgebungs Übersicht](./ev-000-entwicklungsumgebung-uebersicht.md)
+[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [💻 Entwicklungsumgebung – Übersicht](./ev-000-entwicklungsumgebung-uebersicht.md)
 
 ---
 
 # EV-004 GitHub
 
-## Ziel
+**Dokumenttyp:** Entwicklungsumgebung  
+**Projekt:** WissensWerk Template  
+**Status:** Aktiv  
+**Version:** 2.0  
+**Stand:** 02.09.2026
 
-Dieses Dokument beschreibt den Einsatz von GitHub als zentrale Plattform für die Verwaltung und Veröffentlichung des Projekts **WissensWerk**.
+---
 
-Neben der Einrichtung eines GitHub-Kontos werden die Projektorganisation, die Zusammenarbeit mit Git sowie die Veröffentlichung des Quellcodes dokumentiert.
+## 1. Ziel
 
-## Hintergrund
-Git verwaltet die Versionshistorie eines Projekts lokal auf dem Entwicklungsrechner.
+Dieses Dokument beschreibt den Einsatz von GitHub als Remote-Repository und zentrale Plattform für das WissensWerk-Projekt.
 
-GitHub erweitert diese Funktionen um eine zentrale Plattform zur Speicherung, Sicherung und Zusammenarbeit an Git-Repositories.
+GitHub ergänzt die lokale Versionsverwaltung mit Git um einen zentralen Speicherort für Quellcode und Dokumentation.
 
-Für WissensWerk dient GitHub als zentrales Repository für den Quellcode und die Projektdokumentation.
+---
 
-## Architekturentscheidung
-GitHub bildet die zentrale Plattform für die Versionsverwaltung außerhalb der lokalen Entwicklungsumgebung.
+## 2. Architekturentscheidung
 
-Die Auswahl erfolgte aufgrund folgender Eigenschaften.
+Die Aufgaben sind klar getrennt:
 
-| Kriterium | Bewertung |
-|-----------|-----------|
-| Hosting von Git-Repositories | ✔ |
-| Kostenlos für öffentliche Projekte | ✔ |
-| Versionsverwaltung | ✔ |
-| Zusammenarbeit | ✔ |
-| Pull Requests | ✔ |
-| Issue-Tracking | ✔ |
-| GitHub Actions | ✔ |
-| Große Community | ✔ |
+```text
+Visual Studio Code
+        ↓
+Git
+        ↓
+lokales Repository
+        ↓
+Push
+        ↓
+GitHub
+        ↓
+Remote-Repository
+```
 
-### Entscheidung
+Git bleibt für die lokale Versionsverwaltung zuständig.
 
-Für WissensWerk wird GitHub als zentrale Plattform für die Verwaltung des Projektrepositories verwendet.
-Alle freigegebenen Änderungen werden nach erfolgreichem Test vom lokalen Git-Repository nach GitHub übertragen.
+GitHub übernimmt die zentrale Speicherung und Sicherung des Repositorys.
 
-## Bezugsquellen
+---
 
-### Offizielle Webseite
+## 3. Repository
 
-https://github.com
+Das WissensWerk-Projekt verwendet ein eigenes GitHub-Repository:
 
-### Dokumentation
+```text
+wissenswerk
+```
 
-https://docs.github.com/
+Die Entwicklung erfolgt lokal.
 
-### GitHub Skills
+Nach erfolgreicher Prüfung werden abgeschlossene Änderungen nach GitHub übertragen.
 
-https://skills.github.com/
+Der aktuelle Entwicklungsbranch ist:
 
-GitHub Skills bietet interaktive Übungen zum Erlernen von Git und GitHub direkt auf der Plattform.
+```text
+main
+```
 
-## Voraussetzungen
-Vor der Nutzung von GitHub werden folgende Komponenten benötigt.
+---
 
-- Git
-- Visual Studio Code
-- GitHub-Konto
-- Internetverbindung
+## 4. Verbindung mit Git
 
-## Konto erstellen
-
-Zur Nutzung von GitHub ist ein persönliches Benutzerkonto erforderlich.
-Während der Registrierung werden Benutzername, E-Mail-Adresse und Passwort festgelegt.
-Nach erfolgreicher Registrierung kann ein neues Repository erstellt oder ein bestehendes Repository verwendet werden.
-
-## Repository erstellen
-Für WissensWerk wird ein eigenes Repository angelegt.
-Empfohlene Einstellungen:
-
-- Repository-Name: `wissenswerk`
-- Sichtbarkeit: Privat (während der Entwicklung)
-- README erstellen: Nein
-- .gitignore: Nein
-- Lizenz: optional
-
-Die Initialisierung erfolgt lokal mit Git.
-
-## Verbindung mit Git
-Das lokale Repository wird mit GitHub verbunden.
+Ein lokales Repository kann mit GitHub verbunden werden über:
 
 ```bash
 git remote add origin https://github.com/<Benutzername>/wissenswerk.git
 ```
 
-Überprüfung:
+Die bestehende Verbindung wird geprüft mit:
 
 ```bash
 git remote -v
 ```
 
-## Erster Push
-Nach der lokalen Initialisierung wird das Repository erstmals veröffentlicht.
+Für das konkrete Projekt ist die Repository-Konfiguration bereits eingerichtet.
+
+---
+
+## 5. Erster Push
+
+Bei einer neuen lokalen Repository-Verbindung erfolgt der erste Push beispielsweise mit:
 
 ```bash
 git push -u origin main
 ```
 
-Anschließend erfolgen weitere Änderungen über den normalen Git-Workflow.
+Danach genügt im normalen Workflow:
 
-## Projektstruktur
-
-GitHub verwaltet das gesamte Projekt.
-
-```text
-wissenswerk
-│
-├── administrator
-├── media
-├── templates
-├── docs
-├── README.md
-├── LICENSE
-└── .gitignore
+```bash
+git push
 ```
 
-## Zusammenarbeit mit Git
-Der Entwicklungsprozess folgt dem folgenden Ablauf.
+---
+
+## 6. Aktueller Workflow
+
+Der praktische Ablauf lautet:
 
 ```text
-Visual Studio Code
-
-↓
-
-Git
-
-↓
-
-Commit
-
-↓
-
-Push
-
-↓
-
+lokale Änderung
+      ↓
+Test
+      ↓
+Build / Prüfung
+      ↓
+Git Commit
+      ↓
+Git Push
+      ↓
 GitHub
 ```
 
-GitHub dient dabei als zentrale Sicherung und Veröffentlichungsplattform.
+GitHub wird nicht als primärer Editor verwendet.
 
-## Einsatz in WissensWerk
-GitHub wird im Projekt für folgende Aufgaben verwendet.
+Die Entwicklung und Dokumentation erfolgen lokal in Visual Studio Code.
 
-- Verwaltung des Quellcodes
-- Versionshistorie
-- Dokumentation
-- Architekturentscheidungen
-- Projektverwaltung
-- Backup der Entwicklungsstände
-- Veröffentlichung des Projekts
+---
 
-Geplant ist darüber hinaus die Nutzung weiterer GitHub-Funktionen wie:
+## 7. GitHub als Sicherung
+
+GitHub dient neben der Veröffentlichung auch als zentrale Sicherung des versionierten Entwicklungsstands.
+
+Dabei ist zu unterscheiden:
+
+```text
+lokale Arbeitskopie
+        +
+lokales Git-Repository
+        +
+GitHub Remote
+```
+
+Ein Push stellt sicher, dass der lokale Commit auch im Remote-Repository vorhanden ist.
+
+---
+
+## 8. Dokumentation
+
+Die Projektdokumentation wird gemeinsam mit dem Quellcode versioniert.
+
+Dazu gehören insbesondere:
+
+- Architektur
+- Designsystem
+- Entwicklungsdokumentation
+- technische Grundlagen
+- ADRs
+- Projektinformationen
+
+Dadurch bleibt nachvollziehbar, welche Dokumentation zu welchem Entwicklungsstand gehört.
+
+---
+
+## 9. GitHub Web Editor
+
+Der GitHub-Webeditor gehört nicht zum regulären Entwicklungsworkflow.
+
+Die lokale Bearbeitung wird bevorzugt, weil dadurch:
+
+- Änderungen vor dem Commit vollständig geprüft werden können
+- mehrere Dateien gemeinsam geändert werden können
+- interne Links kontrollierbar bleiben
+- Buildprozesse lokal ausgeführt werden können
+- Commits thematisch sauber erstellt werden können
+
+Kleine Ausnahmeänderungen direkt auf GitHub sind technisch möglich, gehören aber nicht zum Standardprozess.
+
+---
+
+## 10. Sicherheit
+
+Nicht in das Repository gehören:
+
+- Passwörter
+- Zugangsdaten
+- API-Schlüssel
+- lokale Geheimnisse
+- produktive Datenbank-Backups
+- lokale Konfigurationsdateien mit vertraulichen Angaben
+
+Diese Informationen müssen außerhalb des Repositorys verwaltet werden.
+
+---
+
+## 11. Geplante GitHub-Funktionen
+
+Je nach weiterer Entwicklung können zusätzlich genutzt werden:
 
 - Issues
 - Milestones
 - Projects
 - Releases
-- GitHub Pages (optional)
+- GitHub Actions
+- GitHub Pages
 
-## Best Practices
-Für WissensWerk gelten folgende Empfehlungen.
+Diese Funktionen sind nicht zwingender Bestandteil des aktuellen Entwicklungsworkflows.
 
-- Nur getestete Änderungen veröffentlichen.
-- Aussagekräftige Commit-Nachrichten verwenden.
-- Regelmäßig auf GitHub sichern.
-- README aktuell halten.
-- Dokumentation gemeinsam mit dem Quellcode versionieren.
-- Releases für veröffentlichte Versionen verwenden.
-- Keine sensiblen Daten in das Repository übertragen.
+---
 
-## Sicherheit
-Folgende Informationen dürfen niemals Bestandteil des Repositories sein.
+## 12. Veröffentlichung
 
-- Zugangsdaten
-- Passwörter
-- API-Schlüssel
-- Lokale Konfigurationsdateien mit sensiblen Daten
-- Datenbank-Backups
+Die Tatsache, dass GitHub als Remote-Repository verwendet wird, bedeutet nicht automatisch, dass das Projekt öffentlich veröffentlicht wird.
 
-Diese Dateien werden über `.gitignore` ausgeschlossen.
+Die Sichtbarkeit des Repositorys richtet sich nach dem jeweiligen Projektstand und der späteren Veröffentlichungsentscheidung.
 
-## Weiterführende Dokumente
+---
 
-- [💻 EV-001 Laragon](./ev-001-laragon.md)
-- [💻 EV-002 Visual Studio Code](./ev-002-visual-studio-code.md)
-- [💻 EV-003 Git](./ev-003-git.md)
-- DV-001 Template erstellen
-- DV-014 Deployment
+## 13. Bezugsquellen
 
-## Fazit
-GitHub ergänzt Git um eine zentrale Plattform für die Verwaltung, Sicherung und Veröffentlichung des Projekts WissensWerk.
+- [GitHub](https://github.com/)
+- [GitHub Dokumentation](https://docs.github.com/)
+- [GitHub Skills](https://skills.github.com/)
 
-Durch die Kombination aus lokaler Versionsverwaltung mit Git und zentralem Repository auf GitHub entsteht ein nachvollziehbarer und reproduzierbarer Entwicklungsprozess. Quellcode, Dokumentation und Architekturentscheidungen werden gemeinsam versioniert und langfristig archiviert.
+---
 
-GitHub bildet damit den Abschluss der Entwicklungsumgebung und schafft die Grundlage für eine strukturierte Weiterentwicklung sowie eine spätere Veröffentlichung des Projekts.
+## 14. Ergebnis
+
+GitHub bildet die zentrale Remote-Ebene der WissensWerk-Versionsverwaltung.
+
+Zusammen mit Git entsteht ein klarer Workflow:
+
+```text
+Entwicklung
+   ↓
+Git
+   ↓
+Commit
+   ↓
+Push
+   ↓
+GitHub
+```
+
+Damit sind Quellcode und Dokumentation zentral gesichert und über die Git-Historie nachvollziehbar versioniert.
+
+---
+
+# Änderungshistorie
+
+| Version | Datum | Beschreibung |
+|---|---|---|
+| 1.0 | Juli 2026 | Ursprüngliche GitHub-Dokumentation erstellt. |
+| 2.0 | 02.09.2026 | Dokument an den aktuellen Git-/GitHub-Workflow angepasst, lokale Entwicklung und Remote-Funktion klar getrennt und veraltete Aussagen zur geplanten Repository-Einrichtung entfernt. |

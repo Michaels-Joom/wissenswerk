@@ -1,152 +1,179 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [⚙️ Technische Grundlagen](tf-000-technische-grundlagen.md)
+[[[ Inhaltsverzeichnis ]](./../table-of-contents.md) [⚙️ Technische Grundlagen](./tf-000-technische-grundlagen.md)
 
 ---
 
 # TF-004 Commit Convention
 
+**Dokumenttyp:** Technische Grundlage  
+**Projekt:** WissensWerk  
+**Status:** Aktiv  
+**Version:** 2.0  
+**Stand:** 02.09.2026
+
+---
+
 ## Ziel
-Commits dokumentieren die Entwicklung des Projekts. Sie bilden eine nachvollziehbare Historie aller Änderungen und ermöglichen es, Entscheidungen sowie Entwicklungsschritte jederzeit nachzuvollziehen.
 
-Jeder Commit sollte genau eine abgeschlossene Änderung beschreiben.
+Commits dokumentieren die technische Entwicklung des Projekts.
 
-# Grundprinzip
-Ein Commit beantwortet die Frage:
+Sie sollen eine klare, lesbare und nachvollziehbare Historie erzeugen.
 
-> **Was wurde geändert?**
+---
 
-Nicht:
+## Grundprinzip
 
-> **Warum wurde gearbeitet?**
+WissensWerk verwendet **Conventional Commits**.
 
-Der Hintergrund einer Änderung wird im zugehörigen Issue dokumentiert.
+Die Commit-Nachricht beschreibt die Art und den Gegenstand der Änderung.
 
-# Commit-Regeln
-
-Für WissensWerk gelten folgende Grundregeln.
-
-- Ein Commit beschreibt genau eine abgeschlossene Änderung.
-- Commits werden in englischer Sprache geschrieben.
-- Die Commit-Nachricht beginnt mit einem Verb.
-- Die Beschreibung ist kurz und präzise.
-- Mehrere unterschiedliche Änderungen werden nicht in einem Commit zusammengefasst.
-
-# Schreibweise
-Die Commit-Nachricht besteht aus einer kurzen Beschreibung.
-Empfohlene Form:
+Grundform:
 
 ```text
-Verb + Objekt
+type(scope): description
 ```
+
+Beispiel:
+
+```text
+feat(navigation): finalize MetisMenu navigation
+```
+
+---
+
+## Commit-Typen
+
+| Typ | Verwendung |
+|---|---|
+| `feat` | neue Funktion |
+| `fix` | Fehlerbehebung |
+| `docs` | Dokumentation |
+| `style` | reine Formatierungs-/Stiländerung ohne Funktionsänderung |
+| `refactor` | strukturelle Änderung ohne beabsichtigte Funktionsänderung |
+| `build` | Buildsystem oder Abhängigkeiten |
+| `chore` | sonstige technische Pflege |
+
+Nicht jeder mögliche Conventional-Commit-Typ muss im Projekt verwendet werden.
+
+---
+
+## Scope
+
+Der Scope grenzt die Änderung thematisch ein.
 
 Beispiele:
 
 ```text
-Add design token variables
-
-Create template skeleton
-
-Implement responsive grid
-
-Update documentation links
-
-Rename documentation directories
-
-Refactor SCSS architecture
-
-Remove unused assets
-
-Fix mobile navigation
+feat(navigation): ...
+fix(offcanvas): ...
+docs(architecture): ...
+build(js): ...
 ```
 
-# Commit-Typen
-Zur besseren Strukturierung werden folgende Verben verwendet.
+Der Scope ist optional, bei größeren Bereichen jedoch sinnvoll.
 
-| Verb | Verwendung |
-|------|------------|
-| Add | Neue Inhalte hinzufügen |
-| Create | Neue Dateien oder Strukturen erstellen |
-| Implement | Funktionalität umsetzen |
-| Update | Bestehende Inhalte ändern |
-| Rename | Dateien oder Verzeichnisse umbenennen |
-| Refactor | Struktur verbessern, ohne Verhalten zu ändern |
-| Fix | Fehler beheben |
-| Remove | Nicht mehr benötigte Inhalte entfernen |
-| Improve | Bestehende Lösung optimieren |
+---
 
-# Gute Commits
+## Sprache
+
+Commit-Nachrichten werden auf Englisch verfasst.
+
+---
+
+## Beschreibung
+
+Die Beschreibung soll:
+
+- kurz,
+- eindeutig,
+- im Imperativ,
+- technisch nachvollziehbar
+
+sein.
+
+Beispiele:
 
 ```text
-Add Bootstrap asset registration
-Create SCSS folder structure
-Update README
-Rename architecture directory
-Fix responsive navigation
-Refactor JavaScript modules
+feat(navigation): finalize MetisMenu navigation
+fix(offcanvas): prevent horizontal overflow
+docs(architecture): update template architecture
+build(js): minify MetisMenu script
+refactor(scss): consolidate navigation styles
 ```
 
-# Schlechte Commits
+---
+
+## Gute Commits
+
+```text
+feat(navigation): add active path handling
+fix(offcanvas): correct footer layout
+docs(build): document JavaScript build process
+build(js): regenerate minified menu script
+refactor(scss): simplify submenu rules
+```
+
+## Schlechte Commits
 
 ```text
 Changes
 Update
 Fix
-Misc
-Test
 Final
 Stuff
+Misc
 ```
 
-Diese Commit-Nachrichten beschreiben die Änderung nicht ausreichend und erschweren die Nachvollziehbarkeit.
+Diese Nachrichten enthalten zu wenig Information.
 
-# Commit-Größe
-Ein Commit sollte möglichst klein bleiben.
-Ideal ist eine logisch abgeschlossene Änderung.
+---
 
-Beispiele:
+## Commit-Größe
 
-✔ Dokumentation aktualisiert
+Ein Commit sollte eine logisch abgeschlossene Änderung enthalten.
 
-✔ Eine neue Komponente erstellt
+Mehrere fachlich unterschiedliche Änderungen sollen nicht ohne Grund in einem Commit vermischt werden.
 
-✔ Einen Fehler behoben
+---
 
-Nicht empfehlenswert:
+## Beziehung zu Issues
 
-✖ Dokumentation aktualisiert, Navigation geändert und Design angepasst.
+Das Issue beschreibt den fachlichen Zusammenhang.
 
-# Beziehung zu Issues
-Jeder Commit gehört zu einem bestehenden Issue.
-Das Issue beschreibt
+Der Commit beschreibt die technische Umsetzung.
 
-- Ziel
-- Hintergrund
-- Entscheidungen
+```text
+Issue
+  → Ziel, Hintergrund, Akzeptanz
 
-Der Commit dokumentiert ausschließlich die technische Umsetzung.
+Commit
+  → technische Änderung
+```
 
-# Vorteile
-Eine einheitliche Commit-Konvention
+---
 
-- verbessert die Lesbarkeit der Projekthistorie,
-- erleichtert die Fehlersuche,
-- unterstützt die Nachvollziehbarkeit,
-- vereinfacht spätere Releases,
-- schafft eine konsistente Projektstruktur.
+## Vor dem Commit
 
-# Grundregeln
+Je nach Änderung sollte geprüft werden:
 
-Für WissensWerk gilt:
+- Build erfolgreich
+- Syntaxprüfung erfolgreich
+- Browserprüfung durchgeführt
+- responsive Verhalten geprüft
+- Dokumentation aktualisiert
+- keine unbeabsichtigten Dateien geändert
 
-- Ein Commit dokumentiert genau eine abgeschlossene Änderung.
-- Commit-Nachrichten werden in englischer Sprache verfasst.
-- Die Beschreibung beginnt mit einem Verb.
-- Commit-Nachrichten sind kurz, eindeutig und aussagekräftig.
-- Der Hintergrund einer Änderung gehört in das Issue, nicht in den Commit.
+---
 
-# Verwandte Dokumente
+## Verwandte Dokumente
 
-- [⚙️ TF-001 Github-Workflows](./tf-001-github-workflow.md)
+- [⚙️ TF-001 GitHub Workflow](./tf-001-github-workflow.md)
 - [⚙️ TF-002 Issue Management](./tf-002-issue-management.md)
-- [⚙️ TF-006 Release Management.md](./tf-006-release-management.md)
-- [TF-004 Commit Convention](./../development/dv-004-git-workflow.md)
+- [⚙️ TF-006 Release Management](./tf-006-release-management.md)
+- [⚙️ TF-007 Versionierung](./tf-007-versionierung.md)
 
+# Änderungshistorie
+
+| Version | Datum | Beschreibung |
+|---|---|---|
+| 1.0 | Juli 2026 | Ursprüngliche Commit-Konvention erstellt. |
+| 2.0 | 02.09.2026 | Commit-Konvention auf Conventional Commits umgestellt und an die tatsächlich verwendete Schreibweise angepasst. |

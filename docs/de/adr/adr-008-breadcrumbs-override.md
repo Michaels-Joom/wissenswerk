@@ -1,125 +1,77 @@
-# ADR-00X – Breadcrumb-Override für WissensWerk
+# ADR-008 – Breadcrumb-Override für WissensWerk
 
-**Status:** Angenommen
-**Version:** 1.0
-**Datum:** 29.07.2026
+**Status:** Angenommen  
+**Version:** 2.0  
+**Datum:** 02.09.2026  
 **Autor:** WissensWerk-Projekt
 
 ---
 
 # 1. Zusammenfassung
 
-Für das Modul **mod_breadcrumbs** wird ein eigener Template-Override entwickelt. Ziel ist die vollständige Integration der Breadcrumb-Navigation in das WissensWerk-Designsystem, ohne dabei die technische Funktionalität des Joomla-Cores zu verändern.
+Für das Joomla-Modul **mod_breadcrumbs** wird ein eigener Template-Override eingesetzt.
 
-Der Override ersetzt ausschließlich die Darstellungsschicht (HTML und CSS-Klassen). Die zugrunde liegende Joomla-Logik, das Routing, die Mehrsprachigkeit sowie die strukturierte Datenausgabe nach Schema.org bleiben unverändert erhalten.
+Ziel ist die vollständige Integration der Breadcrumb-Navigation in das WissensWerk-Designsystem, ohne die technische Funktionalität des Joomla-Cores zu verändern.
+
+Der Override betrifft ausschließlich die Präsentationsschicht. Joomla bleibt für Routing, Breadcrumb-Ermittlung und die vom Core bereitgestellten semantischen beziehungsweise strukturierten Daten verantwortlich.
+
+Damit folgt die Entscheidung dem zentralen WissensWerk-Prinzip:
+
+> **Funktionalität des CMS erhalten, Präsentation im Template kontrollieren.**
 
 ---
 
 # 2. Ausgangssituation
 
-Joomla liefert mit **mod_breadcrumbs** eine vollständig funktionsfähige Breadcrumb-Navigation aus.
+Joomla stellt mit **mod_breadcrumbs** eine fertige Breadcrumb-Funktionalität bereit.
 
-Der Core-Override bietet bereits zahlreiche Vorteile:
+Für WissensWerk soll diese Funktionalität nicht neu implementiert werden. Stattdessen wird die vorhandene Joomla-Ausgabe über einen Template-Override an die Anforderungen des Templates angepasst.
 
-* semantisches HTML
-* Bootstrap-Integration
-* Unterstützung mehrsprachiger Webseiten
-* automatische Generierung strukturierter Daten (Schema.org)
-* SEO-konforme BreadcrumbList
-* vollständige Integration in das Joomla-Routing
+Die Breadcrumbs sollen dabei insbesondere:
 
-Die Standardausgabe orientiert sich jedoch am generischen Joomla-Design und nicht an den Anforderungen des WissensWerk-Templates.
+- semantisch korrekt ausgegeben werden,
+- in das bestehende Layout-Raster integriert werden,
+- die WissensWerk-Design Tokens verwenden,
+- mit der übrigen Navigation visuell konsistent sein,
+- responsiv funktionieren,
+- ohne Änderungen am Joomla-Core auskommen.
 
 ---
 
 # 3. Problemstellung
 
-Das WissensWerk-Template verfolgt einen konsequent komponentenorientierten Ansatz mit einem eigenen Designsystem.
+Die Standarddarstellung von Joomla passt nicht vollständig zur Komponenten- und Designsystem-Architektur von WissensWerk.
 
-Die Standardausgabe von Joomla weist hierzu mehrere Abweichungen auf.
+Insbesondere sollen folgende Punkte nicht aus der Standarddarstellung übernommen werden:
 
-## 3.1 Bootstrap bestimmt das Erscheinungsbild
+## 3.1 Layoutklassen im Markup
 
-Die HTML-Ausgabe enthält Layout-Klassen wie beispielsweise:
+Abstände sollen nicht über konkrete Bootstrap-Utility-Klassen im Override-Markup festgelegt werden.
 
-```html
-px-3 py-2
-```
-
-Dadurch werden Abstände unmittelbar im Markup definiert.
-
-Im WissensWerk-Template werden sämtliche Layoutentscheidungen ausschließlich im SCSS getroffen.
-
----
-
-## 3.2 Uneinheitliche Klassenstruktur
-
-Der Core verwendet Klassen wie beispielsweise:
+Beispiele wie:
 
 ```text
-mod-breadcrumbs
-breadcrumb-item
-active
+px-3
+py-2
 ```
 
-Diese entsprechen nicht der im Projekt definierten BEM-Namenskonvention.
+gehören zur Bootstrap-Gestaltungsebene und widersprechen der im WissensWerk-Template angestrebten Trennung von Struktur und Gestaltung.
+
+Die Abstände werden deshalb im zugehörigen SCSS definiert.
 
 ---
 
-## 3.3 Veraltete Benutzerführung
+## 3.2 Generische Klassen
 
-Optional wird der Text
+Die Komponente soll eine eindeutige WissensWerk-Namensgebung erhalten.
 
-> Sie sind hier
-
-ausgegeben.
-
-Diese Form der Navigation stammt aus älteren Webdesign-Konzepten und bietet heute keinen funktionalen Mehrwert mehr.
-
-Die Orientierung erfolgt bereits durch:
-
-* die semantische Navigation (`<nav>`)
-* das `aria-label`
-* die Breadcrumb-Struktur selbst
-
----
-
-## 3.4 Dekoratives Location-Icon
-
-Das Standardmodul kann zusätzlich ein Standortsymbol darstellen.
-
-Dieses Symbol besitzt keinen funktionalen Nutzen und erzeugt lediglich visuelle Unruhe.
-
----
-
-## 3.5 Fehlende Integration in die Corporate Identity
-
-Die Standarddarstellung berücksichtigt weder
-
-* das WissensWerk-Farbsystem
-* die definierten Design Tokens
-* das Corporate Design
-* das entwickelte SVG-Hintergrundsmuster.
-
----
-
-# 4. Architekturentscheidung
-
-Es wird ein vollständiger Template-Override erstellt.
-
-Dabei wird ausschließlich die Präsentationsschicht angepasst.
-
-Die komplette Joomla-Geschäftslogik bleibt unverändert.
-
----
-
-## 4.1 Eigenes Komponentenpräfix
-
-Die Breadcrumb-Komponente erhält das Präfix
+Dafür wird das Komponentenpräfix:
 
 ```text
 ww-breadcrumb
 ```
+
+verwendet.
 
 Beispiele:
 
@@ -131,216 +83,234 @@ ww-breadcrumb__link
 ww-breadcrumb__item--active
 ```
 
-Dadurch besitzen sämtliche Template-Komponenten eine einheitliche Namensgebung.
+Bootstrap- oder Joomla-Klassen werden nur dort übernommen, wo sie technisch erforderlich sind.
 
 ---
 
-## 4.2 Bootstrap lediglich als Basisschicht
+## 3.3 Reduzierte Benutzerführung
 
-Bootstrap wird weiterhin verwendet.
-
-Bootstrap bestimmt jedoch nicht mehr das Design.
-
-Bootstrap stellt ausschließlich bereit:
-
-* Grundlayout
-* Browser-Kompatibilität
-* Responsive Verhalten
-* Basisklassen
-
-Alle gestalterischen Eigenschaften stammen ausschließlich aus dem WissensWerk-Designsystem.
-
----
-
-## 4.3 Layout ausschließlich im SCSS
-
-Abstände werden nicht mehr im HTML definiert.
-
-Folgende Klassen entfallen beispielsweise:
-
-```text
-px-3
-py-2
-```
-
-Stattdessen werden sämtliche Abstände zentral über die SCSS-Komponente gesteuert.
-
-Dadurch entsteht eine klare Trennung zwischen Struktur und Gestaltung.
-
----
-
-## 4.4 Entfernung von „Sie sind hier“
-
-Der Hinweis
+Ein zusätzlicher Hinweis wie:
 
 > Sie sind hier
 
-wird vollständig entfernt.
+wird nicht übernommen.
 
-Gründe:
+Die Breadcrumb-Navigation ist bereits als Navigation semantisch ausgezeichnet. Eine zusätzliche textuelle Einleitung ist für die Orientierung nicht erforderlich.
 
-* moderne Benutzeroberflächen verzichten darauf
-* keine zusätzliche Information
-* Screenreader benötigen diesen Hinweis nicht
-* das `aria-label` erfüllt denselben Zweck
+Die endgültige Ausgabe muss dennoch die semantischen und barrierefreien Anforderungen des konkreten Joomla-Overrides erfüllen.
 
 ---
 
-## 4.5 Entfernung des Location-Icons
+## 3.4 Dekorative Elemente
 
-Das dekorative Standortsymbol wird nicht übernommen.
+Ein rein dekoratives Location-Symbol wird nicht Bestandteil der WissensWerk-Breadcrumb-Komponente.
 
-Gründe:
-
-* keine funktionale Bedeutung
-* ruhigeres Erscheinungsbild
-* reduzierte visuelle Ablenkung
+Die Breadcrumbs sollen dadurch auf ihre eigentliche Funktion als Orientierungshilfe reduziert werden.
 
 ---
 
-## 4.6 Container-Konzept
+# 4. Architekturentscheidung
 
-Die Breadcrumb-Navigation wird innerhalb des allgemeinen Content-Containers dargestellt.
+Es wird ein **Template-Override für mod_breadcrumbs** erstellt.
 
-Dadurch besitzen
+Die Verantwortung wird klar getrennt:
 
-* Header
-* Breadcrumbs
-* Seiteninhalt
-* Footer
+| Ebene | Verantwortung |
+|---|---|
+| Joomla `mod_breadcrumbs` | Breadcrumb-Daten und technische Funktion |
+| Template-Override | HTML-Struktur und Präsentationsklassen |
+| SCSS-Komponente | visuelle Gestaltung und Responsive Verhalten |
+| WissensWerk Designsystem | Farben, Abstände, Typografie und Tokens |
+| Joomla Routing | Ermittlung der Navigationsstruktur |
 
-eine identische Inhaltsbreite.
-
-Dies unterstützt ein ruhiges und konsistentes Seitenlayout.
-
----
-
-# 5. Hintergrundgestaltung
-
-Die Breadcrumbs bilden den optischen Übergang zwischen Header und Seiteninhalt.
-
-Um diese Trennung dezent hervorzuheben, erhält die Komponente einen eigenen Hintergrund.
-
-Dieser basiert auf dem aus dem WissensWerk-Logo entwickelten SVG-Pattern.
-
-Das Muster wird
-
-* transparent
-* sehr kontrastarm
-* mit geringer Deckkraft
-
-eingesetzt.
-
-Ziele:
-
-* Wiedererkennung
-* Corporate Identity
-* hochwertige Anmutung
-* visuelle Strukturierung
-
-Das Pattern besitzt ausschließlich dekorativen Charakter und darf die Lesbarkeit niemals beeinträchtigen.
+Der Override enthält keine eigene Breadcrumb-Logik und ersetzt nicht die Joomla-Funktionalität.
 
 ---
 
-# 6. Designsystem
+# 5. Namenskonvention
 
-Die Gestaltung orientiert sich vollständig am WissensWerk-Designsystem.
+Die eigene Komponente verwendet das Präfix:
 
-Verwendet werden ausschließlich:
+```text
+ww-breadcrumb
+```
 
-* Design Tokens
-* CSS Custom Properties
-* SCSS-Komponenten
-* zentrale Farbdefinitionen
-* definierte Typografie
-* einheitliche Abstände
+Die Benennung folgt der im Projekt festgelegten Komponentenstruktur.
 
-Direkte Bootstrap-Farben oder Inline-Stile werden nicht verwendet.
+Beispiel:
 
----
+```html
+<nav class="ww-breadcrumb" aria-label="Breadcrumb">
+    <ol class="ww-breadcrumb__list">
+        ...
+    </ol>
+</nav>
+```
 
-# 7. Suchmaschinenoptimierung
-
-Die strukturierte Datenausgabe nach Schema.org bleibt unverändert erhalten.
-
-Folgende Eigenschaften werden vollständig übernommen:
-
-* BreadcrumbList
-* ListItem
-* Positionen
-* URLs
-* Seitentitel
-
-Dadurch entstehen keinerlei Nachteile hinsichtlich SEO.
+Die konkrete HTML-Ausgabe richtet sich dabei nach der tatsächlich verwendeten Joomla-Override-Struktur.
 
 ---
 
-# 8. Barrierefreiheit
+# 6. Bootstrap und Designsystem
 
-Der Override übernimmt die semantische Struktur des Joomla-Cores.
+Bootstrap bleibt technische Grundlage des Templates.
 
-Hierzu gehören insbesondere:
+Für die Breadcrumb-Komponente gilt jedoch:
 
-* `<nav>`
-* `aria-label`
-* geordnete Liste (`<ol>`)
-* `aria-current="page"` für die aktuelle Seite
+- keine direkte Festlegung des WissensWerk-Designs über Bootstrap-Farben,
+- keine unnötigen Bootstrap-Utility-Klassen im Override,
+- Gestaltung über die WissensWerk Design Tokens,
+- Responsive Verhalten über die bestehende CSS-/SCSS-Architektur.
 
-Die Navigation bleibt vollständig mit Tastatur und Screenreader nutzbar.
-
----
-
-# 9. Vorteile
-
-| Standard Joomla               | WissensWerk                        |
-| ----------------------------- | ---------------------------------- |
-| Bootstrap bestimmt das Layout | Designsystem bestimmt das Layout   |
-| generische Klassen            | eigene BEM-Komponenten             |
-| Layout im HTML                | Layout ausschließlich im SCSS      |
-| optional „Sie sind hier“      | reduzierte Navigation              |
-| dekoratives Location-Icon     | ruhige Gestaltung                  |
-| Standarddesign                | Corporate Design                   |
-| keine Musterintegration       | SVG-Pattern integriert             |
-| Bootstrap-Fokus               | komponentenorientierte Architektur |
+Damit bleibt Bootstrap kompatibel mit dem Projekt, ohne die visuelle Gestaltungshoheit des Designsystems zu übernehmen.
 
 ---
 
-# 10. Auswirkungen
+# 7. Container und Layout
+
+Die Breadcrumb-Komponente wird in den bestehenden WissensWerk-Contentbereich integriert.
+
+Damit orientiert sie sich am gleichen Inhaltsraster wie die übrigen zentralen Seitenbereiche.
+
+Ziel ist eine gemeinsame visuelle Achse für:
+
+- Header
+- Breadcrumbs
+- Hauptinhalt
+- Footer
+
+Die konkrete Einbindung erfolgt über das bestehende Template-Layout und nicht durch einen zusätzlichen, konkurrierenden Container.
+
+---
+
+# 8. Hintergrundgestaltung
+
+Die Breadcrumbs können als visueller Übergang zwischen Header und Hauptinhalt einen eigenen, dezenten Hintergrund erhalten.
+
+Dafür ist das im WissensWerk-Projekt entwickelte SVG-Pattern vorgesehen.
+
+Das Pattern wird ausschließlich dekorativ eingesetzt:
+
+- geringe visuelle Präsenz,
+- ausreichender Kontrast für Text und Links,
+- keine Beeinträchtigung der Lesbarkeit,
+- keine zusätzliche Information, die nur über das Hintergrundbild vermittelt wird.
+
+Die Entscheidung für das Pattern betrifft ausschließlich die Präsentation und verändert nicht die Breadcrumb-Funktion.
+
+---
+
+# 9. SEO und strukturierte Daten
+
+Die vom Joomla-Modul bereitgestellte Breadcrumb-Funktionalität wird nicht durch eine eigene SEO-Implementierung ersetzt.
+
+Insbesondere werden keine eigenen Breadcrumb-Datenmodelle oder konkurrierenden strukturierten Daten erzeugt.
+
+Soweit der verwendete Joomla-Output strukturierte Daten beziehungsweise Schema.org-Daten bereitstellt, werden diese durch den Override nicht unnötig verändert oder entfernt.
+
+Damit bleibt die SEO-Verantwortung beim Joomla-Modul und dessen vorhandener Implementierung.
+
+---
+
+# 10. Barrierefreiheit
+
+Die Breadcrumb-Komponente behält eine semantische Navigationsstruktur.
+
+Vorgesehen beziehungsweise zu berücksichtigen sind insbesondere:
+
+- semantisches `<nav>`,
+- zugängliche Bezeichnung der Navigation,
+- geordnete Liste für die hierarchische Reihenfolge,
+- korrekte Kennzeichnung der aktuellen Seite,
+- ausreichende Kontraste,
+- sichtbare Fokuszustände,
+- Tastaturbedienbarkeit,
+- keine Information ausschließlich über Farbe oder Hintergrundgrafik.
+
+Die konkrete Umsetzung wird anhand des tatsächlich verwendeten Joomla-Outputs geprüft.
+
+---
+
+# 11. Vorteile
+
+| Standarddarstellung | WissensWerk |
+|---|---|
+| generische Darstellung | eigene Komponentenstruktur |
+| Gestaltung teilweise über Markup-Klassen | Gestaltung über SCSS und Design Tokens |
+| Joomla-Standardoptik | WissensWerk Corporate Design |
+| dekorative Zusatzinformationen möglich | reduzierte, funktionale Darstellung |
+| keine Integration in das eigene Pattern | optionales WissensWerk SVG-Pattern |
+| CMS-Ausgabe und Template-Gestaltung eng gekoppelt | klare Trennung von Funktion und Präsentation |
+
+---
+
+# 12. Auswirkungen
 
 ## Vorteile
 
-* vollständig update-sicher
-* keine Änderungen am Joomla-Core
-* konsistentes Designsystem
-* bessere Wartbarkeit
-* bessere Wiederverwendbarkeit
-* klare Komponentenarchitektur
-* vollständige Integration in die WissensWerk-Designsprache
+- update-sicher gegenüber Joomla-Core-Änderungen,
+- keine Änderungen an Core-Dateien,
+- konsistente Integration in das WissensWerk-Designsystem,
+- klare Komponentenstruktur,
+- zentrale Steuerung der Gestaltung,
+- gute Wartbarkeit,
+- Wiederverwendbarkeit der Gestaltung.
 
-## Keine Auswirkungen
+## Unverändert
 
-Unverändert bleiben:
+Die Entscheidung verändert grundsätzlich nicht:
 
-* Joomla-Routing
-* Mehrsprachigkeit
-* Modulparameter
-* SEO
-* Schema.org-Ausgabe
-* JSON-LD
-* Core-Funktionalität
+- Joomla-Routing,
+- Breadcrumb-Ermittlung,
+- Mehrsprachigkeit,
+- Modulkonfiguration,
+- Joomla-Core-Funktionalität.
 
 ---
 
-# 11. Fazit
+# 13. Abgrenzung
 
-Der Breadcrumb-Override ist keine funktionale Erweiterung des Joomla-Moduls, sondern eine bewusste Architekturentscheidung innerhalb des WissensWerk-Templates.
+Der Override ist **keine funktionale Erweiterung** von `mod_breadcrumbs`.
 
-Durch die konsequente Trennung von Funktion und Gestaltung bleibt die bewährte Joomla-Implementierung vollständig erhalten, während die Präsentation vollständig in das WissensWerk-Designsystem integriert wird.
+Nicht Bestandteil dieser Architekturentscheidung sind:
 
-Der Override folgt damit den grundlegenden Projektprinzipien:
+- eigene Routing-Logik,
+- eigene Breadcrumb-Generierung,
+- eigene SEO-Datenmodelle,
+- Änderungen am Joomla-Core,
+- ein separates Breadcrumb-JavaScript,
+- eine konkurrierende Navigationslogik.
 
-* Core niemals verändern
-* Design über Komponenten steuern
-* Bootstrap als technische Basis nutzen
-* Gestaltung ausschließlich über das Designsystem definieren
-* Architekturentscheidungen nachvollziehbar dokumentieren
+---
+
+# 14. Implementierungsfolgen
+
+Für die Umsetzung werden die erforderlichen Änderungen ausschließlich innerhalb des WissensWerk-Templates vorgenommen.
+
+Typischerweise betrifft dies:
+
+```text
+html/
+└── mod_breadcrumbs/
+    └── default.php
+```
+
+sowie die zugehörige SCSS-Komponente und deren Einbindung in die bestehende Asset-Architektur.
+
+Die konkrete Verzeichnis- und Asset-Struktur richtet sich nach der im Projekt dokumentierten Template-Architektur.
+
+---
+
+# 15. Fazit
+
+Der Breadcrumb-Override ist eine bewusste Präsentationsentscheidung und keine Neuentwicklung der Joomla-Breadcrumb-Funktion.
+
+Joomla bleibt für die fachliche und technische Funktion verantwortlich. WissensWerk übernimmt die Kontrolle über HTML-Struktur, Komponentenbenennung und visuelle Gestaltung.
+
+Damit entsteht eine saubere Trennung:
+
+**Joomla liefert die Funktion.  
+Der Override definiert die Darstellung.  
+Das Designsystem definiert das Erscheinungsbild.**
+
+Diese Aufteilung entspricht der angestrebten update-sicheren und wartbaren Architektur des WissensWerk-Templates.

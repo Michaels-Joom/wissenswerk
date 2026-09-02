@@ -1,172 +1,234 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [💻 Entwicklungs Umgebungs Übersicht](./ev-000-entwicklungsumgebung-uebersicht.md)
+[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [💻 Entwicklungsumgebung – Übersicht](./ev-000-entwicklungsumgebung-uebersicht.md)
 
 ---
 
 # EV-003 Git
 
-## Ziel
-Dieses Dokument beschreibt den Einsatz von Git als Versionsverwaltungssystem im Projekt **WissensWerk**.
-
-Es erläutert die Gründe für die Auswahl, die grundlegende Konfiguration sowie die Einbindung in den Entwicklungsprozess. Ziel ist eine nachvollziehbare Historie aller Projektänderungen und eine sichere Verwaltung des Quellcodes.
-
-## Hintergrund
-Während der Entwicklung eines Softwareprojekts entstehen fortlaufend Änderungen an Quellcode, Konfigurationsdateien und Dokumentationen.
-
-Eine Versionsverwaltung ermöglicht es,
-
-- Änderungen nachvollziehbar zu dokumentieren,
-- frühere Versionen wiederherzustellen,
-- Entwicklungsstände zu vergleichen,
-- Fehler einfacher zu analysieren,
-- parallel an unterschiedlichen Funktionen zu arbeiten.
-
-Für WissensWerk wird hierfür Git eingesetzt.
-
-## Architekturentscheidung
-Git bildet die Grundlage der Versionsverwaltung.
-
-Die Auswahl erfolgte aufgrund folgender Eigenschaften.
-
-| Kriterium | Bewertung |
-|-----------|-----------|
-| De-facto-Standard | ✔ |
-| Lokal nutzbar | ✔ |
-| Verteilte Versionsverwaltung | ✔ |
-| Plattformunabhängig | ✔ |
-| Integration in Visual Studio Code | ✔ |
-| Unterstützung durch GitHub | ✔ |
-
-### Entscheidung
-
-Für WissensWerk wird Git als lokales Versionsverwaltungssystem verwendet.
-
-Alle Änderungen am Projekt werden versioniert und über Commits dokumentiert.
+**Dokumenttyp:** Entwicklungsumgebung  
+**Projekt:** WissensWerk Template  
+**Status:** Aktiv  
+**Version:** 2.0  
+**Stand:** 02.09.2026
 
 ---
 
-## Bezugsquellen
+## 1. Ziel
 
-### Offizielle Webseite
+Dieses Dokument beschreibt den Einsatz von Git als lokales Versionsverwaltungssystem im Projekt WissensWerk.
 
-https://git-scm.com/
+Git stellt die Grundlage für eine nachvollziehbare Historie von Quellcode, Konfiguration und Dokumentation dar.
 
-### Dokumentation
+---
 
-https://git-scm.com/doc
+## 2. Architekturentscheidung
 
-## Installation
-Git wird über den offiziellen Installer installiert.
-Während der Installation können die Standardoptionen übernommen werden.
-Nach der Installation sollte die Git-Version überprüft werden.
+Git wird lokal auf dem Entwicklungsrechner eingesetzt.
+
+Die Auswahl erfolgt insbesondere aufgrund der:
+
+- verteilten Versionsverwaltung
+- lokalen Arbeitsweise
+- Integration mit Visual Studio Code
+- Integration mit GitHub
+- Möglichkeit zur Wiederherstellung früherer Stände
+
+Git und GitHub erfüllen dabei unterschiedliche Aufgaben:
+
+```text
+Git
+→ lokale Versionsverwaltung
+
+GitHub
+→ Remote-Repository
+```
+
+---
+
+## 3. Installation
+
+Nach der Installation kann die Version geprüft werden:
 
 ```bash
 git --version
 ```
 
-## Grundeinrichtung
-Nach der Installation wird Git einmalig konfiguriert.
+Die einmalige Benutzerkonfiguration erfolgt beispielsweise über:
 
 ```bash
 git config --global user.name "Vorname Nachname"
 git config --global user.email "mail@example.de"
 ```
 
-Optional:
+Die tatsächlichen Zugangsdaten werden nicht in der Projektdokumentation gespeichert.
 
-```bash
-git config --global init.defaultBranch main
-```
+---
 
-## Projektkonfiguration
-Das Joomla-Projekt wird als Git-Repository verwaltet.
+## 4. Repository
+
+Das WissensWerk-Projekt wird als Git-Repository verwaltet.
+
+Initialisierung eines neuen Projekts:
 
 ```bash
 git init
 ```
 
-Zur Versionsverwaltung gehören unter anderem:
+Im bereits eingerichteten Projekt wird das bestehende Repository weiterverwendet.
 
-- `.gitignore`
-- `README.md`
-- Dokumentation
+---
+
+## 5. Versionierte Projektbestandteile
+
+Versioniert werden grundsätzlich die für Entwicklung und Auslieferung erforderlichen Projektdateien, insbesondere:
+
 - Templatequellcode
+- SCSS
+- JavaScript-Quelldateien
+- erzeugte Produktions-Assets, sofern sie Bestandteil der Auslieferung sind
+- Dokumentation
+- Konfigurationsdateien
+- `package.json`
+- `package-lock.json`
+- `.gitignore`
 
-Nicht versioniert werden:
+Damit wird ausdrücklich auch die minifizierte `menu-metismenu.min.js` versioniert, da sie als Produktions-Asset ausgeliefert wird.
 
+---
+
+## 6. Nicht versionierte Dateien
+
+Nicht versioniert werden insbesondere:
+
+- `node_modules/`
 - temporäre Dateien
-- Cache
+- lokale Cache-Dateien
 - Logdateien
-- Build-Artefakte
+- lokale Zugangsdaten
+- Datenbank-Backups
+- sonstige Entwicklungsartefakte
 
-## Git-Workflow in WissensWerk
-Der Entwicklungsprozess folgt einem einfachen Workflow.
+Die konkrete Ausschlussliste wird über `.gitignore` gesteuert.
+
+---
+
+## 7. Git-Workflow
+
+Der aktuelle Entwicklungsworkflow lautet:
 
 ```text
 Änderung
-
-↓
-
-Test
-
-↓
-
-Commit
-
-↓
-
-Push nach GitHub
+   ↓
+lokaler Test
+   ↓
+Build / Qualitätsprüfung
+   ↓
+git status
+   ↓
+git diff
+   ↓
+git add
+   ↓
+git status
+   ↓
+git commit
+   ↓
+git push
 ```
 
-Jeder Commit dokumentiert eine abgeschlossene Änderung.
+Der ausführliche Ablauf ist in [DV-004 Git Workflow](../development/dv-004-git-workflow.md) dokumentiert.
 
-## Commit-Richtlinien
-Commits sollten:
+---
 
-- eine abgeschlossene Änderung enthalten
-- klar beschrieben sein
-- möglichst klein gehalten werden
+## 8. Conventional Commits
+
+WissensWerk verwendet Conventional Commits.
 
 Beispiele:
 
+```text
+feat(navigation): finalize MetisMenu navigation
+
+fix(offcanvas): prevent horizontal overflow
+
+docs(build): document JavaScript build process
+
+build(js): regenerate minified menu script
+
+refactor(scss): simplify navigation styles
 ```
-feat: Bootstrap Grid erweitert
 
-fix: Fehler in Navigation behoben
+Die Commit-Nachricht soll die Art und den betroffenen Bereich der Änderung erkennen lassen.
 
-docs: EV-003 Git ergänzt
+---
 
-refactor: TemplateHelper vereinfacht
+## 9. Qualitätskontrolle
+
+Vor einem Commit werden Änderungen geprüft.
+
+Je nach Änderung gehören dazu:
+
+- `git status`
+- `git diff`
+- SCSS-Kompilierung
+- JavaScript-Build
+- JavaScript-Syntaxprüfung
+- Browser-Test
+- Prüfung der erzeugten Produktionsdateien
+
+Beispiel für JavaScript:
+
+```powershell
+npm.cmd run build:js
+node --check "media/templates/site/wissenswerk/js/mod_menu/menu-metismenu.js"
+node --check "media/templates/site/wissenswerk/js/mod_menu/menu-metismenu.min.js"
 ```
 
-## Integration in WissensWerk
-Git verwaltet sämtliche Projektbestandteile.
+---
 
-- Template
-- Dokumentation
-- SCSS
-- JavaScript
-- Konfigurationsdateien
+## 10. Branch
 
-Dadurch bleibt die Entwicklung jederzeit nachvollziehbar.
+Der aktuelle Entwicklungsworkflow arbeitet mit:
 
-## Best Practices
-Für WissensWerk gelten folgende Empfehlungen.
+```text
+main
+```
 
-- Kleine Commits erstellen.
-- Aussagekräftige Commit-Nachrichten verwenden.
-- Vor jedem Commit testen.
-- Keine Binärdateien ohne Grund versionieren.
-- `.gitignore` aktuell halten.
-- Änderungen regelmäßig sichern.
+Änderungen werden nach erfolgreicher lokaler Prüfung in abgeschlossenen Commits auf `main` übernommen und anschließend nach GitHub übertragen.
 
-## Weiterführende Dokumente
+Ein komplexes Branching-Modell wird für den aktuellen Projektumfang nicht benötigt.
 
-- [💻 EV-001 Laragon](./ev-001-laragon.md)
-- [💻 EV-002 Visual Studio Code](./ev-002-visual-studio-code.md)
-- [💻 EV-004 Git Hub](./ev-004-git-hub.md)
-- DV-001 Template erstellen
+---
 
-## Fazit
-Git bildet die Grundlage der Versionsverwaltung von WissensWerk.
+## 11. Best Practices
 
-Durch die lückenlose Dokumentation aller Änderungen unterstützt Git eine strukturierte Entwicklung, erleichtert die Zusammenarbeit und sorgt dafür, dass jeder Entwicklungsstand jederzeit reproduzierbar und nachvollziehbar bleibt.
+- Kleine, thematisch abgeschlossene Commits erstellen.
+- Vor jedem Commit `git status` prüfen.
+- Änderungen mit `git diff` kontrollieren.
+- Build-Artefakte vor dem Commit aktualisieren.
+- Keine sensiblen Daten versionieren.
+- Commit-Nachrichten nach Conventional Commits formulieren.
+- Erst nach erfolgreichem Test pushen.
+
+---
+
+## 12. Bezugsquellen
+
+- [Git](https://git-scm.com/)
+- [Git Dokumentation](https://git-scm.com/doc)
+
+---
+
+## 13. Ergebnis
+
+Git bildet die lokale Grundlage der Versionsverwaltung von WissensWerk.
+
+Zusammen mit dem definierten Commit- und Build-Workflow ermöglicht Git eine nachvollziehbare Entwicklung und stellt sicher, dass abgeschlossene Arbeitsschritte reproduzierbar dokumentiert werden.
+
+---
+
+# Änderungshistorie
+
+| Version | Datum | Beschreibung |
+|---|---|---|
+| 1.0 | Juli 2026 | Ursprüngliche Git-Dokumentation erstellt. |
+| 2.0 | 02.09.2026 | Versionierung von Produktions-Build-Artefakten, aktueller JavaScript-Build, `main`-Workflow und Conventional Commits ergänzt. |

@@ -2,15 +2,21 @@
 
 ---
 
-# DG-000 Dokumentations-Richtlinien Übersicht
+# DG-000 – Dokumentations-Richtlinien Übersicht
 
-Eine gute Dokumentation entsteht nicht zufällig. Sie folgt klaren Regeln, die Struktur, Einheitlichkeit und Verständlichkeit sicherstellen.
+Eine gute Dokumentation entsteht nicht zufällig. Sie folgt klaren Regeln, die Struktur, Einheitlichkeit, Verständlichkeit und langfristige Wartbarkeit sicherstellen.
 
-Die Dokumentationsrichtlinien von WissensWerk definieren gemeinsame Standards für Aufbau, Benennung, Formatierung und Pflege aller Dokumente innerhalb des Projekts. Sie schaffen eine konsistente Grundlage, damit Informationen langfristig nachvollziehbar, leicht auffindbar und einfach erweiterbar bleiben.
+Die Dokumentationsrichtlinien von WissensWerk definieren gemeinsame Standards für Aufbau, Benennung, Formatierung, Verlinkung und Pflege der Projektdokumentation.
 
-Jede Richtlinie behandelt einen klar abgegrenzten Aspekt der Dokumentation und kann unabhängig von den anderen angewendet werden. Gemeinsam bilden sie den dokumentarischen Rahmen für das gesamte Projekt.
+Jede Richtlinie behandelt einen klar abgegrenzten Aspekt. Gemeinsam bilden die Dokumente den dokumentarischen Rahmen des Projekts.
 
-Die folgenden Dokumente beschreiben die geltenden Richtlinien.
+## Richtlinien
 
-- [📖 DG-001 Dokumentations-Richtinien](./dg-001-dokumentations-richtinien.md)
-- [📖 DG-002-Icons](./dg-002-icons.md)
+- [📖 DG-001 – Dokumentationsrichtlinien](./dg-001-dokumentations-richtlinien.md)
+- [📖 DG-002 – Icons](./dg-002-icons.md)
+
+## Grundprinzip
+
+Die Dokumentation soll den tatsächlichen Projektstand nachvollziehbar abbilden.
+
+Neue technische Erkenntnisse, Architekturentscheidungen und relevante Änderungen werden deshalb zeitnah dokumentiert. Veraltete Annahmen werden nicht einfach weitergeführt, sondern bei Bedarf korrigiert oder als historische Entscheidung kenntlich gemacht.

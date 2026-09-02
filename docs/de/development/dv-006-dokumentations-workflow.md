@@ -1,137 +1,218 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md)  [🛠️ Entwicklungsübersicht](./dv-000-entwicklunguebersicht.md)
+[[[ Inhaltsverzeichnis ]](./../table-of-contents.md) [🛠️ Entwicklungsübersicht](./dv-000-entwicklunguebersicht.md)
 
 ---
 
 # DV-006 Dokumentations-Workflow
 
-> **Status:** Aktiv  
-> **Version:** 1.0  
-> **Stand:** 27.07.2026
+**Dokumenttyp:** Entwicklungsdokumentation  
+**Projekt:** WissensWerk  
+**Status:** Aktiv  
+**Version:** 2.0  
+**Stand:** 02.09.2026
+
+---
 
 ## Ziel
+
 Dieses Dokument beschreibt den Workflow zur Erstellung, Pflege und Versionierung der Projektdokumentation.
+
 Ziel ist eine konsistente, nachvollziehbare und wartbare Dokumentation mit einer sauberen Git-Historie.
 
-## Grundsatz
-Die gesamte Projektdokumentation wird **lokal** innerhalb der Projektstruktur erstellt und gepflegt.
-GitHub dient ausschließlich als zentrales Remote-Repository sowie zur Veröffentlichung und Versionsverwaltung.
+---
 
-# Entwicklungsumgebung
-Die Dokumentation wird mit folgenden Werkzeugen erstellt:
+## Grundsatz
+
+Die Projektdokumentation wird lokal innerhalb der Projektstruktur erstellt und gepflegt.
+
+GitHub dient als zentrales Remote-Repository und zur Versionsverwaltung.
+
+Dokumentation wird grundsätzlich wie Quellcode behandelt.
+
+---
+
+## Entwicklungsumgebung
+
+Die Dokumentation wird insbesondere mit folgenden Werkzeugen erstellt:
 
 - Visual Studio Code
 - Markdown
 - Git
 - GitHub
 
-Alle Dokumente befinden sich innerhalb des Projektverzeichnisses.
+Alle Dokumente befinden sich innerhalb der Projektstruktur.
+
+---
+
+## Dokumentationsstruktur
+
+Die Dokumentation ist thematisch gegliedert, unter anderem in:
+
+```text
+docs/
+├── adr/
+├── architecture/
+├── design-system/
+├── development/
+├── documentation-guidelines/
+├── environment/
+├── manifest/
+├── project-management/
+├── project-philosophy/
+├── roadmap/
+├── technical-foundation/
+└── troubleshooting/
+```
+
+Die konkrete Struktur wird über die Dokumentationsübersicht und das Inhaltsverzeichnis nachvollziehbar gehalten.
+
+---
 
 ## Workflow
 
 ### 1. Dokument erstellen oder bearbeiten
-Neue Dokumente sowie Änderungen an bestehenden Dokumenten erfolgen ausschließlich lokal in Visual Studio Code.
-Dabei gelten die projektspezifischen Dokumentationsrichtlinien sowie die definierten Namenskonventionen.
 
-### 2. Änderungen prüfen
-Vor jedem Commit werden alle Änderungen überprüft.
-Hierzu gehören insbesondere:
+Änderungen erfolgen lokal in Visual Studio Code.
 
-- Inhaltliche Vollständigkeit
-- Markdown-Formatierung
-- Dateinamen
+Dabei gelten:
+
+- Dokumentationsrichtlinien
+- Namenskonventionen
 - Verzeichnisstruktur
-- Interne Verlinkungen
+- Markdown-Konventionen
 
-### 3. Commit erstellen
-Zusammengehörige Änderungen werden in einem gemeinsamen Commit zusammengefasst.
-Commit-Nachrichten folgen der im Projekt definierten Commit-Convention.
+---
+
+### 2. Inhalt prüfen
+
+Vor dem Commit wird geprüft:
+
+- fachliche Aktualität
+- Vollständigkeit
+- Markdown-Formatierung
+- Dateiname
+- Verzeichnis
+- interne Verlinkungen
+- Versionsstand des Dokuments
+
+---
+
+### 3. Bezug zur tatsächlichen Entwicklung prüfen
+
+Dokumentation soll den tatsächlichen Projektstand beschreiben.
+
+Wenn eine Architekturentscheidung praktisch verändert wurde, müssen die betroffenen Dokumente ebenfalls geprüft werden.
+
+Beispiele:
+
+```text
+Implementierung geändert
+        ↓
+Architektur prüfen
+        ↓
+Designsystem prüfen
+        ↓
+Entwicklungsdokumentation prüfen
+```
+
+---
+
+### 4. Commit
+
+Zusammengehörige Dokumentationsänderungen werden in einem gemeinsamen Commit zusammengefasst.
+
+Commit-Nachrichten folgen Conventional Commits.
 
 Beispiel:
 
 ```text
-docs: update design system documentation
+docs(architecture): update navigation architecture
 ```
 
-oder
+---
 
-```text
-feat: implement HTML base layer
-```
+### 5. Push
 
-### 4. Push zum Remote Repository
-Nach erfolgreichem Commit wird der aktuelle Stand nach GitHub übertragen.
+Nach erfolgreichem Commit werden die Änderungen nach GitHub übertragen.
 
 ```bash
 git push
 ```
 
-GitHub dient dabei ausschließlich als Remote Repository.
+---
 
 ## GitHub Web Editor
-Der GitHub-Webeditor wird für die reguläre Projektdokumentation **nicht verwendet**.
 
-## Begründung
-Bearbeitungen direkt auf GitHub erzeugen eigenständige Commits im Remote Repository.
-Beim anschließenden Abrufen der Änderungen entstehen häufig zusätzliche Merge-Commits, welche die Commit-Historie unnötig erweitern.
+Der GitHub-Webeditor wird für die reguläre Dokumentation nicht verwendet.
 
-Eine lokale Bearbeitung ermöglicht dagegen:
+Die lokale Bearbeitung ermöglicht:
 
-- eine lineare Commit-Historie
-- logisch zusammenhängende Commits
-- einfachere Nachvollziehbarkeit
-- bessere Code- und Dokumentenreviews
+- globale Suche
+- gleichzeitige Änderungen mehrerer Dokumente
+- Prüfung interner Links
+- direkte Git-Integration
+- konsistente Commits
 
-## Vorteile des lokalen Workflows
-Der lokale Workflow bietet zahlreiche Vorteile:
+Ausnahmen sind möglich, beispielsweise bei kleinen Notfallkorrekturen.
 
-- komfortables Arbeiten in Visual Studio Code
-- globale Suche über die gesamte Dokumentation
-- Umbenennen von Dateien und Verzeichnissen
-- konsistente Markdown-Unterstützung
-- direkte Integration in Git
-- keine unnötigen Merge-Commits
-- bessere Nachvollziehbarkeit der Projektentwicklung
+---
 
-## Ausnahmefälle
-Der GitHub-Webeditor kann in Ausnahmefällen verwendet werden, beispielsweise:
+## Dokumentversionen
 
-- kurzfristige Korrektur eines Tippfehlers
-- Bearbeitung von Dokumenten von einem fremden Rechner
-- Notfallkorrekturen ohne lokale Entwicklungsumgebung
+Dokumente besitzen eine eigene Versionshistorie.
 
-Diese Fälle stellen ausdrücklich Ausnahmen dar und gehören nicht zum regulären Entwicklungsprozess.
+Eine Dokumentversion beschreibt die Entwicklung des jeweiligen Dokuments.
 
-## Architekturentscheidung
-Die Dokumentation ist Bestandteil des Projekts und wird wie der Quellcode behandelt.
-Sie unterliegt denselben Grundsätzen hinsichtlich:
+Sie ist nicht automatisch identisch mit der Projektversion.
 
-- Versionierung
-- Nachvollziehbarkeit
-- Wartbarkeit
-- Qualitätssicherung
+---
 
-## Zusammenfassung
-Der Dokumentationsworkflow folgt einem einfachen Prinzip:
+## Qualitätssicherung
+
+Vor dem Commit sollte geprüft werden:
 
 ```text
-Dokument erstellen
-        │
-        ▼
-Lokale Bearbeitung (Visual Studio Code)
-        │
-        ▼
-Überprüfung
-        │
-        ▼
+☐ Inhalt aktuell
+☐ Struktur korrekt
+☐ Links korrekt
+☐ Dateiname korrekt
+☐ Version / Stand aktualisiert
+☐ keine veralteten Aussagen
+☐ Commit-Nachricht korrekt
+```
+
+---
+
+## Zusammenhang mit Architekturentscheidungen
+
+Wesentliche Änderungen werden bei Bedarf zusätzlich in ADR-Dokumenten festgehalten.
+
+Die Dokumentation soll dabei nicht widersprüchliche Parallelstände erzeugen.
+
+---
+
+## Zusammenfassung
+
+```text
+Dokument erstellen / bearbeiten
+            ↓
+Inhalt prüfen
+            ↓
+Projektstand abgleichen
+            ↓
+Links / Struktur prüfen
+            ↓
 Git Commit
-        │
-        ▼
+            ↓
 Git Push
-        │
-        ▼
+            ↓
 GitHub
 ```
 
-GitHub ist das zentrale Remote Repository.
+---
 
-Die eigentliche Dokumentationserstellung erfolgt vollständig innerhalb der lokalen Entwicklungsumgebung.
+# Änderungshistorie
+
+| Version | Datum | Beschreibung |
+|---|---|---|
+| 1.0 | 27.07.2026 | Ursprünglichen Dokumentationsworkflow erstellt. |
+| 2.0 | 02.09.2026 | Workflow an die aktuelle Dokumentationsstruktur, Dokumentversionierung und den aktuellen Git-/Conventional-Commit-Prozess angepasst. |

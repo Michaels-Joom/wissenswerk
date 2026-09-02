@@ -1,106 +1,73 @@
-# ADR-006 Bootstrap als Komponentenbibliothek
+# ADR-006 – Bootstrap als Komponentenbibliothek
 
-> **Status:** Accepted  
-> **Datum:** 27.07.2026
-
----
+**Status:** Angenommen  
+**Version:** 2.0  
+**Datum:** 02.09.2026  
+**Projekt:** WissensWerk
 
 ## Kontext
-Joomla verwendet Bootstrap als Standard-Frontend-Framework. In vielen Projekten bildet Bootstrap die gestalterische Grundlage, während projektspezifische Styles das Framework nachträglich überschreiben.
 
-Dieser Ansatz führt häufig zu:
+Joomla verwendet Bootstrap als wesentlichen Bestandteil seiner Frontend-Architektur. WissensWerk besitzt gleichzeitig ein eigenständiges Designsystem.
 
-- umfangreichen CSS-Überschreibungen
-- steigender Verwendung von `!important`
-- enger Kopplung an Bootstrap
-- erhöhtem Wartungsaufwand bei Bootstrap-Updates
-- eingeschränkter Kontrolle über das Design
-
-Für WissensWerk wurde bereits ein eigenständiges Design System entwickelt, das Farben, Typografie, Abstände und Layout unabhängig von Bootstrap definiert.
-
-Damit stellt sich die grundsätzliche Frage, welche Rolle Bootstrap innerhalb der Template-Architektur einnehmen soll.
+Daraus ergibt sich die Frage, welche Rolle Bootstrap innerhalb des Templates einnehmen soll.
 
 ## Entscheidung
-Bootstrap wird innerhalb von WissensWerk **nicht als Grundlage des Frontends** verwendet.
-Bootstrap dient ausschließlich als **optionale Komponentenbibliothek**.
-Das Design des Templates wird vollständig durch das WissensWerk Design System bestimmt.
-Bootstrap-Komponenten werden nur übernommen, wenn sie:
 
-- funktional einen Mehrwert bieten,
-- sich ohne grundlegende Änderungen in das Design System integrieren lassen,
-- die Wartbarkeit nicht beeinträchtigen.
+Bootstrap wird in WissensWerk als **technische Komponenten- und Layoutbasis** eingesetzt, nicht als gestalterische Autorität.
 
-Komponenten, die diesen Anforderungen nicht entsprechen, werden projektintern entwickelt.
+Bootstrap-Komponenten werden selektiv verwendet, wenn sie einen funktionalen Mehrwert bieten und sich in das WissensWerk-Designsystem integrieren lassen.
+
+Das WissensWerk-Designsystem bestimmt weiterhin Farben, Typografie, Abstände, visuelle Hierarchie und eigene Komponenten.
 
 ## Architektur
 
 ```text
-Corporate Identity
+WissensWerk Designsystem
+        │
+        ├── Design Tokens
         │
         ▼
-Design System
+Bootstrap-Integration
+        │
+        ├── Layout / Grid
+        ├── ausgewählte Komponenten
+        └── Utilities, soweit sinnvoll
         │
         ▼
-Base Layer
-        │
-        ▼
-Bootstrap-Komponenten (optional)
-        │
-        ▼
-Eigene Komponenten
-        │
-        ▼
-Layouts
+WissensWerk-Komponenten
         │
         ▼
 Joomla Template
 ```
 
-Bootstrap befindet sich somit **oberhalb des Base Layers** und **unterhalb des Design Systems**.
-
 ## Grundsätze
-Für Bootstrap gelten innerhalb von WissensWerk folgende Regeln.
 
-### Bootstrap bestimmt nicht das Design
-Farben, Typografie, Abstände und Layout werden ausschließlich durch das Design System definiert.
-
-### Bootstrap wird selektiv eingesetzt
-Es werden ausschließlich Komponenten eingebunden, die tatsächlich benötigt werden.
-Ein vollständiger Bootstrap-Import ist nicht vorgesehen.
-
-### Keine CSS-Überschreibungen als Standardlösung
-Bootstrap-Komponenten sollen möglichst ohne umfangreiche Überschreibungen verwendet werden.
-Falls umfangreiche Anpassungen erforderlich sind, wird geprüft, ob eine eigene Implementierung wirtschaftlicher ist.
-
-### Keine `!important`-Strategie
-Das Projekt verfolgt ausdrücklich nicht den Ansatz, Bootstrap-Regeln mittels `!important` zu überschreiben.
-Das Auftreten von `!important` gilt als Hinweis auf eine fehlerhafte Architektur und soll vermieden werden.
-
-### Bootstrap ist austauschbar
-Die Architektur soll so aufgebaut werden, dass Bootstrap zukünftig ersetzt oder aktualisiert werden kann, ohne das Design System grundlegend anzupassen.
+- Bootstrap bestimmt nicht das Corporate Design.
+- Bootstrap wird selektiv eingesetzt.
+- Eigene Styles sind keine pauschale Korrekturschicht für Bootstrap.
+- `!important` wird nicht als reguläres Anpassungsmittel eingesetzt.
+- Wenn eine Bootstrap-Komponente nicht sinnvoll integrierbar ist, kann eine eigene WissensWerk-Komponente entstehen.
 
 ## Konsequenzen
 
 ### Vorteile
 
-- vollständige Kontrolle über das Erscheinungsbild
-- klare Trennung zwischen Design und Framework
-- geringere Abhängigkeit von Bootstrap
-- einfachere Bootstrap-Updates
-- bessere Wartbarkeit
-- höhere Wiederverwendbarkeit des Design Systems
+- Nutzung bewährter Frontend-Funktionen
+- geringere Eigenentwicklung
+- klare Trennung von Funktion und Gestaltung
+- kontrollierte Abhängigkeit von Bootstrap
+- gute Integration in Joomla
 
 ### Nachteile
 
-- höherer initialer Entwicklungsaufwand
-- einzelne Komponenten müssen gegebenenfalls selbst entwickelt werden
-- Bootstrap kann nicht unverändert übernommen werden
+- Bootstrap bleibt eine technische Abhängigkeit
+- einzelne Komponenten müssen gegebenenfalls projektspezifisch umgesetzt werden
+- Kenntnisse der Bootstrap-Struktur sind erforderlich
 
 ## Begründung
-WissensWerk versteht Bootstrap als technische Bibliothek und nicht als gestalterische Grundlage.
-Das Design System definiert die visuelle Identität des Templates.
-Bootstrap ergänzt diese Architektur ausschließlich dort, wo vorhandene Komponenten einen funktionalen Mehrwert bieten.
 
-Dadurch bleibt das Projekt unabhängig vom verwendeten Frontend-Framework und vermeidet langfristig unnötige Komplexität durch umfangreiche CSS-Überschreibungen.
+Bootstrap liefert bewährte technische Bausteine, während WissensWerk die gestalterische Kontrolle behält.
 
-Bootstrap arbeitet unter der Regie des WissensWerk Design Systems – nicht umgekehrt.
+## Fazit
+
+Bootstrap arbeitet innerhalb von WissensWerk **unter der Regie des eigenen Designsystems**. Es liefert technische Bausteine, bestimmt aber nicht die visuelle Identität des Templates.

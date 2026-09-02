@@ -1,50 +1,53 @@
 [⬅️ Back to the overview](./../../README.md)
 
----
+# WissensWerk Documentation
 
-# Welcome to the WissensWerk Documentation
+This documentation accompanies the development and continued evolution of WissensWerk.
 
-Welcome to the **WissensWerk** documentation.
-
-This documentation accompanies the development of a Joomla template and its design system from the initial concept to the final implementation. It records not only the results, but also the decisions, experiments, and insights gained throughout the development process.
+It describes the actual architecture, design system, development foundations, and relevant technical findings. Not every idea or working paper created during development becomes part of the permanent documentation.
 
 ## Getting Started
 
-**New to the project?**
+### New to the project?
 
 Start here:
 
-- [Manifest](./manifest/manifest.md)
-- [Project Philosophy](./projectphilosophy/projectphilosophy.md)
-* Project Philosophy
-* Design System
+- [📜 Manifest](./manifest/manifest.md)
+- [💡 Project Philosophy](./project-philosophy/projektphilosophie.md)
 
-## Developers
+### Understanding the architecture
 
-**Looking for technical details?**
+- [🏗️ Architecture Overview](./architecture/ar-000-architektur-uebersicht.md)
+- [📐 Architecture Decision Records (ADR)](./adr/adr-000-architekturentscheidungen.md)
 
-* HTML
-* SCSS
-* Joomla
-* Components
-* Architecture
+### Design and styling
 
-## Problem Solving
+- [🎨 Design System](./design-system/ds-000-designprinzipenuebersicht.md)
 
-**Looking for a specific solution?**
+### Development
 
-* Troubleshooting
-* Experiments
-* Architecture Decision Records (ADRs)
+- [🛠️ Development Overview](./development/dv-000-entwicklunguebersicht.md)
+- [💻 Development Environment](./environment/ev-000-entwicklungsumgebung-uebersicht.md)
 
-## Reference
+### Documentation
 
-* Glossary
-* Best Practices
-* References
+- [📖 Documentation Guidelines](./documentation-guidelines/dg-000-richtlinien-uebersicht.md)
+
+### Troubleshooting
+
+- 🛠️ [Troubleshooting](./troubleshooting/ts-000-troubleshooting-uebersicht.md)
+- [TS-001 – Navigation and Cassiopeia Menu Type](./troubleshooting/ts-001-troubleshooting-cassopeia-dropdown.md)
+
+## Documentation Principle
+
+WissensWerk is developed iteratively.
+
+The documentation therefore follows the actual development process and is extended or updated when a technical decision, a lasting structure, or a relevant finding needs to be recorded.
+
+Temporary working papers, discarded ideas, and completed tasks do not automatically become part of the permanent project documentation.
 
 ## AI Assistance
 
-This documentation has been created with the assistance of artificial intelligence.
+This documentation has been created in part with the assistance of artificial intelligence.
 
-All technical content, architectural decisions, and implementation approaches have been practically verified, tested, and critically evaluated before being included in this documentation.
+All technical content, architectural decisions, and implementation approaches are practically reviewed and evaluated before being included in the documentation.

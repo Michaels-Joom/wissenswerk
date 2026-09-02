@@ -1,51 +1,91 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md)  [🎨 Designübersicht](./ds-000-designprinzipenuebersicht.md)
+[[[ Inhaltsverzeichnis ]](./../table-of-contents.md) [🎨 Designübersicht](./ds-000-designprinzipien-uebersicht.md)
 
 ---
 
-# DS-011 Dark Mode (optional)
+# DS-011 Dark Mode
+
+**Dokumenttyp:** Designsystem  
+**Projekt:** WissensWerk  
+**Status:** Optional / nicht implementiert  
+**Version:** 2.0  
+**Stand:** 02.09.2026
+
+---
 
 ## Ziel
 
-Der Dark Mode bietet eine alternative Darstellung für Umgebungen mit geringer Umgebungshelligkeit oder individuelle Benutzerpräferenzen. Lesbarkeit, Kontrast und Informationshierarchie bleiben dabei erhalten.
+Der Dark Mode beschreibt eine mögliche alternative Darstellung des WissensWerk-Designsystems.
+
+Lesbarkeit, Kontrast und Informationshierarchie sollen dabei erhalten bleiben.
+
+---
 
 ## Architekturprinzip
 
-Der Dark Mode basiert auf denselben Design Tokens wie das Standarddesign. Die Gestaltung erfolgt durch alternative Tokenwerte und nicht durch separate Komponenten oder Layouts.
+Ein zukünftiger Dark Mode soll auf denselben Komponenten und semantischen Design Tokens basieren wie das Standarddesign.
+
+Es soll kein zweites, unabhängiges Designsystem entstehen.
+
+Grundprinzip:
+
+```text
+Komponenten
+     │
+     ▼
+semantische Tokens
+     │
+     ├── Light-Werte
+     └── Dark-Werte
+```
+
+---
 
 ## Gestaltungsprinzipien
-- Der Dark Mode ist eine alternative Darstellung des bestehenden Designs
-- Informationsstruktur und Bedienung bleiben unverändert
-- Farben werden ausschließlich über Design Tokens angepasst
-- Kontraste erfüllen die Anforderungen an eine gute Lesbarkeit
-- Komponenten verhalten sich in beiden Darstellungsmodi identisch
-- Der Dark Mode bleibt optional
 
-## Wirkung des Dark Mode
-| Bereich                | gewünschte Wirkung         |
-|------------------------|----------------------------|
-| Erscheinungsbild       | ruhig und ausgewogen       |
-| Lesbarkeit             | kontrastreich und angenehm |
-| Orientierung           | unverändert                |
-| Informationshierarchie | eindeutig                  |
-| Benutzererlebnis       | konsistent                 |
+- Der Dark Mode ist eine alternative Darstellung des bestehenden Designs.
+- Struktur und Bedienung bleiben grundsätzlich unverändert.
+- Farben werden über semantische Tokens angepasst.
+- Kontraste müssen ausreichend sein.
+- Komponenten sollen in beiden Darstellungen funktionieren.
+- Der Dark Mode bleibt optional, solange kein konkreter Umsetzungsbedarf besteht.
 
+---
 
-## Dark-Mode-Rollen
-| Rolle      | Design Token  |
-|------------|---------------|
-| Background | ds-background |
-| Surface    | ds-surface    |
-| Text       | ds-text       |
-| Border     | ds-border     |
-| Primary    | ds-primary    |
-| Secondary  | ds-secondary  |
-| Success    | ds-success    |
-| Warning    | ds-warning    |
-| Error      | ds-error      |
+## Tokenprinzip
 
-## Dark-Mode-Prinzipien
-- Der Dark Mode verwendet dieselben Komponenten wie das Standarddesign
-- Farben werden ausschließlich über alternative Design Tokens bereitgestellt
-- Inhalte und Funktionen bleiben vollständig erhalten
-- Ein Wechsel zwischen den Darstellungsmodi verändert weder Struktur noch Bedienung
-- Die Aktivierung des Dark Mode ist optional
+Die bisherigen `ds-*`-Tokenbezeichnungen werden nicht als aktuelle technische Implementierung vorausgesetzt.
+
+Das bestehende WissensWerk-System verwendet `--ww-`-Custom-Properties.
+
+Ein zukünftiger Dark Mode würde deshalb auf den tatsächlich verwendeten semantischen WissensWerk-Tokens aufbauen.
+
+---
+
+## Aktueller Stand
+
+Der Dark Mode ist derzeit **nicht Bestandteil der implementierten Oberfläche**.
+
+Es existiert daher aktuell:
+
+- kein produktiver Umschalter,
+- keine separate Dark-Mode-Komponente,
+- keine vollständige alternative Farbpalette.
+
+Dieses Dokument dient als Architektur- und Gestaltungsgrundlage für eine mögliche spätere Umsetzung.
+
+---
+
+## Entscheidung für die weitere Entwicklung
+
+Ein Dark Mode wird erst umgesetzt, wenn ein konkreter Nutzen für WissensWerk nachgewiesen ist.
+
+Bis dahin wird das Standarddesign nicht durch vorbereitende Sonderlogik unnötig komplex gemacht.
+
+---
+
+# Änderungshistorie
+
+| Version | Datum | Beschreibung |
+|---|---|---|
+| 1.0 | 27.07.2026 | Dark Mode als optionale zukünftige Funktion beschrieben. |
+| 2.0 | 02.09.2026 | Status eindeutig als nicht implementiert gekennzeichnet und Tokenstrategie an die aktuelle `--ww-`-Architektur angepasst. |

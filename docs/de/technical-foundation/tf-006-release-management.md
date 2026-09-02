@@ -1,113 +1,131 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../inhaltsverzeichnis.md)  [⚙️ Technische Grundlagen](tf-000-technische-grundlagen.md)
+[[[ Inhaltsverzeichnis ]](./../table-of-contents.md) [⚙️ Technische Grundlagen](./tf-000-technische-grundlagen.md)
 
 ---
 
 # TF-006 Release Management
 
+**Dokumenttyp:** Technische Grundlage  
+**Projekt:** WissensWerk  
+**Status:** Aktiv  
+**Version:** 2.0  
+**Stand:** 02.09.2026
+
+---
+
 ## Ziel
-Releases kennzeichnen wichtige Entwicklungsstände des Projekts. Sie schaffen nachvollziehbare Meilensteine und ermöglichen es, den Fortschritt sowie den Funktionsumfang einzelner Projektversionen jederzeit nachzuvollziehen.
 
-Ein Release beschreibt einen abgeschlossenen Entwicklungsstand und bildet die Grundlage für Versionierung und Dokumentation.
+Releases kennzeichnen definierte Entwicklungsstände des WissensWerk-Projekts.
 
-# Grundprinzip
-Nicht jede Änderung führt zu einem Release.
-Ein Release fasst mehrere abgeschlossene Änderungen zu einem nachvollziehbaren Entwicklungsstand zusammen.
+Sie schaffen nachvollziehbare Meilensteine und fassen zusammengehörende Änderungen zu einem dokumentierten Projektstand zusammen.
 
-Typische Anlässe sind
+---
 
-- neue Funktionen,
-- größere Architekturänderungen,
-- abgeschlossene Dokumentationsabschnitte,
-- veröffentlichungsreife Versionen.
+## Grundprinzip
 
-# Versionierung
+Nicht jeder Commit und nicht jede Dokumentationsänderung erzeugt ein Release.
 
-WissensWerk verwendet eine fortlaufende Versionsnummer.
+Ein Release wird für einen bewusst definierten Projektstand erstellt.
 
-Beispiele:
+Typische Anlässe sind:
+
+- abgeschlossene Entwicklungsabschnitte
+- wesentliche neue Funktionen
+- größere Architekturänderungen
+- stabile Meilensteine
+- veröffentlichungsreife Projektstände
+
+---
+
+## Release und Version
+
+Projektversion und Dokumentversion werden getrennt betrachtet.
 
 ```text
-v0.1.0
-v0.2.0
-v0.3.0
-v1.0.0
+Dokumentversion
+  → Version eines einzelnen Dokuments
+
+Projektversion
+  → Version des WissensWerk-Projekts
+
+Release
+  → definierter Projektstand
 ```
 
-Die Versionsnummer beschreibt den Entwicklungsstand des Projekts.
+Eine Änderung an einem einzelnen Dokument führt daher nicht automatisch zu einer neuen Projektversion.
 
-# Inhalt eines Releases
+---
 
-Ein Release sollte dokumentieren
+## Release-Inhalt
 
-- neue Funktionen,
-- behobene Fehler,
-- Architekturänderungen,
-- Dokumentationsänderungen,
-- bekannte Einschränkungen (falls vorhanden).
+Ein Release sollte mindestens nachvollziehbar machen:
 
-Beispiel:
+- Version
+- Entwicklungsstand
+- neue Funktionen
+- Änderungen
+- Fehlerkorrekturen
+- wesentliche Architekturänderungen
+- bekannte Einschränkungen, sofern vorhanden
+
+---
+
+## Beispiel
 
 ```text
-Version 0.2.0
+Version 0.5.0
 
-New
-
-- Design System erweitert
-- GitHub Workflow dokumentiert
-- Technical Foundation eingeführt
+Added
+- Navigation mit MetisMenu fertiggestellt
+- Offcanvas-Navigation integriert
 
 Changed
-
-- Dokumentationsstruktur überarbeitet
-- Verzeichnisstruktur vereinheitlicht
+- Navigation visuell an das Designsystem angepasst
+- Dokumentation aktualisiert
 
 Fixed
-
-- Interne Dokumentationslinks korrigiert
+- horizontales Überlaufen des Offcanvas beseitigt
 ```
 
-# Release-Zeitpunkt
-Ein Release wird erstellt, wenn
+---
 
-- ein definierter Meilenstein erreicht wurde,
-- mehrere zusammengehörende Änderungen abgeschlossen sind,
-- das Projekt einen stabilen Entwicklungsstand erreicht hat.
+## Release-Zeitpunkt
 
-Kleine Einzeländerungen führen in der Regel nicht zu einem eigenen Release.
+Ein Release wird erstellt, wenn ein sinnvoller Entwicklungsmeilenstein erreicht wurde.
 
-# Changelog
-Jedes Release sollte durch ein Changelog begleitet werden.
-Das Changelog beschreibt ausschließlich Änderungen gegenüber der vorherigen Version.
-Es dient als Übersicht für
+Kleine Einzeländerungen werden nicht künstlich zu Releases zusammengefasst.
 
-- neue Funktionen,
-- Verbesserungen,
-- Fehlerkorrekturen,
-- strukturelle Änderungen.
+---
 
-# Grundregeln
-Für WissensWerk gelten folgende Regeln.
+## GitHub
 
-- Releases kennzeichnen abgeschlossene Entwicklungsstände.
-- Jedes Release erhält eine eindeutige Versionsnummer.
-- Größere Änderungen werden im Changelog dokumentiert.
-- Releases sollen nachvollziehbar und reproduzierbar sein.
-- Ein Release beschreibt immer einen stabilen Projektstand.
+GitHub dient als zentrale Ablage der Projektversionierung.
 
-# Vorteile
-Ein strukturiertes Release Management
+Releases können dort anhand definierter Projektstände dokumentiert werden.
 
-- dokumentiert den Projektfortschritt,
-- schafft nachvollziehbare Meilensteine,
-- erleichtert die Versionierung,
-- unterstützt die langfristige Wartung,
-- verbessert die Transparenz der Entwicklung.
+Die konkrete Release-Erstellung erfolgt erst, wenn ein entsprechender Meilenstein erreicht wurde.
 
-# Verwandte Dokumente
+---
 
-- [⚙️ TF-001 Github-Workflows](./tf-001-github-workflow.md)
+## Aktueller Entwicklungsstand
+
+WissensWerk befindet sich weiterhin in aktiver Entwicklung.
+
+Die bisher erstellten Git-Commits dokumentieren den laufenden Entwicklungsprozess.
+
+Ein stabiler Release-Zyklus wird erst dann verbindlich eingeführt, wenn die dafür erforderlichen Projektmeilensteine definiert sind.
+
+---
+
+## Verwandte Dokumente
+
+- [⚙️ TF-001 GitHub Workflow](./tf-001-github-workflow.md)
 - [⚙️ TF-002 Issue Management](./tf-002-issue-management.md)
-- [⚙️ TF-004 Commit Cconvention](./tf-004-commit-convention.md)
-- [TF-004 Commit Convention](./../development/dv-004-git-workflow.md)
+- [⚙️ TF-004 Commit Convention](./tf-004-commit-convention.md)
+- [⚙️ TF-007 Versionierung](./tf-007-versionierung.md)
 
+# Änderungshistorie
 
+| Version | Datum | Beschreibung |
+|---|---|---|
+| 1.0 | Juli 2026 | Ursprüngliches Release-Konzept erstellt. |
+| 2.0 | 02.09.2026 | Release- und Projektversionierung klar voneinander getrennt und an den aktuellen Entwicklungsstand angepasst. |

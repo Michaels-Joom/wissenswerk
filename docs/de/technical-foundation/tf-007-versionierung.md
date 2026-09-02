@@ -1,16 +1,28 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../inhaltsverzeichnis.md)  [⚙️ Technische Grundlagen](tf-000-technische-grundlagen.md)
+[[[ Inhaltsverzeichnis ]](./../table-of-contents.md) [⚙️ Technische Grundlagen](./tf-000-technische-grundlagen.md)
 
 ---
 
 # TF-007 Versionierung
 
-## Ziel
-Eine einheitliche Versionierung ermöglicht es, Entwicklungsstände eindeutig zu kennzeichnen und Änderungen zwischen einzelnen Versionen nachvollziehbar zu dokumentieren.
-Versionen dienen nicht nur der Veröffentlichung neuer Softwarestände, sondern dokumentieren den kontinuierlichen Fortschritt des gesamten Projekts.
+**Dokumenttyp:** Technische Grundlage  
+**Projekt:** WissensWerk  
+**Status:** Aktiv  
+**Version:** 2.0  
+**Stand:** 02.09.2026
 
-# Grundprinzip
-WissensWerk verwendet **Semantic Versioning (SemVer)**.
-Eine Versionsnummer besteht aus drei Bestandteilen.
+---
+
+## Ziel
+
+Eine einheitliche Versionierung ermöglicht es, Entwicklungsstände eindeutig zu kennzeichnen und Änderungen nachvollziehbar zu dokumentieren.
+
+WissensWerk unterscheidet dabei zwischen Dokumentversionen und der Version des Gesamtprojekts.
+
+---
+
+## Semantic Versioning
+
+Für die Projektversion verwendet WissensWerk **Semantic Versioning (SemVer)**:
 
 ```text
 MAJOR.MINOR.PATCH
@@ -22,63 +34,64 @@ Beispiel:
 1.4.2
 ```
 
-Jeder Bestandteil besitzt eine eindeutige Bedeutung.
+---
 
-# MAJOR Version
-Die erste Zahl erhöht sich bei grundlegenden Änderungen.
+## MAJOR
+
+Die MAJOR-Version erhöht sich bei grundlegenden, nicht kompatiblen Änderungen.
 
 Beispiele:
 
-- nicht abwärtskompatible Änderungen
-- grundlegende Architekturänderungen
-- vollständige Überarbeitung des Templates
-- neue Hauptversion
-
-Beispiel:
+- grundlegende Architekturänderung
+- nicht abwärtskompatible Änderung
+- vollständige Neuausrichtung des Templates
+- neuer Hauptentwicklungsstand
 
 ```text
 1.0.0 → 2.0.0
 ```
 
-# MINOR Version
+---
 
-Die zweite Zahl erhöht sich bei neuen Funktionen oder größeren Erweiterungen.
+## MINOR
+
+Die MINOR-Version erhöht sich bei neuen, funktional relevanten Erweiterungen innerhalb der bestehenden Hauptarchitektur.
 
 Beispiele:
 
-- neue Templatefunktionen
-- neue Komponenten
-- Erweiterung des Design Systems
-- neue Dokumentationsbereiche
-- größere Architekturentscheidungen
-
-Beispiel:
+- neue Templatefunktion
+- neue wesentliche Komponente
+- größere funktionale Erweiterung
+- abgeschlossener bedeutender Entwicklungsabschnitt
 
 ```text
 1.2.0 → 1.3.0
 ```
 
-# PATCH Version
-Die dritte Zahl erhöht sich bei kleineren Änderungen.
+Eine reine Dokumentationsänderung erzeugt nicht automatisch eine neue MINOR-Version.
+
+---
+
+## PATCH
+
+Die PATCH-Version erhöht sich bei kleinen, rückwärtskompatiblen Korrekturen.
 
 Beispiele:
 
 - Fehlerkorrekturen
-- Optimierungen
-- kleinere Verbesserungen
-- Korrekturen an der Dokumentation
+- kleinere Optimierungen
 - interne Bereinigungen
-
-Beispiel:
+- kleinere technische Anpassungen
 
 ```text
 1.3.2 → 1.3.3
 ```
 
-# Projektphasen
-Während der Entwicklung befindet sich WissensWerk zunächst im Vorabstatus.
+---
 
-Beispiel:
+## Entwicklungsphase
+
+Während der aktiven Entwicklung kann WissensWerk eine führende `0` verwenden:
 
 ```text
 0.1.0
@@ -86,70 +99,102 @@ Beispiel:
 0.3.0
 ```
 
-Versionen mit einer führenden **0** kennzeichnen ein Projekt, das sich noch in aktiver Entwicklung befindet.
-Die erste stabile Veröffentlichung erhält die Versionsnummer
+Die `0` kennzeichnet einen noch nicht als stabil erklärten Projektstand.
+
+Die erste stabile Projektversion kann mit:
 
 ```text
 1.0.0
 ```
 
-# Versionierung in WissensWerk
-Da WissensWerk Softwareentwicklung und Dokumentation als gleichwertige Bestandteile des Projekts betrachtet, können neue Versionen sowohl durch Quellcode als auch durch wesentliche Erweiterungen der Dokumentation entstehen.
-Eine neue MINOR-Version kann beispielsweise entstehen durch
+beginnen.
 
-- neue Architekturdokumente
-- Erweiterungen des Design Systems
-- neue Templatefunktionen
-- neue Komponenten
-- abgeschlossene Entwicklungsabschnitte
+---
 
-PATCH-Versionen werden für kleinere Korrekturen und Optimierungen verwendet.
+## Dokumentversionen
 
-# Changelog
-Jede veröffentlichte Version wird durch ein Changelog begleitet.
-Das Changelog dokumentiert ausschließlich Änderungen gegenüber der vorherigen Version.
+Die einzelnen Dokumente besitzen eine eigene Versionshistorie.
 
-Es enthält beispielsweise
+Beispiel:
 
-- neue Funktionen
-- Verbesserungen
-- Fehlerkorrekturen
-- Dokumentationsänderungen
+```text
+AR-016
+Version 2.0
+```
 
-# Grundregeln
+Eine Aktualisierung eines Dokuments bedeutet daher nicht automatisch eine Änderung der Gesamtversion des Projekts.
 
-Für WissensWerk gelten folgende Regeln.
+---
 
-- Jede veröffentlichte Version erhält eine eindeutige Versionsnummer.
-- Die Versionierung erfolgt nach Semantic Versioning.
-- Größere Änderungen erhöhen die MINOR-Version.
-- Fehlerkorrekturen erhöhen die PATCH-Version.
-- Grundlegende Änderungen erhöhen die MAJOR-Version.
-- Jede Version wird dokumentiert.
+## Releases
 
-# Vorteile
+Eine Projektversion wird im Zusammenhang mit einem definierten Release verwendet.
 
-Eine einheitliche Versionierung
+Grundprinzip:
 
-- dokumentiert den Projektfortschritt,
-- erleichtert die Nachvollziehbarkeit,
-- unterstützt Releases,
-- schafft Transparenz,
-- verbessert die Wartbarkeit.
+```text
+Änderungen
+    ↓
+Commits
+    ↓
+definierter Projektstand
+    ↓
+Projektversion / Release
+```
 
-# Beispiele
+---
+
+## Changelog
+
+Ein Changelog beschreibt die Änderungen zwischen Projektversionen.
+
+Es kann insbesondere enthalten:
+
+- Added
+- Changed
+- Fixed
+- Removed
+- technische oder architektonische Änderungen
+
+Die Dokumentversionen werden zusätzlich in den jeweiligen Dokumenten über ihre Änderungshistorie gepflegt.
+
+---
+
+## Grundregeln
+
+- Projektversionen folgen SemVer.
+- Dokumente besitzen eigene Versionsstände.
+- Dokumentänderungen führen nicht automatisch zu einer neuen Projektversion.
+- Releases kennzeichnen definierte Projektstände.
+- MAJOR, MINOR und PATCH werden nach der beschriebenen SemVer-Logik vergeben.
+- Änderungen sollen nachvollziehbar dokumentiert werden.
+
+---
+
+## Beispiele
 
 | Version | Bedeutung |
-|----------|-----------|
-| 0.1.0 | Projektstart |
-| 0.2.0 | Design System ergänzt |
-| 0.3.0 | Template Skeleton erstellt |
-| 0.4.0 | Bootstrap integriert |
-| 0.5.0 | Erste Komponenten entwickelt |
-| 1.0.0 | Erste stabile Version |
+|---|---|
+| `0.1.0` | Projektstart |
+| `0.2.0` | grundlegende Designsystem-Grundlage |
+| `0.3.0` | Template-Skeleton |
+| `0.4.0` | Bootstrap-Integration |
+| `0.5.0` | wesentliche Navigation / Offcanvas-Entwicklung |
+| `1.0.0` | erster stabiler Gesamtstand |
 
-# Verwandte Dokumente
+Die Beispiele beschreiben mögliche Entwicklungsstände und sind keine bereits festgelegten historischen Releases.
 
-- [⚙️ TF-001 Github-Workflows](./tf-001-github-workflow.md)
-- [⚙️ TF-004 Commit Cconvention](./tf-004-commit-convention.md)
+---
+
+## Verwandte Dokumente
+
+- [⚙️ TF-001 GitHub Workflow](./tf-001-github-workflow.md)
+- [⚙️ TF-004 Commit Convention](./tf-004-commit-convention.md)
 - [⚙️ TF-006 Release Management](./tf-006-release-management.md)
+
+# Änderungshistorie
+
+| Version | Datum | Beschreibung |
+|---|---|---|
+| 1.0 | Juli 2026 | Ursprüngliche Versionierungsregeln erstellt. |
+| 2.0 | 02.09.2026 | Projekt-, Dokument- und Release-Versionierung getrennt und an den aktuellen Entwicklungsprozess angepasst. |

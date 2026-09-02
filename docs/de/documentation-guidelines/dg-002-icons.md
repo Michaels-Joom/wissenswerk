@@ -2,47 +2,85 @@
 
 ---
 
-## DG-002 Icons
+# DG-002 – Icons
 
-Die GitHub-Dokumentation verwendet ausschließlich Unicode-Emojis als visuelle Symbole.
+## 1. Zweck
 
-Der Einsatz von Bootstrap Icons, Font Awesome oder anderen Icon-Bibliotheken wird in der Markdown-Dokumentation bewusst vermieden, da GitHub keine externen Icon-Bibliotheken rendert. Unicode-Emojis werden dagegen auf allen unterstützten Plattformen ohne zusätzliche Abhängigkeiten dargestellt.
+Dieses Dokument definiert die Verwendung von Symbolen innerhalb der WissensWerk-Markdown-Dokumentation.
 
-### Grundsätze
+Die Regelung betrifft ausschließlich die **Dokumentation**, insbesondere deren Darstellung in GitHub und lokalen Markdown-Editoren.
 
-- Für die GitHub-Dokumentation werden ausschließlich Unicode-Emojis verwendet.
-- Emojis dienen ausschließlich der visuellen Orientierung und ersetzen keine Überschriften oder Struktur.
-- Jeder Themenbereich verwendet nach Möglichkeit ein eindeutiges und konsistent eingesetztes Symbol.
-- Das gleiche Symbol wird projektweit für denselben Themenbereich verwendet.
-- In der Template-Dokumentation oder späteren Joomla-Oberfläche können unabhängig davon Bootstrap Icons oder eigene SVG-Icons verwendet werden.
+Sie ist nicht mit der Icon-Strategie der Joomla-Template-Oberfläche gleichzusetzen.
 
-### Ziel
+## 2. Grundsatz
 
-Der konsistente Einsatz von Emojis verbessert die Lesbarkeit der Dokumentation und sorgt dafür, dass die Navigation sowohl auf GitHub als auch in lokalen Markdown-Editoren ohne zusätzliche Abhängigkeiten vollständig dargestellt wird.
+Die GitHub-Dokumentation verwendet bevorzugt **Unicode-Emojis** als visuelle Symbole.
 
-## Folgende ICONS werden für WissensWerk verwendet
+Bootstrap Icons, Font Awesome oder andere externe Icon-Bibliotheken werden in Markdown-Dokumenten nicht vorausgesetzt.
 
-| Emoji | Bereich | Farben |
-| --- | --- | --- |
-| 📜 | Manifest  | Braun
-| 💡 | Project Philosophy	| Gelb |
-| 🎨 | Design System	| Magenta |
-| 💻 | Development	| Blau |
-| 🌐 | HTML| none |
-| 📄 | HTML | none |
-| 🎨 | SCSS| none |
-| 🖌️ | SCSS| none |
-| 🔷 | Joomla| none | 
-| 🧩 | Components	| Grün |
-| 🏗️ | Architecture	| Orange|
-| 📦 | Asset Management	| none |
-| 🔗 | Web Asset API	| none |
-| 📐 | ADR	| none |
-| 🧪 | Experiments	| none |
-| 🛠️ | Troubleshooting	| Rot |
-| 📖 | Glossary	| none |
-| ✅ | Best Practices	| none |
-| 🔗 | References	| none |
-| 🚀 | Deployment	| none |
-| 💻 | Environment	| none |
-| ⚙️ | Technical Foundation |none|
+Unicode-Emojis besitzen den Vorteil, dass keine zusätzlichen Bibliotheken oder Assets geladen werden müssen.
+
+## 3. Verwendungsregeln
+
+- Emojis dienen der visuellen Orientierung.
+- Emojis ersetzen keine Überschriften oder semantische Struktur.
+- Ein Themenbereich verwendet nach Möglichkeit ein konsistentes Symbol.
+- Das gleiche Symbol soll projektweit für denselben Dokumentationsbereich verwendet werden.
+- Symbole werden sparsam eingesetzt.
+- Die Bedeutung eines Dokuments muss auch ohne Emoji verständlich bleiben.
+
+## 4. Abgrenzung zur Template-Oberfläche
+
+Die Icon-Regel dieser Dokumentation gilt nicht automatisch für die Joomla-Oberfläche.
+
+Im Template können abhängig von der jeweiligen Komponente verwendet werden:
+
+- Bootstrap Icons
+- eigene SVG-Icons
+- andere technisch geeignete und zugängliche Lösungen
+
+Die Wahl der Icons in der Oberfläche erfolgt nach den Anforderungen der jeweiligen UI-Komponente und des WissensWerk-Designsystems.
+
+## 5. Verbindliche Symbolzuordnung
+
+| Emoji | Bereich | Hinweis |
+|---|---|---|
+| 📜 | Manifest | Projektidentität |
+| 💡 | Projektphilosophie | Grundgedanken |
+| 🎨 | Designsystem | Gestaltung |
+| 💻 | Entwicklung | Entwicklungsprozesse |
+| 🌐 | HTML / Web | Webstruktur |
+| 📄 | Dokumentation / Dokument | Dokumentbezogene Inhalte |
+| 🎨 | SCSS / Styling | Gestaltungscode |
+| 🖌️ | SCSS / Styling | alternative visuelle Kennzeichnung |
+| 🔷 | Joomla | Joomla-spezifische Inhalte |
+| 🧩 | Komponenten | UI-Komponenten |
+| 🏗️ | Architektur | technische Struktur |
+| 📦 | Asset Management | Assets |
+| 🔗 | Web Asset API / Referenzen | Verknüpfungen |
+| 📐 | ADR | Architekturentscheidungen |
+| 🧪 | Experimente | Tests und Versuche |
+| 🛠️ | Troubleshooting | Fehleranalyse |
+| 📖 | Glossar | Begriffe |
+| ✅ | Best Practices | bewährte Vorgehensweisen |
+| 🚀 | Deployment / Release | Auslieferung |
+| ⚙️ | Technische Grundlagen | technische Basis |
+| 🖥️ | Entwicklungsumgebung | Werkzeuge und Umgebung |
+
+## 6. Konsistenz
+
+Die Symbolzuordnung ist eine visuelle Konvention und keine technische Abhängigkeit.
+
+Sollte sich ein Symbol als ungeeignet erweisen oder ein Themenbereich neu strukturiert werden, kann die Zuordnung angepasst werden. Änderungen sollten anschließend projektweit konsistent übernommen werden.
+
+## 7. Accessibility
+
+Emojis dürfen nicht die einzige Informationsquelle eines Dokuments sein.
+
+Überschriften, Linktexte und Beschreibungen müssen auch ohne die visuelle Bedeutung eines Emojis verständlich bleiben.
+
+## 8. Fazit
+
+Unicode-Emojis bieten für die GitHub-Dokumentation eine einfache, plattformübergreifende und unabhängige Möglichkeit zur visuellen Orientierung.
+
+Die eigentliche Struktur und Bedeutung der Dokumentation wird weiterhin durch Überschriften, Dateinamen, Dokumentpräfixe und klare Texte bestimmt.

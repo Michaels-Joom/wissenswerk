@@ -1,108 +1,179 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md)  [🛠️ Entwicklungsübersicht](./dv-000-entwicklunguebersicht.md)
+[[[ Inhaltsverzeichnis ]](./../table-of-contents.md) [🛠️ Entwicklungsübersicht](./dv-000-entwicklunguebersicht.md)
 
 ---
 
 # DV-004 Git Workflow
 
+**Dokumenttyp:** Entwicklungsdokumentation  
+**Projekt:** WissensWerk  
+**Status:** Aktiv  
+**Version:** 2.0  
+**Stand:** 02.09.2026
+
+---
+
 ## Zweck
-Dieses Dokument beschreibt den Git-Workflow für das WissensWerk-Projekt. Ziel ist eine nachvollziehbare, saubere und wartbare Versionshistorie.
-Der Workflow orientiert sich an bewährten Git-Praktiken und unterstützt eine strukturierte Entwicklung des Templates.
+
+Dieses Dokument beschreibt den praktischen Git-Workflow für das WissensWerk-Projekt.
+
+Ziel ist eine nachvollziehbare, saubere und wartbare Versionshistorie.
+
+---
 
 ## Grundsätze
-Für das Projekt gelten folgende Grundsätze:
 
-- Jeder Commit stellt einen abgeschlossenen Arbeitsschritt dar
-- Commits dokumentieren erreichte Ergebnisse, nicht den Arbeitsfortschritt
-- Vor jedem Commit wird der Repository-Status überprüft.
+- Jeder Commit stellt eine logisch abgeschlossene Änderung dar.
+- Commits dokumentieren erreichte Ergebnisse.
+- Vor dem Commit wird der Repository-Status geprüft.
 - Nur bewusst ausgewählte Dateien werden versioniert.
 - Änderungen werden möglichst klein und thematisch zusammenhängend gehalten.
-- Standard-Workflow
-- 
+- Commit-Nachrichten folgen Conventional Commits.
+- Build-Artefakte werden vor dem Commit aktualisiert, wenn ihre Quelldateien geändert wurden.
+
+---
+
 ## 1. Repository-Status prüfen
-Vor jeder Versionierung wird zunächst der aktuelle Status kontrolliert.
 
-````
-  git status
-````
+```bash
+git status
+```
 
-Dabei wird überprüft:
+Dabei werden geänderte, neue und nicht versionierte Dateien kontrolliert.
 
-Welche Dateien geändert wurden
-Welche Dateien neu sind
-Welche Dateien noch nicht versioniert werden
+---
 
 ## 2. Änderungen prüfen
-Vor dem Hinzufügen der Dateien werden die Änderungen kontrolliert.
-Einzelne Datei anzeigen:
 
-````
-````git diff <datei>
-````
+Eine einzelne Datei:
 
-Alle Änderungen anzeigen:
+```bash
+git diff <datei>
+```
 
-````
-  git diff
-````
+Alle Änderungen:
+
+```bash
+git diff
+```
 
 Ziel ist es, unbeabsichtigte Änderungen frühzeitig zu erkennen.
 
-## 3. Änderungen zur Staging Area hinzufügen
-Alle gewünschten Änderungen werden übernommen.
+---
+
+## 3. Build und Funktion prüfen
+
+Abhängig von der Änderung werden vor dem Commit die erforderlichen Prüfungen durchgeführt.
+
+Bei JavaScript:
+
+```powershell
+npm.cmd run build:js
+node --check "media/templates/site/wissenswerk/js/mod_menu/menu-metismenu.js"
+node --check "media/templates/site/wissenswerk/js/mod_menu/menu-metismenu.min.js"
+```
+
+Danach erfolgt der Funktionstest im Browser.
+
+Bei SCSS erfolgt die Kompilierung über die konfigurierte Entwicklungsumgebung.
+
+---
+
+## 4. Änderungen zur Staging Area hinzufügen
+
 Gesamtes Projekt:
 
-````
-  git add .
-````
+```bash
+git add .
+```
 
 Einzelne Datei:
 
-````
-  git add <datei>
-````
+```bash
+git add <datei>
+```
 
-## 4. Status erneut prüfen
+Bei größeren Änderungen soll bevorzugt gezielt geprüft werden, welche Dateien tatsächlich versioniert werden sollen.
 
-Vor dem Commit erfolgt eine zweite Kontrolle.
+---
 
-````
-  git status
-````
+## 5. Status erneut prüfen
 
-Erwartetes Ergebnis:
-Changes to be committed
-Es sollten keine unbeabsichtigten Änderungen mehr vorhanden sein.
+```bash
+git status
+```
 
-## 5. Commit erstellen
-Das Projekt verwendet die Conventional Commits.
+Es sollten nur die bewusst zu commitenden Änderungen unter `Changes to be committed` erscheinen.
+
+---
+
+## 6. Commit erstellen
+
+Das Projekt verwendet Conventional Commits.
 
 Beispiel:
 
-````
-  git commit -m "feat(template): initialize WissensWerk template foundation"
-````
+```bash
+git commit -m "feat(navigation): finalize MetisMenu navigation"
+```
 
-## 6. Commit kontrollieren
-Nach dem Commit wird die Historie überprüft.
+Weitere Beispiele:
 
-````
-  git log --oneline
-````
+```text
+fix(offcanvas): prevent horizontal overflow
+docs(build): document JavaScript build process
+build(js): regenerate minified menu script
+refactor(scss): simplify navigation styles
+```
 
-Dadurch wird sichergestellt, dass der Commit korrekt erstellt wurde.
+---
 
-## 7. Änderungen übertragen
-Nach erfolgreicher Prüfung werden die Änderungen an das Remote Repository übertragen.
+## 7. Commit kontrollieren
 
-````
-  git push
-````
+```bash
+git log --oneline
+```
 
-Beim ersten Push:
+Damit wird geprüft, ob der Commit korrekt erstellt wurde.
 
-````
-  git push -u origin main
-````
+---
+
+## 8. Änderungen übertragen
+
+```bash
+git push
+```
+
+Der aktuelle Entwicklungsworkflow arbeitet direkt mit `main`.
+
+---
+
+## Standardworkflow
+
+```text
+Änderung
+   ↓
+Entwicklung
+   ↓
+Build / Prüfung
+   ↓
+Browser-Test
+   ↓
+git status
+   ↓
+git diff
+   ↓
+git add
+   ↓
+git status
+   ↓
+git commit
+   ↓
+git log
+   ↓
+git push
+```
+
+---
 
 ## Commit-Regeln
 
@@ -111,41 +182,49 @@ Ein Commit sollte:
 - eine abgeschlossene Änderung enthalten
 - logisch zusammenhängende Änderungen umfassen
 - keine temporären Dateien enthalten
-- jederzeit wiederherstellbar sein
+- reproduzierbar sein
+- eine aussagekräftige Commit-Nachricht besitzen
 
 Nicht geeignet sind beispielsweise:
 
-- halb fertige Funktionen
-- Testdateien
-Debug-Code
-temporäre Experimente
-Qualitätskontrolle vor jedem Commit
+```text
+Changes
+Update
+Fix
+Final
+Stuff
+Misc
+```
+
+---
+
+## Qualitätskontrolle
 
 Vor jedem Commit sollte geprüft werden:
 
-- Ist der Arbeitsabschnitt abgeschlossen?
+- Ist der Arbeitsschritt abgeschlossen?
 - Enthält der Commit nur zusammengehörige Änderungen?
-- Wurde git status kontrolliert?
+- Wurde `git status` kontrolliert?
+- Wurde `git diff` geprüft?
 - Sind keine temporären Dateien enthalten?
-- Sind neue Dateien bewusst hinzugefügt worden?
-- Entspricht die Commit-Nachricht den Commit-Konventionen?
+- Wurden Build-Artefakte aktualisiert?
+- Wurde die Funktion im Browser getestet?
+- Ist die Commit-Nachricht korrekt?
 
-## Erstes Repository
-
-Für den ersten Commit eines neuen Projekts empfiehlt sich folgende Reihenfolge:
-
-- git status
-- git add .
-- git status
-- git commit -m "feat(template): initialize WissensWerk template foundation"
-- git log --oneline
-- git push -u origin main
+---
 
 ## Verwandte Dokumente
-- [🛠️ DV-001 Template erstellen](./dv-001-template-erstellen.md)
-- [⚙️ TF-004 Commit Convention](./../technical-foundation/tf-004-commit-convention.md)
-- [⚙️ TF-006 Release Management](./../technical-foundation/tf-006-release-management.md)
-- [⚙️ TF-007 Versionierung](./../technical-foundation/tf-007-versionierung.md)
 
-## Ergebnis
-Der definierte Git-Workflow sorgt für eine nachvollziehbare und saubere Versionshistorie. Durch die konsequente Überprüfung des Repository-Status vor jedem Commit werden unbeabsichtigte Änderungen vermieden. Die Verwendung kleiner, thematisch abgeschlossener Commits verbessert die Wartbarkeit und erleichtert die Nachvollziehbarkeit der Projektentwicklung.
+- [⚙️ TF-001 GitHub Workflow](../technical-foundation/tf-001-github-workflow.md)
+- [⚙️ TF-004 Commit Convention](../technical-foundation/tf-004-commit-convention.md)
+- [⚙️ TF-006 Release Management](../technical-foundation/tf-006-release-management.md)
+- [⚙️ TF-007 Versionierung](../technical-foundation/tf-007-versionierung.md)
+
+---
+
+# Änderungshistorie
+
+| Version | Datum | Beschreibung |
+|---|---|---|
+| 1.0 | Juli 2026 | Ursprünglichen Git-Workflow erstellt. |
+| 2.0 | 02.09.2026 | Workflow an den aktuellen Build-, Prüf-, Conventional-Commit- und GitHub-Prozess angepasst. |

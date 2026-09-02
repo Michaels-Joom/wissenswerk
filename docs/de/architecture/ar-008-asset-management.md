@@ -1,167 +1,453 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [🏗️ Architektur Übersicht](./ar-000-architektur-uebersicht.md)
+[[[ Inhaltsverzeichnis ]](./../table-of-contents.md) [🏗️ Architektur Übersicht](./ar-000-architektur-uebersicht.md)
 
 ---
 
-# AR-008 Asset Management
+# AR-008 Asset-Management
 
-> **Status:** Draft
->
-> Dieses Dokument beschreibt die Organisation und Verwaltung aller statischen Ressourcen (Assets) innerhalb des Templates.
+**Dokumenttyp:** Architekturdokumentation  
+**Projekt:** WissensWerk Template  
+**Status:** Aktiv  
+**Version:** 2.0  
+**Stand:** 02.09.2026
 
 ---
 
-## Ziel
-Ein strukturiertes Asset Management verbessert Wartbarkeit, Performance und Erweiterbarkeit des Templates.
-Assets umfassen sämtliche statischen Ressourcen, die vom Browser geladen werden.
+# 1. Zweck
 
-Dazu gehören unter anderem:
-- Stylesheets (CSS)
-- Sass-Dateien (SCSS)
+Dieses Dokument beschreibt die Organisation und Verwaltung der statischen Ressourcen innerhalb des WissensWerk-Templates.
+
+Assets umfassen alle Ressourcen, die für Darstellung und Interaktion des Frontends benötigt werden.
+
+Das Asset-Management soll Wartbarkeit, Performance, Übersichtlichkeit und eine nachvollziehbare Trennung zwischen Entwicklungsquellen und auslieferbaren Dateien unterstützen.
+
+Die technische Einbindung der Assets wird in **AR-006 Web Asset API** beschrieben.
+
+---
+
+# 2. Asset-Arten
+
+Zum Asset-Bestand des Templates gehören insbesondere:
+
+- CSS
+- SCSS
 - JavaScript
-- Schriftarten
 - Bilder
 - SVG-Dateien
 - Icons
+- Schriftarten
+- gegebenenfalls weitere statische Ressourcen
 
-Die eigentliche Einbindung der Assets erfolgt über die Joomla Web Asset API und wird in **AR-006 Web Asset API** beschrieben.
+Nicht jede Asset-Art benötigt denselben Build- oder Einbindungsprozess.
 
-## Grundprinzipien
-Das Asset Management folgt folgenden Grundsätzen:
+---
+
+# 3. Grundprinzipien
+
+Das Asset-Management folgt folgenden Grundsätzen:
 
 - klare Verzeichnisstruktur
 - eindeutige Dateinamen
 - Trennung von Quell- und Ausgabedateien
-- keine doppelten Assets
-- möglichst geringe Anzahl benötigter Dateien
+- keine unnötigen Duplikate
 - Wiederverwendung vorhandener Ressourcen
-
-## Verzeichnisstruktur
-
-Ein mögliches Template besitzt beispielsweise folgende Struktur:
-
-```text
-template/
-│
-├── css/
-├── scss/
-├── js/
-├── images/
-├── fonts/
-└── media/
-```
-
-Jedes Verzeichnis besitzt einen klar definierten Zweck.
-
-## SCSS als Quelle
-SCSS dient ausschließlich der Entwicklung.
-Die erzeugten CSS-Dateien stellen das eigentliche Auslieferungsformat dar.
-
-```
-scss/
-    template.scss
-        ↓
-
-css/
-    template.css
-```
-
-CSS-Dateien werden niemals manuell bearbeitet.
+- keine Änderungen an Vendor-Dateien
+- zentrale Asset-Einbindung über die Joomla Web Asset API
+- nur tatsächlich benötigte Assets ausliefern
+- Build-Artefakte nachvollziehbar erzeugen
+- unnötige Abhängigkeiten vermeiden
 
 ---
 
-## JavaScript
-JavaScript-Dateien werden thematisch getrennt.
-Beispielsweise:
+# 4. Verzeichnisstruktur
+
+Die konkrete Projektstruktur ist maßgeblich.
+
+Für die aktuell relevanten Frontend-Assets befindet sich ein Teil der Template-Medien unter:
+
+```text
+media/templates/site/wissenswerk/
+```
+
+Die JavaScript-Navigation ist beispielsweise organisiert als:
+
+```text
+media/templates/site/wissenswerk/js/
+└── mod_menu/
+    ├── menu-metismenu.js
+    └── menu-metismenu.min.js
+```
+
+Die SCSS-Dateien werden innerhalb der definierten SCSS-Struktur des Templates organisiert.
+
+Die vollständige Verzeichnisstruktur wird in **AR-003 Verzeichnisstruktur** und die SCSS-Zuständigkeiten in **AR-004 SCSS-Architektur** beschrieben.
+
+---
+
+# 5. SCSS und CSS
+
+SCSS ist das Entwicklungsformat für die Stylesheets des Templates.
+
+Grundprinzip:
+
+```text
+SCSS-Quelldateien
+        │
+        ▼
+      Sass
+        │
+        ▼
+fertige CSS-Dateien
+        │
+        ▼
+Joomla Web Asset API
+        │
+        ▼
+Browser
+```
+
+Die erzeugten CSS-Dateien sind Ausgabedateien und werden nicht manuell bearbeitet.
+
+Änderungen erfolgen grundsätzlich an den SCSS-Quelldateien.
+
+---
+
+# 6. JavaScript
+
+JavaScript wird fachlich organisiert.
+
+Aktuell besteht unter anderem ein eigener Bereich für die Menüintegration:
 
 ```text
 js/
-
-navigation.js
-
-offcanvas.js
-
-scroll.js
-
-template.js
+└── mod_menu/
 ```
 
-Unabhängige Funktionen bleiben dadurch leichter wartbar.
+Die Navigation verwendet:
 
-## Bilder
-Bilder werden ausschließlich entsprechend ihres Verwendungszwecks gespeichert.
-Beispielsweise:
+```text
+menu-metismenu.js
+```
+
+als Quelldatei.
+
+Daraus wird erzeugt:
+
+```text
+menu-metismenu.min.js
+```
+
+Die Beziehung lautet:
+
+```text
+Quelle
+  │
+  ▼
+menu-metismenu.js
+  │
+  ▼
+Terser
+  │
+  ▼
+menu-metismenu.min.js
+```
+
+Die Quelldatei ist maßgeblich für die Entwicklung.
+
+Die minifizierte Datei ist ein Build-Artefakt für die produktive Auslieferung.
+
+Die JavaScript-Architektur wird in **AR-005 JavaScript-Architektur** beschrieben.
+
+---
+
+# 7. Build-Artefakte
+
+Build-Artefakte sind erzeugte Dateien, die aus den Entwicklungsquellen hervorgehen.
+
+Beispiele:
+
+```text
+SCSS → CSS
+JavaScript → minifiziertes JavaScript
+```
+
+Build-Artefakte dürfen nicht als eigenständige Quelle behandelt werden.
+
+Bei einer Änderung am Quellcode muss der zugehörige Build erneut ausgeführt werden.
+
+Für JavaScript wird aktuell Terser verwendet.
+
+Der konkrete Ablauf ist in **DV-010 JavaScript-Buildprozess** dokumentiert.
+
+---
+
+# 8. Node.js und npm
+
+Node.js und npm gehören zur Entwicklungs- und Buildumgebung.
+
+Sie sind keine Voraussetzung für die Laufzeit des produktiven Joomla-Systems.
+
+Aktuell werden sie insbesondere für Frontend-Buildwerkzeuge eingesetzt.
+
+Die projektbezogene npm-Konfiguration befindet sich im Projektstamm:
+
+```text
+package.json
+package-lock.json
+```
+
+Installierte Node-Abhängigkeiten befinden sich lokal in:
+
+```text
+node_modules/
+```
+
+Dieses Verzeichnis wird nicht versioniert.
+
+Die Entwicklungsumgebung ist in den EV-Dokumenten beschrieben.
+
+---
+
+# 9. Bilder
+
+Bilder werden entsprechend ihrer tatsächlichen Verwendung organisiert.
+
+Mögliche Kategorien sind beispielsweise:
 
 ```text
 images/
-logos/
-icons/
-backgrounds/
-content/
+├── logos/
+├── icons/
+└── backgrounds/
 ```
 
-Große Sammelordner sollen vermieden werden.
+Es sollen keine großen unspezifischen Sammelordner entstehen.
 
-## Icons
-Icons werden möglichst als SVG verwendet.
+Bei Bildern sind insbesondere zu berücksichtigen:
 
-*Vorteile:*
+- geeignete Dateiformate
+- sinnvolle Auflösung
+- Dateigröße
+- alternative Texte bei informativen Bildern
+- dekorative Behandlung bei rein visuellen Elementen
+
+---
+
+# 10. SVG und Icons
+
+SVG eignet sich insbesondere für:
+
+- Logos
+- Icons
+- einfache grafische Elemente
+
+Vorteile sind:
+
 - verlustfreie Skalierung
-- geringe Dateigröße
-- einfache Farbänderung per CSS
-- hohe Darstellungsqualität
+- gute Darstellungsqualität
+- flexible Größenanpassung
+- Möglichkeit zur CSS-basierten Gestaltung
 
-## Schriftarten
+SVG-Dateien sollen nur dann als Inline-SVG in das HTML übernommen werden, wenn dies funktional oder gestalterisch erforderlich ist.
 
-Nach Möglichkeit werden lokale Schriftarten verwendet.
+---
 
-Vorteile:
-- Datenschutz
-- bessere Performance
-- vollständige Kontrolle über Versionen
+# 11. Schriftarten
 
-> [!CAUTION]
-> 
-> Externe Font-CDNs sind aus Datenschutzrechtlichen Gründen nicht erlaubt.
-> Hierzu gibt er bereits Urteile der deutschen Gerichte
-> 
+Schriftarten sollen nach Möglichkeit lokal und kontrolliert bereitgestellt werden.
 
-## Performance
-Assets sollen möglichst effizient ausgeliefert werden.
+Dies bietet insbesondere:
 
-Dabei gelten folgende Grundsätze:
-- unnötige Dateien vermeiden
+- Kontrolle über die verwendete Version
+- bessere Datenschutzbedingungen
+- Unabhängigkeit von externen Font-CDNs
+- nachvollziehbare Asset-Verwaltung
+
+Externe Font-Dienste werden nicht ohne vorherige Prüfung ihrer technischen und datenschutzrechtlichen Auswirkungen eingesetzt.
+
+---
+
+# 12. Performance
+
+Das Asset-Management unterstützt die Performance des Templates durch eine kontrollierte Ressourcenstruktur.
+
+Dabei gelten:
+
+- unnötige Assets vermeiden
 - ungenutztes JavaScript entfernen
-- nur tatsächlich benötigte CSS-Dateien laden
+- nur benötigte Ressourcen laden
+- JavaScript für die produktive Auslieferung minifizieren
+- CSS effizient strukturieren
 - Bilder optimieren
-- SVG bevorzugen
+- SVG für geeignete grafische Elemente bevorzugen
+- doppelte Bibliotheken vermeiden
 
-## Wartbarkeit
-Asset Management bedeutet nicht nur Dateien abzulegen.
-Es beschreibt eine langfristige Strategie zur Verwaltung sämtlicher Ressourcen.
+Performance-Optimierung darf dabei nicht zu Lasten von Wartbarkeit oder Barrierefreiheit erfolgen.
 
-Eine konsistente Struktur erleichtert:
+---
+
+# 13. Einbindung
+
+Die vom Template verwalteten CSS- und JavaScript-Assets werden über die Joomla Web Asset API eingebunden.
+
+Damit werden Asset-Verwaltung und HTML-Layout voneinander getrennt.
+
+Vereinfacht:
+
+```text
+Quelldateien
+     │
+     ▼
+Build
+     │
+     ▼
+fertige Assets
+     │
+     ▼
+Web Asset API
+     │
+     ▼
+Joomla Frontend
+```
+
+Die konkrete Einbindungsarchitektur wird in **AR-006 Web Asset API** beschrieben.
+
+---
+
+# 14. Vendor-Code
+
+Externe Bibliotheken werden getrennt vom projektspezifischen Code behandelt.
+
+Insbesondere:
+
+- Bootstrap
+- MetisMenu
+
+werden nicht direkt verändert.
+
+Projektspezifische Anpassungen erfolgen über:
+
+- WissensWerk-SCSS
+- WissensWerk-JavaScript
+- Integrationscode
+- Konfiguration
+
+Dadurch bleiben Bibliotheksupdates grundsätzlich getrennt von den eigenen Anpassungen.
+
+---
+
+# 15. Git und Versionierung
+
+Die Build- und Asset-Struktur ist Bestandteil des Git-Repositories.
+
+Insbesondere werden die für den reproduzierbaren Build benötigten Konfigurationsdateien versioniert:
+
+```text
+package.json
+package-lock.json
+```
+
+Das lokale Abhängigkeitsverzeichnis wird dagegen nicht versioniert:
+
+```text
+node_modules/
+```
+
+Die Versionierung erzeugter Assets richtet sich nach dem aktuellen Projektworkflow. Maßgeblich ist, dass ein im Repository verwendetes Build-Artefakt aus dem dokumentierten Quellstand reproduzierbar erzeugt werden kann.
+
+---
+
+# 16. Wartbarkeit
+
+Eine konsistente Asset-Struktur erleichtert:
+
 - Erweiterungen
 - Fehlersuche
-- Zusammenarbeit
-- Wartung
-- zukünftige Releases
+- Buildprozesse
+- Code-Reviews
+- Versionsverwaltung
+- Releases
+- spätere Migrationen
 
-## Architekturentscheidung
+Besonders wichtig ist die eindeutige Unterscheidung zwischen:
 
-Das Template trennt konsequent zwischen:
+```text
+Quelle
+  ≠
+Build-Artefakt
+  ≠
+Vendor-Code
+```
 
-- Quellcode (SCSS)
-- erzeugten Dateien (CSS)
-- Skripten
-- Medien
-- Schriftarten
+Diese drei Kategorien sollen nicht vermischt werden.
 
-Alle Assets werden eindeutig organisiert und über die Joomla Web Asset API eingebunden.
+---
 
-## Verwandte Dokumente
+# 17. Verwandte Architekturdokumente
 
+- [🏗️ AR-003 Verzeichnisstruktur](./ar-003-verzeichnisstruktur.md)
 - [🏗️ AR-004 SCSS-Architektur](./ar-004-scss-architektur.md)
 - [🏗️ AR-005 JavaScript-Architektur](./ar-005-javascript-architektur.md)
 - [🏗️ AR-006 Web Asset API](./ar-006-web-asset-api.md)
+- [🏗️ AR-007 Bootstrap-Integration](./ar-007-bootstrap-integration.md)
 - [🏗️ AR-009 Joomla-Overrides](./ar-009-joomla-overrides.md)
 
+Entwicklungsdokumente:
+
+- DV-010 JavaScript-Buildprozess
+- EV-005 Node.js und npm
+
+---
+
+# 18. Aktueller Stand
+
+Das Asset-Management ist für die bisher umgesetzten Frontend-Bereiche etabliert.
+
+Der aktuelle Stand umfasst insbesondere:
+
+- zentrale Organisation der Template-Assets
+- SCSS als Entwicklungsquelle
+- CSS als erzeugtes Auslieferungsformat
+- JavaScript-Quelldateien und minifizierte Build-Artefakte
+- MetisMenu als integrierte Navigationsbibliothek
+- Bootstrap als technische Frontend-Abhängigkeit
+- zentrale Einbindung über die Joomla Web Asset API
+- Node.js und npm als Entwicklungs- und Buildumgebung
+- Terser für die JavaScript-Minifizierung
+- Ausschluss von `node_modules/` aus der Git-Versionierung
+
+---
+
+# 19. Ergebnis
+
+Das Asset-Management stellt sicher, dass Ressourcen des WissensWerk-Templates strukturiert organisiert, reproduzierbar erzeugt und kontrolliert in Joomla eingebunden werden.
+
+Die aktuelle Architektur trennt:
+
+```text
+Entwicklungsquellen
+        │
+        ▼
+Buildwerkzeuge
+        │
+        ▼
+Build-Artefakte
+        │
+        ▼
+Joomla Web Asset API
+        │
+        ▼
+Frontend
+```
+
+Vendor-Code bleibt unverändert und projektspezifische Anpassungen werden ausschließlich innerhalb der WissensWerk-Architektur vorgenommen.
+
+Damit bildet das Asset-Management eine belastbare Grundlage für die weitere Entwicklung und spätere Wartung des Templates.
+
+---
+
+# Änderungshistorie
+
+| Version | Datum | Beschreibung |
+|----------|--------|--------------|
+| 1.0 | 28.07.2026 | Erstversion erstellt. |
+| 2.0 | 02.09.2026 | Asset-Management an den aktuellen Entwicklungsstand angepasst; tatsächliche JavaScript-Struktur, Build-Artefakte, Node.js/npm, Terser, MetisMenu und Bootstrap-Abgrenzung ergänzt. |

@@ -1,8 +1,8 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md)  [🛠️ Entwicklungsübersicht](./dv-000-entwicklungsuebersicht.md)
+[[[ Inhaltsverzeichnis ]](./../table-of-contents.md) [🛠️ Entwicklungsübersicht](./dv-000-entwicklunguebersicht.md)
 
 ---
 
-# DV-009 – Entwicklung der Offcanvas-Komponente
+# DV-009 Entwicklung der Offcanvas-Komponente
 
 ## Dokumentinformationen
 
@@ -12,305 +12,304 @@
 | Titel | Entwicklung der Offcanvas-Komponente |
 | Projekt | WissensWerk |
 | Status | Abgeschlossen |
-| Version | 1.0 |
-| Letzte Aktualisierung | 29.07.2026 |
+| Version | 2.1 |
+| Letzte Aktualisierung | 02.09.2026 |
 
 ---
 
-# Ziel
+# 1. Ziel
 
-Ziel war die Entwicklung einer vollständig eigenen Offcanvas-Navigation für das WissensWerk-Template.
+Ziel war die Entwicklung einer mobilen Offcanvas-Navigation für das WissensWerk-Template auf Basis der Bootstrap-Offcanvas-Komponente.
 
-Dabei sollte bewusst auf Joomla-Erweiterungen verzichtet werden.
+Die technische Funktionalität von Bootstrap wird gezielt genutzt.
 
-Als technische Grundlage dient ausschließlich die Bootstrap-Offcanvas-Komponente. Sämtliche Gestaltung und Komponenten stammen aus dem WissensWerk-Designsystem.
+Joomla stellt die Menüstruktur bereit.
 
----
+MetisMenu übernimmt die mehrstufige Navigation.
 
-# Ausgangssituation
-
-Bootstrap stellt eine technisch ausgereifte Offcanvas-Komponente bereit.
-
-Während der Entwicklung zeigte sich jedoch schnell, dass die eigentliche Herausforderung nicht Bootstrap selbst, sondern die Integration in Joomla sowie die Einbindung in die eigene Komponentenarchitektur war.
-
-Die Entwicklung begann daher als Mobile-Menü und entwickelte sich Schritt für Schritt zu einer grundlegenden Überarbeitung des gesamten Header-Konzepts.
+WissensWerk kontrolliert Layout, Gestaltung und Design Tokens.
 
 ---
 
-# Entwicklungsverlauf
+# 2. Architektur
 
-## Phase 1 – Integration des Bootstrap-Offcanvas
-
-Die Bootstrap-Komponente ließ sich problemlos integrieren.
-
-Probleme entstanden nicht durch Bootstrap, sondern durch die Einbindung des Joomla-Menüs sowie durch die zunächst unklare Trennung zwischen Komponenten und Layout.
-
-Bereits in dieser Phase wurde deutlich:
-
-Bootstrap übernimmt lediglich die technische Funktion des Offcanvas.
-
-Die eigentliche Templatearchitektur muss vollständig durch das Template selbst entwickelt werden.
-
----
-
-## Phase 2 – Menüintegration
-
-Die erste Herausforderung bestand darin, das Joomla-Menü korrekt innerhalb des Offcanvas darzustellen.
-
-Mehrere Versuche führten zunächst zu keinem Ergebnis.
-
-Erst nach genauer Analyse wurde deutlich:
-
-Nicht Bootstrap verhinderte die Darstellung des Menüs.
-
-Die Ursache lag in der Art und Weise, wie Joomla Module rendert und in das Template einbindet.
-
-Diese Erkenntnis stellte den ersten wichtigen Wendepunkt der Entwicklung dar.
+```text
+Joomla
+   │
+   └── Menüstruktur
+          │
+          ▼
+      MetisMenu
+          │
+          ├── Untermenüs
+          ├── Collapse-Verhalten
+          └── Menü-Zustände
+          │
+          ▼
+      Bootstrap
+          │
+          └── Offcanvas-Funktion
+          │
+          ▼
+   WissensWerk
+          │
+          ├── Layout
+          ├── Gestaltung
+          ├── Design Tokens
+          └── responsive Präsentation
+```
 
 ---
 
-## Phase 3 – Komponentenarchitektur
+# 3. Ausgangssituation
 
-Im weiteren Verlauf zeigte sich, dass nicht das Offcanvas selbst überarbeitet werden musste.
+Bootstrap stellt eine geeignete technische Offcanvas-Komponente bereit.
 
-Vielmehr entstand während der Entwicklung eine neue Komponentenarchitektur.
+Die mobile Navigation sollte nicht als vollständig eigenständige Menülogik entstehen.
 
-Aus dem ursprünglichen Header entwickelten sich eigenständige Komponenten.
+Daher wurde die vorhandene Joomla-Menüstruktur weiterverwendet und MetisMenu für die hierarchische Navigation integriert.
 
-Hierzu gehören:
+---
+
+# 4. Entwicklungsschwerpunkte
+
+Die Entwicklung konzentrierte sich auf:
+
+- Bootstrap-Offcanvas
+- Joomla-Menüintegration
+- MetisMenu
+- responsive Layoutstruktur
+- gemeinsame Navigation
+- Branding
+- Footer
+- Accessibility
+- Design Tokens
+- Vermeidung horizontaler Überläufe
+
+---
+
+# 5. Navigation und Zustandslogik
+
+Die Navigationsbereiche verwenden dieselbe grundlegende MetisMenu-Technologie, besitzen aber unterschiedliche Lebenszyklen.
+
+## Sidebar
+
+Die Sidebar öffnet beim Laden den aktiven Pfad.
+
+## Header
+
+Der Header startet geschlossen.
+
+Beim Öffnen eines Top-Level-Zweigs wird geprüft, ob dieser Teil des aktuellen Pfades ist.
+
+Falls ja, wird der relevante aktive Unterpfad geöffnet.
+
+Beim Schließen werden geöffnete Unterbereiche des Zweigs zurückgesetzt.
+
+## Offcanvas
+
+Das Offcanvas verwendet die gemeinsame Navigation und befindet sich innerhalb des Bootstrap-Offcanvas-Containers.
+
+---
+
+# 6. Offcanvas-Layout
+
+Die aktuelle Struktur ist:
+
+```text
+┌─────────────────────────────┐
+│ Header / Branding       [×] │
+├─────────────────────────────┤
+│                             │
+│ Navigation                  │
+│   scrollbarer Bereich       │
+│                             │
+├─────────────────────────────┤
+│ Suche                       │
+│ Call-to-Action              │
+├─────────────────────────────┤
+│ Footer / Legal / Copyright  │
+└─────────────────────────────┘
+```
+
+Nur die Navigation scrollt vertikal.
+
+Damit bleiben Suchbereich, CTA und Footer unabhängig von der Länge der Navigation erreichbar.
+
+Horizontales Scrollen wird verhindert.
+
+---
+
+# 7. Komponentenarchitektur
+
+Das Offcanvas nutzt wiederverwendbare Templatebestandteile.
+
+Dazu gehören insbesondere:
 
 - Branding
-- Balance
-- Toggle
 - Navigation
+- Toggle
+- Footer
+- Joomla-Modulpositionen
 
-Diese Komponenten werden heute sowohl im Header als auch im Offcanvas wiederverwendet.
+Die Branding-Komponente wird auch außerhalb des Offcanvas verwendet.
 
----
-
-# Die wichtigste Erkenntnis
-
-Während der Entwicklung zeigte sich, dass nahezu sämtliche Probleme nicht durch CSS entstanden.
-
-Die eigentliche Ursache lag fast immer in einer unklaren Verantwortungsverteilung.
-
-Aus dieser Erfahrung entstand ein grundlegendes Architekturprinzip.
-
-> Jede CSS-Eigenschaft besitzt genau einen Verantwortlichen.
-
-Dadurch werden Überschreibungen vermieden.
+Positionierung und responsive Verhalten bleiben Aufgabe des jeweiligen Layouts.
 
 ---
 
-# Komponenten besitzen keine Layoutverantwortung
+# 8. Footer
 
-Komponenten beschreiben ausschließlich ihr eigenes Erscheinungsbild.
+Der Footer enthält:
 
-Sie entscheiden nicht,
+- WissensWerk-Logo
+- rechtliches Joomla-Menü
+- Copyright
 
-- wann sie sichtbar sind,
-- wo sie erscheinen,
-- wie groß sie dargestellt werden,
-- oder wie sie positioniert werden.
+Das rechtliche Menü wird über eine Joomla-Modulposition eingebunden.
 
-Diese Entscheidungen trifft ausschließlich das jeweilige Layout.
+Die Zielseiten werden daher nicht als feste URLs in das Template geschrieben.
 
----
-
-# Beispiel Toggle
-
-Anfangs enthielt die Toggle-Komponente
-
-```scss
-display: none;
-```
-
-Später musste diese Eigenschaft an anderer Stelle wieder überschrieben werden.
-
-Dies führte zu unnötigen Abhängigkeiten zwischen Komponenten und Layout.
-
-Nach der Überarbeitung entscheidet ausschließlich der Header darüber,
-
-- wann der Toggle sichtbar ist,
-- wann das Desktop-Menü verschwindet,
-- wann das Branding ausgeblendet wird.
-
-Die Toggle-Komponente beschreibt heute lediglich ihr eigenes Erscheinungsbild.
+Der Copyright-Jahreswert wird dynamisch erzeugt.
 
 ---
 
-# Beispiel Branding
+# 9. Gestaltung
 
-Die Branding-Komponente definiert ausschließlich
+Das Offcanvas verwendet die WissensWerk-Design Tokens für:
 
 - Farben
-- Typografie
-- Aufbau
-- Markenidentität
-
-Nicht Bestandteil der Komponente sind
-
-- Schriftgröße
-- Position
-- Responsive Verhalten
-- Ausrichtung
-
-Diese Eigenschaften werden durch Header oder Offcanvas festgelegt.
-
-Dadurch kann dieselbe Branding-Komponente an mehreren Stellen wiederverwendet werden.
-
----
-
-# Beispiel Balance
-
-Auch die Balance folgt diesem Prinzip.
-
-Die Komponente beschreibt ausschließlich
-
-- Linien
-- Punkt
-- Farben
-
-Nicht Bestandteil der Komponente sind
-
-- Linienlänge
-- Position
 - Abstände
+- Typografie
+- Rahmen
+- Hover
+- Fokus
+- Zustände
 
-Diese Eigenschaften werden ebenfalls durch das jeweilige Layout definiert.
-
----
-
-# Zusammengesetzte Komponenten
-
-Während der Entwicklung entstand eine weitere wichtige Erkenntnis.
-
-Branding und Balance bilden gemeinsam die Markenidentität.
-
-Hieraus entstand die zusammengesetzte Komponente
-
-```
-ww-brand
-```
-
-Sie wird heute sowohl im Header als auch im Offcanvas verwendet.
-
-Dadurch existiert nur noch eine zentrale Definition der Markenidentität.
+Header, Sidebar und Offcanvas besitzen eine gemeinsame visuelle Navigationssprache.
 
 ---
 
-# Bootstrap als technische Bibliothek
+# 10. Accessibility
 
-Während der Entwicklung wurde deutlich, dass Bootstrap nicht bekämpft werden sollte.
+Berücksichtigt werden:
 
-Bootstrap liefert bereits sämtliche technischen Funktionen.
+- semantische Navigation
+- Tastaturbedienung
+- sichtbare Fokuszustände
+- beschriftete Bedienelemente
+- getrennte Bedienung von Link und Toggle
+- Touch-Bedienung
+- ausreichende Kontraste
 
-Das WissensWerk-Template ergänzt lediglich die Gestaltung.
+Bootstrap unterstützt die technische Offcanvas-Funktion, während die visuelle Fokusdarstellung durch WissensWerk bestimmt wird.
 
-Ein Beispiel hierfür ist die Verwendung der Bootstrap-CSS-Variablen.
+---
 
-Anstatt Bootstrap-Regeln zu überschreiben, werden vorhandene Variablen genutzt.
+# 11. Typische Entwicklungsprobleme
+
+## CSS-Verantwortlichkeiten
+
+Probleme entstanden teilweise durch widersprüchliche oder doppelte CSS-Regeln.
+
+Die Lösung war eine klare Zuordnung der Zuständigkeiten zwischen:
+
+- MetisMenu
+- Offcanvas
+- Offcanvas-Navigation
+- Layout
+- Design Tokens
+
+## SCSS-Verschachtelung
+
+Eine fehlerhafte Verschachtelung kann Selektoren erzeugen, die nicht zur tatsächlichen HTML-Struktur passen.
 
 Beispielsweise:
 
 ```scss
---bs-offcanvas-bg
-```
-
-Damit bleibt Bootstrap vollständig updatefähig.
-
----
-
-# Typische Fehler während der Entwicklung
-
-## CSS überschreiben
-
-Mehrfach wurde versucht, Probleme ausschließlich über zusätzliche CSS-Regeln zu lösen.
-
-Dies führte zu immer komplexeren Selektoren.
-
-Erst die konsequente Zuordnung der Verantwortlichkeiten führte zu einer stabilen Lösung.
-
----
-
-## Verschachtelte Selektoren
-
-Während der Entwicklung entstand versehentlich folgender Selektor:
-
-```scss
-.ww-offcanvas {
-
-    .ww-offcanvas {
-
-    }
-
-}
-```
-
-Dieser erzeugte
-
-```css
 .ww-offcanvas .ww-offcanvas
 ```
 
-Da ein entsprechendes HTML-Element nicht existierte, konnten die Regeln niemals greifen.
+Solche Fehler werden durch Prüfung der generierten Selektoren vermieden.
 
-Die Ursache lag somit nicht bei Bootstrap, sondern in einer fehlerhaften SCSS-Verschachtelung.
+## Bootstrap-Regeln
 
----
+Bootstrap wird nicht durch umfangreiche globale Überschreibungen angepasst.
 
-## Bootstrap überschreiben
-
-Mehrfach wurde versucht, Bootstrap-Regeln direkt zu überschreiben.
-
-Später zeigte sich, dass Bootstrap hierfür bereits eigene Variablen bereitstellt.
-
-Die Verwendung dieser Variablen führte zu einer deutlich saubereren Integration.
+Stattdessen wird die technische Komponente gezielt integriert und visuell durch WissensWerk-SCSS gestaltet.
 
 ---
 
-# Gestaltung
+# 12. Vendor-Code
 
-Das Offcanvas orientiert sich bewusst am Desktop-Header.
+Bootstrap- und MetisMenu-Vendor-Dateien werden nicht manuell verändert.
 
-Es verwendet dieselbe Markenidentität.
-
-Der Aufbau gliedert sich in drei Bereiche.
-
-- Header
-- Navigation
-- Footer
-
-Der Footer dient ausschließlich als visueller Abschluss.
-
-Das Logo bildet den letzten Blickpunkt innerhalb des Menüs.
-
-Auf zusätzliche Informationen oder Navigationselemente wird bewusst verzichtet.
+Eigene Anpassungen erfolgen ausschließlich im WissensWerk-Template.
 
 ---
 
-# Erfahrungen
+# 13. Aktueller Stand
 
-Während der Entwicklung entstand eine wichtige Erkenntnis.
+Die Offcanvas-Komponente ist funktional abgeschlossen.
 
-Ein erfolgreich integriertes Framework tritt im fertigen Template in den Hintergrund.
+Umgesetzt sind:
 
-Bootstrap übernimmt die technische Funktion.
-
-Das Erscheinungsbild entsteht vollständig durch das WissensWerk-Designsystem.
-
-Am Ende der Entwicklung war Bootstrap im fertigen Template kaum noch sichtbar.
-
-Genau dieses Ziel sollte erreicht werden.
+- Bootstrap-Offcanvas
+- Joomla-Menü
+- MetisMenu
+- mehrstufige Navigation
+- scrollbarer Navigationsbereich
+- fixer Header
+- fixer Suchbereich
+- fixer CTA-Bereich
+- fixer Footer
+- Branding
+- rechtliches Menü
+- Copyright
+- responsive Darstellung
+- Fokuszustände
+- Touch-Bedienung
+- gemeinsame Navigationsgestaltung
 
 ---
 
-# Fazit
+# 14. Erkenntnisse
 
-Die Entwicklung des Offcanvas führte nicht nur zu einer mobilen Navigation.
+Die Entwicklung hat bestätigt, dass vorhandene, spezialisierte Komponenten besser genutzt werden können, als deren Funktionalität vollständig neu zu implementieren.
 
-Sie führte zur Entwicklung einer konsistenten Komponentenarchitektur für das gesamte Template.
+Die Verantwortlichkeiten sind klar verteilt:
 
-Die während dieser Entwicklung entstandenen Regeln bilden heute die Grundlage sämtlicher weiterer Template-Komponenten.
+```text
+Joomla
+→ Struktur
 
-Die Offcanvas-Komponente markiert damit einen wesentlichen Meilenstein innerhalb der Templateentwicklung.
+MetisMenu
+→ Navigation
+
+Bootstrap
+→ Offcanvas
+
+WissensWerk
+→ Integration und Gestaltung
+```
+
+Diese Trennung reduziert Eigenentwicklung und erleichtert die Wartung.
+
+---
+
+# 15. Fazit
+
+Die Offcanvas-Komponente ist Bestandteil der stabilen Template-Basis.
+
+Die technische Funktion, das responsive Layout und die visuelle Gestaltung sind in die bestehende WissensWerk-Architektur integriert.
+
+Die Entwicklung bildet damit eine belastbare Grundlage für die folgenden Inhaltsseiten.
+
+---
+
+# Änderungshistorie
+
+| Version | Datum | Beschreibung |
+|---|---|---|
+| 2.0 | 02.09.2026 | Dokument an den damals aktuellen Offcanvas-Stand angepasst. |
+| 2.1 | 02.09.2026 | Zustandslogik, Komponentenstruktur und finales Layout nochmals mit dem aktuellen Entwicklungsstand abgeglichen. |

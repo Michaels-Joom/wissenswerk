@@ -1,4 +1,4 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md)  [🛠️ Entwicklungsübersicht](./dv-000-entwicklunguebersicht.md)
+[[[ Inhaltsverzeichnis ]](./../table-of-contents.md) [🛠️ Entwicklungsübersicht](./dv-000-entwicklunguebersicht.md)
 
 ---
 
@@ -6,277 +6,313 @@
 
 **Dokumenttyp:** Entwicklungsdokumentation  
 **Projekt:** WissensWerk Template  
-**Status:** Entwurf  
-**Version:** 1.0  
-**Stand:** 28.07.2026
+**Status:** Abgeschlossen  
+**Version:** 2.1  
+**Stand:** 02.09.2026
 
 ---
 
-# 1. Zielsetzung
+## 1. Zielsetzung
 
-Dieses Dokument beschreibt die technische Konzeption und Umsetzung der Navigation innerhalb des WissensWerk-Templates.
+Dieses Dokument beschreibt die technische Konzeption und die aktuelle Umsetzung der Navigation innerhalb des WissensWerk-Templates.
 
-Die Navigation soll folgende Anforderungen erfüllen:
+Die Navigation verbindet das native Joomla-Menüsystem mit MetisMenu, Bootstrap 5 und dem WissensWerk-Designsystem.
 
-- responsiv
-- barrierefrei (WCAG-konform)
-- wartungsfreundlich
-- update-sicher
-- vollständig kompatibel mit Joomla 5
-- auf Bootstrap 5 basierend
-- optisch vollständig über das eigene Designsystem steuerbar
+Ziel ist eine wartbare, update-sichere und responsive Navigation, bei der Struktur, Verhalten und visuelle Gestaltung klar voneinander getrennt sind.
 
 ---
 
-# 2. Anforderungen
+## 2. Aktueller Entwicklungsstand
 
-Die Navigation soll
+Die Navigation ist funktional und gestalterisch abgeschlossen.
 
-- eine klare Benutzerführung ermöglichen,
-- auf allen Endgeräten funktionieren,
-- vollständig per Tastatur bedienbar sein,
-- Screenreader unterstützen,
-- eine saubere Trennung zwischen Struktur, Darstellung und Verhalten gewährleisten,
-- das Joomla-Menüsystem vollständig nutzen.
+Umgesetzt sind:
 
----
-
-# 3. Grundprinzipien
-
-Die Navigation folgt den allgemeinen Architekturprinzipien des Projekts.
-
-- Keine Änderungen am Joomla-Core.
-- Verwendung des Joomla-Menümoduls.
-- Bootstrap stellt ausschließlich die technische Funktionalität bereit.
-- Das Erscheinungsbild wird vollständig über SCSS umgesetzt.
-- JavaScript wird nur dort eingesetzt, wo es technisch erforderlich ist.
-- Barrierefreiheit besitzt einen hohen Stellenwert.
+- horizontale Hauptnavigation im Header
+- mehrstufige Navigation
+- MetisMenu für Collapse-/Expand-Verhalten
+- Bootstrap Offcanvas für die mobile Navigation
+- gemeinsame visuelle Gestaltung von Header, Sidebar und Offcanvas
+- aktive und aktuelle Menüpfade
+- unterschiedliche Zustandslogik für Header und Sidebar
+- Touch- und Tastaturbedienung
+- sichtbare Fokuszustände
+- responsive Anpassung
+- JavaScript als Quell- und minimierte Produktionsdatei
+- Einbindung über die Joomla Web Asset API
+- JavaScript-Build über Node.js/npm und Terser
 
 ---
 
-# 4. Navigationskonzept
-
-Die Hauptnavigation besteht aus folgenden Bereichen:
-
-- Logo bzw. Branding
-- Hauptmenü
-- optionales Suchfeld
-- optionaler Call-to-Action-Button
-
-Auf Desktopgeräten wird eine horizontale Navigation dargestellt.
-
-Auf mobilen Geräten erfolgt die Navigation über ein Offcanvas-Menü.
-
----
-
-# 5. Integration in Joomla
-
-Die Navigation basiert vollständig auf dem Joomla-Menümodul.
-
-**Empfohlene Modulposition:**
+## 3. Architektur
 
 ```text
-menu
+Joomla
+  → Menüstruktur
+
+MetisMenu
+  → hierarchisches Menüverhalten
+
+Bootstrap
+  → technische Offcanvas-Funktion
+
+WissensWerk
+  → Integration, Layout und Gestaltung
 ```
 
-Das Menü wird wie jedes andere Joomla-Modul veröffentlicht und der entsprechenden Menüstruktur zugewiesen.
-
-Das Template übernimmt ausschließlich Layout und Gestaltung.
+Die Navigation wurde bewusst nicht als eigenes Menüsystem neu entwickelt.
 
 ---
 
-# 6. Responsives Verhalten
+## 4. Joomla-Integration
 
-## Desktop
+Die Menüstruktur wird vollständig durch Joomla bereitgestellt.
 
-- Horizontale Menüführung
-- Dropdown-Menüs
-- Hover-Effekte
-- Tastatursteuerung
-- Hervorhebung des aktiven Menüpunktes
+Das Joomla-Menümodul liefert die Menüeinträge. Das Template übernimmt Einbindung, Positionierung und Gestaltung.
 
-## Tablet
+Die Menüeinträge bleiben echte Joomla-Links.
 
-Je nach verfügbarer Breite:
+Einsatzbereiche:
 
-- reduzierte Abstände
-- optional früher Wechsel auf die mobile Navigation
-
-## Mobile
-
-Für kleine Bildschirmgrößen wird die Navigation als Bootstrap-Offcanvas umgesetzt.
-
-**Eigenschaften:**
-
-- Hamburger-Menü
-- seitlich einfahrendes Menü
-- Touch-optimierte Bedienung
-- automatisches Schließen nach Menüauswahl
-- Fokus bleibt innerhalb des Offcanvas
-- Schließen über die ESC-Taste
+- Header
+- Sidebar
+- Offcanvas
 
 ---
 
-# 7. Verwendete Bootstrap-Komponenten
+## 5. MetisMenu
 
-Für die Navigation werden folgende Bootstrap-Komponenten eingesetzt:
+MetisMenu übernimmt:
 
-| Komponente | Aufgabe |
-|------------|----------|
-| Navbar | Grundstruktur der Navigation |
-| Offcanvas | Mobile Navigation |
-| Dropdown | Untermenüs |
-| Container | Layout |
-| Utility-Klassen | Abstände und Ausrichtung |
+- Öffnen und Schließen von Untermenüs
+- Collapse-Verhalten
+- Zustandsklassen
+- verschachtelte Menüebenen
 
-Bootstrap liefert ausschließlich die technische Funktionalität.
+Die projektspezifische Logik befindet sich unter:
 
-Die optische Gestaltung erfolgt vollständig über das WissensWerk-Designsystem.
-
----
-
-# 8. Barrierefreiheit
-
-Die Navigation orientiert sich an den WCAG-Empfehlungen.
-
-Dabei werden insbesondere berücksichtigt:
-
-- vollständige Tastaturbedienung
-- logische Tab-Reihenfolge
-- sichtbare Fokus-Markierungen
-- sinnvolle ARIA-Attribute
-- semantisch korrekte Buttons
-- Unterstützung von Screenreadern
-- ausreichende Farbkontraste
-- keine ausschließlich Hover-basierten Funktionen
+```text
+media/templates/site/wissenswerk/js/mod_menu/
+├── menu-metismenu.js
+└── menu-metismenu.min.js
+```
 
 ---
 
-# 9. SCSS-Struktur
+## 6. Zustandslogik
 
-Die Navigation wird innerhalb der Komponentenstruktur abgelegt.
+### Sidebar
+
+Beim Laden wird der aktive Pfad geöffnet.
+
+```text
+Seite laden
+  ↓
+aktuellen Menüpunkt ermitteln
+  ↓
+aktiven Pfad bestimmen
+  ↓
+Pfad öffnen
+```
+
+### Header
+
+Der Header startet geschlossen.
+
+Beim Öffnen eines Top-Level-Zweigs wird geprüft, ob dieser zum aktuellen aktiven Pfad gehört.
+
+Falls ja, wird der relevante Unterpfad geöffnet.
+
+Beim Schließen werden geöffnete Unterbereiche des Zweigs zurückgesetzt.
+
+Damit wird verhindert, dass der Header beim Seitenaufruf unnötig mehrere Ebenen geöffnet darstellt.
+
+---
+
+## 7. Responsive Navigation
+
+### Desktop
+
+Horizontale Hauptnavigation im Header.
+
+Die erste Untermenüebene wird unterhalb des Hauptmenüpunkts positioniert.
+
+Tiefere Ebenen werden vertikal innerhalb des Menüs geführt.
+
+Diese Entscheidung vermeidet problematische seitliche Flyouts bei begrenzter Bildschirmbreite.
+
+### Tablet
+
+Die Navigation berücksichtigt die verfügbare horizontale Breite.
+
+### Mobile
+
+Die Navigation wird über das Bootstrap-Offcanvas bereitgestellt.
+
+Die Menüstruktur bleibt identisch mit der Joomla-Menüstruktur.
+
+---
+
+## 8. Offcanvas
+
+Das Offcanvas besitzt:
+
+- festen Header
+- scrollbaren Navigationsbereich
+- festen Suchbereich
+- festen CTA-Bereich
+- festen Footer
+
+Nur die Navigation scrollt vertikal.
+
+Horizontales Scrollen wird verhindert.
+
+---
+
+## 9. Gemeinsame Gestaltung
+
+Header, Sidebar und Offcanvas verwenden eine gemeinsame visuelle MetisMenu-Grundlage.
+
+Gemeinsam sind insbesondere:
+
+- Linkdarstellung
+- Hover- und Fokuszustände
+- aktive/current Zustände
+- Untermenükennzeichnung
+- hierarchische Einrückung
+- Design Tokens
+
+---
+
+## 10. SCSS
+
+Die gemeinsame Menügestaltung befindet sich in:
 
 ```text
 scss/
 └── components/
-    ├── _navigation.scss
-    ├── _menu.scss
-    ├── _dropdown.scss
-    └── _offcanvas.scss
+    └── _metismenu.scss
 ```
 
-## Aufgaben der einzelnen Dateien
+Offcanvas-spezifische Regeln befinden sich in:
 
-### _navigation.scss
+```text
+scss/
+└── components/
+    ├── _offcanvas.scss
+    └── _offcanvas-navigation.scss
+```
 
-Grundlegender Aufbau der Navigation.
-
-### _menu.scss
-
-Darstellung der Desktop-Navigation.
-
-### _dropdown.scss
-
-Gestaltung der Untermenüs.
-
-### _offcanvas.scss
-
-Darstellung der mobilen Navigation.
+Die Verantwortlichkeiten bleiben getrennt.
 
 ---
 
-# 10. JavaScript
+## 11. JavaScript-Build
 
-Die Navigation nutzt primär die JavaScript-Komponenten von Bootstrap.
+Das JavaScript wird mit Node.js, npm und Terser gebaut.
 
-Eigenes JavaScript wird nur ergänzt, wenn zusätzliche Funktionen erforderlich sind.
+```powershell
+npm.cmd run build:js
+```
 
-**Mögliche Erweiterungen:**
+Danach werden Quell- und Produktionsdatei geprüft:
 
-- Sticky Navigation
-- Header beim Scrollen verkleinern
-- automatisches Schließen des Menüs
-- Hervorhebung aktiver Inhaltsbereiche
+```powershell
+node --check "media/templates/site/wissenswerk/js/mod_menu/menu-metismenu.js"
+node --check "media/templates/site/wissenswerk/js/mod_menu/menu-metismenu.min.js"
+```
 
----
-
-# 11. Performance
-
-Die Navigation soll
-
-- eine geringe DOM-Komplexität besitzen,
-- möglichst wenig eigenes JavaScript benötigen,
-- CSS-Animationen bevorzugen,
-- Layout-Verschiebungen vermeiden,
-- schnell geladen werden.
+Anschließend erfolgt der Browser-Funktionstest.
 
 ---
 
-# 12. SEO
+## 12. Web Asset API
 
-Die Navigation ist ein wichtiger Bestandteil der internen Verlinkung.
+JavaScript und CSS werden über die Joomla Web Asset API eingebunden.
 
-Dabei gelten folgende Grundsätze:
-
-- semantisches `<nav>`-Element
-- aussagekräftige Menüpunkte
-- logische Menühierarchie
-- saubere HTML-Struktur
-- vollständig crawlbare Links
-- keine rein JavaScript-basierte Navigation
+Vendor-Dateien werden nicht verändert.
 
 ---
 
-# 13. Erweiterungsmöglichkeiten
+## 13. Barrierefreiheit
 
-Die Architektur berücksichtigt zukünftige Erweiterungen, beispielsweise:
+Berücksichtigt werden:
 
-- Mega-Menü
-- Breadcrumb-Navigation
-- Sticky Header
-- zweite Navigationsebene
-- Sprachumschalter
-- Benutzer-Menü
-- Such-Overlay
-- Dark-Mode-Umschalter
+- Tastaturbedienung
+- sichtbare Fokuszustände
+- semantische Links und Buttons
+- nachvollziehbare Menüstruktur
+- ausreichende Kontraste
+- Touch-Bedienung
 
-Diese Funktionen sind nicht Bestandteil der ersten Template-Version.
+Die endgültige WCAG-Konformität wird auf Ebene des gesamten Templates bewertet.
 
 ---
 
-# 14. Abhängigkeiten
+## 14. SEO
 
-Die Navigation basiert auf:
+Die Navigation verwendet echte Joomla-Links und eine nachvollziehbare Menüstruktur.
 
-- Joomla 5
-- Bootstrap 5
-- Joomla Web Asset API
-- WissensWerk Design System
-- SCSS-Architektur des Templates
-
-Es werden keine zusätzlichen Bibliotheken benötigt.
+Sie ist nicht ausschließlich von JavaScript abhängig.
 
 ---
 
-# 15. Architekturentscheidung
+## 15. Performance
 
-Die Navigation verwendet bewusst das Joomla-Menüsystem in Verbindung mit den Bootstrap-Komponenten.
+Die Lösung vermeidet unnötige Eigenentwicklung:
 
-Dadurch werden folgende Ziele erreicht:
+- MetisMenu für Menüinteraktion
+- Bootstrap für Offcanvas
+- Web Asset API für Assets
+- minifiziertes Produktions-JavaScript
+- gemeinsame SCSS-Struktur
 
-- vollständige Joomla-Kompatibilität
-- hohe Update-Sicherheit
-- geringer Wartungsaufwand
-- integrierte Unterstützung der Barrierefreiheit
-- minimaler Einsatz von eigenem JavaScript
-- einfache Erweiterbarkeit
+---
 
-Die visuelle Gestaltung bleibt vollständig vom Bootstrap-Standard entkoppelt und wird ausschließlich über das WissensWerk-Designsystem definiert.
+## 16. Update-Sicherheit
+
+Es werden keine Joomla-Core-Dateien und keine Vendor-Dateien von Bootstrap oder MetisMenu verändert.
+
+Eigene Anpassungen erfolgen im WissensWerk-Template.
+
+---
+
+## 17. Architekturentscheidungen
+
+### Joomla statt eigener Menüstruktur
+
+Menüstruktur und URLs bleiben in Joomla.
+
+### MetisMenu statt eigener Collapse-Implementierung
+
+Die mehrstufige Menüinteraktion wird nicht vollständig selbst nachgebaut.
+
+### Bootstrap Offcanvas statt eigener Offcanvas-Implementierung
+
+Bootstrap übernimmt die technische Offcanvas-Funktion.
+
+### Gemeinsames Styling
+
+Header, Sidebar und Offcanvas verwenden eine gemeinsame visuelle Navigationsgrundlage.
+
+### Keine tiefen seitlichen Flyouts
+
+Tiefere Ebenen werden vertikal geführt, um Platzprobleme zu vermeiden.
+
+---
+
+## 18. Aktueller Status
+
+Die Navigation ist abgeschlossen und bildet eine stabile Grundlage für die weitere Entwicklung der Inhaltsseiten.
+
+Die bisherige Entwicklung hat insbesondere die Trennung von Joomla-Struktur, MetisMenu-Interaktion, Bootstrap-Funktion und WissensWerk-Gestaltung bestätigt.
 
 ---
 
 # Änderungshistorie
 
 | Version | Datum | Beschreibung |
-|----------|--------|--------------|
+|---|---|---|
 | 1.0 | 28.07.2026 | Erstversion erstellt. |
+| 2.0 | 02.09.2026 | Dokument an den aktuellen Navigationsstand angepasst. |
+| 2.1 | 02.09.2026 | JavaScript-Build, gemeinsame SCSS-Struktur und aktuelle Zustandslogik präzisiert. |

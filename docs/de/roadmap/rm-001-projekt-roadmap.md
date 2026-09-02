@@ -1,120 +1,132 @@
 # RM-001 – Projekt-Roadmap
 
 | Dokument | RM-001 |
-|-----------|--------|
+|---|---|
 | Titel | Projekt-Roadmap |
-| Version | 1.0 |
+| Version | 2.0 |
 | Status | Aktiv |
-| Letzte Aktualisierung | 26.07.2026 |
+| Letzte Aktualisierung | 02.09.2026 |
 
 ## 1. Ziel
 
-Dieses Dokument beschreibt den geplanten Entwicklungsverlauf des Projekts **WissensWerk**.
-Die Roadmap dient als zentrales Steuerungsinstrument und verbindet:
+Dieses Dokument beschreibt den Entwicklungsverlauf des Projekts **WissensWerk**.
+
+Die Roadmap verbindet:
 
 - Architektur
-- Design System
+- Designsystem
+- Entwicklungsumgebung
 - Entwicklungsrichtlinien
-- Implementierung
+- Template-Implementierung
+- Komponenten
+- Qualitätssicherung
 - Releases
 
-Jedes Arbeitspaket basiert auf einem oder mehreren Dokumenten der Projektdokumentation und wird nach Abschluss durch entsprechende Git-Commits dokumentiert.
+Die Roadmap wird an den tatsächlich erreichten Projektstand angepasst. Abgeschlossene Arbeitspakete werden möglichst durch Dokumentation und Git-Commits nachvollziehbar gemacht.
 
 ## 2. Projektphasen
 
 | Phase | Bezeichnung | Status |
-|--------|-------------|--------|
-| 0 | Projektgrundlagen | ✅ |
-| 1 | Architektur | ✅ |
-| 2 | Design System | ✅ |
-| 3 | Entwicklungsumgebung | ✅ |
-| 4 | Template-Implementierung | ⏳ |
-| 5 | Komponenten | ⏳ |
-| 6 | Optimierung | ⏳ |
-| 7 | Release | ⏳ |
+|---|---|---|
+| 0 | Projektgrundlagen | ✅ Abgeschlossen |
+| 1 | Architektur | ✅ Abgeschlossen |
+| 2 | Designsystem | ✅ Abgeschlossen |
+| 3 | Entwicklungsumgebung und Build | ✅ Abgeschlossen |
+| 4 | Template-Implementierung | 🔄 In Arbeit |
+| 5 | Komponenten und Overrides | 🔄 In Arbeit |
+| 6 | Qualität, Accessibility und SEO | ⏳ Geplant |
+| 7 | Release und Veröffentlichung | ⏳ Geplant |
 
-## 3. Phase 0 – Projektgrundlagen
+## 3. Abgeschlossene Grundlagen
 
-| Status | Dokument | Beschreibung |
-|--------|----------|--------------|
-| ✅ | TF-001 | Entwicklungsumgebung |
-| ✅ | TF-002 | Issue Management |
-| ✅ | TF-003 | GitHub |
-| ✅ | TF-004 | Commit Convention |
-| ✅ | TF-005 | Branch Strategy |
-| ✅ | TF-006 | Release Management |
-| ✅ | TF-007 | Versionierung |
+Die ursprünglichen Grundlagen wurden inzwischen umgesetzt und bilden die Basis der weiteren Entwicklung:
 
-## 4. Phase 1 – Architektur
+- Projektstruktur und Dokumentationsarchitektur
+- eigenständiges Joomla-Template
+- Git und GitHub
+- Laragon und Visual Studio Code
+- Live Sass Compiler für die SCSS-Entwicklung
+- Node.js/npm und Terser für den JavaScript-Build
+- Designsystem und Design Tokens
+- Bootstrap-Integration
+- Joomla Web Asset API
 
-| Status | Dokument | Beschreibung |
-|--------|----------|--------------|
-| ✅ | AR-001 | Projektstruktur |
-| ✅ | AR-002 | Template-Architektur |
-| ✅ | AR-003 | Verzeichnisstruktur |
-| ✅ | AR-004 | SCSS-Architektur |
-| ✅ | AR-005 | JavaScript-Architektur |
-| ✅ | AR-006 | Web Asset API |
-| ✅ | AR-007 | Bootstrap-Integration |
-| ✅ | AR-008 | Asset Management |
-| ✅ | AR-009 | Joomla Overrides |
-| ✅ | AR-010 | Template Overrides |
-| ✅ | AR-011 | Layout Architektur |
+## 4. Phase 4 – Template-Implementierung
 
-## 5. Phase 2 – Design System
+| Status | Arbeitspaket |
+|---|---|
+| ✅ | Template-Grundgerüst |
+| ✅ | Basislayout |
+| ✅ | Header |
+| ✅ | Footer |
+| 🔄 | Navigation |
+| 🔄 | Bootstrap Offcanvas |
+| ⏳ | Breadcrumbs |
+| ⏳ | erste Inhaltsseiten nach Mockups |
 
-| Status | Dokument |
-|--------|----------|
-| ✅ | DS-001 |
-| ✅ | DS-002 |
-| ✅ | DS-003 |
-| … | … |
+Die Navigation wurde technisch mit MetisMenu umgesetzt. Bootstrap stellt für das Offcanvas-Verhalten die technische Basis bereit; die visuelle Gestaltung erfolgt über das WissensWerk-Designsystem.
 
-## 6. Phase 3 – Template-Implementierung
+## 5. Phase 5 – Komponenten und Overrides
 
-| Status | Arbeitspaket | Dokument | Commit |
-|--------|--------------|----------|--------|
-| ⏳ | Git Repository vorbereiten | TF-003 | |
-| ⏳ | Template-Grundgerüst erstellen | AR-002 | |
-| ⏳ | Web Asset API einrichten | AR-006 | |
-| ⏳ | Bootstrap registrieren | AR-007 | |
-| ⏳ | SCSS Build einrichten | AR-004 | |
-| ⏳ | Basislayout erstellen | AR-011 | |
-| ⏳ | Header entwickeln | | |
-| ⏳ | Navigation entwickeln | | |
-| ⏳ | Footer entwickeln | | |
+| Status | Arbeitspaket |
+|---|---|
+| ✅ | Branding-Komponente |
+| ✅ | Header-Komponente |
+| ✅ | Footer-Komponente |
+| 🔄 | Navigationskomponente |
+| 🔄 | Offcanvas |
+| ⏳ | Breadcrumb-Override |
+| ⏳ | weitere benötigte Modul-/Template-Overrides |
 
-## 7. Meilensteine
+Neue Komponenten werden erst dann entwickelt, wenn sie sich aus den tatsächlichen Seitenanforderungen ergeben.
 
-| Version | Ziel |
-|----------|------|
-| 0.1.0 | Repository und Template-Grundgerüst |
-| 0.2.0 | Asset-Management und SCSS |
-| 0.3.0 | Layoutsystem |
-| 0.4.0 | Bootstrap-Integration |
-| 0.5.0 | Module |
-| 0.6.0 | Komponenten |
-| 0.7.0 | Responsive Design |
-| 0.8.0 | Accessibility & SEO |
-| 0.9.0 | Beta |
-| 1.0.0 | Erstes stabiles Release |
+## 6. Phase 6 – Qualität
 
-## 8. Internationalisierung (i18n)
+Nach Fertigstellung der wesentlichen Seiten und Komponenten folgen:
 
-- □ Sprachstruktur analysieren
-- □ Frontend-Sprachdateien
-- □ Administrator-Sprachdateien
-- □ Manifest-Sprachdateien
-- □ Sprach-Overrides testen
-- □ Mehrsprachige Installation validieren
+- Responsive Prüfung
+- Tastaturbedienbarkeit
+- Fokuszustände
+- Kontrastprüfung
+- semantische HTML-Struktur
+- SEO-Prüfung
+- Performance-Prüfung
+- Prüfung der Joomla-Overrides
+- Prüfung der Asset-Auslieferung
+- Browser- und Gerätestests
+
+## 7. Phase 7 – Release
+
+Das Release erfolgt erst nach Abschluss der praktischen Prüfungen.
+
+Vorgesehen sind:
+
+1. Abschluss der benötigten Komponenten
+2. Qualitätsprüfung
+3. Dokumentationsabgleich
+4. Versionsfestlegung
+5. Release-Commit beziehungsweise Tag
+6. Erstellung des Release-Pakets
+7. abschließende Prüfung der installierbaren Template-Version
+
+## 8. Internationalisierung
+
+Die Internationalisierung wird als eigener Prüfbereich behandelt.
+
+Zu prüfen sind insbesondere:
+
+- Sprachstruktur
+- Frontend-Sprachdateien
+- Administrator-Sprachdateien
+- Manifest-Sprachdateien
+- Sprach-Overrides
+- mehrsprachige Joomla-Installation
+- unterschiedliche Textlängen im Responsive Layout
 
 ## 9. Fortschritt
 
-Die Roadmap wird während der Entwicklung kontinuierlich aktualisiert.
-Jedes abgeschlossene Arbeitspaket wird:
+Die Roadmap wird während der Entwicklung fortgeschrieben.
 
-- als erledigt markiert,
-- einem Git-Commit zugeordnet,
-- einer Version zugewiesen.
+Ein Arbeitspaket gilt erst dann als abgeschlossen, wenn die praktische Umsetzung geprüft wurde. Die Dokumentation soll anschließend den tatsächlichen Stand widerspiegeln.
 
-Dadurch entsteht eine vollständige und nachvollziehbare Entwicklungshistorie.
+Damit dient die Roadmap nicht nur der Planung, sondern auch als nachvollziehbare Entwicklungshistorie.

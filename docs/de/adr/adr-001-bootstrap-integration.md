@@ -1,66 +1,76 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [📐 Architektur-Entscheidungen](./adr-000-architekturentscheidungen.md)
-
----
-
 # ADR-001 – Bootstrap wird über Design Tokens gesteuert
-Status Akzeptiert
 
-Kontext
+**Status:** Angenommen  
+**Version:** 2.0  
+**Datum:** 02.09.2026  
+**Projekt:** WissensWerk
 
-Joomla basiert auf Bootstrap und nutzt dessen Komponenten sowie SCSS-Variablen an vielen Stellen.
+## Kontext
 
-In der Praxis werden Bootstrap-Komponenten häufig erst nach der Kompilierung durch eigenes CSS überschrieben. Dies führt im Laufe der Zeit zu einer steigenden CSS-Spezifität, zahlreichen Überschreibungen und häufig zum Einsatz von !important.
+Joomla nutzt Bootstrap als technische Grundlage für zahlreiche Frontend-Komponenten. Eine nachträgliche Anpassung von Bootstrap über umfangreiche CSS-Überschreibungen führt jedoch schnell zu steigender Spezifität und erschwert die Wartung.
 
-**Dadurch entstehen mehrere Nachteile:**
-
-- Das Erscheinungsbild wird nicht mehr zentral gesteuert.
-- Bootstrap-Updates werden schwieriger nachvollziehbar.
-- Änderungen erfordern häufig zusätzliche CSS-Regeln.
-- Die Wartbarkeit nimmt mit zunehmender Projektgröße ab.
-
-Da WissensWerk ein langfristig wartbares Template werden soll, wird dieser Ansatz bewusst vermieden.
+WissensWerk verfolgt deshalb einen anderen Ansatz: Das eigene Designsystem definiert das Erscheinungsbild, während Bootstrap dort als technische Grundlage eingesetzt wird, wo es sinnvoll ist.
 
 ## Entscheidung
 
-Das Designsystem von WissensWerk definiert sämtliche gestalterischen Eigenschaften zentral.
+Die visuellen Eigenschaften des WissensWerk-Templates werden zentral über das eigene Designsystem und dessen Design Tokens definiert.
 
-Bootstrap wird ausschließlich als technisches Framework für Layout, Komponenten und Utility-Klassen eingesetzt.
+Bootstrap-SCSS-Variablen werden innerhalb der Bootstrap-Integration gezielt mit den projektspezifischen Design Tokens verbunden. Eigene SCSS-Regeln dienen der Umsetzung von WissensWerk-Komponenten und nicht als pauschale Korrekturschicht für Bootstrap.
 
-Die visuelle Gestaltung wird nicht durch nachträgliche CSS-Überschreibungen bestimmt, sondern bereits während der SCSS-Kompilierung über zentrale Design Tokens und Bootstrap-Variablen festgelegt.
+Projektspezifische CSS Custom Properties verwenden die im Projekt festgelegte Namenskonvention `--ww-*`.
 
-Eigene CSS-Regeln dienen ausschließlich der Umsetzung eigener Komponenten oder Funktionen und nicht der nachträglichen Korrektur von Bootstrap.
-
-> Alle projektspezifischen Design Tokens erhalten den Präfix ds-. Bootstrap-Variablen werden ausschließlich innerhalb der Bootstrap-Integration verwendet. Dadurch bleibt > das Designsystem unabhängig von der Implementierung und kann zukünftig auch mit einem anderen CSS-Framework oder einer eigenen Komponentenbibliothek genutzt werden.
+Bootstrap bleibt damit technische Basis, bestimmt aber nicht die visuelle Identität des Templates.
 
 ## Architekturprinzip
-Die Gestaltung folgt einer eindeutigen Verantwortlichkeit:
 
-> - Designsystem
-> - Design Tokens
-> - Bootstrap SCSS Variablen
-> - Bootstrap Kompilierung
-> - Template CSS
+```text
+WissensWerk Designsystem
+        │
+        ▼
+Design Tokens / CSS Custom Properties
+        │
+        ▼
+Bootstrap-Integration
+        │
+        ▼
+Bootstrap-Komponenten und Utilities
+        │
+        ▼
+WissensWerk-Komponenten
+        │
+        ▼
+Template-Ausgabe
+```
 
-Bootstrap übernimmt die technische Umsetzung, das Designsystem definiert das Erscheinungsbild.
+Das Designsystem definiert die Gestaltung; Bootstrap unterstützt deren technische Umsetzung.
+
+## Grundsätze
+
+- Zentrale Gestaltungswerte werden nicht verstreut im Projekt definiert.
+- Bootstrap-Funktionen werden über dessen vorgesehene SCSS-Struktur integriert.
+- Umfangreiche nachträgliche Überschreibungen werden vermieden.
+- `!important` ist keine reguläre Strategie zur Anpassung von Bootstrap.
+- Eigene Komponenten verwenden die WissensWerk-Namenskonvention.
+- Joomla- und Bootstrap-Klassen werden nicht ohne technischen Grund umbenannt.
 
 ## Konsequenzen
+
 ### Vorteile
-- Zentrale Steuerung aller Designparameter
-- Konsistentes Erscheinungsbild
-- Hohe Wartbarkeit
-- Deutlich weniger CSS-Spezifitätskonflikte
-- Verzicht auf umfangreiche !important-Regeln
-- Bootstrap bleibt updatefreundlich
-- Änderungen erfolgen an einer zentralen Stelle
+
+- zentrale Steuerung der Gestaltung
+- konsistentes Erscheinungsbild
+- geringere CSS-Spezifitätskonflikte
+- bessere Wartbarkeit
+- nachvollziehbare Bootstrap-Integration
 
 ### Nachteile
-- Höherer Planungsaufwand zu Beginn des Projektes
-- Gute Kenntnisse der Bootstrap-SCSS-Struktur erforderlich
-- Designentscheidungen müssen frühzeitig definiert werden
+
+- höherer Planungsaufwand
+- Kenntnisse der Bootstrap-SCSS-Struktur erforderlich
+- Design Tokens müssen konsequent gepflegt werden
 
 ## Begründung
 
-Das Designsystem ist die maßgebliche Quelle für alle gestalterischen Entscheidungen.
-Bootstrap ist ein Werkzeug zur technischen Umsetzung dieser Entscheidungen und bestimmt nicht das Erscheinungsbild des Templates.
+Bootstrap ist für WissensWerk ein technisches Werkzeug und nicht die Quelle der visuellen Identität.
 
-Dadurch bleibt die Kontrolle über Farben, Typografie, Abstände, Komponenten und weitere Designelemente jederzeit beim Projekt selbst.
+Die Gestaltung bleibt damit unter Kontrolle des eigenen Designsystems, während Bootstrap die bewährten technischen Funktionen für Layout und Komponenten bereitstellt.

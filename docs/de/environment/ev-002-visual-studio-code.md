@@ -1,17 +1,28 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [💻 Entwicklungs Umgebungs Übersicht](./ev-000-entwicklungsumgebung-uebersicht.md)
+[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [💻 Entwicklungsumgebung – Übersicht](./ev-000-entwicklungsumgebung-uebersicht.md)
 
 ---
 
-# EV-003 Visual Studio Code
+# EV-002 Visual Studio Code
 
-## Ziel
+**Dokumenttyp:** Entwicklungsumgebung  
+**Projekt:** WissensWerk Template  
+**Status:** Aktiv  
+**Version:** 2.0  
+**Stand:** 02.09.2026
 
-Dieses Dokument beschreibt den Einsatz von Visual Studio Code als zentrale Entwicklungsumgebung für das Projekt **WissensWerk**.
+---
 
-Neben der Installation werden die Gründe für die Auswahl, die verwendeten Erweiterungen sowie die projektbezogene Konfiguration dokumentiert. Ziel ist eine einheitliche Entwicklungsumgebung für alle Quelltexte, Konfigurationsdateien und die Projektdokumentation.
+## 1. Ziel
 
-## Hintergrund
-Die Entwicklung eines Joomla-Templates umfasst verschiedene Technologien und Dateiformate, darunter:
+Dieses Dokument beschreibt den Einsatz von Visual Studio Code als zentralem Entwicklungswerkzeug für WissensWerk.
+
+Visual Studio Code dient als gemeinsamer Arbeitsplatz für Quellcode, Konfiguration, SCSS, JavaScript und Projektdokumentation.
+
+---
+
+## 2. Unterstützte Technologien
+
+Im Projekt werden unter anderem folgende Dateiformate und Technologien bearbeitet:
 
 - PHP
 - HTML
@@ -22,124 +33,186 @@ Die Entwicklung eines Joomla-Templates umfasst verschiedene Technologien und Dat
 - XML
 - Markdown
 
-Ein moderner Quellcode-Editor sollte diese Technologien zuverlässig unterstützen und sich flexibel an unterschiedliche Projektanforderungen anpassen lassen.
+Visual Studio Code bündelt die Bearbeitung dieser Dateien in einer gemeinsamen Entwicklungsumgebung.
 
-Für WissensWerk wurde daher **Visual Studio Code** als Standardeditor ausgewählt.
+---
 
-## Architekturentscheidung
-Visual Studio Code bildet die zentrale Entwicklungsumgebung für sämtliche Projektdateien.
-Die Auswahl erfolgte aufgrund folgender Eigenschaften.
+## 3. Architekturentscheidung
+
+Visual Studio Code wird als zentraler Editor eingesetzt.
+
+Ausschlaggebend sind insbesondere:
 
 | Kriterium | Bewertung |
-|-----------|-----------|
-| Kostenlos | ✔ |
-| Plattformübergreifend | ✔ |
-| Erweiterbar | ✔ |
-| Git-Unterstützung | ✔ |
+|---|---|
+| Git-Integration | ✔ |
 | Integriertes Terminal | ✔ |
-| Große Community | ✔ |
+| Erweiterbarkeit | ✔ |
 | Markdown-Unterstützung | ✔ |
-| Gute PHP-Unterstützung | ✔ |
+| PHP-Unterstützung | ✔ |
 | SCSS-Unterstützung | ✔ |
+| JavaScript-Unterstützung | ✔ |
+| Windows-Unterstützung | ✔ |
 
-### Entscheidung
-Für WissensWerk wird Visual Studio Code als Standardeditor verwendet.
-Alle Quelltexte und Dokumentationen werden innerhalb dieser Entwicklungsumgebung erstellt und gepflegt.
+---
 
-## Bezugsquellen
-Visual Studio Code wird ausschließlich aus offiziellen Quellen bezogen.
+## 4. Projekt als Arbeitsbereich
 
-### Offizielle Webseite
+Das vollständige WissensWerk-Projekt wird als Arbeitsbereich geöffnet.
 
-https://code.visualstudio.com/
-
-### Dokumentation
-
-https://code.visualstudio.com/docs
-
-### Marketplace
-
-https://marketplace.visualstudio.com/vscode
-
-## Installation
-- Die Installation erfolgt über den offiziellen Installer.
-- Nach der Installation sollte Visual Studio Code einmal gestartet werden.
-- Es werden keine projektspezifischen Änderungen während der Installation vorgenommen.
-
-## Grundeinrichtung
-Nach der Installation werden folgende Einstellungen empfohlen:
-- Automatische Updates aktivieren
-- Deutsche Oberfläche (optional)
-- Automatisches Speichern aktivieren
-- Integriertes Terminal verwenden
-- Git-Unterstützung aktivieren
-
-## Projektkonfiguration
-Das Projekt wird als Ordner in Visual Studio Code geöffnet.
+Beispiel:
 
 ```text
-WissensWerk
-│
-├── administrator
-├── media
-├── templates
-├── docs
+wissenswerk/
+├── administrator/
+├── media/
+├── templates/
+├── docs/
 ├── .gitignore
+├── package.json
+├── package-lock.json
 └── README.md
 ```
 
-Visual Studio Code erkennt die Projektstruktur automatisch.
+Dadurch stehen Suche, Git, Terminal und Editorfunktionen projektweit zur Verfügung.
 
-## Verwendete Erweiterungen
-Für WissensWerk werden folgende Erweiterungen empfohlen.
+---
 
-| Erweiterung | Zweck |
-|--------------|-------|
-| PHP Intelephense | PHP-Unterstützung |
-| GitLens | Git-Integration |
-| EditorConfig | Einheitliche Formatierung |
-| Markdown All in One | Dokumentation |
-| XML Tools | XML-Dateien |
-| JSON | JSON-Unterstützung |
-| Live Sass Compiler* | SCSS-Kompilierung |
+## 5. Integriertes Terminal
 
-> [!NOTE]
-> Der Einsatz des Live Sass Compilers wird in einem späteren Dokument zur Build-Umgebung näher erläutert.
+Das integrierte Terminal ist ein wichtiger Bestandteil des Entwicklungsworkflows.
 
-## Integration in WissensWerk
-Visual Studio Code bildet den zentralen Arbeitsplatz für die Entwicklung.
+Es wird insbesondere für folgende Aufgaben verwendet:
 
 ```text
-Visual Studio Code
-        │
-        ├── Joomla
-        ├── Git
-        ├── GitHub
-        ├── SCSS
-        ├── Dokumentation
-        └── Terminal
+Git
+npm
+Node.js
+Build
+Syntaxprüfung
 ```
 
-Alle Änderungen am Projekt erfolgen innerhalb dieser Entwicklungsumgebung.
+Unter Windows wird für npm aufgrund der lokalen PowerShell-Konfiguration die Kommandoform verwendet:
 
-## Best Practices
-Für WissensWerk gelten folgende Empfehlungen:
+```powershell
+npm.cmd
+```
+
+Beispiel:
+
+```powershell
+npm.cmd run build:js
+```
+
+Die Hintergründe sind in [EV-005 Node.js und npm](./ev-005-nodejs-npm.md) beschrieben.
+
+---
+
+## 6. Verwendete Erweiterungen
+
+Die Erweiterungen werden bewusst auf tatsächlich benötigte Funktionen beschränkt.
+
+| Erweiterung / Werkzeug | Zweck |
+|---|---|
+| PHP Intelephense | PHP-Unterstützung |
+| GitLens | zusätzliche Git-Funktionen |
+| EditorConfig | einheitliche Formatierung, sofern im Projekt verwendet |
+| Markdown All in One | Markdown-Unterstützung |
+| XML Tools | XML-Bearbeitung |
+| Live Sass Compiler | SCSS-Kompilierung |
+
+> [!NOTE]
+> Erweiterungen sind Entwicklungswerkzeuge und keine Laufzeitabhängigkeiten des Joomla-Templates.
+
+---
+
+## 7. SCSS-Workflow
+
+Der Live Sass Compiler wird während der lokalen Entwicklung verwendet.
+
+```text
+SCSS bearbeiten
+      ↓
+Datei speichern
+      ↓
+Live Sass Compiler
+      ↓
+CSS aktualisieren
+      ↓
+Browser testen
+```
+
+Die detaillierte SCSS-Konfiguration ist in der Entwicklungsdokumentation beschrieben.
+
+---
+
+## 8. JavaScript-Workflow
+
+JavaScript wird über Node.js, npm und Terser gebaut.
+
+```text
+menu-metismenu.js
+      ↓
+npm.cmd run build:js
+      ↓
+Terser
+      ↓
+menu-metismenu.min.js
+```
+
+Syntaxprüfungen werden über Node.js durchgeführt.
+
+---
+
+## 9. Git-Integration
+
+Visual Studio Code stellt eine grafische Git-Integration bereit.
+
+Für den WissensWerk-Workflow bleibt die Kontrolle über `git status`, `git diff`, Commit und Push ein zentraler Bestandteil.
+
+Das integrierte Terminal ermöglicht dabei die direkte Verwendung der Git-Befehle.
+
+---
+
+## 10. Dokumentation
+
+Die Projektdokumentation wird ebenfalls in Visual Studio Code erstellt und gepflegt.
+
+Markdown-Dateien werden lokal bearbeitet, geprüft und gemeinsam mit dem Projekt versioniert.
+
+---
+
+## 11. Best Practices
+
 - Das gesamte Projekt als Arbeitsbereich öffnen.
-- Erweiterungen nur bei tatsächlichem Bedarf installieren.
+- Nur benötigte Erweiterungen installieren.
+- Erweiterungen regelmäßig auf Aktualität prüfen.
 - Formatierung konsistent halten.
-- Das integrierte Terminal verwenden.
-- Git-Änderungen regelmäßig prüfen.
-- Dokumentation und Quellcode gemeinsam pflegen.
+- Git-Status regelmäßig kontrollieren.
+- Buildprozesse über die definierten Projektbefehle ausführen.
+- Dokumentation gemeinsam mit dem Quellcode pflegen.
 
-## Weiterführende Dokumente
+---
 
-- [💻 EV-001 Laragon](./ev-001-laragon.md)
-- [💻 EV-003 Git](./ev-003-git.md)
-- [💻 EV-004 Git Hub](./ev-004-git-hub.md)
-- DV-001 Template erstellen
+## 12. Bezugsquellen
 
-## Fazit
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Visual Studio Code Dokumentation](https://code.visualstudio.com/docs)
+- [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/)
+
+---
+
+## 13. Ergebnis
+
 Visual Studio Code bildet den zentralen Arbeitsplatz für die Entwicklung von WissensWerk.
-Durch seine Erweiterbarkeit, die integrierte Git-Unterstützung und die Unterstützung aller im Projekt verwendeten Technologien bietet der Editor eine einheitliche und leistungsfähige Entwicklungsumgebung.
 
-Die dokumentierte Konfiguration stellt sicher, dass alle Projektbeteiligten unter vergleichbaren Bedingungen arbeiten und die Entwicklungsumgebung jederzeit reproduzierbar eingerichtet werden kann.
+Die Kombination aus Editor, integriertem Terminal, Git-Integration und projektspezifischen Erweiterungen ermöglicht die Bearbeitung aller wesentlichen Bestandteile des Templates innerhalb einer gemeinsamen Entwicklungsumgebung.
+
+---
+
+# Änderungshistorie
+
+| Version | Datum | Beschreibung |
+|---|---|---|
+| 1.0 | Juli 2026 | Ursprüngliche Dokumentation erstellt. |
+| 2.0 | 02.09.2026 | Dokumentnummer korrigiert, JavaScript-Build und aktueller Terminal-/SCSS-Workflow ergänzt. |

@@ -1,50 +1,51 @@
 [⋮⋮⋮ Zurück zur Übersicht](./../../README.de.md)
 
----
+# WissensWerk Dokumentation
 
-# Willkommen bei der Dokumentation von WissensWerk.
+Diese Dokumentation begleitet die Entwicklung und Weiterentwicklung von WissensWerk.
 
-Diese Dokumentation begleitet die Entwicklung eines Joomla-Templates und eines Designsystems von der ersten Idee bis zur fertigen Umsetzung. Sie dokumentiert nicht nur Ergebnisse, sondern auch Entscheidungen, Experimente und Erkenntnisse.
+Sie beschreibt die tatsächliche Architektur, das Designsystem, die Entwicklungsgrundlagen und relevante technische Erkenntnisse. Nicht jede während der Entwicklung entstandene Idee oder jedes Arbeitspapier wird dauerhaft dokumentiert.
 
-# Orientierung
+## Orientierung
 
-## Neu im Projekt?
-Beginne hier:
+### Neu im Projekt?
 
 - [📜 Manifest](./manifest/manifest.md)
 - [💡 Projektphilosophie](./project-philosophy/projektphilosophie.md)
-- [🛠️ Entwickler](./development/dv-000-entwicklunguebersicht.md)
 
-## Interessieren dich Projektgrundlagen?
+### Architektur verstehen
 
-- [📖 Dokumentationsrichtlinien](./documentation-guidelines/dg-000-richtlinien-uebersicht.md)
-- [⚙️ Technische Grundlagen](./technical-foundation/tf-000-technische-grundlagen.md)
-- [🎨 Design System](./design-system//ds-000-designprinzipenuebersicht.md)
+- [🏗️ Architekturübersicht](./architecture/ar-000-architektur-uebersicht.md)
+- [📐 Architekturentscheidungen (ADR)](./adr/adr-000-architekturentscheidungen.md)
 
-## Interessieren dich technische Details?
+### Design und Gestaltung
 
-- 🌐 HTML
-- 🎨 SCSS
-- 🔷 Joomla
-- 🧩 Komponenten
-- [🏗️ Architektur](./architecture/ar-000-architektur-uebersicht.md)
-- 📦 Asset Management
-- 🔗 Web Asset API
+- [🎨 Design-System](./design-system/ds-000-designprinzipenuebersicht.md)
+
+### Entwicklung
+
+- [🛠️ Entwicklungsübersicht](./development/dv-000-entwicklunguebersicht.md)
 - [💻 Entwicklungsumgebung](./environment/ev-000-entwicklungsumgebung-uebersicht.md)
 
-## Suchst du eine konkrete Lösung?
+### Dokumentation
 
-- 🛠️ Troubleshooting
-- 🧪 Experimente
-- [📐 Architektur Entscheidungen (ADR)](./adr/adr-000-architekturentscheidungen.md)
+- [📖 Dokumentationsrichtlinien](./documentation-guidelines/dg-000-richtlinien-uebersicht.md)
 
-## Nachschlagen
+### Troubleshooting
 
-- 📖 Glossar
-- ✅ Best Practices
-- 🔗 Referenzen
+- 🛠️ [Troubleshooting](./troubleshooting/ts-000-troubleshooting-uebersicht.md)
+- [TS-001 – Navigation und Cassiopeia-Menütyp](./troubleshooting/ts-001-troubleshooting-cassopeia-dropdown.md)
 
-# KI-Unterstützung
+## Dokumentationsprinzip
+
+WissensWerk wird iterativ entwickelt.
+
+Die Dokumentation folgt deshalb der tatsächlichen Entwicklung und wird dort ergänzt oder angepasst, wo eine technische Entscheidung, eine dauerhafte Struktur oder eine relevante Erkenntnis festgehalten werden soll.
+
+Temporäre Arbeitspapiere, verworfene Überlegungen und erledigte Aufgaben werden nicht automatisch Bestandteil der dauerhaften Projektdokumentation.
+
+## KI-Unterstützung
+
 Diese Dokumentation wurde teilweise mit Unterstützung von Künstlicher Intelligenz erstellt.
 
-Alle technischen Inhalte, Architekturentscheidungen und Lösungsansätze wurden praktisch überprüft und vor der Aufnahme in die Dokumentation bewertet.
+Alle technischen Inhalte, Architekturentscheidungen und Lösungsansätze werden praktisch überprüft und vor der Aufnahme in die Dokumentation bewertet.

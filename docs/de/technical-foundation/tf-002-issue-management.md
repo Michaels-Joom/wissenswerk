@@ -1,88 +1,80 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md)  [⚙️ Technische Grundlagen](tf-000-technische-grundlagen.md)
+[[[ Inhaltsverzeichnis ]](./../table-of-contents.md) [⚙️ Technische Grundlagen](./tf-000-technische-grundlagen.md)
 
 ---
 
 # TF-002 Issue Management
 
-## Ziel
-Issues bilden die Grundlage der Aufgabenverwaltung innerhalb des Projekts. Sie dokumentieren Änderungen, Verbesserungen, Fehler und neue Funktionen und sorgen dafür, dass jede Entwicklung nachvollziehbar bleibt.
-
-Ein Issue beschreibt immer eine konkrete Aufgabe und dient gleichzeitig als Dokumentation der zugrunde liegenden Entscheidung.
-
-# Grundprinzip
-Jede Änderung am Projekt beginnt mit einem Issue.
-Das gilt unabhängig davon, ob es sich um
-
-- eine neue Funktion,
-- eine Fehlerbehebung,
-- eine Dokumentationsänderung,
-- ein Refactoring
-- oder eine organisatorische Anpassung
-
-handelt.
-Dadurch entsteht eine vollständige Historie aller Projektentscheidungen.
-
-# Wann wird ein Issue erstellt?
-Ein Issue wird erstellt, wenn
-
-- eine neue Funktion entwickelt werden soll,
-- ein Fehler behoben werden muss,
-- eine bestehende Funktion verbessert wird,
-- Dokumentationen erweitert oder geändert werden,
-- Architekturentscheidungen umgesetzt werden,
-- technische Schulden abgebaut werden.
-
-Kleine Schreibfehler oder offensichtliche Tippfehler können ohne eigenes Issue korrigiert werden.
-
-# Aufbau eines Issues
-Jedes Issue sollte mindestens folgende Informationen enthalten.
-
-## Titel
-Der Titel beschreibt die Aufgabe möglichst kurz und eindeutig.
-
-Beispiele:
-
-```text
-Rename documentation directories according to DG-001
-Implement design token system
-Create Joomla template skeleton
-Fix mobile navigation
-```
+**Dokumenttyp:** Technische Grundlage  
+**Projekt:** WissensWerk  
+**Status:** Aktiv  
+**Version:** 2.0  
+**Stand:** 02.09.2026
 
 ---
 
-## Beschreibung
-Die Beschreibung erläutert
+## Ziel
+
+Issues bilden den organisatorischen Rahmen für größere oder fachlich abgegrenzte Aufgaben.
+
+Sie dokumentieren Ziel, Umfang und Ergebnis einer Änderung und schaffen eine nachvollziehbare Projekthistorie.
+
+---
+
+## Grundprinzip
+
+Ein Issue beschreibt eine konkrete Aufgabe.
+
+Typische Einsatzbereiche sind:
+
+- neue Funktionen
+- Fehlerbehebungen
+- größere Verbesserungen
+- Architekturänderungen
+- Designänderungen
+- Dokumentationsabschnitte
+- technische Aufräumarbeiten
+
+Kleine offensichtliche Korrekturen können ohne eigenes Issue durchgeführt werden.
+
+---
+
+## Aufbau
+
+Ein Issue sollte möglichst folgende Informationen enthalten:
+
+### Titel
+
+Kurz und eindeutig.
+
+### Beschreibung
 
 - Ausgangssituation
-- Ziel
+- Problem oder Ziel
 - Umfang
 - mögliche Auswirkungen
 
-Sie beantwortet die Frage:
+### Akzeptanzkriterien
 
-> Warum wird diese Änderung durchgeführt?
+Die Kriterien definieren, wann die Aufgabe als abgeschlossen betrachtet werden kann.
 
-## Akzeptanzkriterien
-Akzeptanzkriterien definieren, wann eine Aufgabe als abgeschlossen gilt.
-
-Beispiel
+Beispiel:
 
 ```markdown
-- [ ] Dokumentation erstellt
-- [ ] Interne Links geprüft
+- [ ] Umsetzung abgeschlossen
 - [ ] Build erfolgreich
-- [ ] Änderungen getestet
+- [ ] Funktion geprüft
+- [ ] Dokumentation aktualisiert
+- [ ] Commit erstellt
 ```
 
 ---
 
-# Labels
-Labels dienen der thematischen Einordnung eines Issues.
-Empfohlene Kategorien:
+## Labels
+
+Geeignete Kategorien sind beispielsweise:
 
 | Label | Bedeutung |
-|--------|-----------|
+|---|---|
 | documentation | Dokumentation |
 | architecture | Architektur |
 | development | Entwicklung |
@@ -91,53 +83,60 @@ Empfohlene Kategorien:
 | refactoring | Umstrukturierung |
 | design | Design |
 | testing | Tests |
+| build | Build / Tooling |
 
-# Bearbeitung
-Während der Bearbeitung wird das Issue regelmäßig aktualisiert.
-Dazu gehören beispielsweise
+Labels sollen der Orientierung dienen und nicht unnötig verfeinert werden.
 
-- Ergänzungen
-- Entscheidungen
-- offene Fragen
-- Zwischenergebnisse
+---
 
-Das Issue dokumentiert damit nicht nur die Aufgabe, sondern auch deren Entwicklung.
+## Bearbeitung
 
-# Abschluss
-Ein Issue gilt als abgeschlossen, wenn
+Während der Umsetzung können relevante Entscheidungen und Ergebnisse im Issue dokumentiert werden.
 
-- alle Akzeptanzkriterien erfüllt sind,
-- die Umsetzung abgeschlossen wurde,
-- die Dokumentation aktualisiert wurde,
-- die Änderung versioniert wurde.
+Das Issue beschreibt den fachlichen Zusammenhang.
 
-Anschließend wird das Issue geschlossen.
+Der Commit beschreibt die technische Umsetzung.
 
-# Grundregeln
-Für WissensWerk gelten folgende Regeln.
+---
 
-- Jede größere Änderung beginnt mit einem Issue.
-- Ein Issue beschreibt genau eine Aufgabe.
-- Titel sind kurz und eindeutig.
-- Die Beschreibung erläutert Ziel und Hintergrund.
-- Akzeptanzkriterien definieren den Abschluss.
-- Nach Abschluss wird das Issue geschlossen.
+## Abschluss
 
-# Vorteile
+Ein Issue kann geschlossen werden, wenn die definierten Anforderungen erfüllt sind.
 
-Ein strukturiertes Issue Management
+Dazu gehören je nach Aufgabe:
 
-- verbessert die Nachvollziehbarkeit,
-- dokumentiert Entscheidungen,
-- schafft Transparenz,
-- erleichtert die Projektplanung,
-- bildet die Grundlage der Projekthistorie.
+- Umsetzung
+- Prüfung
+- Build
+- Dokumentation
+- Commit
 
-# Verwandte Dokumente
+---
 
-- [⚙️ TF-001 Github-Workflows](./tf-001-github-workflow.md)
-- [⚙️ TF-003 Branching Strategy (geplant)](./tf-003-branching-strategy.md)
-- [⚙️ TF-004 Commit Cconvention](./tf-004-commit-convention.md)
-- [⚙️ TF-005 Pull Request Process (geplant)](./tf-005-pull-request-process.md)
-- [⚙️ TF-006 Release Management.md](./tf-006-release-management.md)
+## Beziehung zu Commits
 
+Issue und Commit besitzen unterschiedliche Verantwortlichkeiten:
+
+```text
+Issue
+  → Warum / Was soll erreicht werden?
+
+Commit
+  → Was wurde technisch geändert?
+```
+
+---
+
+## Verwandte Dokumente
+
+- [⚙️ TF-001 GitHub Workflow](./tf-001-github-workflow.md)
+- [⚙️ TF-003 Branching Strategy](./tf-003-branching-strategy.md)
+- [⚙️ TF-004 Commit Convention](./tf-004-commit-convention.md)
+- [⚙️ TF-006 Release Management](./tf-006-release-management.md)
+
+# Änderungshistorie
+
+| Version | Datum | Beschreibung |
+|---|---|---|
+| 1.0 | Juli 2026 | Ursprüngliches Issue-Konzept erstellt. |
+| 2.0 | 02.09.2026 | Issue-Regeln an den aktuellen Single-Developer-Workflow und den Build-/Prüfprozess angepasst. |

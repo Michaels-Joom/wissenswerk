@@ -1,143 +1,176 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [⚙️ Technische Grundlagen](tf-000-technische-grundlagen.md)
+[[[ Inhaltsverzeichnis ]](./../table-of-contents.md) [⚙️ Technische Grundlagen](./tf-000-technische-grundlagen.md)
 
 ---
 
 # TF-001 GitHub Workflow
-## Ziel
-Ein strukturierter GitHub-Workflow sorgt dafür, dass Änderungen nachvollziehbar, reproduzierbar und sauber dokumentiert werden. Er bildet die organisatorische Grundlage der Entwicklung und unterstützt einen kontrollierten Entwicklungsprozess.
 
-Der Workflow beschreibt nicht den Umgang mit Git im Detail, sondern legt fest, wie Änderungen innerhalb des Projekts geplant, umgesetzt und dokumentiert werden.
-
-# Grundprinzip
-Jede Änderung am Projekt folgt einem definierten Ablauf.
-
-```text
-Idee
-   │
-   ▼
-Issue
-   │
-   ▼
-Entwicklung
-   │
-   ▼
-Commit(s)
-   │
-   ▼
-main
-```
-
-Dadurch bleibt jederzeit nachvollziehbar,
-
-- warum eine Änderung entstanden ist,
-- welche Dateien betroffen sind,
-- wann die Änderung durchgeführt wurde,
-- welche Entscheidungen dahinter stehen.
-
-> [!NOTE]
->
-> WissensWerk orientiert sich am klassischen GitHub-Workflow.
-> Da das Projekt derzeit von einer einzelnen Person entwickelt wird,
-> wird bewusst ein vereinfachter Workflow verwendet.
->
-> Mit zunehmender Projektgröße können weitere Schritte wie Feature Branches,
-> Pull Requests, Reviews oder automatisierte Tests ergänzt werden.
+**Dokumenttyp:** Technische Grundlage  
+**Projekt:** WissensWerk  
+**Status:** Aktiv  
+**Version:** 2.0  
+**Stand:** 02.09.2026
 
 ---
 
-# Entwicklungsprozess
+## Ziel
+
+Der GitHub-Workflow sorgt dafür, dass Änderungen nachvollziehbar, reproduzierbar und sauber dokumentiert werden.
+
+Der aktuelle Workflow ist bewusst auf die Entwicklung durch eine einzelne Person ausgelegt.
+
+---
+
+## Grundprinzip
+
+Der derzeitige Workflow lautet:
+
+```text
+Idee / Anforderung
+        ↓
+Issue
+        ↓
+Entwicklung
+        ↓
+Build / Prüfung
+        ↓
+Commit
+        ↓
+main
+        ↓
+GitHub
+```
+
+Nicht jede kleine Korrektur benötigt zwingend ein eigenes Issue. Größere oder fachlich abgegrenzte Änderungen werden über Issues dokumentiert.
+
+---
 
 ## 1. Idee oder Anforderung
-Neue Funktionen, Verbesserungen oder Fehler werden zunächst als Idee formuliert.
-Eine Idee sollte möglichst konkret beschreiben,
 
-- welches Problem besteht,
-- welches Ziel erreicht werden soll,
-- welche Auswirkungen zu erwarten sind.
+Neue Funktionen, Verbesserungen oder Fehler werden zunächst konkret beschrieben.
 
-## 2. Issue erstellen
-Vor Beginn der eigentlichen Entwicklung wird ein GitHub Issue angelegt.
+Dabei werden Ziel, Umfang und mögliche Auswirkungen betrachtet.
 
-Das Issue dient als zentrale Dokumentation einer Aufgabe.
-Es beschreibt
+---
+
+## 2. Issue
+
+Ein Issue dient als fachlicher und organisatorischer Rahmen einer Änderung.
+
+Es kann insbesondere dokumentieren:
 
 - Ziel
-- Hintergrund
+- Ausgangssituation
 - Umfang
 - Akzeptanzkriterien
+- Entscheidungen
+- Ergebnis
+
+Kleine offensichtliche Korrekturen können ohne separates Issue erfolgen.
+
+---
 
 ## 3. Entwicklung
-Die Umsetzung erfolgt direkt auf Basis des zugehörigen Issues.
-Während der Entwicklung können beliebig viele Commits entstehen.
-Jeder Commit sollte eine abgeschlossene Änderung dokumentieren.
 
-## 4. Commits
-Commits dokumentieren einzelne Arbeitsschritte.
-Sie sollen
+Die Umsetzung erfolgt lokal im Entwicklungsstand.
 
-- verständlich,
-- eindeutig,
-- möglichst klein
-- und in sich abgeschlossen sein.
+Dabei werden Änderungen möglichst logisch getrennt durchgeführt.
 
-Beispiele:
+Bei SCSS- oder JavaScript-Änderungen wird anschließend der erforderliche Build ausgeführt.
+
+---
+
+## 4. Prüfung
+
+Vor dem Commit wird geprüft, ob die Änderung technisch und funktional korrekt ist.
+
+Je nach Änderung gehören dazu:
+
+- SCSS-Build
+- JavaScript-Build
+- JavaScript-Syntaxprüfung
+- Browserprüfung
+- Responsive Prüfung
+- Prüfung der betroffenen Joomla-Funktionen
+- Prüfung der Dokumentation
+
+---
+
+## 5. Commit
+
+Der Commit dokumentiert die technische Änderung.
+
+WissensWerk verwendet strukturierte Commit-Nachrichten nach der im Projekt festgelegten Commit Convention.
+
+Beispiel:
 
 ```text
-Add design token variables
-Implement responsive grid
-Update documentation links
-Fix mobile navigation
-Refactor asset loading
+feat(navigation): finalize MetisMenu navigation
 ```
 
 ---
 
-## 5. Integration
-Nach erfolgreicher Umsetzung wird die Änderung in den Hauptzweig übernommen.
-Dabei wird überprüft,
+## 6. Integration in main
 
-- ob das Issue vollständig umgesetzt wurde,
-- ob die Dokumentation aktualisiert wurde,
-- ob die Änderung nachvollziehbar dokumentiert ist.
+Der aktuelle Entwicklungsworkflow arbeitet direkt mit `main`.
 
-## 6. Release
-Größere Entwicklungsstände werden als Release dokumentiert.
-Ein Release beschreibt den jeweiligen Entwicklungsstand und dient als nachvollziehbarer Meilenstein innerhalb des Projekts.
+Nach erfolgreicher Prüfung wird der Commit nach `main` geschrieben und anschließend nach GitHub übertragen.
 
-# Zukünftige Erweiterungen
-Mit zunehmender Projektgröße kann der Workflow erweitert werden.
-Mögliche Ergänzungen sind:
+Feature Branches und Pull Requests sind derzeit nicht Bestandteil des aktiven Workflows.
+
+---
+
+## 7. Dokumentation
+
+Dokumentation wird zusammen mit der Entwicklung aktualisiert, wenn sich Architektur, Design, Prozesse oder technische Grundlagen verändern.
+
+Ziel ist, dass Dokumentation und tatsächlicher Projektstand nicht dauerhaft auseinanderlaufen.
+
+---
+
+## Build und Artefakte
+
+JavaScript wird aus der nicht minifizierten Quelldatei gebaut.
+
+Grundprinzip:
+
+```text
+menu-metismenu.js
+       ↓
+     Terser
+       ↓
+menu-metismenu.min.js
+```
+
+Der Build wird vor dem Commit durchgeführt, wenn die Quelldatei geändert wurde.
+
+---
+
+## Zukünftige Erweiterungen
+
+Bei wachsender Projektgröße können ergänzt werden:
+
 - Feature Branches
 - Pull Requests
 - Code Reviews
-- Automatisierte Tests
-- Continuous Integration (CI)
-- Continuous Deployment (CD)
+- automatisierte Tests
+- Continuous Integration
+- Continuous Deployment
 
-Diese Bestandteile werden eingeführt, sobald sie einen praktischen Mehrwert für das Projekt bieten.
+Diese Erweiterungen werden erst eingeführt, wenn sie einen praktischen Mehrwert bieten.
 
-# Grundregeln
-Für WissensWerk gelten derzeit folgende Regeln:
-- Jede Änderung beginnt mit einem Issue.
-- Jedes Issue beschreibt eine klar abgegrenzte Aufgabe.
-- Commits dokumentieren genau eine abgeschlossene Änderung.
-- Dokumentation ist Bestandteil jeder Entwicklung.
-- Änderungen müssen jederzeit nachvollziehbar sein.
-- Größere Entwicklungsstände werden als Release dokumentiert.
+---
 
-## Vorteile
-Der definierte Workflow bietet mehrere Vorteile.
-- Änderungen bleiben nachvollziehbar.
-- Aufgaben können sauber voneinander getrennt werden.
-- Fehler lassen sich einfacher zurückverfolgen.
-- Dokumentation und Entwicklung bleiben synchron.
-- Der Projektverlauf wird transparent.
-- Der Workflow kann mit dem Projekt wachsen.
+## Verwandte Dokumente
 
-# Verwandte Dokumente
 - [⚙️ TF-002 Issue Management](./tf-002-issue-management.md)
-- [⚙️ TF-003 Branching Strategy (geplant)](./tf-003-branching-strategy.md)
-- [⚙️ TF-004 Commit Cconvention](./tf-004-commit-convention.md)
-- [⚙️ TF-005 Pull Request Process (geplant)](./tf-005-pull-request-process.md)
-- [⚙️ TF-006 Release Management.md](./tf-006-release-management.md)
+- [⚙️ TF-003 Branching Strategy](./tf-003-branching-strategy.md)
+- [⚙️ TF-004 Commit Convention](./tf-004-commit-convention.md)
+- [⚙️ TF-005 Pull Request Process](./tf-005-pull-request-process.md)
+- [⚙️ TF-006 Release Management](./tf-006-release-management.md)
 
+# Änderungshistorie
+
+| Version | Datum | Beschreibung |
+|---|---|---|
+| 1.0 | Juli 2026 | Ursprünglichen GitHub-Workflow erstellt. |
+| 2.0 | 02.09.2026 | Workflow an den aktuellen Single-Developer-, Build-, Prüf- und GitHub-Prozess angepasst. |

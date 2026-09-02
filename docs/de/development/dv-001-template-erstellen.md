@@ -1,50 +1,71 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md)  [🛠️ Entwicklungsübersicht](./dv-000-entwicklunguebersicht.md)
+[[[ Inhaltsverzeichnis ]](./../table-of-contents.md) [🛠️ Entwicklungsübersicht](./dv-000-entwicklunguebersicht.md)
 
 ---
 
 # DV-001 Template erstellen
 
+**Dokumenttyp:** Entwicklungsdokumentation  
+**Projekt:** WissensWerk  
+**Status:** Abgeschlossen  
+**Version:** 2.0  
+**Stand:** 02.09.2026
+
+---
+
 ## Ziel
 
-Erstellung der technischen Grundlage für das WissensWerk-Template. Das Template bildet die Basis für alle weiteren Entwicklungsschritte und orientiert sich an der definierten Architektur des Projekts.
+Erstellung der technischen Grundlage für das WissensWerk-Template.
 
-## Installationsprinzip
+Das Template bildet die Basis für die weiteren Entwicklungsphasen und orientiert sich an der definierten Architektur des Projekts.
 
-> Ziel der Erstinstallation ist eine möglichst vollständige Integration des Templates in Joomla. Alle zur Installation erforderlichen Dateien, Sprachdateien, Assets und
-> Metadaten werden bereits mit der ersten Version ausgeliefert. Dadurch wird sichergestellt, dass alle während der Installation angelegten Datenbankeinträge vollständig
-> erstellt werden. Nachträgliche Updates dienen der Weiterentwicklung und ersetzen keine fehlenden Installationsschritte.
-
-## Für die Entwicklung bedeutet das praktisch
-Vor der ersten Veröffentlichung bzw. Installation sollte anhand dieser Checkliste sichergestellt werden, dass alle erforderlichen Bestandteile vollständig integriert sind. Dies vermeidet wiederholte Deinstallationen und reduziert das Risiko manueller Datenbankeingriffe, die aufgrund nachträglich nicht über Updates übertragbarer Installationsdaten erforderlich werden könnten.
-
-```
-    ✔ templateDetails.xml vollständig
-    ✔ joomla.asset.json vollständig
-    ✔ Sprachdateien (Site und Administrator)
-    ✔ Medienstruktur (media/templates/...)
-    ✔ Vorschaugrafik
-    ✔ Alle installierten Assets registriert
-    ✔ Alle Positionen definiert
-    ✔ Alle erforderlichen Dateien vorhanden
-```
+---
 
 ## Ausgangssituation
-Das Projekt startet mit einer neuen Joomla-Installation und einem eigenständigen Template. Auf ein Child-Template wird bewusst verzichtet.
+
+Das Projekt startet mit einer neuen Joomla-Installation und einem eigenständigen Template.
+
+Auf ein Child-Template wird bewusst verzichtet.
 
 > [!NOTE]
 > [ADR-002 WissensWerk basiert auf einem eigenständigen Joomla-Template](../adr/adr-002-wissenswerk-eigenständigen-joomla-template.md)
 
-## Entwicklungsrichtlinien
-Jede XML-Datei (Manifest, Assets, Erweiterungen) wird vollständig und explizit definiert. Auf implizite Standardannahmen wird bewusst verzichtet. Dadurch bleibt das Verhalten bei Installation, Aktualisierung und Deinstallation jederzeit nachvollziehbar.
+---
 
-Konfigurationsdateien werden nach funktionalen Bereichen gegliedert und dauerhaft in dieser Reihenfolge geführt. Neue Einträge werden im passenden Abschnitt ergänzt. Neue Abschnitte werden nur eingeführt, wenn ein funktionaler Bereich entsteht.
+## Installationsprinzip
 
+Ziel der Erstinstallation ist eine möglichst vollständige Integration des Templates in Joomla.
+
+Alle zur Installation erforderlichen Dateien, Sprachdateien, Assets und Metadaten werden bereits mit der ersten Version ausgeliefert.
+
+Dadurch soll sichergestellt werden, dass die bei der Installation erforderlichen Strukturen vollständig vorhanden sind.
+
+Nachträgliche Updates dienen der Weiterentwicklung und sollen keine fehlenden grundlegenden Installationsschritte kompensieren.
+
+---
+
+## Entwicklungscheckliste
+
+Vor einer ersten Veröffentlichung bzw. Installation sollte geprüft werden:
+
+```text
+✔ templateDetails.xml vollständig
+✔ joomla.asset.json vollständig
+✔ Sprachdateien vorhanden
+✔ Medienstruktur vorhanden
+✔ Vorschaugrafik vorhanden
+✔ installierte Assets registriert
+✔ Modulpositionen definiert
+✔ erforderliche Template-Dateien vorhanden
+✔ Build-/Entwicklungsdateien nachvollziehbar
+```
+
+---
 
 ## Verzeichnisstruktur
-Das Template wird im Joomla-Templateverzeichnis angelegt. 
-Die Verzeichnisstruktur folgt der zuvor definierten Projektarchitektur
 
-```
+Die grundlegende Template-Struktur befindet sich unter:
+
+```text
 wissenswerk/
 │
 ├── media/
@@ -56,24 +77,18 @@ wissenswerk/
 │               ├── images/
 │               ├── js/
 │               ├── scss/
-|               └── joomla.asset.json
-|
+│               └── joomla.asset.json
 │
 ├── language/
 │   └── de-DE/
-│       ├── tpl_wissenswerk.ini
-│       └── tpl_wissenswerk.sys.ini
 │
 ├── administrator/
 │   └── language/
 │       └── de-DE/
-│           ├── tpl_wissenswerk.ini
-│           └── tpl_wissenswerk.sys.ini
 │
 └── templates/
     └── wissenswerk/
         ├── html/
-        │
         ├── component.php
         ├── error.php
         ├── index.php
@@ -81,20 +96,69 @@ wissenswerk/
         └── template_preview.png
 ```
 
+Die projektbezogene Entwicklungsinfrastruktur liegt zusätzlich im Repository, unter anderem:
+
+```text
+package.json
+package-lock.json
+.vscode/
+.gitignore
+```
+
+`node_modules/` wird nicht versioniert.
+
+---
+
 ## Grunddateien
 
-| Datei                  | BeschreibungKopfzeile            |
-|------------------------|----------------------------------|
-| index.php	             | Einstiegspunkt des Templates     | 
-| component.php          | Darstellung ohne Template-Chrome |
-| error.php             |	Fehlerseiten | Fehlerseiten     |
-| templateDetails.xml    | Installation und Metadaten       |
-| template_preview.png	 | Vorschaugrafik im Backend        |
-| joomla.asset.json      | 	Registrierung der Web Assets    |
+| Datei | Aufgabe |
+|---|---|
+| `index.php` | Einstiegspunkt des Templates |
+| `component.php` | Darstellung ohne vollständigen Template-Chrome |
+| `error.php` | Fehlerseiten |
+| `templateDetails.xml` | Installation und Metadaten |
+| `template_preview.png` | Vorschaugrafik im Backend |
+| `joomla.asset.json` | Registrierung der Web Assets |
 
-## Verwandte Dokumente
-- [TF-004 Commit Convention](./dv-004-git-workflow.md)
+---
+
+## Entwicklungsgrundsätze
+
+Konfigurationsdateien werden nach funktionalen Bereichen gegliedert und dauerhaft nachvollziehbar gepflegt.
+
+Joomla-Core-Dateien werden nicht verändert.
+
+Bootstrap- und Vendor-Dateien werden nicht verändert.
+
+Eigene Anpassungen erfolgen über:
+
+- Template-Dateien
+- SCSS
+- JavaScript
+- Joomla Web Asset API
+- Overrides
+- Modulpositionen
+- vorgesehene Joomla-Schnittstellen
+
+---
 
 ## Ergebnis
-Nach Abschluss dieses Schrittes steht ein lauffähiges Joomla-Template als technische Grundlage für WissensWerk bereit. Die weitere Entwicklung erfolgt schrittweise auf Basis der definierten Architektur und des Designsystems.
 
+Nach Abschluss dieses Schrittes steht ein eigenständiges, lauffähiges Joomla-Template als technische Grundlage für WissensWerk bereit.
+
+Die weitere Entwicklung erfolgt schrittweise auf Basis der Architektur-, Design- und technischen Grundlagen.
+
+---
+
+## Verwandte Dokumente
+
+- [🏗️ AR-002 Template-Architektur](../architecture/ar-002-template-architektur.md)
+- [⚙️ TF-000 Technische Grundlagen](../technical-foundation/tf-000-technische-grundlagen.md)
+- [🛠️ DV-004 Git Workflow](./dv-004-git-workflow.md)
+
+# Änderungshistorie
+
+| Version | Datum | Beschreibung |
+|---|---|---|
+| 1.0 | Juli 2026 | Ursprüngliche Template-Grundlage erstellt. |
+| 2.0 | 02.09.2026 | Dokument an die aktuelle Template-, Asset- und Entwicklungsstruktur angepasst. |
