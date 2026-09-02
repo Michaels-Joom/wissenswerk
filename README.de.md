@@ -1,4 +1,4 @@
-_This documentation is also available in:_ [🇬🇧 English](./README.md)_
+_This documentation is also available in: [🇬🇧 English](./README.md)_
 
 ---
 
