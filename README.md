@@ -1,3 +1,5 @@
+_Diese Dokumentation ist auch verfügbar in: [🇩🇪 Deutsch](./README.de.md)_
+
 # WissensWerk
 
 **Understand – Develop – Document.**
