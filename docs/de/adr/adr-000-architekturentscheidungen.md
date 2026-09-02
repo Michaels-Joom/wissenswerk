@@ -1,5 +1,7 @@
 [⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md)
 
+---
+
 # ADR-000 – Architekturentscheidungen
 
 **Status:** Aktiv  
