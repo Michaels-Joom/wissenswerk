@@ -19,9 +19,9 @@ Die Roadmap beschreibt nicht nur geplante Arbeitsschritte, sondern wird während
 
 | Dokument | Inhalt |
 |---|---|
-| [RM-001 – Projekt-Roadmap](./rm-001-projekt-roadmap.md) | Gesamtstruktur und Entwicklungsphasen |
-| [RM-002 – Releaseplan](./rm-002-releaseplan.md) | Versionen und Releaseziele |
-| [RM-003 – Meilensteine](./rm-003-meilensteine.md) | Erreichte und anstehende Meilensteine |
+| [🪜RM-001 – Projekt-Roadmap](./rm-001-projekt-roadmap.md) | Gesamtstruktur und Entwicklungsphasen |
+| [🪜RM-002 – Releaseplan](./rm-002-releaseplan.md) | Versionen und Releaseziele |
+| [🪜RM-003 – Meilensteine](./rm-003-meilensteine.md) | Erreichte und anstehende Meilensteine |
 
 ## Aktueller Projektstand
 
