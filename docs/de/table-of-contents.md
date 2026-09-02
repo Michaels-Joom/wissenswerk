@@ -34,8 +34,7 @@ Sie beschreibt die tatsächliche Architektur, das Designsystem, die Entwicklungs
 
 ### Troubleshooting
 
-- 🛠️ [Troubleshooting](./troubleshooting/ts-000-troubleshooting-uebersicht.md)
-- [TS-001 – Navigation und Cassiopeia-Menütyp](./troubleshooting/ts-001-troubleshooting-cassopeia-dropdown.md)
+- [🛠️ TS-001 – Navigation und Cassiopeia-Menütyp](./troubleshooting/ts-001-troubleshooting-cassopeia-dropdown.md)
 
 ## Dokumentationsprinzip
 
