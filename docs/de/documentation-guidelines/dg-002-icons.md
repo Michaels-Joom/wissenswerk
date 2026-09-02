@@ -66,6 +66,7 @@ Die Wahl der Icons in der Oberfläche erfolgt nach den Anforderungen der jeweili
 | 🚀 | Deployment / Release | Auslieferung |
 | ⚙️ | Technische Grundlagen | technische Basis |
 | 🖥️ | Entwicklungsumgebung | Werkzeuge und Umgebung |
+| 🪜 | Entwicklungsschritte | Leiter|
 
 ## 6. Konsistenz
 
