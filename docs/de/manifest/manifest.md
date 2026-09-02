@@ -1,3 +1,5 @@
+[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md)
+
 # WissensWerk – Manifest
 
 ## Projektidentität
