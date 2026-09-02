@@ -1,4 +1,4 @@
-[⋮⋮⋮ Zurück zur Übersicht](./../table-of-contents.md)
+[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md)
 
 # Projektphilosophie
 
