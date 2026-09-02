@@ -40,60 +40,122 @@
 
 .metismenu {
 
-    // -------------------------------------------------------------------------
-    // Horizontal menu
-    // -------------------------------------------------------------------------
+    // =========================================================================
+    // Horizontal Menu
+    // =========================================================================
 
     &.menu-horizontal {
+
         display: flex;
         flex: 1 0 100%;
         flex-direction: row;
+        align-items: stretch;
 
-        padding: 0;
         margin: 0;
+        padding: 0;
 
         list-style: none;
-
-        > li {
-            position: relative;
-        }
     }
 
 
-    // -------------------------------------------------------------------------
-    // Menu items
-    // -------------------------------------------------------------------------
+    // =========================================================================
+    // Menu Items
+    // =========================================================================
 
     &.mod-menu {
 
         .metismenu-item {
+
             position: relative;
 
             display: flex;
             flex-wrap: wrap;
             align-items: center;
+
+            margin: 0;
+            padding: 0;
         }
 
 
         // ---------------------------------------------------------------------
-        // Parent items
+        // Parent Items
         // ---------------------------------------------------------------------
 
         .metismenu-item.parent {
+
             position: relative;
         }
 
 
         // ---------------------------------------------------------------------
-        // Submenu
-        // ---------------------------------------------------------------------
-        //
-        // The first submenu is positioned below the level-1 item.
-        // Deeper submenus are positioned beside their parent item.
-        //
+        // Top-Level Links
         // ---------------------------------------------------------------------
 
+        > .metismenu-item > a {
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            min-height: 3.5rem;
+
+            padding-block: var(--ww-space-3);
+            padding-inline: var(--ww-space-4);
+
+            color: var(--ww-color-text);
+
+            font-family: var(--ww-font-family-body);
+            font-size: var(--ww-font-size-base);
+            font-weight: var(--ww-font-weight-regular);
+            line-height: var(--ww-line-height-body);
+
+            text-decoration: none;
+
+            transition:
+                color var(--ww-transition-fast),
+                background-color var(--ww-transition-fast);
+        }
+
+
+        // ---------------------------------------------------------------------
+        // Top-Level Hover
+        // ---------------------------------------------------------------------
+
+        > .metismenu-item > a:hover {
+
+            color: var(--ww-color-secondary);
+
+            background-color: var(--ww-color-surface-hover);
+        }
+
+
+        // ---------------------------------------------------------------------
+        // Top-Level Focus
+        // ---------------------------------------------------------------------
+
+        > .metismenu-item > a:focus-visible {
+
+            z-index: 2;
+
+            outline: 2px solid var(--ww-color-secondary);
+            outline-offset: -2px;
+        }
+
+
+        // =========================================================================
+        // Submenu
+        // =========================================================================
+        //
+        // The first submenu opens below the level-1 item.
+        //
+        // Deeper levels intentionally remain in normal document flow.
+        // This avoids horizontal flyouts on smaller desktop/tablet widths.
+        //
+        // =========================================================================
+
         .metismenu-item > ul {
+
             position: absolute;
 
             top: 100%;
@@ -103,10 +165,12 @@
 
             min-width: 14rem;
 
-            padding: .5rem 0;
             margin: 0;
+            padding: .625rem 0;
 
             background-color: var(--ww-color-surface-alt);
+
+            border: 1px solid var(--ww-color-border);
 
             list-style: none;
 
@@ -116,15 +180,16 @@
 
 
         // ---------------------------------------------------------------------
-        // Deeper submenu levels
+        // Deeper Submenu Levels
         // ---------------------------------------------------------------------
         //
-        // Every submenu below level 1 opens to the right of its parent item.
-        // This avoids restricting the component to exactly two levels.
+        // Levels 2+ remain below their parent and therefore form one
+        // vertically expanding navigation structure.
         //
         // ---------------------------------------------------------------------
 
         .metismenu-item:not(.level-1) > ul {
+
             position: static;
 
             width: 100%;
@@ -133,31 +198,37 @@
             margin: 0;
             padding: .25rem 0;
 
+            border: 0;
+
             box-shadow: none;
         }
     }
 
 
-    // =============================================================================
+    // =========================================================================
     // Collapse
-    // =============================================================================
+    // =========================================================================
 
     .mm-collapse {
+
         display: none;
     }
 
 
     .mm-collapse.mm-show {
+
         display: block;
     }
 
 
-    // =============================================================================
-    // Collapse animation
-    // =============================================================================
+    // =========================================================================
+    // Collapse Animation
+    // =========================================================================
 
     .mm-collapsing {
+
         height: 0;
+
         overflow: hidden;
 
         transition:
@@ -166,109 +237,217 @@
     }
 
 
-    // =============================================================================
-    // Menu links
-    // =============================================================================
-    //
-    // Applies to submenu links on all levels.
-    //
-    // =============================================================================
+    // =========================================================================
+    // Submenu Links
+    // =========================================================================
 
     &.mod-menu {
 
         .metismenu-item > ul .metismenu-item > a {
+
+            position: relative;
+
             display: block;
 
-            padding: .65rem 1rem;
+            min-height: 2.75rem;
 
-            color: currentColor;
+            padding-block: var(--ww-space-2);
+            padding-inline: var(--ww-space-4);
+
+            color: var(--ww-color-text);
+
+            font-family: var(--ww-font-family-body);
+            font-size: var(--ww-font-size-base);
+            font-weight: var(--ww-font-weight-regular);
+            line-height: var(--ww-line-height-body);
+
             text-decoration: none;
 
             white-space: nowrap;
 
             transition:
-                color .2s ease,
-                background-color .2s ease;
+                color var(--ww-transition-fast),
+                background-color var(--ww-transition-fast);
         }
 
 
         // ---------------------------------------------------------------------
-        // Hover
+        // Submenu Hover
         // ---------------------------------------------------------------------
 
         .metismenu-item > ul .metismenu-item > a:hover {
-            color: var(--ww-color-secondary);
-            text-decoration: none;
 
-            background-color: rgb(0 0 0 / 3%);
+            color: var(--ww-color-secondary);
+
+            background-color: var(--ww-color-surface-hover);
         }
 
 
         // ---------------------------------------------------------------------
-        // Current submenu item
+        // Submenu Focus
+        // ---------------------------------------------------------------------
+
+        .metismenu-item > ul .metismenu-item > a:focus-visible {
+
+            z-index: 2;
+
+            outline: 2px solid var(--ww-color-secondary);
+            outline-offset: -2px;
+        }
+
+
+        // ---------------------------------------------------------------------
+        // Current Submenu Item
         // ---------------------------------------------------------------------
 
         .metismenu-item > ul .metismenu-item.current > a {
+
             color: var(--ww-color-secondary);
-            text-decoration: none;
+
+            font-weight: 500;
+
+            background-color: var(--ww-color-surface-hover);
+
+            box-shadow: inset 3px 0 0 var(--ww-color-secondary);
         }
     }
 
 
-    // =============================================================================
+    // =========================================================================
+    // Hierarchical Indentation
+    // =========================================================================
+    //
+    // The indentation provides the visual hierarchy for the vertically
+    // flowing submenu levels.
+    //
+    // =========================================================================
+
+    &.mod-menu {
+
+        .metismenu > .metismenu-item > ul
+            > .metismenu-item > a {
+
+            padding-inline-start: calc(
+                var(--ww-space-4) + 1rem
+            );
+        }
+
+
+        .metismenu > .metismenu-item > ul
+            > .metismenu-item > ul
+            > .metismenu-item > a {
+
+            padding-inline-start: calc(
+                var(--ww-space-4) + 2rem
+            );
+        }
+
+
+        .metismenu > .metismenu-item > ul
+            > .metismenu-item > ul
+            > .metismenu-item > ul
+            > .metismenu-item > a {
+
+            padding-inline-start: calc(
+                var(--ww-space-4) + 3rem
+            );
+        }
+    }
+
+
+    // =========================================================================
     // Toggle
-    // =============================================================================
+    // =========================================================================
 
     .mm-toggler {
+
         position: relative;
 
-        display: flex;
+        display: inline-flex;
         align-items: center;
+        justify-content: center;
 
-        padding: 0;
+        min-width: 2.75rem;
+        min-height: 2.75rem;
+
+        margin: 0;
+        padding: 0 .75rem;
 
         color: currentColor;
 
-        background: none;
+        background: transparent;
         border: 0;
         box-shadow: none;
 
         cursor: pointer;
+
+        transition:
+            color var(--ww-transition-fast),
+            background-color var(--ww-transition-fast);
     }
 
 
-    // =============================================================================
-    // Toggle indicator / Chevron
-    // =============================================================================
+    // =========================================================================
+    // Toggle Hover
+    // =========================================================================
+
+    .mm-toggler:hover {
+
+        color: var(--ww-color-secondary);
+
+        background-color: var(--ww-color-surface-hover);
+    }
+
+
+    // =========================================================================
+    // Toggle Focus
+    // =========================================================================
+
+    .mm-toggler:focus-visible {
+
+        z-index: 2;
+
+        outline: 2px solid var(--ww-color-secondary);
+        outline-offset: -2px;
+    }
+
+
+    // =========================================================================
+    // Toggle Indicator
+    // =========================================================================
 
     .mm-toggler::after {
+
         width: 0;
         height: 0;
 
-        margin-inline-start: .5em;
+        margin-inline-start: .4rem;
 
         content: "";
 
-        border-top: .5em solid currentColor;
-        border-right: .5em solid transparent;
-        border-left: .5em solid transparent;
+        border-top: .4rem solid currentColor;
+        border-right: .3rem solid transparent;
+        border-left: .3rem solid transparent;
 
-        transition: transform .3s ease;
+        transition:
+            transform var(--ww-transition-fast),
+            color var(--ww-transition-fast);
     }
 
 
-    // -------------------------------------------------------------------------
-    // Open state
-    // -------------------------------------------------------------------------
+    // =========================================================================
+    // Toggle Open State
+    // =========================================================================
 
     .mm-toggler[aria-expanded="true"]::after {
-        transform: rotateX(-180deg);
+
+        transform: rotateX(180deg);
     }
 
 
-    // =============================================================================
-    // Active / Current navigation state
-    // =============================================================================
+    // =========================================================================
+    // Active / Current Navigation State
+    // =========================================================================
     //
     // Joomla:
     // .current
@@ -278,49 +457,62 @@
     // .mm-active
     //     = submenu currently opened
     //
-    // The permanent visual active state must not depend on .mm-active,
-    // because MetisMenu removes that class when the submenu is closed.
+    // The permanent visual active state must not depend on .mm-active.
     //
-    // :has() allows the parent item to remain highlighted when one of its
-    // descendant menu items is the current page.
-    //
-    // =============================================================================
+    // =========================================================================
 
     .metismenu-item.current > a,
     .metismenu-item.current > button {
+
         color: var(--ww-color-secondary);
     }
 
+
+    // -------------------------------------------------------------------------
+    // Active Parent
+    // -------------------------------------------------------------------------
 
     .metismenu-item.parent:has(> ul .metismenu-item.current) > a,
     .metismenu-item.parent:has(> ul .metismenu-item.current) > button {
+
         color: var(--ww-color-secondary);
     }
 
 
-    // =============================================================================
-    // General link behaviour
-    // =============================================================================
+    // -------------------------------------------------------------------------
+    // Current Top-Level Item
+    // -------------------------------------------------------------------------
+
+    &.menu-horizontal > .metismenu-item.current > a::after {
+
+        position: absolute;
+
+        right: var(--ww-space-4);
+        bottom: 0;
+        left: var(--ww-space-4);
+
+        height: 2px;
+
+        content: "";
+
+        background-color: var(--ww-color-secondary);
+    }
+
+
+    // =========================================================================
+    // General Link Behaviour
+    // =========================================================================
 
     .metismenu-item > a,
     .metismenu-item > button {
+
         text-decoration: none;
     }
 
 
     .metismenu-item > a:hover,
     .metismenu-item > button:hover {
+
         text-decoration: none;
-    }
-
-
-    // =============================================================================
-    // Keyboard focus
-    // =============================================================================
-
-    .metismenu-item > a:focus-visible,
-    .metismenu-item > button:focus-visible {
-        outline: 2px solid var(--ww-color-secondary);
-        outline-offset: 2px;
     }
 }

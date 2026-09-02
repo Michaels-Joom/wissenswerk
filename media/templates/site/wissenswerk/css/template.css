@@ -1477,21 +1477,45 @@ body {
   display: flex;
   flex: 1 0 100%;
   flex-direction: row;
-  padding: 0;
+  align-items: stretch;
   margin: 0;
+  padding: 0;
   list-style: none;
-}
-.metismenu.menu-horizontal > li {
-  position: relative;
 }
 .metismenu.mod-menu .metismenu-item {
   position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
 .metismenu.mod-menu .metismenu-item.parent {
   position: relative;
+}
+.metismenu.mod-menu > .metismenu-item > a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 3.5rem;
+  padding-block: var(--ww-space-3);
+  padding-inline: var(--ww-space-4);
+  color: var(--ww-color-text);
+  font-family: var(--ww-font-family-body);
+  font-size: var(--ww-font-size-base);
+  font-weight: var(--ww-font-weight-regular);
+  line-height: var(--ww-line-height-body);
+  text-decoration: none;
+  transition: color var(--ww-transition-fast), background-color var(--ww-transition-fast);
+}
+.metismenu.mod-menu > .metismenu-item > a:hover {
+  color: var(--ww-color-secondary);
+  background-color: var(--ww-color-surface-hover);
+}
+.metismenu.mod-menu > .metismenu-item > a:focus-visible {
+  z-index: 2;
+  outline: 2px solid var(--ww-color-secondary);
+  outline-offset: -2px;
 }
 .metismenu.mod-menu .metismenu-item > ul {
   position: absolute;
@@ -1499,9 +1523,10 @@ body {
   left: 0;
   z-index: 1001;
   min-width: 14rem;
-  padding: 0.5rem 0;
   margin: 0;
+  padding: 0.625rem 0;
   background-color: var(--ww-color-surface-alt);
+  border: 1px solid var(--ww-color-border);
   list-style: none;
   box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.08);
 }
@@ -1511,6 +1536,7 @@ body {
   min-width: 100%;
   margin: 0;
   padding: 0.25rem 0;
+  border: 0;
   box-shadow: none;
 }
 .metismenu .mm-collapse {
@@ -1525,45 +1551,81 @@ body {
   transition: height 0.35s ease, visibility 0.35s ease;
 }
 .metismenu.mod-menu .metismenu-item > ul .metismenu-item > a {
+  position: relative;
   display: block;
-  padding: 0.65rem 1rem;
-  color: currentColor;
+  min-height: 2.75rem;
+  padding-block: var(--ww-space-2);
+  padding-inline: var(--ww-space-4);
+  color: var(--ww-color-text);
+  font-family: var(--ww-font-family-body);
+  font-size: var(--ww-font-size-base);
+  font-weight: var(--ww-font-weight-regular);
+  line-height: var(--ww-line-height-body);
   text-decoration: none;
   white-space: nowrap;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition: color var(--ww-transition-fast), background-color var(--ww-transition-fast);
 }
 .metismenu.mod-menu .metismenu-item > ul .metismenu-item > a:hover {
   color: var(--ww-color-secondary);
-  text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: var(--ww-color-surface-hover);
+}
+.metismenu.mod-menu .metismenu-item > ul .metismenu-item > a:focus-visible {
+  z-index: 2;
+  outline: 2px solid var(--ww-color-secondary);
+  outline-offset: -2px;
 }
 .metismenu.mod-menu .metismenu-item > ul .metismenu-item.current > a {
   color: var(--ww-color-secondary);
-  text-decoration: none;
+  font-weight: 500;
+  background-color: var(--ww-color-surface-hover);
+  box-shadow: inset 3px 0 0 var(--ww-color-secondary);
+}
+.metismenu.mod-menu .metismenu > .metismenu-item > ul > .metismenu-item > a {
+  padding-inline-start: calc(var(--ww-space-4) + 1rem);
+}
+.metismenu.mod-menu .metismenu > .metismenu-item > ul > .metismenu-item > ul > .metismenu-item > a {
+  padding-inline-start: calc(var(--ww-space-4) + 2rem);
+}
+.metismenu.mod-menu .metismenu > .metismenu-item > ul > .metismenu-item > ul > .metismenu-item > ul > .metismenu-item > a {
+  padding-inline-start: calc(var(--ww-space-4) + 3rem);
 }
 .metismenu .mm-toggler {
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  padding: 0;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  margin: 0;
+  padding: 0 0.75rem;
   color: currentColor;
-  background: none;
+  background: transparent;
   border: 0;
   box-shadow: none;
   cursor: pointer;
+  transition: color var(--ww-transition-fast), background-color var(--ww-transition-fast);
+}
+.metismenu .mm-toggler:hover {
+  color: var(--ww-color-secondary);
+  background-color: var(--ww-color-surface-hover);
+}
+.metismenu .mm-toggler:focus-visible {
+  z-index: 2;
+  outline: 2px solid var(--ww-color-secondary);
+  outline-offset: -2px;
 }
 .metismenu .mm-toggler::after {
   width: 0;
   height: 0;
-  margin-inline-start: 0.5em;
+  margin-inline-start: 0.4rem;
   content: "";
-  border-top: 0.5em solid currentColor;
-  border-right: 0.5em solid transparent;
-  border-left: 0.5em solid transparent;
-  transition: transform 0.3s ease;
+  border-top: 0.4rem solid currentColor;
+  border-right: 0.3rem solid transparent;
+  border-left: 0.3rem solid transparent;
+  transition: transform var(--ww-transition-fast), color var(--ww-transition-fast);
 }
 .metismenu .mm-toggler[aria-expanded=true]::after {
-  transform: rotateX(-180deg);
+  transform: rotateX(180deg);
 }
 .metismenu .metismenu-item.current > a,
 .metismenu .metismenu-item.current > button {
@@ -1573,6 +1635,15 @@ body {
 .metismenu .metismenu-item.parent:has(> ul .metismenu-item.current) > button {
   color: var(--ww-color-secondary);
 }
+.metismenu.menu-horizontal > .metismenu-item.current > a::after {
+  position: absolute;
+  right: var(--ww-space-4);
+  bottom: 0;
+  left: var(--ww-space-4);
+  height: 2px;
+  content: "";
+  background-color: var(--ww-color-secondary);
+}
 .metismenu .metismenu-item > a,
 .metismenu .metismenu-item > button {
   text-decoration: none;
@@ -1580,11 +1651,6 @@ body {
 .metismenu .metismenu-item > a:hover,
 .metismenu .metismenu-item > button:hover {
   text-decoration: none;
-}
-.metismenu .metismenu-item > a:focus-visible,
-.metismenu .metismenu-item > button:focus-visible {
-  outline: 2px solid var(--ww-color-secondary);
-  outline-offset: 2px;
 }
 
 .ww-header__navigation {
