@@ -74,7 +74,22 @@ defined('_JEXEC') or die;
     ========================================================== -->
     <div class="offcanvas-footer ww-offcanvas__footer">
 
-        <!-- reserviert -->
+        <?php if (!empty($logoFile)) : ?>
+
+            <img
+                class="ww-offcanvas__footer-logo"
+                src="<?= htmlspecialchars($logoFile, ENT_QUOTES, 'UTF-8'); ?>"
+                alt="<?= htmlspecialchars($branding, ENT_QUOTES, 'UTF-8'); ?>">
+
+        <?php endif; ?>
+
+        <div class="ww-offcanvas__legal">
+            <jdoc:include type="modules" name="offcanvas-legal" style="none" />
+        </div>
+
+        <div class="ww-offcanvas__copyright">
+            © <?= date('Y'); ?> WissensWerk
+        </div>
 
     </div>
 </div>

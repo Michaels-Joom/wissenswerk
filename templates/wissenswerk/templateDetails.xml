@@ -88,6 +88,8 @@
 		<position>footer-legal</position>
         <position>footer-contact</position>
         
+        <!-- Offcanvas Footer -->
+        <position>offcanvas-legal</position>
 
         <!-- Copyright -->
         <position>copyright</position>
