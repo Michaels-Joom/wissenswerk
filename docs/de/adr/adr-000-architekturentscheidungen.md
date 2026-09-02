@@ -26,8 +26,8 @@ Die eigentlichen Entscheidungen werden jeweils in einem eigenen ADR dokumentiert
 | [ADR-001](./adr-001-bootstrap-integration.md) | Bootstrap wird über Design Tokens gesteuert | Angenommen |
 | [ADR-002](./adr-002-wissenswerk-eigenständigen-joomla-template.md) | WissensWerk basiert auf einem eigenständigen Joomla-Template | Angenommen |
 | [ADR-003](./adr-003-auslieferungs-scss-quellen.md) | WissensWerk basiert auf einem eigenständigen Joomla-Template | Angenommen |
-| [ADR-004](./adr-004-verwendung-live-sass-compiler) | Für die Entwicklung des WissensWerk-Templates werden SCSS-Dateien verwendet | Angenommen |
-| [ADR-005](./adr-005-konfiguration-live-sass-compilers) | Bei der Einrichtung des Live Sass Compilers wurden verschiedene Konfigurationsvarianten geprüft | Angenommen |
+| [ADR-004](./adr-004-verwendung-live-sass-compiler.md) | Für die Entwicklung des WissensWerk-Templates werden SCSS-Dateien verwendet | Angenommen |
+| [ADR-005](./adr-005-konfiguration-live-sass-compilers.md) | Bei der Einrichtung des Live Sass Compilers wurden verschiedene Konfigurationsvarianten geprüft | Angenommen |
 | [ADR-006](./adr-006-bootstrap-komponentenbibliothek.md) | Joomla verwendet Bootstrap als wesentlichen Bestandteil seiner Frontend-Architektur | Angenommen |
 | [ADR-007](./adr-007-header-footer-design-konzept.md) | Für Header und Footer wurden grundlegende Gestaltungs- und Architekturentscheidungen getroffen | Angenommen |
 | [ADR-008](./adr-008-breadcrumbs-override.md) | Breadcrumbs werden über einen Template-Override in das WissensWerk-Designsystem integriert | Angenommen |
