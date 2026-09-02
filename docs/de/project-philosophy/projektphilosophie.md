@@ -1,4 +1,4 @@
-[⋮⋮⋮ Zurück zur Übersicht](./../../README.de.md)
+[⋮⋮⋮ Zurück zur Übersicht](./../table-of-contents.md)
 
 # Projektphilosophie
 
