@@ -1,4 +1,4 @@
-[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [📐 Architekturentscheidungen (ADR)](./adr/adr-000-architekturentscheidungen.md)
+[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [📐 Architekturentscheidungen (ADR)](./adr-000-architekturentscheidungen.md)
 
 # ADR-001 – Bootstrap wird über Design Tokens gesteuert
 
