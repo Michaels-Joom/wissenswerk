@@ -1,0 +1,28 @@
+{
+  "name": "wissenswerk",
+  "version": "1.0.0",
+  "description": "_Diese Dokumentation ist auch verfügbar in: [🇩🇪 Deutsch](./README.de.md)_",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:js": "terser media/templates/site/wissenswerk/js/mod_menu/menu-metismenu.js -c -m -o media/templates/site/wissenswerk/js/mod_menu/menu-metismenu.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Michaels-Joom/wissenswerk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Michaels-Joom/wissenswerk/issues"
+  },
+  "homepage": "https://github.com/Michaels-Joom/wissenswerk#readme",
+  "devDependencies": {
+    "terser": "^5.51.2"
+  },
+  "private": "true"
+}
