@@ -1,3 +1,5 @@
+[⋮⋮⋮ Inhaltsverzeichnis](./../table-of-contents.md) [📐 Architekturentscheidungen (ADR)](./adr-000-architekturentscheidungen.md)
+
 # ADR-006 – Bootstrap als Komponentenbibliothek
 
 **Status:** Angenommen  
