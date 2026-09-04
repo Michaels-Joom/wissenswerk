@@ -103,8 +103,17 @@ button {
 // =============================================================================
 // Inputs
 // =============================================================================
+//
+// Text inputs, select fields and textareas receive the WissensWerk
+// base styling.
+//
+// Checkboxes and radio buttons are deliberately excluded.
+// Bootstrap remains responsible for their native/custom control
+// presentation via .form-check-input.
+//
+// =============================================================================
 
-input,
+input:not([type="checkbox"]):not([type="radio"]),
 select,
 textarea {
 

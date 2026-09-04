@@ -827,7 +827,7 @@ button {
   font: inherit;
 }
 
-input,
+input:not([type=checkbox]):not([type=radio]),
 select,
 textarea {
   box-sizing: border-box;
@@ -1112,35 +1112,11 @@ body {
   min-height: 340px;
 }
 
-.page-home .ww-hero__illustration::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("../images/grafik/grafik_leiterbahn_001.png");
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 36% auto;
-  margin-right: 6rem;
-  opacity: 0.48;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.page-leistungen .ww-hero__illustration::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("../images/grafik/grafik_leiterbahn_001.png");
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 36% auto;
-  margin-right: 6rem;
-  opacity: 0.48;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.page-impressum .ww-hero__illustration::before {
+.page-kontakt .ww-hero__illustration::before,
+.page-home .ww-hero__illustration::before,
+.page-leistungen .ww-hero__illustration::before,
+.page-impressum .ww-hero__illustration::before,
+.page-datenschutz .ww-hero__illustration::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -1201,6 +1177,34 @@ body {
   width: 350px;
   height: 350px;
   background-image: url("../images/grafik/cookie.png");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.page-datenschutz .ww-hero__visual {
+  position: absolute;
+  right: 18%;
+  bottom: 30%;
+  width: 350px;
+  height: 350px;
+  background-image: url("../images/grafik/datenschutz.png");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.page-kontakt .ww-hero__visual {
+  position: absolute;
+  right: 25%;
+  bottom: 40%;
+  width: 400px;
+  height: 350px;
+  background-image: url("../images/grafik/kontakt.png");
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: contain;
@@ -2642,7 +2646,7 @@ body {
   border: 0;
   border-radius: 0;
   background-color: transparent;
-  color: var(--ww-color-text, #2c2523);
+  color: var(--ww-color-primary);
   font-size: 0.95rem;
   font-weight: 600;
   line-height: 1.4;
