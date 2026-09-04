@@ -165,6 +165,23 @@
 
             </fieldset>
 
+            <fieldset
+                name="contact"
+                label="TPL_WISSENSWERK_FIELDSET_CONTACT">
+
+                <field
+                    name="contact_privacy_notice"
+                    type="editor"
+                    label="TPL_WISSENSWERK_CONTACT_PRIVACY_NOTICE_LABEL"
+                    description="TPL_WISSENSWERK_CONTACT_PRIVACY_NOTICE_DESC"
+                    filter="raw"
+                    buttons="false"
+                    hide="pagebreak,readmore"
+                    default=""
+                />
+
+            </fieldset>
+
             <fieldset name="footer" label="TPL_WISSENSWERK_FIELDSET_FOOTER">
 
                 <field

@@ -1,24 +1,27 @@
 // =============================================================================
 // WissensWerk Design System
 // Base Layer
-// Lists
+// Links
 // =============================================================================
 //
 // File:
-// _lists.scss
+// _links.scss
 //
 // Purpose:
-// Applies the Design System to native HTML list elements.
+// Applies the Design System to native HTML links.
 //
 // Responsibilities:
-// - Unordered lists
-// - Ordered lists
-// - Definition lists
+// - Default link color
+// - Hover state
+// - Focus state
+// - Visited state
+// - Link text decoration
 //
 // Not responsible for:
 // - Navigation
 // - Menus
-// - Components
+// - Buttons
+// - Component-specific links
 //
 // Status:
 // ✓ Final
@@ -27,61 +30,58 @@
 
 
 // =============================================================================
-// Unordered & Ordered Lists
+// Default Links
 // =============================================================================
 
-ul,
-ol {
+a {
 
-    margin-block: 0 var(--ww-space-4);
+    color: var(--ww-color-accent-2);
 
-    padding-inline-start: var(--ww-space-6);
+    text-decoration: none;
 
-}
-
-li {
-
-    margin-block-end: var(--ww-space-2);
+    transition:
+        color var(--ww-transition-fast),
+        text-decoration-color var(--ww-transition-fast);
 
 }
 
 
 // =============================================================================
-// Nested Lists
+// Hover
 // =============================================================================
 
-ul ul,
-ul ol,
-ol ul,
-ol ol {
+a:hover {
 
-    margin-block: var(--ww-space-2) 0;
+    color: var(--ww-color-accent-2);
+
+    text-decoration: underline;
+
+    text-decoration-thickness: 1px;
+
+    text-underline-offset: 0.15em;
 
 }
 
 
 // =============================================================================
-// Definition Lists
+// Visited
 // =============================================================================
 
-dl {
+a:visited {
 
-    margin-block: 0 var(--ww-space-4);
-
-}
-
-dt {
-
-    margin-bottom: var(--ww-space-1);
-
-    font-weight: var(--ww-font-weight-semibold);
+    color: var(--ww-color-accent-2);
 
 }
 
-dd {
 
-    margin-inline-start: var(--ww-space-5);
+// =============================================================================
+// Keyboard Focus
+// =============================================================================
 
-    margin-block-end: var(--ww-space-3);
+a:focus-visible {
+
+    outline: 2px solid var(--ww-color-focus);
+
+    outline-offset: 2px;
 
 }

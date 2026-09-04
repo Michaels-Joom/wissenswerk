@@ -1,0 +1,311 @@
+// =============================================================================
+// WissensWerk Design System
+// Component Layer
+// Contact Form
+// =============================================================================
+//
+// File:
+// _contact-form.scss
+//
+// Purpose:
+// Visual styling for the Joomla contact form.
+//
+// Responsibilities:
+// - Contact form spacing
+// - Joomla contact field groups
+// - Privacy checkbox presentation
+// - Submit button
+// - Component-specific focus states
+// - Responsive behavior
+//
+// Not responsible for:
+// - Global form defaults
+// - Form field generation
+// - Form validation logic
+// - Mail delivery
+//
+// Joomla com_contact remains responsible for the form structure,
+// field handling and validation.
+// _forms.scss provides the global form baseline.
+// This component only defines the specific presentation of
+// the WissensWerk contact form.
+//
+// =============================================================================
+
+
+// =============================================================================
+// Contact Form
+// =============================================================================
+
+.com-contact__form {
+
+    width: 100%;
+
+}
+
+
+// =============================================================================
+// Form
+// =============================================================================
+
+.com-contact__form form {
+
+    margin-block: 0;
+
+}
+
+
+// =============================================================================
+// Field Groups
+// =============================================================================
+//
+// Joomla uses .control-group as the wrapper for individual fields.
+// The global form styling remains in _forms.scss.
+//
+// =============================================================================
+
+.com-contact__form .control-group {
+
+    margin-bottom: var(--ww-space-4);
+
+}
+
+
+// =============================================================================
+// Labels
+// =============================================================================
+
+.com-contact__form .control-label {
+
+    margin-bottom: var(--ww-space-2);
+
+}
+
+.com-contact__form .control-label label {
+
+    margin-bottom: 0;
+
+    font-weight: var(--ww-font-weight-medium);
+
+}
+
+
+// =============================================================================
+// Controls
+// =============================================================================
+
+.com-contact__form .controls {
+
+    width: 100%;
+
+}
+
+
+// =============================================================================
+// Privacy Confirmation
+// =============================================================================
+//
+// Joomla renders the privacy field as:
+//
+// .control-group
+// ├── .control-label
+// │   └── label
+// └── .controls
+//     └── .form-check
+//         └── input[type="checkbox"]
+//
+// For this specific field the label and checkbox are intentionally
+// displayed next to each other.
+//
+// =============================================================================
+
+.com-contact__form .control-group:has(#jform_datenschutz) {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 0.65rem;
+
+    margin-top: var(--ww-space-4);
+
+    margin-bottom: var(--ww-space-5);
+
+}
+
+.com-contact__form .control-group:has(#jform_datenschutz) .control-label {
+
+    order: 2;
+
+    flex: 1 1 auto;
+
+    min-width: 0;
+
+    margin: 0;
+
+}
+
+.com-contact__form .control-group:has(#jform_datenschutz) .control-label label {
+
+    margin: 0;
+
+    font-size: 0.9rem;
+
+    line-height: 1.5;
+
+}
+
+.com-contact__form .control-group:has(#jform_datenschutz) .controls {
+
+    order: 1;
+
+    flex: 0 0 auto;
+
+    width: auto;
+
+    margin: 0;
+
+}
+
+.com-contact__form .control-group:has(#jform_datenschutz) .form-check {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    width: auto;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+.com-contact__form .control-group:has(#jform_datenschutz) input[type="checkbox"] {
+
+    flex: 0 0 auto;
+
+    width: 1rem;
+
+    min-width: 1rem;
+
+    max-width: 1rem;
+
+    height: 1rem;
+
+    margin: 0.2rem 0 0;
+
+    padding: 0;
+
+}
+
+
+// =============================================================================
+// Privacy Checkbox Focus
+// =============================================================================
+
+.com-contact__form .control-group:has(#jform_datenschutz) input[type="checkbox"]:focus-visible {
+
+    outline: 2px solid var(--ww-color-focus);
+
+    outline-offset: 2px;
+
+}
+
+
+// =============================================================================
+// Submit Action
+// =============================================================================
+//
+// The submit button is contained in the final Joomla .control-group.
+// No global button styles are changed here.
+//
+// =============================================================================
+
+.com-contact__form .control-group:last-child .controls {
+
+    width: auto;
+
+}
+
+.com-contact__form .control-group:last-child .btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 2.75rem;
+
+    padding: 0.7rem 1.25rem;
+
+    border: 1px solid var(--ww-color-text);
+
+    border-radius: var(--ww-radius-sm);
+
+    background-color: var(--ww-color-primary);
+
+    color: var(--ww-color-surface-alt);
+
+    font: inherit;
+
+    font-weight: var(--ww-font-weight-medium);
+
+    line-height: 1.2;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--ww-transition-fast),
+        border-color var(--ww-transition-fast),
+        color var(--ww-transition-fast);
+
+}
+
+.com-contact__form .control-group:last-child .btn:hover {
+
+    border-color: var(--ww-color-accent);
+
+    background-color: var(--ww-color-accent);
+
+    color: var(--ww-color-background);
+
+}
+
+.com-contact__form .control-group:last-child .btn:focus-visible {
+
+    outline: 2px solid var(--ww-color-focus);
+
+    outline-offset: 3px;
+
+}
+
+
+// =============================================================================
+// Responsive
+// =============================================================================
+
+@media (max-width: 767.98px) {
+
+    .com-contact__form .control-group:has(#jform_datenschutz) {
+
+        gap: 0.55rem;
+
+    }
+
+    .com-contact__form .control-group:has(#jform_datenschutz) .control-label label {
+
+        font-size: 0.875rem;
+
+    }
+
+    .com-contact__form .control-group:last-child .btn {
+
+        width: 100%;
+
+    }
+
+}
