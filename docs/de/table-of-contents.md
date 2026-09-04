@@ -35,6 +35,7 @@ Sie beschreibt die tatsächliche Architektur, das Designsystem, die Entwicklungs
 ### Troubleshooting
 
 - [🛠️ TS-001 – Navigation und Cassiopeia-Menütyp](./troubleshooting/ts-001-troubleshooting-cassopeia-dropdown.md)
+- [🛠️ TS-002 – Joomla `com_contact`: Custom Field im Frontend-Kontaktformular](./troubleshooting/ts-002-contact-form-custom-field.md)
 
 ## Dokumentationsprinzip
 
