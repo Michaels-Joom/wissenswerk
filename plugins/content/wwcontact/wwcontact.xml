@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension method="upgrade" type="plugin" group="content">
+
+    <name>WW Kontaktformular</name>
+    <version>1.0.0</version>
+    <description>
+        Erweitert das Joomla-Kontaktformular von WissensWerk um eine verpflichtende Datenschutz-Kenntnisnahme.
+    </description>
+
+    <author>WissensWerk</author>
+    <creationDate>2026-09-04</creationDate>
+    <copyright>WissensWerk</copyright>
+    <license>GNU General Public License version 2 or later</license>
+
+    <namespace path="src">WissensWerk\Plugin\Content\Wwcontact</namespace>
+
+    <files>
+        <folder plugin="wwcontact">services</folder>
+        <folder>src</folder>
+    </files>
+
+</extension>
