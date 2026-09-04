@@ -1,5 +1,5 @@
+@use "../abstracts" as abstracts;
 @use "../tokens" as *;
-@use "../abstracts" as*;
 // =============================================================================
 // WissensWerk Design System
 // Layout Layer
@@ -84,3 +84,13 @@
     font-size: 1.4rem;
 }
 
+.ww-header__toggle {
+    display: none;
+}
+
+@media (max-width: abstracts.$ww-breakpoint-lg) {
+
+    .ww-header__toggle {
+        display: flex;
+    }
+}

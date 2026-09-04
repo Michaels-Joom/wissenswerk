@@ -1,0 +1,202 @@
+/**
+ * WissensWerk
+ * Component: Accordion
+ *
+ * Baut auf dem Bootstrap Accordion / Collapse auf.
+ * Bootstrap übernimmt die Funktionalität.
+ * WissensWerk übernimmt die visuelle Gestaltung.
+ */
+
+.ww-accordion {
+
+    // -------------------------------------------------------------------------
+    // Accordion Container
+    // -------------------------------------------------------------------------
+
+    width: 100%;
+
+
+    // -------------------------------------------------------------------------
+    // Accordion Item
+    // -------------------------------------------------------------------------
+
+    .accordion-item {
+        border: 0;
+        border-top: 1px solid var(--ww-color-border, #d8d4cc);
+        border-radius: 0;
+        background: transparent;
+    }
+
+    .accordion-item:last-child {
+        border-bottom: 1px solid var(--ww-color-border, #d8d4cc);
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Header / Button
+    // -------------------------------------------------------------------------
+
+    .accordion-header {
+        margin: 0;
+    }
+
+    .accordion-button {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+
+        width: 100%;
+
+        padding: 1rem 2.5rem 1rem 0;
+
+        border: 0;
+        border-radius: 0;
+
+        background-color: transparent;
+        color: var(--ww-color-text, #2c2523);
+
+        font-size: 0.95rem;
+        font-weight: 600;
+        line-height: 1.4;
+        text-align: left;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+
+        box-shadow: none;
+
+        transition:
+            color 0.2s ease,
+            background-color 0.2s ease;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Hover
+    // -------------------------------------------------------------------------
+
+    .accordion-button:hover {
+        color: var(--ww-color-accent, #b8860b);
+        background-color: transparent;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Focus
+    // -------------------------------------------------------------------------
+
+    .accordion-button:focus {
+        z-index: 1;
+
+        color: var(--ww-color-text, #2c2523);
+
+        background-color: transparent;
+
+        box-shadow:
+            0 0 0 2px var(--ww-color-accent, #b8860b);
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Nummer
+    // -------------------------------------------------------------------------
+
+    &__number {
+        flex: 0 0 auto;
+
+        margin-right: 0.25rem;
+
+        font-weight: 600;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Titel
+    // -------------------------------------------------------------------------
+
+    &__title {
+        flex: 1 1 auto;
+
+        min-width: 0;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Chevron
+    //
+    // Bootstrap erzeugt standardmäßig ein SVG als background-image.
+    // Für WissensWerk verwenden wir stattdessen einen einfachen CSS-Chevron.
+    // -------------------------------------------------------------------------
+
+    .accordion-button::after {
+        position: absolute;
+        top: 50%;
+        right: 0.35rem;
+        width: 0.65rem;
+        height: 0.65rem;
+        margin: 0;
+
+        border-right: 1.5px solid currentColor;
+        border-bottom: 1.5px solid currentColor;
+
+        background-image: none;
+
+        transform: translateY(-70%) rotate(45deg);
+        transition: transform 0.2s ease;
+    }
+
+    // Chevron geöffnet
+    
+    .accordion-button:not(.collapsed)::after {
+        transform: translateY(-30%) rotate(225deg);
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Geöffneter Button
+    // -------------------------------------------------------------------------
+
+    .accordion-button:not(.collapsed) {
+        color: var(--ww-color-text, #2c2523);
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Inhalt
+    // -------------------------------------------------------------------------
+
+    .accordion-collapse {
+        border: 0;
+    }
+
+    .accordion-body {
+        padding: 0.25rem 2.5rem 1.5rem 1.25rem;
+
+        color: var(--ww-color-text, #2c2523);
+
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Responsive
+    // -------------------------------------------------------------------------
+
+    @media (max-width: 767.98px) {
+
+        .accordion-button {
+            padding-top: 0.875rem;
+            padding-bottom: 0.875rem;
+
+            font-size: 0.875rem;
+        }
+
+        .accordion-body {
+            padding-right: 2rem;
+            padding-bottom: 1.25rem;
+        }
+    }
+}

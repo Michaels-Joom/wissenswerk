@@ -17,6 +17,8 @@
 .ww-reading-layout {
     align-items: flex-start;
     padding-top: 2rem;
+    padding-bottom: 3rem;
+
 }
 
 /* ==========================================================
@@ -25,7 +27,7 @@
 
 .ww-content {
     min-width: 0;
-    padding-inline: 60px 30px;
+    padding-inline: 30px 30px;
 }
 
 /* ==========================================================
@@ -34,7 +36,7 @@
 
 .ww-sidebar {
     min-width: 0;
-    padding-inline: 15px 30px;
+    padding-inline: 15px 15px;
     
 }
 
@@ -43,5 +45,7 @@
     padding-inline: 5px;
     font-size:smaller;
     padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 
 }

@@ -1,3 +1,4 @@
+@use "../abstracts" as abstracts;
 @use "../tokens" as *;
 
 // =============================================================================
@@ -235,4 +236,11 @@
 .ww-header__search:focus-visible {
     outline: 2px solid var(--ww-color-secondary);
     outline-offset: 3px;
+}
+
+@media (max-width: abstracts.$ww-breakpoint-lg) {
+
+    .ww-header__navigation {
+        display: none;
+    }
 }

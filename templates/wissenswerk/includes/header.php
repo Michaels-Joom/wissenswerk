@@ -26,15 +26,13 @@ $app = Factory::getApplication();
         
         <!-- Aktionen -->
         <div class="ww-header__actions">
-            <div class="ww-header__actions">
 
-                <button
-                    class="ww-header__search"
-                    type="button"
-                    aria-label="Suche öffnen">
-                    <span class="bi bi-search" aria-hidden="true"></span>
-                </button>
-            </div>
+            <button
+                class="ww-header__search"
+                type="button"
+                aria-label="Suche öffnen">
+                <span class="bi bi-search" aria-hidden="true"></span>
+            </button>
         
             <div class="ww-header__cta">
                 <jdoc:include type="modules" name="header-button" style="none" />
@@ -55,7 +53,6 @@ $app = Factory::getApplication();
                 </span>
 
             </button>
-
         </div>
     </div>
 </header>

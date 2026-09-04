@@ -134,7 +134,7 @@ if ($showSidebarLeft && $showSidebarRight) {
         <section class="ww-hero">
             <div class="ww-container ww-divider">
                 <div class="ww-hero__illustration">  
-                    <div class="ww-hero__book">
+                    <div class="ww-hero__visual">
                     </div>
                         <div class="ww-hero__inner">
                             <jdoc:include type="modules" name="hero" style="xhtml"/>

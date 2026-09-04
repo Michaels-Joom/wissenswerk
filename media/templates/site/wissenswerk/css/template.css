@@ -1016,56 +1016,20 @@ audio {
   padding-inline: 30px;
 }
 
-.ww-content-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(18rem, 22rem);
-  gap: var(--ww-space-10);
-  align-items: start;
-}
-
-.ww-main {
-  min-width: 0;
-}
-
-.ww-sidebar {
-  min-width: 0;
-}
-
-@media (max-width: 992px) {
-  .ww-content-layout {
-    grid-template-columns: 1fr;
-  }
-  .ww-main {
-    order: 1;
-  }
-  .ww-sidebar {
-    order: 2;
-  }
-}
-/* ==========================================================================
-   Reading Layout
-   ==========================================================================
-   Layout für Inhaltsseiten (Artikel, Dokumentation, Blog)
-   ========================================================================== */
-.ww-main {
-  width: 100%;
-}
-
 .ww-reading-layout {
   align-items: flex-start;
 }
 
-/* ==========================================================
-   Content
-   ========================================================== */
+.ww-main {
+  width: 100%;
+  min-width: 0;
+}
+
 .ww-content {
   min-width: 0;
   padding-inline: 60px 30px;
 }
 
-/* ==========================================================
-   Sidebar
-   ========================================================== */
 .ww-sidebar {
   min-width: 0;
   padding-inline: 30px 60px;
@@ -1126,8 +1090,20 @@ body {
   font-size: 1.4rem;
 }
 
+.ww-header__toggle {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .ww-header__toggle {
+    display: flex;
+  }
+}
 .ww-hero {
   padding-block: var(--ww-space-6);
+}
+.ww-hero .ww-hero__subtitle {
+  color: var(--ww-color-primary);
 }
 
 .ww-hero__illustration {
@@ -1164,6 +1140,20 @@ body {
   z-index: 1;
 }
 
+.page-impressum .ww-hero__illustration::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/grafik/grafik_leiterbahn_001.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 36% auto;
+  margin-right: 6rem;
+  opacity: 0.48;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .ww-hero__illustration::after {
   content: "";
   position: absolute;
@@ -1176,13 +1166,41 @@ body {
   z-index: 2;
 }
 
-.page-leistungen .ww-hero__book {
+.page-leistungen .ww-hero__visual {
+  position: absolute;
+  right: 24%;
+  bottom: 25%;
+  width: 320px;
+  height: 260px;
+  background-image: url("../images/grafik/template-entwicklung.png");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.page-impressum .ww-hero__visual {
   position: absolute;
   right: 30%;
   bottom: 25%;
   width: 320px;
   height: 260px;
-  background-image: url("../images/grafik/template-entwicklung.png");
+  background-image: url("../images/logo/wissenswerk_logo_transparent.png");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.page-cokie-richtlinie .ww-hero__visual {
+  position: absolute;
+  right: 12%;
+  bottom: 15%;
+  width: 350px;
+  height: 350px;
+  background-image: url("../images/grafik/cookie.png");
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: contain;
@@ -1214,6 +1232,19 @@ body {
   padding-bottom: 1rem;
 }
 
+@media (max-width: 767.98px) {
+  .ww-hero__visual {
+    display: none;
+  }
+  .ww-hero__illustration::before {
+    display: none;
+  }
+  .ww-hero__illustration::after {
+    width: 80%;
+    height: 10%;
+    clip-path: polygon(20% 100%, 100% 100%, 100% 0);
+  }
+}
 /* ==========================================================================
    Reading Layout
    ==========================================================================
@@ -1231,6 +1262,7 @@ body {
 .ww-reading-layout {
   align-items: flex-start;
   padding-top: 2rem;
+  padding-bottom: 3rem;
 }
 
 /* ==========================================================
@@ -1238,7 +1270,7 @@ body {
    ========================================================== */
 .ww-content {
   min-width: 0;
-  padding-inline: 60px 30px;
+  padding-inline: 30px 30px;
 }
 
 /* ==========================================================
@@ -1246,7 +1278,7 @@ body {
    ========================================================== */
 .ww-sidebar {
   min-width: 0;
-  padding-inline: 15px 30px;
+  padding-inline: 15px 15px;
 }
 
 .ww_info__box {
@@ -1254,6 +1286,8 @@ body {
   padding-inline: 5px;
   font-size: smaller;
   padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 .ww-footer {
@@ -1428,6 +1462,27 @@ body {
     display: inline;
   }
 }
+.ww_box {
+  padding-inline: 5px;
+  font-size: smaller;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.ww_box__sand {
+  color: var(--ww-color-primary);
+  background-color: var(--ww-color-surface-alt);
+}
+
+.ww_box__green h4 {
+  color: var(--ww-color-primary);
+}
+.ww_box__green {
+  color: var(--ww-color-primary);
+  background-color: var(--ww-color-surface-salbei);
+}
+
 .ww-breadcrumbs {
   padding: var(--ww-space-4) 0;
 }
@@ -1736,6 +1791,11 @@ body {
   outline-offset: 3px;
 }
 
+@media (max-width: 992px) {
+  .ww-header__navigation {
+    display: none;
+  }
+}
 .ww-topic-inner {
   border-bottom: 2px solid var(--ww-color-surface-alt);
   padding-bottom: var(--ww-space-4);
@@ -1925,7 +1985,6 @@ body {
 }
 
 .ww-header__toggle {
-  display: flex;
   align-items: center;
   justify-content: center;
   width: 44px;
@@ -2466,4 +2525,190 @@ body {
 .ww-button--service:focus-visible {
   background: var(--ww-color-secondary);
   color: var(--ww-color-background);
+}
+
+.ww-data-grid {
+  --ww-data-grid-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  width: 100%;
+  border: 1px solid var(--ww-color-border, #d8d4cc);
+}
+.ww-data-grid--cookies {
+  --ww-data-grid-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 0.85fr) minmax(0, 0.85fr);
+}
+.ww-data-grid__header {
+  display: grid;
+  grid-template-columns: var(--ww-data-grid-columns);
+  border-bottom: 1px solid var(--ww-color-border, #d8d4cc);
+}
+.ww-data-grid__heading {
+  padding: 1rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-right: 1px solid var(--ww-color-border, #d8d4cc);
+}
+.ww-data-grid__heading:last-child {
+  border-right: 0;
+}
+.ww-data-grid__body {
+  display: block;
+}
+.ww-data-grid__item {
+  display: grid;
+  grid-template-columns: var(--ww-data-grid-columns);
+  border-bottom: 1px solid var(--ww-color-border, #d8d4cc);
+}
+.ww-data-grid__item:last-child {
+  border-bottom: 0;
+}
+.ww-data-grid__cell {
+  min-width: 0;
+  padding: 1.25rem;
+  line-height: 1.5;
+  border-right: 1px solid var(--ww-color-border, #d8d4cc);
+}
+.ww-data-grid__cell:last-child {
+  border-right: 0;
+}
+.ww-data-grid__cell--cookie {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+.ww-data-grid__icon {
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+}
+.ww-data-grid__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.ww-data-grid__value {
+  margin: 0;
+}
+
+@media (max-width: 767.98px) {
+  .ww-data-grid__header {
+    display: none;
+  }
+  .ww-data-grid__item {
+    display: block;
+  }
+  .ww-data-grid__cell {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: 0.75rem;
+    border-right: 0;
+  }
+  .ww-data-grid__cell::before {
+    content: attr(data-label);
+    font-weight: 600;
+  }
+}
+/**
+ * WissensWerk
+ * Component: Accordion
+ *
+ * Baut auf dem Bootstrap Accordion / Collapse auf.
+ * Bootstrap übernimmt die Funktionalität.
+ * WissensWerk übernimmt die visuelle Gestaltung.
+ */
+.ww-accordion {
+  width: 100%;
+}
+.ww-accordion .accordion-item {
+  border: 0;
+  border-top: 1px solid var(--ww-color-border, #d8d4cc);
+  border-radius: 0;
+  background: transparent;
+}
+.ww-accordion .accordion-item:last-child {
+  border-bottom: 1px solid var(--ww-color-border, #d8d4cc);
+}
+.ww-accordion .accordion-header {
+  margin: 0;
+}
+.ww-accordion .accordion-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 2.5rem 1rem 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--ww-color-text, #2c2523);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: left;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.ww-accordion .accordion-button:hover {
+  color: var(--ww-color-accent, #b8860b);
+  background-color: transparent;
+}
+.ww-accordion .accordion-button:focus {
+  z-index: 1;
+  color: var(--ww-color-text, #2c2523);
+  background-color: transparent;
+  box-shadow: 0 0 0 2px var(--ww-color-accent, #b8860b);
+}
+.ww-accordion__number {
+  flex: 0 0 auto;
+  margin-right: 0.25rem;
+  font-weight: 600;
+}
+.ww-accordion__title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.ww-accordion .accordion-button::after {
+  position: absolute;
+  top: 50%;
+  right: 0.35rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  margin: 0;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  background-image: none;
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.ww-accordion .accordion-button:not(.collapsed)::after {
+  transform: translateY(-30%) rotate(225deg);
+}
+.ww-accordion .accordion-button:not(.collapsed) {
+  color: var(--ww-color-text, #2c2523);
+  background-color: transparent;
+  box-shadow: none;
+}
+.ww-accordion .accordion-collapse {
+  border: 0;
+}
+.ww-accordion .accordion-body {
+  padding: 0.25rem 2.5rem 1.5rem 1.25rem;
+  color: var(--ww-color-text, #2c2523);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+@media (max-width: 767.98px) {
+  .ww-accordion .accordion-button {
+    padding-top: 0.875rem;
+    padding-bottom: 0.875rem;
+    font-size: 0.875rem;
+  }
+  .ww-accordion .accordion-body {
+    padding-right: 2rem;
+    padding-bottom: 1.25rem;
+  }
 }/*# sourceMappingURL=template.css.map */

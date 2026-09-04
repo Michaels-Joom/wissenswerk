@@ -4,8 +4,13 @@
 
 .ww-hero {
     padding-block: var(--ww-space-6);
-    
+   
+     .ww-hero__subtitle{
+        color: var(--ww-color-primary);
+    }
 }
+
+
 
 // =============================================================================
 // Hero Illustration Layer
@@ -21,7 +26,6 @@
 // =============================================================================
 // Hero Background (Leiterbahnen)
 // =============================================================================
-
 
 .page-home .ww-hero__illustration::before {
 
@@ -51,6 +55,22 @@
     pointer-events: none;
     z-index: 1;
 }
+.page-impressum .ww-hero__illustration::before {
+
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/grafik/grafik_leiterbahn_001.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 36% auto;
+    margin-right: 6rem;
+    opacity: .48;
+    pointer-events: none;
+    z-index: 1;
+}
+
+
 
 // =============================================================================
 // Hero Polygon
@@ -75,10 +95,30 @@
 }
 
 // =============================================================================
-// Hero Book
+// Hero Visual
 // =============================================================================
 
-.page-leistungen .ww-hero__book {
+.page-leistungen .ww-hero__visual {
+
+    position: absolute;
+
+    right: 24%;
+    bottom: 25%;
+
+    width: 320px;
+    height: 260px;
+
+    background-image: url("../images/grafik/template-entwicklung.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+.page-impressum .ww-hero__visual {
 
     position: absolute;
 
@@ -88,7 +128,27 @@
     width: 320px;
     height: 260px;
 
-    background-image: url("../images/grafik/template-entwicklung.png");
+    background-image: url("../images/logo/wissenswerk_logo_transparent.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+.page-cokie-richtlinie .ww-hero__visual {
+
+    position: absolute;
+
+    right: 12%;
+    bottom: 15%;
+
+    width: 350px;
+    height: 350px;
+
+    background-image: url("../images/grafik/cookie.png");
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: contain;
@@ -138,3 +198,26 @@
     
 }
 
+@media (max-width: 767.98px) {
+
+    // Seitenbezogene Visuals auf Mobil ausblenden.
+    .ww-hero__visual {
+        display: none;
+    }
+
+    // Dekorative Leiterbahn auf Mobil ausblenden.
+    .ww-hero__illustration::before {
+        display: none;
+    }
+
+    // Polygon auf Mobil deutlich flacher gestalten.
+    .ww-hero__illustration::after {
+        width: 80%;
+        height: 10%;
+        clip-path: polygon(
+            20% 100%,
+            100% 100%,
+            100% 0
+        );
+    }
+}

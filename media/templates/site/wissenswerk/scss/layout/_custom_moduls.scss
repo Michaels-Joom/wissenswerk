@@ -1,0 +1,52 @@
+@use "../tokens" as *;
+// =============================================================================
+// WissensWerk Design System
+// Layout Layer
+// Copyright
+// =============================================================================
+//
+// File:
+// _custom_moduls.scss
+//
+// Purpose:
+// Styles the custom moduls .
+//
+// Responsibilities:
+// - Copyright layout
+// - Copyright typography
+// - Responsive behaviour
+//
+// Not responsible for:
+// - Footer layout
+// - Branding
+//
+// Status:
+// ✓ Final
+//
+// =============================================================================
+
+
+.ww_box {
+    
+    padding-inline: 5px;
+    font-size: smaller;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.ww_box__sand{
+    
+    color:var(--ww-color-primary);
+    background-color: var(--ww-color-surface-alt);
+}
+
+.ww_box__green{
+    
+    h4 {
+        color:var(--ww-color-primary);    
+    }
+
+    color:var(--ww-color-primary);
+    background-color:var(--ww-color-surface-salbei);
+}
