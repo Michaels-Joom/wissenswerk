@@ -1,119 +1,50 @@
-@use "../tokens/components";
-// =============================================================================
-// WissensWerk Design System
-// Component Layer
-// Buttons
-// =============================================================================
-//
-// File:
-// _buttons.scss
-//
-// Purpose:
-// Reusable button component.
-//
-// Responsibilities:
-// - Base button
-// - Button variants
-// - States
-//
-// Not responsible for:
-// - Layout
-// - Forms
-//
-// Status:
-// ✓ Final
-//
-// =============================================================================
+ @use "../tokens" as *;
+ 
+@use "../tokens" as *;
 
 .ww-button {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: var(--ww-button-gap);
+    gap: var(--ww-space-3);
 
-    min-height: var(--ww-button-height);
+    padding: 0.55rem 0.8rem;
 
-    padding:
-        var(--ww-button-padding-block)
-        var(--ww-button-padding-inline);
+    border: 1px solid var(--ww-color-accent);
+    background-color: transparent;
 
-    border: 1px solid transparent;
-    border-radius: var(--ww-radius-md);
-
-    font: inherit;
-    line-height: 1;
+    color: var(--ww-color-accent);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.2;
 
     text-decoration: none;
 
-    cursor: pointer;
-
     transition:
         background-color var(--ww-transition-fast),
-        border-color var(--ww-transition-fast),
-        color var(--ww-transition-fast);
-
-    &:focus-visible {
-        outline: 2px solid var(--ww-color-primary);
-        outline-offset: 2px;
-    }
-
-    &:disabled,
-    &.is-disabled {
-        opacity: .5;
-        cursor: not-allowed;
-        pointer-events: none;
-    }
+        color var(--ww-transition-fast),
+        border-color var(--ww-transition-fast);
 }
 
-// =============================================================================
-// Primary
-// =============================================================================
-
-// .ww-button--primary {}
-
-// =============================================================================
-// Secondary
-// =============================================================================
-
-// .ww-button--secondary {}
-
-// =============================================================================
-// Outline
-// =============================================================================
-
-// .ww-button--outline {}
-
-// =============================================================================
-// Ghost
-// =============================================================================
-
-// .ww-button--ghost {}
-
-// =============================================================================
-// Service
-// =============================================================================
-
-.ww-button--service {
-
-    color: var(--ww-color-secondary);
-
-    background: transparent;
-
-    border-color: var(--ww-color-secondary);
-
-}
-
-.ww-button--service:hover,
-.ww-button--service:focus-visible {
-
-    background: var(--ww-color-secondary);
-
+.ww-button:hover {
+    background-color: var(--ww-color-accent);
     color: var(--ww-color-background);
-
+    text-decoration: none;
 }
 
-// =============================================================================
-// Icon
-// =============================================================================
+.ww-button:focus-visible {
+    outline: 2px solid var(--ww-color-focus);
+    outline-offset: 3px;
+}
 
-// .ww-button--icon {}
+.ww-button__icon {
+    display: inline-block;
+
+    font-size: 1rem;
+    line-height: 1;
+
+    transition: transform var(--ww-transition-fast);
+}
+
+.ww-button:hover .ww-button__icon {
+    transform: translateX(0.15rem);
+}

@@ -1553,10 +1553,17 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding-block-end: 3rem;
 }
 
 .ww-article + .ww-article {
   margin-block-start: 3rem;
+}
+
+.ww-article-subtitel {
+  margin-bottom: var(--ww-space-2);
+  font-size: var(--ww-h4-size);
+  color: var(--ww-color-primary);
 }
 
 .ww-article-split {
@@ -2764,38 +2771,38 @@ body {
 .ww-button {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--ww-button-gap);
-  min-height: var(--ww-button-height);
-  padding: var(--ww-button-padding-block) var(--ww-button-padding-inline);
-  border: 1px solid transparent;
-  border-radius: var(--ww-radius-md);
-  font: inherit;
-  line-height: 1;
+  gap: var(--ww-space-3);
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--ww-color-accent);
+  background-color: transparent;
+  color: var(--ww-color-accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
   text-decoration: none;
-  cursor: pointer;
-  transition: background-color var(--ww-transition-fast), border-color var(--ww-transition-fast), color var(--ww-transition-fast);
-}
-.ww-button:focus-visible {
-  outline: 2px solid var(--ww-color-primary);
-  outline-offset: 2px;
-}
-.ww-button:disabled, .ww-button.is-disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  pointer-events: none;
+  transition: background-color var(--ww-transition-fast), color var(--ww-transition-fast), border-color var(--ww-transition-fast);
 }
 
-.ww-button--service {
-  color: var(--ww-color-secondary);
-  background: transparent;
-  border-color: var(--ww-color-secondary);
-}
-
-.ww-button--service:hover,
-.ww-button--service:focus-visible {
-  background: var(--ww-color-secondary);
+.ww-button:hover {
+  background-color: var(--ww-color-accent);
   color: var(--ww-color-background);
+  text-decoration: none;
+}
+
+.ww-button:focus-visible {
+  outline: 2px solid var(--ww-color-focus);
+  outline-offset: 3px;
+}
+
+.ww-button__icon {
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform var(--ww-transition-fast);
+}
+
+.ww-button:hover .ww-button__icon {
+  transform: translateX(0.15rem);
 }
 
 .ww-data-grid {
@@ -3103,4 +3110,7 @@ body {
   .com-contact__form .control-group:last-child .btn {
     width: 100%;
   }
+}
+.pagenavigation {
+  padding-top: 3rem;
 }/*# sourceMappingURL=template.css.map */
