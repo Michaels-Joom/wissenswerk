@@ -60,6 +60,7 @@
   --ww-color-text: var(--ww-bronze-900);
   --ww-color-text-muted: var(--ww-warmgray-500);
   --ww-color-text-light: var(--ww-white);
+  --ww-color-text-eyebrow: var(--ww-brass-500);
   /* Links */
   --ww-color-link: var(--ww-green-700);
   --ww-color-link-hover: var(--ww-brass-500);
@@ -70,6 +71,8 @@
   --ww-border-strong: rgba(44,37,35,.22);
   /* Focus */
   --ww-color-focus: var(--ww-brass-400);
+  /* Artikel - Teaser        */
+  --ww-article-teaser: var(--ww-warmgray-100);
   /* ==========================================================================
      Bootstrap Mapping
      --------------------------------------------------------------------------
@@ -1095,14 +1098,11 @@ body {
 .ww-hero {
   padding-block: var(--ww-space-6);
 }
-.ww-hero .ww-hero__subtitle {
-  color: var(--ww-color-primary);
-}
 
 .ww-hero__illustration {
   position: relative;
   overflow: hidden;
-  min-height: 340px;
+  min-height: 240px;
 }
 
 .page-kontakt .ww-hero__illustration::before,
@@ -1116,7 +1116,7 @@ body {
   background-image: url("../images/grafik/grafik_leiterbahn_001.png");
   background-repeat: no-repeat;
   background-position: right center;
-  background-size: 36% auto;
+  background-size: 30% auto;
   margin-right: 6rem;
   opacity: 0.48;
   pointer-events: none;
@@ -1133,6 +1133,10 @@ body {
   background: var(--ww-color-surface-salbei);
   clip-path: polygon(8% 100%, 100% 100%, 100% 25%);
   z-index: 2;
+}
+
+.page-ueber-mich .ww-hero__illustration::after {
+  display: none;
 }
 
 .page-leistungen .ww-hero__visual {
@@ -1152,7 +1156,7 @@ body {
 .page-impressum .ww-hero__visual {
   position: absolute;
   right: 30%;
-  bottom: 25%;
+  bottom: 10%;
   width: 320px;
   height: 260px;
   background-image: url("../images/logo/wissenswerk_logo_transparent.png");
@@ -1166,7 +1170,7 @@ body {
 .page-cokie-richtlinie .ww-hero__visual {
   position: absolute;
   right: 12%;
-  bottom: 15%;
+  bottom: 2%;
   width: 350px;
   height: 350px;
   background-image: url("../images/grafik/cookie.png");
@@ -1205,6 +1209,48 @@ body {
   pointer-events: none;
 }
 
+.page-wissenswerk .ww-hero__visual {
+  position: absolute;
+  right: 5%;
+  bottom: 12%;
+  width: 500px;
+  height: 350px;
+  background-image: url("../images/grafik/steampunk.png");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.page-ueber-mich .ww-hero__visual {
+  position: absolute;
+  right: -32%;
+  bottom: 0%;
+  width: 1700px;
+  height: 350px;
+  background-image: url("../images/grafik/ueber_mich.png");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.page-wissenswert .ww-hero__visual {
+  position: absolute;
+  right: 5%;
+  bottom: 12%;
+  width: 500px;
+  height: 350px;
+  background-image: url("../images/grafik/loesungsweg.png");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+  z-index: 3;
+  pointer-events: none;
+}
+
 .ww-hero__inner {
   position: relative;
   z-index: 3;
@@ -1213,11 +1259,14 @@ body {
 }
 
 .ww-hero__title {
-  margin-bottom: var(--ww-space-4);
+  margin-bottom: var(--ww-space-2);
+  font-size: var(--ww-h2-size);
 }
 
 .ww-hero__subtitle {
-  margin-bottom: var(--ww-space-4);
+  margin-bottom: var(--ww-space-2);
+  font-size: var(--ww-h4-size);
+  color: var(--ww-color-primary);
 }
 
 .ww-hero__text {
@@ -1242,6 +1291,22 @@ body {
     clip-path: polygon(20% 100%, 100% 100%, 100% 0);
   }
 }
+.ww-main_bottom__visual {
+  background-color: var(--ww-color-background);
+  background-image: url("../images/grafik/image bottom-main.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  height: 200px;
+  max-height: 200px;
+}
+
+.ww-slogan p {
+  padding-top: 80px;
+  padding-left: 220px;
+  color: var(--ww-color-primary);
+  font-size: var(--ww-font-size-xl);
+}
+
 /* ==========================================================================
    Reading Layout
    ==========================================================================
@@ -1259,7 +1324,7 @@ body {
 .ww-reading-layout {
   align-items: flex-start;
   padding-top: 2rem;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 }
 
 /* ==========================================================
@@ -1335,7 +1400,7 @@ body {
   flex-direction: column;
 }
 
-.ww-footer__title {
+.ww-footer h3 {
   margin: 0 0 var(--ww-space-2);
   color: var(--ww-color-text);
   font-family: var(--ww-font-family-heading);
@@ -1478,6 +1543,215 @@ body {
 .ww_box__green {
   color: var(--ww-color-primary);
   background-color: var(--ww-color-surface-salbei);
+}
+
+.ww-eyebrow {
+  color: var(--ww-color-text-eyebrow);
+}
+
+.ww-article {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ww-article + .ww-article {
+  margin-block-start: 3rem;
+}
+
+.ww-article-split {
+  display: grid;
+  gap: var(--ww-space-8);
+  min-width: 0;
+  padding-bottom: 1rem;
+}
+.ww-article-split__content {
+  min-width: 0;
+}
+.ww-article-split__media {
+  min-width: 0;
+}
+@media (max-width: 991.98px) {
+  .ww-article-split {
+    grid-template-columns: 1fr;
+    gap: var(--ww-space-6);
+  }
+}
+
+.ww-article-split--media-right {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+.ww-article-split--media-right .ww-article-split__content {
+  order: 1;
+}
+.ww-article-split--media-right .ww-article-split__media {
+  order: 2;
+}
+@media (max-width: 991.98px) {
+  .ww-article-split--media-right .ww-article-split__content,
+  .ww-article-split--media-right .ww-article-split__media {
+    order: initial;
+  }
+}
+
+.ww-article-split--media-left {
+  grid-template-columns: auto minmax(0, 1fr);
+}
+.ww-article-split--media-left .ww-article-split__media {
+  order: 1;
+}
+.ww-article-split--media-left .ww-article-split__content {
+  order: 2;
+}
+@media (max-width: 991.98px) {
+  .ww-article-split--media-left .ww-article-split__media,
+  .ww-article-split--media-left .ww-article-split__content {
+    order: initial;
+  }
+}
+
+.ww-article-columns {
+  display: grid;
+  gap: var(--ww-space-6);
+  min-width: 0;
+  padding-bottom: 1rem;
+}
+.ww-article-columns--1 {
+  grid-template-columns: 1fr;
+}
+.ww-article-columns--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.ww-article-columns--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.ww-article-columns--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media (max-width: 991.98px) {
+  .ww-article-columns--3, .ww-article-columns--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 767.98px) {
+  .ww-article-columns--2, .ww-article-columns--3, .ww-article-columns--4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ww-article-media {
+  display: block;
+  max-width: 100%;
+  margin-inline: 0;
+}
+.ww-article-media img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+.ww-article-media--s {
+  width: 100px;
+}
+.ww-article-media--m {
+  width: 200px;
+}
+.ww-article-media--l {
+  width: 300px;
+}
+.ww-article-media--xl {
+  width: 400px;
+}
+.ww-article-media--full {
+  width: 100%;
+}
+
+.ww-article-teaser {
+  min-width: 0;
+  background-color: var(--ww-article-teaser);
+  padding: 0.75rem;
+}
+.ww-article-teaser h3 {
+  margin-bottom: var(--ww-space-4);
+  font-size: var(--ww-h5-size);
+}
+.ww-article-teaser__media {
+  display: flex;
+  align-items: center;
+}
+.ww-article-teaser__media img {
+  display: block;
+  width: auto;
+  max-width: 50px;
+  height: auto;
+}
+.ww-article-teaser__content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.ww-article-teaser__content > a:last-child {
+  margin-top: auto;
+  width: -moz-max-content !important;
+  width: max-content !important;
+}
+.ww-article-teaser--media-left {
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr);
+  -moz-column-gap: var(--ww-space-4);
+       column-gap: var(--ww-space-4);
+  align-items: center;
+}
+.ww-article-teaser--media-left h3 {
+  grid-column: 1/-1;
+}
+.ww-article-teaser--media-left .ww-article-teaser__media {
+  grid-column: 1;
+  grid-row: 2;
+  justify-content: flex-start;
+}
+.ww-article-teaser--media-left .ww-article-teaser__content {
+  grid-column: 2;
+  grid-row: 2;
+}
+.ww-article-teaser--media-center {
+  text-align: center;
+}
+.ww-article-teaser--media-center .ww-article-teaser__media {
+  justify-content: center;
+  margin-block: var(--ww-space-4);
+}
+.ww-article-teaser--media-right {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  -moz-column-gap: var(--ww-space-4);
+       column-gap: var(--ww-space-4);
+  align-items: center;
+}
+.ww-article-teaser--media-right h3 {
+  grid-column: 1/-1;
+}
+.ww-article-teaser--media-right .ww-article-teaser__content {
+  grid-column: 1;
+  grid-row: 2;
+}
+.ww-article-teaser--media-right .ww-article-teaser__media {
+  grid-column: 2;
+  grid-row: 2;
+  justify-content: flex-end;
+}
+@media (max-width: 767.98px) {
+  .ww-article-teaser--media-left, .ww-article-teaser--media-right {
+    display: block;
+    text-align: left;
+  }
+  .ww-article-teaser--media-left .ww-article-teaser__media, .ww-article-teaser--media-right .ww-article-teaser__media {
+    margin-block: var(--ww-space-3);
+    justify-content: flex-start;
+  }
+  .ww-article-teaser--media-right .ww-article-teaser__media {
+    justify-content: flex-start;
+  }
 }
 
 .ww-breadcrumbs {

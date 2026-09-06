@@ -116,6 +116,7 @@
 --ww-color-text:             var(--ww-bronze-900);
 --ww-color-text-muted:       var(--ww-warmgray-500);
 --ww-color-text-light:       var(--ww-white);
+--ww-color-text-eyebrow:     var(--ww-brass-500);
 
 /* Links */
 
@@ -126,13 +127,17 @@
 
 --ww-color-border:           var(--ww-warmgray-200);
 
---ww-border-subtle: rgba(44,37,35,.06);
---ww-border-default: rgba(44,37,35,.12);
---ww-border-strong: rgba(44,37,35,.22);
+--ww-border-subtle:           rgba(44,37,35,.06);
+--ww-border-default:          rgba(44,37,35,.12);
+--ww-border-strong:           rgba(44,37,35,.22);
 
 /* Focus */
 
---ww-color-focus: var(--ww-brass-400);
+--ww-color-focus:             var(--ww-brass-400);
+
+/* Artikel - Teaser        */
+
+--ww-article-teaser:          var(--ww-warmgray-100);
 
 /* ==========================================================================
    Bootstrap Mapping

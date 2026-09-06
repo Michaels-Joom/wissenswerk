@@ -83,10 +83,10 @@
         <position>footer-social</position>
         
 
-        <position>footer-navigation</position>
-		<position>footer-knowledge</position>
-		<position>footer-legal</position>
-        <position>footer-contact</position>
+        <position>footer-left</position>
+		<position>footer-left-middle</position>
+		<position>footer-right-middle</position>
+        <position>footer-right</position>
         
         <!-- Offcanvas Footer -->
         <position>offcanvas-legal</position>

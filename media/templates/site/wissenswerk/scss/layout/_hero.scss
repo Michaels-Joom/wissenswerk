@@ -3,14 +3,10 @@
 // =============================================================================
 
 .ww-hero {
+
     padding-block: var(--ww-space-6);
-   
-     .ww-hero__subtitle{
-        color: var(--ww-color-primary);
-    }
+
 }
-
-
 
 // =============================================================================
 // Hero Illustration Layer
@@ -19,7 +15,7 @@
 .ww-hero__illustration {
     position: relative;
     overflow: hidden;
-    min-height: 340px;
+    min-height: 240px;
     }
 
 
@@ -37,7 +33,7 @@
     background-image: url("../images/grafik/grafik_leiterbahn_001.png");
     background-repeat: no-repeat;
     background-position: right center;
-    background-size: 36% auto;
+    background-size: 30% auto;
     margin-right: 6rem;
     opacity: .48;
     pointer-events: none;
@@ -66,6 +62,14 @@
     z-index: 2;
 }
 
+.page-ueber-mich {
+    .ww-hero__illustration::after {
+       display: none;
+    }
+}
+
+
+
 // =============================================================================
 // Hero Visual
 // =============================================================================
@@ -93,7 +97,7 @@
 .page-impressum .ww-hero__visual {
     position: absolute;
     right: 30%;
-    bottom: 25%;
+    bottom: 10%;
     width: 320px;
     height: 260px;
     background-image: url("../images/logo/wissenswerk_logo_transparent.png");
@@ -107,7 +111,7 @@
 .page-cokie-richtlinie .ww-hero__visual {
     position: absolute;
     right: 12%;
-    bottom: 15%;
+    bottom: 2%;
     width: 350px;
     height: 350px;
     background-image: url("../images/grafik/cookie.png");
@@ -145,6 +149,47 @@
     pointer-events: none;
 }
 
+.page-wissenswerk .ww-hero__visual {
+    position: absolute;
+    right: 5%;
+    bottom: 12%;
+    width: 500px;
+    height: 350px;
+    background-image: url("../images/grafik/steampunk.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.page-ueber-mich .ww-hero__visual{
+    position: absolute;
+    right: -32%;
+    bottom: 0%;
+    width: 1700px;
+    height: 350px;
+    background-image: url("../images/grafik/ueber_mich.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.page-wissenswert .ww-hero__visual{
+    position: absolute;
+    right: 5%;
+    bottom: 12%;
+    width: 500px;
+    height: 350px;
+    background-image: url("../images/grafik/loesungsweg.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+}
 
 
 
@@ -168,12 +213,18 @@
 // Typography
 // =============================================================================
 
+
+
 .ww-hero__title {
-    margin-bottom: var(--ww-space-4);
+    margin-bottom: var(--ww-space-2);
+    font-size: var(--ww-h2-size);
 }
 
 .ww-hero__subtitle {
-    margin-bottom: var(--ww-space-4);
+    margin-bottom: var(--ww-space-2);
+    font-size: var(--ww-h4-size);
+    color: var(--ww-color-primary);
+    
 }
 
 .ww-hero__text {

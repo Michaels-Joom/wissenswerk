@@ -1,0 +1,582 @@
+// =============================================================================
+// WissensWerk Design System
+// Layout Layer
+// Article
+// =============================================================================
+//
+// File:
+// _article.scss
+//
+// Purpose:
+// Defines the reusable editorial language for Joomla articles.
+//
+// Responsibilities:
+// - Article content layouts
+// - Text / media arrangements
+// - Article columns
+// - Article media sizes
+// - Teaser arrangements
+// - Responsive article layouts
+//
+// Not responsible for:
+// - Global page layout
+// - Typography
+// - Colors
+// - Buttons
+// - Forms
+// - Hero
+//
+// Editorial language:
+//
+// Article Split
+// ww-article-split--media-right
+// ww-article-split--media-left
+//
+// Article Columns
+// ww-article-columns--1
+// ww-article-columns--2
+// ww-article-columns--3
+// ww-article-columns--4
+//
+// Article Media
+// ww-article-media--s
+// ww-article-media--m
+// ww-article-media--l
+// ww-article-media--xl
+// ww-article-media--full
+//
+// Article Teaser
+// ww-article-teaser--media-left
+// ww-article-teaser--media-center
+// ww-article-teaser--media-right
+//
+// =============================================================================
+
+.ww-eyebrow{
+    color: var(--ww-color-text-eyebrow);
+}
+
+.ww-article {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ww-article + .ww-article {
+    margin-block-start: 3rem;
+}
+// =============================================================================
+// Article Split
+// =============================================================================
+//
+// Text and media arranged next to each other.
+//
+// The media size determines the width of the media column.
+// The text receives the remaining available space.
+//
+// =============================================================================
+
+.ww-article-split {
+
+    display: grid;
+
+    // align-items: center;
+
+    gap: var(--ww-space-8);
+
+    min-width: 0;
+
+    padding-bottom: 1rem;
+
+
+    // -------------------------------------------------------------------------
+    // Content
+    // -------------------------------------------------------------------------
+
+    &__content {
+        min-width: 0;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Media
+    // -------------------------------------------------------------------------
+
+    &__media {
+        min-width: 0;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Responsive
+    // -------------------------------------------------------------------------
+
+    @media (max-width: 991.98px) {
+
+        grid-template-columns: 1fr;
+
+        gap: var(--ww-space-6);
+    }
+}
+
+
+// =============================================================================
+// Article Split – Media right
+// =============================================================================
+//
+// Text left / media right
+//
+// =============================================================================
+
+.ww-article-split--media-right {
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+
+
+    .ww-article-split__content {
+        order: 1;
+    }
+
+    .ww-article-split__media {
+        order: 2;
+    }
+
+
+    @media (max-width: 991.98px) {
+
+        .ww-article-split__content,
+        .ww-article-split__media {
+            order: initial;
+        }
+    }
+}
+
+
+// =============================================================================
+// Article Split – Media left
+// =============================================================================
+//
+// Media left / text right
+//
+// =============================================================================
+
+.ww-article-split--media-left {
+
+    grid-template-columns:
+        auto
+        minmax(0, 1fr);
+
+
+    .ww-article-split__media {
+        order: 1;
+    }
+
+    .ww-article-split__content {
+        order: 2;
+    }
+
+
+    @media (max-width: 991.98px) {
+
+        .ww-article-split__media,
+        .ww-article-split__content {
+            order: initial;
+        }
+    }
+}
+
+
+// =============================================================================
+// Article Columns
+// =============================================================================
+//
+// Defines equal-width editorial areas.
+//
+// 1 = 100 %
+// 2 = 50 %
+// 3 = 33.33 %
+// 4 = 25 %
+//
+// Responsive behaviour:
+// 3 / 4 columns become 2 columns on tablet.
+// 2 / 3 / 4 columns become 1 column on mobile.
+//
+// =============================================================================
+
+.ww-article-columns {
+
+    display: grid;
+
+    gap: var(--ww-space-6);
+
+    min-width: 0;
+
+    padding-bottom: 1rem;
+
+
+    // -------------------------------------------------------------------------
+    // One column
+    // -------------------------------------------------------------------------
+
+    &--1 {
+        grid-template-columns: 1fr;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Two columns
+    // -------------------------------------------------------------------------
+
+    &--2 {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Three columns
+    // -------------------------------------------------------------------------
+
+    &--3 {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Four columns
+    // -------------------------------------------------------------------------
+
+    &--4 {
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Tablet
+    // -------------------------------------------------------------------------
+
+    @media (max-width: 991.98px) {
+
+        &--3,
+        &--4 {
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+        }
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Mobile
+    // -------------------------------------------------------------------------
+
+    @media (max-width: 767.98px) {
+
+        &--2,
+        &--3,
+        &--4 {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+
+// =============================================================================
+// Article Media
+// =============================================================================
+//
+// Defines the available sizes for independent media elements inside
+// article content.
+//
+// These sizes apply only to article media.
+// They do not affect Hero, Header, Footer or other template areas.
+//
+// =============================================================================
+
+.ww-article-media {
+
+    display: block;
+
+    max-width: 100%;
+
+    margin-inline: 0;
+
+    // padding-bottom: 2rem;
+
+
+    img {
+        display: block;
+
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Small
+    // -------------------------------------------------------------------------
+
+    &--s {
+        width: 100px;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Medium
+    // -------------------------------------------------------------------------
+
+    &--m {
+        width: 200px;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Large
+    // -------------------------------------------------------------------------
+
+    &--l {
+        width: 300px;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Extra large
+    // -------------------------------------------------------------------------
+
+    &--xl {
+        width: 400px;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Full width
+    // -------------------------------------------------------------------------
+
+    &--full {
+        width: 100%;
+    }
+}
+
+
+// =============================================================================
+// Article Teaser
+// =============================================================================
+//
+// Small editorial teaser elements used inside article columns.
+//
+// Media positions:
+// - media-left
+// - media-center
+// - media-right
+//
+// Teaser media is limited to a maximum width of 50 px.
+//
+// The content area uses flexbox so that the final link or button
+// can always be positioned at the bottom of the content area.
+//
+// =============================================================================
+
+.ww-article-teaser {
+
+    min-width: 0;
+    background-color: var(--ww-article-teaser);
+    padding: 0.75rem;
+
+
+    // -------------------------------------------------------------------------
+    // Heading
+    // -------------------------------------------------------------------------
+
+    h3 {
+        margin-bottom: var(--ww-space-4);
+        font-size: var(--ww-h5-size);
+
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Media
+    // -------------------------------------------------------------------------
+
+    &__media {
+
+        display: flex;
+
+        align-items: center;
+
+        img {
+            display: block;
+            width: auto;
+            max-width: 50px;
+            height: auto;
+        }
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Content
+    // -------------------------------------------------------------------------
+
+    &__content {
+
+        display: flex;
+        flex-direction: column;
+
+        min-width: 0;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Final link / button
+    // -------------------------------------------------------------------------
+    //
+    // Keeps the final action at the bottom of the content area.
+    //
+    // Works for both:
+    // - normal text links
+    // - ww-button
+    //
+    // -------------------------------------------------------------------------
+
+    &__content > a:last-child {
+
+        margin-top: auto;
+        width: max-content !important;
+        
+    }
+
+
+    // =============================================================================
+    // Media left
+    // =============================================================================
+
+    &--media-left {
+
+        display: grid;
+
+        grid-template-columns:
+            50px
+            minmax(0, 1fr);
+
+        column-gap: var(--ww-space-4);
+
+        align-items: center;
+
+
+        h3 {
+
+            grid-column: 1 / -1;
+        }
+
+
+        .ww-article-teaser__media {
+
+            grid-column: 1;
+            grid-row: 2;
+
+            justify-content: flex-start;
+        }
+
+
+        .ww-article-teaser__content {
+
+            grid-column: 2;
+            grid-row: 2;
+        }
+    }
+
+
+    // =============================================================================
+    // Media center
+    // =============================================================================
+
+    &--media-center {
+
+        text-align: center;
+
+
+        .ww-article-teaser__media {
+
+            justify-content: center;
+
+            margin-block: var(--ww-space-4);
+        }
+    }
+
+
+    // =============================================================================
+    // Media right
+    // =============================================================================
+
+    &--media-right {
+
+        display: grid;
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            auto;
+
+        column-gap: var(--ww-space-4);
+
+        align-items: center;
+
+
+        h3 {
+
+            grid-column: 1 / -1;
+        }
+
+
+        .ww-article-teaser__content {
+
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+
+        .ww-article-teaser__media {
+
+            grid-column: 2;
+            grid-row: 2;
+
+            justify-content: flex-end;
+        }
+    }
+
+
+    // =============================================================================
+    // Responsive
+    // =============================================================================
+
+    @media (max-width: 767.98px) {
+
+        &--media-left,
+        &--media-right {
+
+            display: block;
+
+            text-align: left;
+
+
+            .ww-article-teaser__media {
+
+                margin-block: var(--ww-space-3);
+
+                justify-content: flex-start;
+            }
+        }
+
+
+        &--media-right {
+
+            .ww-article-teaser__media {
+
+                justify-content: flex-start;
+            }
+        }
+    }
+}

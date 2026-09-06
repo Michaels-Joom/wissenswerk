@@ -89,8 +89,8 @@ if ($showSidebarLeft && $showSidebarRight) {
 
 } elseif ($showSidebarLeft || $showSidebarRight) {
 
-      $contentClass = 'col-12 col-lg-8';
-      $sidebarClass = 'col-12 col-lg-4';
+      $contentClass = 'col-12 col-lg-9';
+      $sidebarClass = 'col-12 col-lg-3';
 
 }
 
@@ -121,7 +121,7 @@ if ($showSidebarLeft && $showSidebarRight) {
     ============================================================== -->
     <?php if ($showBreadcrumbs) : ?>
         <section class="ww-breadcrumbs">
-            <div class="ww-container">
+            <div class="ww-container ww-divider">
                 <jdoc:include type="modules" name="breadcrumbs" style="none" />
             </div>
         </section>
@@ -243,10 +243,15 @@ if ($showSidebarLeft && $showSidebarRight) {
     <!-- ==============================================================
          Main Bottom
     ============================================================== -->
+    
     <?php if ($showMainBottom) : ?>
         <section class="ww-main-bottom">
             <div class="ww-container">
-                <jdoc:include type="modules" name="main-bottom" />
+                <div class="ww-main_bottom__visual">
+                    <div class="ww-main-bottom-inner">
+                        <jdoc:include type="modules" name="main-bottom" />
+                    </div>        
+                </div>
             </div>
         </section>
     <?php endif; ?>

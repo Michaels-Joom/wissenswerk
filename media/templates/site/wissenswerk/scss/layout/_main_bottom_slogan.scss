@@ -1,0 +1,24 @@
+// =============================================================================
+// ww-main_bottom Visual Layer
+// =============================================================================
+
+.ww-main_bottom__visual{
+
+    background-color: var(--ww-color-background);
+     background-image: url("../images/grafik/image bottom-main.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    height:200px;
+    max-height: 200px;
+
+}
+
+.ww-slogan p{
+
+    padding-top: 80px;
+    padding-left: 220px;
+    color: var(--ww-color-primary);
+    font-size: var(--ww-font-size-xl);
+
+    
+}

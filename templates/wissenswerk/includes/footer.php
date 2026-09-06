@@ -58,56 +58,41 @@ $branding = trim($brandingFirst . $brandingSecond);
                 </div>
 
                 <!-- ==========================================================
-                     Navigation
+                     Footer section 1
                 =========================================================== -->
 
                 <div class="col-6 col-lg-2">
-                    <section class="ww-footer__section">
-                        <h2 class="ww-footer__title">
-                            Navigation
-                        </h2>
-                        <jdoc:include type="modules" name="footer-navigation" style="none" />
+                    <section class="ww-footer__section ww-footer__left">
+                        <jdoc:include type="modules" name="footer-left" style="html5" />
                     </section>
                 </div>
 
                 <!-- ==========================================================
-                     Wissen
+                     Footer section 2
                 =========================================================== -->
 
                 <div class="col-6 col-lg-2">
-                    <section class="ww-footer__section">
-                        <h2 class="ww-footer__title">
-                            Wissen
-                        </h2>
-                        <jdoc:include type="modules" name="footer-knowledge" style="none" />
+                    <section class="ww-footer__section ww-footer__left-middle">
+                        <jdoc:include type="modules" name="footer-left-middle" style="html5" />
                     </section>
                 </div>
 		  <!-- ==========================================================
-                     Rechtliches
+                    Footer section 3
                 =========================================================== -->
 
                 <div class="col-6 col-lg-2">
-                    <section class="ww-footer__section">
-                        <h2 class="ww-footer__title">
-                            Rechtliches
-                        </h2>
-                        <jdoc:include type="modules" name="footer-legal" style="none" />
+                    <section class="ww-footer__section ww-footer__right-middle">
+                          <jdoc:include type="modules" name="footer-right-middle" style="html5" />
                     </section>
                 </div>
 
                 <!-- ==========================================================
-                     Kontakt
+                     footer section 4
                 =========================================================== -->
 
                 <div class="col-6 col-lg-2">
-                    <section class="ww-footer__section">
-                        <h2 class="ww-footer__title">
-                            Kontakt
-                        </h2>
-
-                        <address class="ww-footer__address">
-                            <jdoc:include type="modules" name="footer-contact" style="none" />
-                        </address>
+                    <section class="ww-footer__section ww-footer__right">
+                            <jdoc:include type="modules" name="footer-right" style="html5" />
                     </section>
                 </div>
             </div>
