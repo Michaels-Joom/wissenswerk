@@ -20,8 +20,8 @@ use Joomla\Event\SubscriberInterface;
 /**
  * WissensWerk Editor Buttons plugin.
  *
- * Provides the first real WissensWerk editor element:
- * WW Article – Split.
+ * Provides the WissensWerk editor elements:
+ * WW Article – Split and WW Article – Columns.
  */
 final class Wissenswerk extends CMSPlugin implements SubscriberInterface
 {
@@ -79,6 +79,7 @@ final class Wissenswerk extends CMSPlugin implements SubscriberInterface
         Text::script('JSELECT');
         Text::script('PLG_IMAGE_BUTTON_INSERT');
         Text::script('PLG_EDITORS-XTD_WISSENSWERK');
+        Text::script('PLG_EDITORS-XTD_WISSENSWERK_COLUMNS');
         Text::script('JLIB_APPLICATION_ERROR_SERVER');
 
         $asset = $event->getAsset();
@@ -107,6 +108,20 @@ final class Wissenswerk extends CMSPlugin implements SubscriberInterface
                     'text'   => Text::_('PLG_EDITORS-XTD_WISSENSWERK_ARTICLE'),
                     'icon'   => 'file-add',
                     'action' => 'wissenswerk-insert-article',
+                ],
+                [
+                    'mediaLink' => $mediaLink,
+                ]
+            )
+        );
+
+        $buttonsRegistry->add(
+            new Button(
+                'wissenswerk-columns',
+                [
+                    'text'   => Text::_('PLG_EDITORS-XTD_WISSENSWERK_COLUMNS'),
+                    'icon'   => 'file-add',
+                    'action' => 'wissenswerk-insert-columns-card',
                 ],
                 [
                     'mediaLink' => $mediaLink,

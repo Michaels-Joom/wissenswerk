@@ -1,0 +1,472 @@
+// =============================================================================
+// WissensWerk Design System
+// Editor-XTD Components
+// =============================================================================
+//
+// File:
+// _editor-xtd.scss
+//
+// Purpose:
+// Defines the reusable frontend presentation of editorial components
+// inserted through the WissensWerk Editor-XTD extension.
+//
+// Responsibilities:
+// - Editorial component layouts
+// - Text / media arrangements
+// - Article columns
+// - Article media sizes
+// - Teaser arrangements
+// - Responsive component layouts
+//
+// Not responsible for:
+// - Global page layout
+// - Typography
+// - Colors
+// - Buttons
+// - Forms
+// - Hero
+//
+// Components:
+//
+// Article Split
+// ww-article-split--media-right
+// ww-article-split--media-left
+//
+// Article Columns
+// ww-article-columns--1
+// ww-article-columns--2
+// ww-article-columns--3
+// ww-article-columns--4
+//
+// Article Media
+// ww-article-media--s
+// ww-article-media--m
+// ww-article-media--l
+// ww-article-media--xl
+// ww-article-media--full
+//
+// Article Teaser
+// ww-article-teaser--media-left
+// ww-article-teaser--media-center
+// ww-article-teaser--media-right
+//
+// =============================================================================
+
+.ww-eyebrow {
+    color: var(--ww-color-text-eyebrow);
+}
+
+.ww-article {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ww-article + .ww-article {
+    margin-block-start: 3rem;
+}
+
+.ww-article-subtitel {
+    margin-bottom: var(--ww-space-2);
+    font-size: var(--ww-h4-size);
+    color: var(--ww-color-primary);
+}
+
+
+// =============================================================================
+// Article Split
+// =============================================================================
+
+.ww-article-split {
+
+    display: grid;
+
+    gap: var(--ww-space-8);
+
+    min-width: 0;
+
+    padding-bottom: 1rem;
+
+    &__content {
+        min-width: 0;
+    }
+
+    &__media {
+        min-width: 0;
+    }
+
+    @media (max-width: 991.98px) {
+
+        grid-template-columns: 1fr;
+
+        gap: var(--ww-space-6);
+    }
+}
+
+
+.ww-article-split--media-right {
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto;
+
+    .ww-article-split__content {
+        order: 1;
+    }
+
+    .ww-article-split__media {
+        order: 2;
+    }
+
+    @media (max-width: 991.98px) {
+
+        .ww-article-split__content,
+        .ww-article-split__media {
+            order: initial;
+        }
+    }
+}
+
+
+.ww-article-split--media-left {
+
+    grid-template-columns:
+        auto
+        minmax(0, 1fr);
+
+    .ww-article-split__media {
+        order: 1;
+    }
+
+    .ww-article-split__content {
+        order: 2;
+    }
+
+    @media (max-width: 991.98px) {
+
+        .ww-article-split__media,
+        .ww-article-split__content {
+            order: initial;
+        }
+    }
+}
+
+
+// =============================================================================
+// Article Columns
+// =============================================================================
+
+.ww-article-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    container-type: inline-size;
+}
+
+.ww-article-column {
+    --ww-column-background: var(--ww-color-surface, #f6f4ef);
+    --ww-column-border-color: grey;
+    --ww-column-text-color: inherit;
+    --ww-column-link-color: inherit;
+
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 1rem;
+    background-color: var(--ww-column-background);
+    color: var(--ww-column-text-color);
+}
+
+.ww-article-column--color-1 {
+    --ww-column-background: #ebe7df;
+}
+
+.ww-article-column--color-2 {
+    --ww-column-background: #dfe7df;
+}
+
+.ww-article-column--color-3 {
+    --ww-column-background: #e7e4dc;
+}
+
+.ww-article-column--color-4 {
+    --ww-column-background: #eee2c9;
+}
+
+.ww-article-column--transparent {
+    --ww-column-background: transparent;
+}
+
+.ww-article-column--border {
+    border: 1px solid var(--ww-column-border-color);
+}
+
+.ww-article-column__media {
+    flex: 0 0 auto;
+    margin: 0 0 0.75rem;
+}
+
+.ww-article-column__media img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+}
+
+.ww-article-column__media--s img {
+    width: 12px;
+}
+
+.ww-article-column__media--m img {
+    width: 24px;
+}
+
+.ww-article-column__media--l img {
+    width: 36px;
+}
+
+.ww-article-column__media--xl img {
+    width: 48px;
+}
+
+.ww-article-column__content {
+    min-width: 0;
+}
+
+.ww-article-column__content h3,
+.ww-article-column__content h4 {
+    margin-top: 0;
+}
+
+.ww-article-column-subtitel {
+    margin-top: 0;
+}
+
+.ww-article-column__link {
+    color: var(--ww-column-link-color);
+}
+
+.ww-article-column--icon-center {
+    text-align: center;
+    align-items: center;
+}
+
+.ww-article-column--icon-center .ww-article-column__content {
+    width: 100%;
+}
+
+.ww-article-column--icon-left,
+.ww-article-column--icon-right {
+    align-items: stretch;
+}
+
+.ww-article-column--icon-left .ww-article-column__media,
+.ww-article-column--icon-right .ww-article-column__media {
+    display: flex;
+    align-items: flex-start;
+}
+
+.ww-article-column--icon-right .ww-article-column__media {
+    justify-content: flex-end;
+    order: 2;
+}
+
+.ww-article-column--icon-right .ww-article-column__content {
+    order: 1;
+}
+
+
+.ww-article-media {
+
+    display: block;
+
+    max-width: 100%;
+
+    margin-inline: 0;
+
+    padding-top: 3rem;
+
+    img {
+        display: block;
+
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    &--s {
+        width: 100px;
+    }
+
+    &--m {
+        width: 200px;
+    }
+
+    &--l {
+        width: 300px;
+    }
+
+    &--xl {
+        width: 400px;
+    }
+
+    &--full {
+        width: 100%;
+    }
+}
+
+
+// =============================================================================
+// Article Teaser
+// =============================================================================
+
+.ww-article-teaser {
+
+    min-width: 0;
+
+    background-color: var(--ww-article-teaser);
+
+    padding: 0.75rem;
+
+
+    h3 {
+        margin-bottom: var(--ww-space-4);
+        font-size: var(--ww-h5-size);
+    }
+
+
+    &__media {
+
+        display: flex;
+
+        align-items: center;
+
+        img {
+            display: block;
+            width: auto;
+            max-width: 50px;
+            height: auto;
+        }
+    }
+
+
+    &__content {
+
+        display: flex;
+        flex-direction: column;
+
+        min-width: 0;
+    }
+
+
+    &__content > a:last-child {
+
+        margin-top: auto;
+        width: max-content !important;
+    }
+
+
+    &--media-left {
+
+        display: grid;
+
+        grid-template-columns:
+            50px
+            minmax(0, 1fr);
+
+        column-gap: var(--ww-space-4);
+
+        align-items: center;
+
+        h3 {
+            grid-column: 1 / -1;
+        }
+
+        .ww-article-teaser__media {
+
+            grid-column: 1;
+            grid-row: 2;
+
+            justify-content: flex-start;
+        }
+
+        .ww-article-teaser__content {
+
+            grid-column: 2;
+            grid-row: 2;
+        }
+    }
+
+
+    &--media-center {
+
+        text-align: center;
+
+        .ww-article-teaser__media {
+
+            justify-content: center;
+
+            margin-block: var(--ww-space-4);
+        }
+    }
+
+
+    &--media-right {
+
+        display: grid;
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            auto;
+
+        column-gap: var(--ww-space-4);
+
+        align-items: center;
+
+        h3 {
+            grid-column: 1 / -1;
+        }
+
+        .ww-article-teaser__content {
+
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .ww-article-teaser__media {
+
+            grid-column: 2;
+            grid-row: 2;
+
+            justify-content: flex-end;
+        }
+    }
+
+
+    @media (max-width: 767.98px) {
+
+        &--media-left,
+        &--media-right {
+
+            display: block;
+
+            text-align: left;
+
+            .ww-article-teaser__media {
+
+                margin-block: var(--ww-space-3);
+
+                justify-content: flex-start;
+            }
+        }
+
+        &--media-right {
+
+            .ww-article-teaser__media {
+
+                justify-content: flex-start;
+            }
+        }
+    }
+}
