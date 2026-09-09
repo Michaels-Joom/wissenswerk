@@ -191,6 +191,20 @@
     pointer-events: none;
 }
 
+.page-das-projekt .ww-hero__visual{
+    position: absolute;
+    right: 3%;
+    bottom: 2%;
+    width: 500px;
+    height: 350px;
+    background-image: url("../images/grafik/das-projekt.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+}
+
 
 
 // =============================================================================
