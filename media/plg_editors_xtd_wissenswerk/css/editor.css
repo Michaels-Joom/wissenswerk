@@ -1,0 +1,159 @@
+/*
+ * WissensWerk editor extension.
+ *
+ * Frontend layout remains owned by the WissensWerk template SCSS.
+ * This stylesheet only controls the editor dialog and its controls.
+ */
+
+.ww-editor-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+}
+
+.ww-editor-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgb(0 0 0 / 45%);
+}
+
+.ww-editor-modal__dialog {
+    position: relative;
+    width: min(820px, calc(100vw - 2rem));
+    max-height: calc(100vh - 2rem);
+    margin: 1rem auto;
+    overflow: auto;
+    background: #fff;
+    color: #222;
+    box-shadow: 0 0.5rem 2rem rgb(0 0 0 / 25%);
+}
+
+.ww-editor-modal__header,
+.ww-editor-modal__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.ww-editor-modal__footer {
+    justify-content: flex-end;
+    border-top: 1px solid #ddd;
+    border-bottom: 0;
+}
+
+.ww-editor-modal__header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.ww-editor-modal__close {
+    border: 0;
+    background: transparent;
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.ww-editor-modal__body {
+    padding: 1.25rem;
+}
+
+.ww-editor-field {
+    margin-block-end: 1rem;
+}
+
+.ww-editor-field > label,
+.ww-editor-options__label,
+.ww-editor-link-selection > label {
+    display: block;
+    margin-block-end: 0.35rem;
+    font-weight: 600;
+}
+
+.ww-editor-field input[type="text"],
+.ww-editor-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid #bbb;
+    background: #fff;
+    color: #222;
+}
+
+.ww-editor-field small {
+    display: block;
+    margin-block-start: 0.3rem;
+    color: #666;
+}
+
+.ww-editor-field span {
+    color: #a00;
+}
+
+.ww-editor-options {
+    display: grid;
+    gap: 1rem;
+    margin-block-start: 1rem;
+}
+
+.ww-editor-options label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-inline-end: 0.75rem;
+    font-weight: 400;
+}
+
+.ww-editor-media-picker {
+    margin-block-end: 1rem;
+}
+
+.ww-editor-media-picker .input-group {
+    display: flex;
+    gap: 0.35rem;
+}
+
+.ww-editor-media-picker .field-media-input {
+    flex: 1 1 auto;
+}
+
+.ww-editor-media-preview {
+    min-height: 0;
+    margin-block-end: 0.5rem;
+}
+
+.ww-editor-media-preview:empty {
+    display: none;
+}
+
+.ww-editor-media-preview img {
+    max-width: 160px;
+    max-height: 100px;
+    object-fit: contain;
+}
+
+.ww-editor-link-row {
+    display: flex;
+    gap: 0.35rem;
+    align-items: stretch;
+}
+
+.ww-editor-link-row input {
+    flex: 1 1 auto;
+}
+
+.ww-editor-selected-value {
+    margin-block-start: 0.5rem;
+    padding: 0.45rem 0.65rem;
+    border: 1px solid #ddd;
+    background: #f7f7f7;
+}
+
+.ww-editor-modal__error {
+    padding: 0.75rem;
+    border: 1px solid #a00;
+    color: #800;
+}
