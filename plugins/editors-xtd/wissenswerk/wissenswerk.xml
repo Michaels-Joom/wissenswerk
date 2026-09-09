@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="editors-xtd" method="upgrade">
+    <name>PLG_EDITORS-XTD_WISSENSWERK</name>
+    <author>WissensWerk</author>
+    <creationDate>2026-09</creationDate>
+    <copyright>(C) 2026 WissensWerk</copyright>
+    <license>GNU General Public License version 2 or later</license>
+    <version>0.2.13</version>
+    <description>PLG_EDITORS-XTD_WISSENSWERK_DESC</description>
+
+    <namespace path="src">WissensWerk\Plugin\EditorsXtd\Wissenswerk</namespace>
+
+    <files>
+        <folder plugin="wissenswerk">services</folder>
+        <folder>src</folder>
+    </files>
+
+    <media destination="plg_editors_xtd_wissenswerk" folder="media">
+        <folder>js</folder>
+        <folder>css</folder>
+        <folder>icons</folder>
+    </media>
+
+    <languages folder="language">
+        <language tag="de-DE">de-DE/plg_editors-xtd_wissenswerk.ini</language>
+        <language tag="de-DE">de-DE/plg_editors-xtd_wissenswerk.sys.ini</language>
+    </languages>
+</extension>

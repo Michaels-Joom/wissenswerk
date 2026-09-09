@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="ajax" method="upgrade">
+    <name>PLG_AJAX_WISSENSWERKROUTE</name>
+    <author>WissensWerk</author>
+    <creationDate>2026-09</creationDate>
+    <copyright>(C) 2026 WissensWerk</copyright>
+    <license>GNU General Public License version 2 or later</license>
+    <version>0.1.0</version>
+    <description>PLG_AJAX_WISSENSWERKROUTE_DESC</description>
+
+    <namespace path="src">WissensWerk\Plugin\Ajax\Wissenswerkroute</namespace>
+
+    <files>
+        <folder plugin="wissenswerkroute">services</folder>
+        <folder>src</folder>
+    </files>
+
+    <languages folder="language">
+        <language tag="de-DE">de-DE/plg_ajax_wissenswerkroute.ini</language>
+        <language tag="de-DE">de-DE/plg_ajax_wissenswerkroute.sys.ini</language>
+    </languages>
+</extension>
