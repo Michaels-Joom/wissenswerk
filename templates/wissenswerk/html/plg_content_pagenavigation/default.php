@@ -1,14 +1,11 @@
 <?php
 
 /**
- * @package     Joomla.Site
- * @subpackage  Template.wissenswerk
+ * @package     Joomla.Plugin
+ * @subpackage  Content.pagenavigation
  *
- * Diagnostic override for Joomla Page Navigation.
- *
- * IMPORTANT:
- * This file is temporary and is used only to inspect the
- * values delivered by the PageNavigation plugin.
+ * @copyright   (C) 2013 Open Source Matters, Inc. <https://www.joomla.org>
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
@@ -16,100 +13,32 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 
+/**
+ * @var \Joomla\Plugin\Content\PageNavigation\Extension\PageNavigation  $this
+ */
+$this->loadLanguage();
+$lang = $this->getLanguage();
 ?>
 
-<div class="ww-pagenav-debug">
-
-    <h2>PageNavigation – Diagnose</h2>
-
-    <h3>Aktueller Artikel</h3>
-
-    <dl>
-        <dt>ID</dt>
-        <dd><?php echo (int) $row->id; ?></dd>
-
-        <dt>Titel</dt>
-        <dd><?php echo htmlspecialchars($row->title, ENT_QUOTES, 'UTF-8'); ?></dd>
-
-        <dt>Kategorie-ID</dt>
-        <dd><?php echo (int) $row->catid; ?></dd>
-
-        <dt>Sprache</dt>
-        <dd><?php echo htmlspecialchars($row->language, ENT_QUOTES, 'UTF-8'); ?></dd>
-    </dl>
-
-    <h3>PageNavigation</h3>
-
-    <dl>
-        <dt>Previous vorhanden</dt>
-        <dd><?php echo $row->prev ? 'JA' : 'NEIN'; ?></dd>
-
-        <dt>Next vorhanden</dt>
-        <dd><?php echo $row->next ? 'JA' : 'NEIN'; ?></dd>
-
-        <dt>Previous Label</dt>
-        <dd><?php echo htmlspecialchars($row->prev_label ?? '', ENT_QUOTES, 'UTF-8'); ?></dd>
-
-        <dt>Next Label</dt>
-        <dd><?php echo htmlspecialchars($row->next_label ?? '', ENT_QUOTES, 'UTF-8'); ?></dd>
-    </dl>
-
-    <?php if (!empty($row->prev)) : ?>
-        <p>
-            <strong>Zurück:</strong>
-            <?php echo htmlspecialchars($row->prev_label, ENT_QUOTES, 'UTF-8'); ?>
-        </p>
+<nav class="pagenavigation" aria-label="<?php echo Text::_('PLG_PAGENAVIGATION_ARIA_LABEL'); ?>">
+    <span class="pagination ms-0">
+    <?php if ($row->prev) :
+        $direction = $lang->isRtl() ? 'right' : 'left'; ?>
+            <a class="btn btn-sm btn-secondary previous" href="<?php echo Route::_($row->prev); ?>" rel="prev">
+            <span class="visually-hidden">
+                <?php echo Text::sprintf('JPREVIOUS_TITLE', htmlspecialchars($rows[$location - 1]->title)); ?>
+            </span>
+            <?php echo '<span class="icon-chevron-' . $direction . '" aria-hidden="true"></span> <span aria-hidden="true">' . htmlspecialchars($row->prev_label) . '</span>'; ?>
+            </a>
     <?php endif; ?>
-
-    <?php if (!empty($row->next)) : ?>
-        <p>
-            <strong>Weiter:</strong>
-            <?php echo htmlspecialchars($row->next_label, ENT_QUOTES, 'UTF-8'); ?>
-        </p>
+    <?php if ($row->next) :
+        $direction = $lang->isRtl() ? 'left' : 'right'; ?>
+            <a class="btn btn-sm btn-secondary next" href="<?php echo Route::_($row->next); ?>" rel="next">
+            <span class="visually-hidden">
+                <?php echo Text::sprintf('JNEXT_TITLE', htmlspecialchars($rows[$location + 1]->title)); ?>
+            </span>
+            <?php echo '<span aria-hidden="true">' . htmlspecialchars($row->next_label) . '</span> <span class="icon-chevron-' . $direction . '" aria-hidden="true"></span>'; ?>
+            </a>
     <?php endif; ?>
-
-</div>
-
-<?php if (!empty($row->ww_pagenav_debug)) : ?>
-
-    <h3>Interne PageNavigation-Daten</h3>
-
-    <dl>
-        <dt>UID</dt>
-        <dd>
-            <?php echo (int) $row->ww_pagenav_debug['uid']; ?>
-        </dd>
-
-        <dt>Sortiermethode</dt>
-        <dd>
-            <?php echo htmlspecialchars(
-                (string) $row->ww_pagenav_debug['order_method'],
-                ENT_QUOTES,
-                'UTF-8'
-            ); ?>
-        </dd>
-
-        <dt>ORDER BY</dt>
-        <dd>
-            <code>
-                <?php echo htmlspecialchars(
-                    (string) $row->ww_pagenav_debug['orderby'],
-                    ENT_QUOTES,
-                    'UTF-8'
-                ); ?>
-            </code>
-        </dd>
-
-        <dt>Artikelreihenfolge</dt>
-        <dd>
-            <code>
-                <?php echo htmlspecialchars(
-                    implode(' → ', $row->ww_pagenav_debug['list_keys']),
-                    ENT_QUOTES,
-                    'UTF-8'
-                ); ?>
-            </code>
-        </dd>
-    </dl>
-
-<?php endif; ?>
+    </span>
+</nav>
