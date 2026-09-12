@@ -2,9 +2,11 @@ import { JoomlaEditor, JoomlaEditorButton } from 'editor-api';
 
 import { registerArticleAction } from './blocks/article.js';
 import { registerColumnsAction } from './blocks/columns.js';
+import { registerAccordionAction } from './blocks/accordion.js';
 
 registerArticleAction();
 registerColumnsAction();
+registerAccordionAction();
 
 /*
  * TinyMCE external plugins are loaded as classic scripts.
