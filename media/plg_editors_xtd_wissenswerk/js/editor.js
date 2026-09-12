@@ -9,158 +9,20 @@ import {
 
 import { openMediaSelector } from './core/media.js';
 
+import {
+    openArticleSelector,
+    getArticleRoute,
+} from './core/article.js';
 
+import { appendSectionAfterLastSection } from './core/content.js';
 
-const buildDialog = () => {
-    const wrapper = document.createElement('div');
+import { registerArticleAction } from './blocks/article.js';
 
-    wrapper.innerHTML = `
-        <div class="ww-editor-modal" role="dialog" aria-modal="true"
-             aria-labelledby="ww-editor-modal-title">
-            <div class="ww-editor-modal__backdrop"></div>
-            <div class="ww-editor-modal__dialog">
-                <div class="ww-editor-modal__header">
-                    <h2 id="ww-editor-modal-title">WW Article – Split</h2>
-                    <button type="button" class="ww-editor-modal__close"
-                            aria-label="Dialog schließen">×</button>
-                </div>
-
-                <div class="ww-editor-modal__body">
-                    <div class="ww-editor-field">
-                        <label for="ww-article-eyebrow">WW Article Eyebrow</label>
-                        <input id="ww-article-eyebrow" type="text">
-                        <small>Optional</small>
-                    </div>
-
-                    <div class="ww-editor-field">
-                        <label for="ww-article-heading">Überschrift</label>
-                        <input id="ww-article-heading" type="text">
-                        <small>Optional</small>
-                    </div>
-
-                    <div class="ww-editor-field">
-                        <label for="ww-article-heading-level">Überschriftsebene</label>
-                        <select id="ww-article-heading-level">
-                            <option value="h2">H2</option>
-                            <option value="h3" selected>H3</option>
-                        </select>
-                        <small>Nur relevant, wenn eine Überschrift angegeben wird.</small>
-                    </div>
-
-                    <div class="ww-editor-field">
-                        <label for="ww-article-subtitle">Subtitel</label>
-                        <input id="ww-article-subtitle" type="text">
-                        <small>Optional</small>
-                    </div>
-
-                    <div class="ww-editor-field">
-                        <label for="ww-article-content">Content <span>*</span></label>
-                        <textarea id="ww-article-content" rows="6" required></textarea>
-                    </div>
-
-                    <fieldset class="ww-editor-field">
-                        <legend>Media</legend>
-
-                        <div class="ww-editor-media-row">
-                            <input id="ww-article-image" type="text" readonly
-                                   placeholder="Kein Bild ausgewählt">
-                            <button type="button" class="btn btn-secondary" id="ww-article-select-media">
-                                Aus Medien auswählen
-                            </button>
-                            <button type="button" class="btn btn-outline-secondary" id="ww-article-clear-media">
-                                Löschen
-                            </button>
-                        </div>
-
-                        <div class="ww-editor-field">
-                            <label for="ww-article-alt">Alternativtext</label>
-                            <input id="ww-article-alt" type="text">
-                        </div>
-
-                        <div class="ww-editor-options">
-                            <div>
-                                <span class="ww-editor-options__label">Position</span>
-                                <label><input type="radio" name="ww-position" value="left" checked> links</label>
-                                <label><input type="radio" name="ww-position" value="right"> rechts</label>
-                            </div>
-
-                            <div>
-                                <span class="ww-editor-options__label">Größe</span>
-                                <label><input type="radio" name="ww-size" value="s"> S</label>
-                                <label><input type="radio" name="ww-size" value="m" checked> M</label>
-                                <label><input type="radio" name="ww-size" value="l"> L</label>
-                                <label><input type="radio" name="ww-size" value="xl"> XL</label>
-                                <label><input type="radio" name="ww-size" value="full"> Full</label>
-                            </div>
-                        </div>
-                    </fieldset>
-
-                    <fieldset class="ww-editor-field">
-                        <legend>Button</legend>
-                        <label for="ww-article-button-text">Button-Text</label>
-                        <input id="ww-article-button-text" type="text">
-
-                        <div class="ww-editor-link-selection">
-                            <label>Button-Ziel</label>
-                            <div class="ww-editor-link-row">
-                                <input id="ww-article-button-url" type="text"
-                                       placeholder="URL oder ausgewählten Beitrag verwenden">
-                                <button type="button" class="btn btn-secondary" id="ww-article-select">
-                                    Beitrag auswählen
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary" id="ww-article-clear-link">
-                                    Löschen
-                                </button>
-                            </div>
-                            <small>Für interne Links kann ein Joomla-Beitrag direkt ausgewählt werden. Eine manuelle URL bleibt ebenfalls möglich.</small>
-                            <div id="ww-article-selected-title" class="ww-editor-selected-value" hidden></div>
-                        </div>
-                    </fieldset>
-
-                    <p class="ww-editor-modal__error" hidden></p>
-                </div>
-
-                <div class="ww-editor-modal__footer">
-                    <button type="button" class="btn btn-secondary" data-ww-cancel>Abbrechen</button>
-                    <button type="button" class="btn btn-primary" data-ww-insert>Einfügen</button>
-                </div>
-            </div>
-        </div>`;
-
-    return wrapper.firstElementChild;
-};
-
-const createSectionMarkup = (data) => {
-    const eyebrow = data.eyebrow
-        ? `<p class="ww-eyebrow">${escapeHtml(data.eyebrow)}</p>\n`
-        : '';
-
-    const subtitle = data.subtitle
-        ? `<p class="ww-article-subtitel">${escapeHtml(data.subtitle)}</p>\n`
-        : '';
-
-    const button = data.buttonText && data.buttonUrl
-        ? `<a class="ww-button" href="${escapeHtml(data.buttonUrl)}">${escapeHtml(data.buttonText)}<span class="ww-button__icon" aria-hidden="true">→</span></a>\n`
-        : '';
-
-    const media = data.image
-        ? `\n<div class="ww-article-split__media">\n<figure class="ww-article-media ww-article-media--${data.mediaSize}">\n<img src="${escapeHtml(data.image)}" alt="${escapeHtml(data.alt)}"${data.width ? ` width="${escapeHtml(data.width)}"` : ''}${data.height ? ` height="${escapeHtml(data.height)}"` : ''} loading="lazy">\n</figure>\n</div>`
-        : '';
-
-    const mediaClass = data.image ? ` ww-article-split--media-${data.position}` : '';
-
-    const headingLevel = ['h2', 'h3'].includes(data.headingLevel)
-        ? data.headingLevel
-        : 'h3';
-
-    const heading = data.heading
-        ? `<${headingLevel}>${escapeHtml(data.heading)}</${headingLevel}>\n`
-        : '';
-
-    return `<section class="ww-article-split${mediaClass}">\n<div class="ww-article-split__content">\n${eyebrow}${heading}${subtitle}<p>${escapeHtml(data.content)}</p>\n${button}</div>${media}\n</section>`;
-};
-
-
+/**
+ * Builds the WW Article – Columns dialog.
+ *
+ * @returns {HTMLElement} Dialog element.
+ */
 const buildColumnsDialog = () => {
     const wrapper = document.createElement('div');
 
@@ -297,6 +159,12 @@ const buildColumnsDialog = () => {
     return wrapper.firstElementChild;
 };
 
+/**
+ * Creates the markup for a single WW Article – Columns card.
+ *
+ * @param {object} data Column card data.
+ * @returns {string} Generated card markup.
+ */
 const createColumnCardMarkup = (data) => {
     const headingLevel = ['h2', 'h3'].includes(data.headingLevel)
         ? data.headingLevel
@@ -315,9 +183,11 @@ const createColumnCardMarkup = (data) => {
         : '';
 
     const positionClass = ` ww-article-column--icon-${data.position}`;
+
     const colorClass = data.color === 'transparent'
         ? ' ww-article-column--transparent'
         : ` ww-article-column--${data.color || 'color-1'}`;
+
     const borderClass = data.border === 'yes'
         ? ' ww-article-column--border'
         : '';
@@ -329,9 +199,23 @@ const createColumnCardMarkup = (data) => {
     return `<article class="ww-article-column${positionClass}${colorClass}${borderClass}">\n${image}<div class="ww-article-column__content">\n${heading}${subtitle}<p>${escapeHtml(data.content)}</p>\n${link}</div>\n</article>`;
 };
 
+/**
+ * Creates the initial WW Article – Columns section.
+ *
+ * @param {string} cardMarkup Column card markup.
+ * @returns {string} Generated section markup.
+ */
 const createColumnsSectionMarkup = (cardMarkup) =>
     `<section class="ww-article-columns">\n${cardMarkup}\n</section>`;
 
+/**
+ * Appends a card to the Columns section created during the current dialog.
+ *
+ * @param {object} editor Joomla Editor API instance.
+ * @param {string} sectionMarkup Current section markup.
+ * @param {string} cardMarkup New card markup.
+ * @returns {string} Updated section markup.
+ */
 const appendColumnCard = (editor, sectionMarkup, cardMarkup) => {
     const content = typeof editor.getValue === 'function'
         ? editor.getValue()
@@ -353,12 +237,19 @@ const appendColumnCard = (editor, sectionMarkup, cardMarkup) => {
     const insertAt = lastClosingTag;
     const before = content.slice(0, insertAt).replace(/\s*$/, '');
     const after = content.slice(insertAt).replace(/^\s*/, '');
-    const updatedSection = sectionMarkup.replace(/\n<\/section>$/, `\n${cardMarkup}\n</section>`);
 
-    // Replace the section we created in this dialog rather than relying on the
-    // editor cursor. The first card therefore establishes the section and all
-    // following cards remain inside that same section.
-    const sectionStart = content.lastIndexOf('<section class="ww-article-columns">', insertAt);
+    const updatedSection = sectionMarkup.replace(
+        /\n<\/section>$/,
+        `\n${cardMarkup}\n</section>`
+    );
+
+    // Replace the section we created in this dialog rather than relying on
+    // the editor cursor. The first card therefore establishes the section
+    // and all following cards remain inside that same section.
+    const sectionStart = content.lastIndexOf(
+        '<section class="ww-article-columns">',
+        insertAt
+    );
 
     if (sectionStart === -1) {
         editor.setValue(`${before}\n${cardMarkup}\n${after}`);
@@ -367,7 +258,11 @@ const appendColumnCard = (editor, sectionMarkup, cardMarkup) => {
 
     const sectionEnd = lastClosingTag + closingTag.length;
     const existingSection = content.slice(sectionStart, sectionEnd);
-    const newSection = existingSection.replace(/\s*<\/section>$/, `\n${cardMarkup}\n</section>`);
+
+    const newSection = existingSection.replace(
+        /\s*<\/section>$/,
+        `\n${cardMarkup}\n</section>`
+    );
 
     editor.setValue(
         `${content.slice(0, sectionStart)}${newSection}${content.slice(sectionEnd)}`
@@ -376,6 +271,13 @@ const appendColumnCard = (editor, sectionMarkup, cardMarkup) => {
     return newSection;
 };
 
+/**
+ * Opens the WW Article – Columns dialog.
+ *
+ * @param {object} editor Joomla Editor API instance.
+ * @param {object} options Editor action options.
+ * @returns {void}
+ */
 const openColumnsDialog = (editor, options = {}) => {
     const modal = buildColumnsDialog();
     document.body.append(modal);
@@ -394,12 +296,18 @@ const openColumnsDialog = (editor, options = {}) => {
         modal.querySelector('#ww-columns-link-text').value = '';
         modal.querySelector('#ww-columns-link-url').value = '';
 
-        const defaultColor = modal.querySelector('input[name="ww-columns-color"][value="color-1"]');
+        const defaultColor = modal.querySelector(
+            'input[name="ww-columns-color"][value="color-1"]'
+        );
+
         if (defaultColor) {
             defaultColor.checked = true;
         }
 
-        const defaultBorder = modal.querySelector('input[name="ww-columns-border"][value="no"]');
+        const defaultBorder = modal.querySelector(
+            'input[name="ww-columns-border"][value="no"]'
+        );
+
         if (defaultBorder) {
             defaultBorder.checked = true;
         }
@@ -409,13 +317,20 @@ const openColumnsDialog = (editor, options = {}) => {
         selectedTitle.hidden = true;
 
         const image = modal.querySelector('#ww-columns-image');
+
         image.value = '';
         delete image.dataset.path;
         delete image.dataset.width;
         delete image.dataset.height;
 
-        modal.querySelector('input[name="ww-columns-position"][value="center"]').checked = true;
-        modal.querySelector('input[name="ww-columns-size"][value="m"]').checked = true;
+        modal.querySelector(
+            'input[name="ww-columns-position"][value="center"]'
+        ).checked = true;
+
+        modal.querySelector(
+            'input[name="ww-columns-size"][value="m"]'
+        ).checked = true;
+
         modal.querySelector('.ww-editor-modal__error').hidden = true;
     };
 
@@ -480,7 +395,11 @@ const openColumnsDialog = (editor, options = {}) => {
             appendSectionAfterLastSection(editor, columnsSectionMarkup);
             hasCreatedCard = true;
         } else {
-            columnsSectionMarkup = appendColumnCard(editor, columnsSectionMarkup, cardMarkup);
+            columnsSectionMarkup = appendColumnCard(
+                editor,
+                columnsSectionMarkup,
+                cardMarkup
+            );
         }
 
         resetFields();
@@ -491,8 +410,12 @@ const openColumnsDialog = (editor, options = {}) => {
         // "Fertig" accepts the card currently entered, if there is one,
         // and then ends the section-building operation.
         const data = getCardData();
+
         const hasCurrentCardContent = Boolean(
-            data.content || data.heading || data.subtitle || data.image
+            data.content ||
+            data.heading ||
+            data.subtitle ||
+            data.image
         );
 
         if (hasCurrentCardContent) {
@@ -507,7 +430,11 @@ const openColumnsDialog = (editor, options = {}) => {
                 appendSectionAfterLastSection(editor, columnsSectionMarkup);
                 hasCreatedCard = true;
             } else {
-                columnsSectionMarkup = appendColumnCard(editor, columnsSectionMarkup, cardMarkup);
+                columnsSectionMarkup = appendColumnCard(
+                    editor,
+                    columnsSectionMarkup,
+                    cardMarkup
+                );
             }
         }
 
@@ -523,282 +450,113 @@ const openColumnsDialog = (editor, options = {}) => {
         close();
     };
 
-    modal.querySelector('.ww-editor-modal__close').addEventListener('click', discard);
-    modal.querySelector('[data-ww-columns-cancel]').addEventListener('click', discard);
-    modal.querySelector('[data-ww-columns-finish]').addEventListener('click', finish);
-    modal.querySelector('.ww-editor-modal__backdrop').addEventListener('click', discard);
-    modal.querySelector('[data-ww-columns-next]').addEventListener('click', insertNextCard);
+    modal.querySelector('.ww-editor-modal__close')
+        .addEventListener('click', discard);
 
-    modal.querySelector('#ww-columns-select-media').addEventListener('click', () => {
-        openMediaSelector(modal, options.mediaLink, (media) => {
+    modal.querySelector('[data-ww-columns-cancel]')
+        .addEventListener('click', discard);
+
+    modal.querySelector('[data-ww-columns-finish]')
+        .addEventListener('click', finish);
+
+    modal.querySelector('.ww-editor-modal__backdrop')
+        .addEventListener('click', discard);
+
+    modal.querySelector('[data-ww-columns-next]')
+        .addEventListener('click', insertNextCard);
+
+    modal.querySelector('#ww-columns-select-media')
+        .addEventListener('click', () => {
+            openMediaSelector(modal, options.mediaLink, (media) => {
+                const image = modal.querySelector('#ww-columns-image');
+
+                image.value = media.url || media.path;
+                image.dataset.path = media.path;
+                image.dataset.width = media.width || '';
+                image.dataset.height = media.height || '';
+            });
+        });
+
+    modal.querySelector('#ww-columns-clear-media')
+        .addEventListener('click', () => {
             const image = modal.querySelector('#ww-columns-image');
-            image.value = media.url || media.path;
-            image.dataset.path = media.path;
-            image.dataset.width = media.width || '';
-            image.dataset.height = media.height || '';
+
+            image.value = '';
+            delete image.dataset.path;
+            delete image.dataset.width;
+            delete image.dataset.height;
         });
-    });
 
-    modal.querySelector('#ww-columns-clear-media').addEventListener('click', () => {
-        const image = modal.querySelector('#ww-columns-image');
-        image.value = '';
-        delete image.dataset.path;
-        delete image.dataset.width;
-        delete image.dataset.height;
-    });
+    modal.querySelector('#ww-columns-select-article')
+        .addEventListener('click', () => {
+            openArticleSelector(async (data) => {
+                const selected = modal.querySelector('#ww-columns-selected-title');
 
-    modal.querySelector('#ww-columns-select-article').addEventListener('click', () => {
-        openArticleSelector(async (data) => {
-            const selected = modal.querySelector('#ww-columns-selected-title');
-            selected.textContent = data.title || `Beitrag #${data.id}`;
-            selected.hidden = false;
+                selected.textContent = data.title || `Beitrag #${data.id}`;
+                selected.hidden = false;
 
-            try {
-                const response = await fetch(
-                    `index.php?option=com_ajax&plugin=wissenswerkroute&format=json&id=${encodeURIComponent(data.id)}`,
-                    {
-                        method: 'GET',
-                        credentials: 'same-origin',
-                        headers: {
-                            Accept: 'application/json',
-                        },
-                    }
-                );
+                try {
+                    const route = await getArticleRoute(data.id);
 
-                const result = await response.json();
+                    modal.querySelector('#ww-columns-link-url').value = route;
+                } catch (error) {
+                    modal.querySelector('#ww-columns-link-url').value = '';
+                    selected.textContent =
+                        `${data.title || `Beitrag #${data.id}`} – URL konnte nicht ermittelt werden`;
 
-                if (!response.ok || !result.success || !result.data) {
-                    throw new Error(result.message || 'Die Joomla-URL konnte nicht ermittelt werden.');
+                    console.error('WissensWerk Routing:', error);
                 }
-
-                modal.querySelector('#ww-columns-link-url').value = result.data;
-            } catch (error) {
-                modal.querySelector('#ww-columns-link-url').value = '';
-                selected.textContent = `${data.title || `Beitrag #${data.id}`} – URL konnte nicht ermittelt werden`;
-                console.error('WissensWerk Routing:', error);
-            }
+            });
         });
-    });
 
-    modal.querySelector('#ww-columns-clear-link').addEventListener('click', () => {
-        modal.querySelector('#ww-columns-link-url').value = '';
-        const selected = modal.querySelector('#ww-columns-selected-title');
-        selected.textContent = '';
-        selected.hidden = true;
-    });
+    modal.querySelector('#ww-columns-clear-link')
+        .addEventListener('click', () => {
+            modal.querySelector('#ww-columns-link-url').value = '';
 
-    modal.querySelector('#ww-columns-content').addEventListener('input', () => {
-        modal.querySelector('.ww-editor-modal__error').hidden = true;
-    });
+            const selected = modal.querySelector('#ww-columns-selected-title');
+
+            selected.textContent = '';
+            selected.hidden = true;
+        });
+
+    modal.querySelector('#ww-columns-content')
+        .addEventListener('input', () => {
+            modal.querySelector('.ww-editor-modal__error').hidden = true;
+        });
 
     modal.querySelector('#ww-columns-heading').focus();
 };
 
-
-
-const openArticleSelector = (onSelect) => {
-    const url = 'index.php?option=com_content&view=articles&tmpl=component&layout=modal';
-
-    const dialog = new JoomlaDialog({
-        popupType: 'iframe',
-        textHeader: 'Beitrag auswählen',
-        src: url,
-        width: '90vw',
-        height: '80vh',
-    });
-
-    const receiveMessage = (event) => {
-        if (event.origin !== window.location.origin) {
-            return;
-        }
-
-        const data = event.data || {};
-
-        if (data.messageType !== 'joomla:content-select' || !data.id) {
-            return;
-        }
-
-        onSelect(data);
-        dialog.close();
-        window.removeEventListener('message', receiveMessage);
-    };
-
-    window.addEventListener('message', receiveMessage);
-    dialog.addEventListener('joomla-dialog:close', () => {
-        window.removeEventListener('message', receiveMessage);
-    }, { once: true });
-
-    dialog.show();
-};
-
 /**
- * Append a WW Article section after the last closing </section> of the
- * current article content.
+ * Registers the WW Article – Columns editor action.
  *
- * WW Article blocks are independent sections inside a Joomla article.
- * Therefore we deliberately do not use replaceSelection() here: the
- * insertion position must not depend on where the cursor happens to be.
- *
- * @param {object} editor Joomla Editor API instance
- * @param {string} sectionMarkup Generated WW section markup
  * @returns {void}
  */
-const appendSectionAfterLastSection = (editor, sectionMarkup) => {
-    const content = typeof editor.getValue === 'function'
-        ? editor.getValue()
-        : '';
-
-    if (!content.trim()) {
-        editor.setValue(sectionMarkup);
-        return;
-    }
-
-    const closingTag = '</section>';
-    const lastClosingTag = content.toLowerCase().lastIndexOf(closingTag);
-
-    if (lastClosingTag === -1) {
-        editor.setValue(`${content.trimEnd()}\n${sectionMarkup}`);
-        return;
-    }
-
-    const insertAt = lastClosingTag + closingTag.length;
-    const before = content.slice(0, insertAt).replace(/\s*$/, '');
-    const after = content.slice(insertAt).replace(/^\s*/, '');
-
-    editor.setValue(
-        after
-            ? `${before}\n${sectionMarkup}\n${after}`
-            : `${before}\n${sectionMarkup}`
+const registerColumnsAction = () => {
+    JoomlaEditorButton.registerAction(
+        'wissenswerk-insert-columns-card',
+        (editor, options) => {
+            openColumnsDialog(editor, options);
+        }
     );
 };
 
-const openDialog = (editor, options = {}) => {
-    const modal = buildDialog();
-    document.body.append(modal);
+/*
+ * Register the editor actions provided by this file.
+ *
+ * WW Article – Split is already implemented in its dedicated block module.
+ * WW Article – Columns remains here until the next refactoring step.
+ */
+registerArticleAction();
+registerColumnsAction();
 
-    const close = () => modal.remove();
-
-    modal.querySelector('.ww-editor-modal__close').addEventListener('click', close);
-    modal.querySelector('[data-ww-cancel]').addEventListener('click', close);
-    modal.querySelector('.ww-editor-modal__backdrop').addEventListener('click', close);
-
-    modal.querySelector('#ww-article-select-media').addEventListener('click', () => {
-        openMediaSelector(modal, options.mediaLink, (media) => {
-            modal.querySelector('#ww-article-image').value = media.url || media.path;
-            modal.querySelector('#ww-article-image').dataset.path = media.path;
-            modal.querySelector('#ww-article-image').dataset.width = media.width || '';
-            modal.querySelector('#ww-article-image').dataset.height = media.height || '';
-        });
-    });
-
-    modal.querySelector('#ww-article-clear-media').addEventListener('click', () => {
-        const image = modal.querySelector('#ww-article-image');
-        image.value = '';
-        delete image.dataset.path;
-        delete image.dataset.width;
-        delete image.dataset.height;
-    });
-
-    modal.querySelector('#ww-article-select').addEventListener('click', () => {
-        openArticleSelector(async (data) => {
-            const selected = modal.querySelector('#ww-article-selected-title');
-            selected.textContent = data.title || `Beitrag #${data.id}`;
-            selected.hidden = false;
-
-            try {
-                const response = await fetch(
-                    `index.php?option=com_ajax&plugin=wissenswerkroute&format=json&id=${encodeURIComponent(data.id)}`,
-                    {
-                        method: 'GET',
-                        credentials: 'same-origin',
-                        headers: {
-                            Accept: 'application/json',
-                        },
-                    }
-                );
-
-                const result = await response.json();
-
-                if (!response.ok || !result.success || !result.data) {
-                    throw new Error(result.message || 'Die Joomla-URL konnte nicht ermittelt werden.');
-                }
-
-                modal.querySelector('#ww-article-button-url').value = result.data;
-            } catch (error) {
-                modal.querySelector('#ww-article-button-url').value = '';
-                selected.textContent = `${data.title || `Beitrag #${data.id}`} – URL konnte nicht ermittelt werden`;
-                console.error('WissensWerk Routing:', error);
-            }
-        });
-    });
-
-    modal.querySelector('#ww-article-clear-link').addEventListener('click', () => {
-        modal.querySelector('#ww-article-button-url').value = '';
-        const selected = modal.querySelector('#ww-article-selected-title');
-        selected.textContent = '';
-        selected.hidden = true;
-    });
-
-    modal.querySelector('[data-ww-insert]').addEventListener('click', () => {
-        const imageInput = modal.querySelector('#ww-article-image');
-
-        const data = {
-            eyebrow: getValue(modal, '#ww-article-eyebrow'),
-            heading: getValue(modal, '#ww-article-heading'),
-            headingLevel: getValue(modal, '#ww-article-heading-level') || 'h3',
-            subtitle: getValue(modal, '#ww-article-subtitle'),
-            content: getValue(modal, '#ww-article-content'),
-            image: imageInput.value,
-            path: imageInput.dataset.path || imageInput.value,
-            width: imageInput.dataset.width || '',
-            height: imageInput.dataset.height || '',
-            alt: getValue(modal, '#ww-article-alt'),
-            position: getCheckedValue(modal, 'ww-position') || 'left',
-            mediaSize: getCheckedValue(modal, 'ww-size') || 'm',
-            buttonText: getValue(modal, '#ww-article-button-text'),
-            buttonUrl: getValue(modal, '#ww-article-button-url'),
-        };
-
-        const error = modal.querySelector('.ww-editor-modal__error');
-
-        if (!data.content) {
-            error.textContent = 'Content ist erforderlich.';
-            error.hidden = false;
-            return;
-        }
-
-        if (data.buttonText && !data.buttonUrl) {
-            error.textContent = 'Für den Button-Text muss auch ein Button-Ziel angegeben werden.';
-            error.hidden = false;
-            return;
-        }
-
-        if (data.buttonUrl && !data.buttonText) {
-            error.textContent = 'Für ein Button-Ziel muss auch ein Button-Text angegeben werden.';
-            error.hidden = false;
-            return;
-        }
-
-        const sectionMarkup = createSectionMarkup(data);
-        appendSectionAfterLastSection(editor, sectionMarkup);
-        close();
-    });
-
-    modal.querySelector('#ww-article-heading').focus();
-};
-
-JoomlaEditorButton.registerAction('wissenswerk-insert-article', (editor, options) => {
-    openDialog(editor, options);
-});
-
-JoomlaEditorButton.registerAction('wissenswerk-insert-columns-card', (editor, options) => {
-    openColumnsDialog(editor, options);
-});
-
-// TinyMCE external plugins are loaded as classic scripts. This small bridge
-// keeps the actual action inside Joomla's editor API while allowing the
-// dedicated WissensWerk TinyMCE menu to trigger exactly the same action.
+/**
+ * TinyMCE external plugins are loaded as classic scripts. This small bridge
+ * keeps the actual action inside Joomla's editor API while allowing the
+ * dedicated WissensWerk TinyMCE menu to trigger exactly the same action.
+ */
 window.WissensWerkEditor = window.WissensWerkEditor || {};
+
 window.WissensWerkEditor.runAction = (editorId, action, options = {}) => {
     JoomlaEditor.setActive(editorId);
     JoomlaEditorButton.runAction(action, options);
