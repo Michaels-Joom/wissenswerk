@@ -1,17 +1,15 @@
 import JoomlaDialog from 'joomla.dialog';
 import { JoomlaEditor, JoomlaEditorButton } from 'editor-api';
 
-const escapeHtml = (value) => String(value ?? '')
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#039;');
+import {
+    escapeHtml,
+    getValue,
+    getCheckedValue,
+} from './core/utils.js';
 
-const getValue = (root, selector) => root.querySelector(selector)?.value.trim() || '';
+import { openMediaSelector } from './core/media.js';
 
-const getCheckedValue = (root, name) =>
-    root.querySelector(`input[name="${name}"]:checked`)?.value || null;
+
 
 const buildDialog = () => {
     const wrapper = document.createElement('div');
@@ -596,79 +594,7 @@ const openColumnsDialog = (editor, options = {}) => {
     modal.querySelector('#ww-columns-heading').focus();
 };
 
-const openMediaSelector = (modal, mediaLink, onSelect) => {
-    const dialog = new JoomlaDialog({
-        popupType: 'iframe',
-        textHeader: Joomla.Text._('PLG_IMAGE_BUTTON_IMAGE') || 'Medien',
-        iconHeader: 'icon-pictures',
-        src: mediaLink,
-        width: '90vw',
-        height: '80vh',
-        popupButtons: [
-            {
-                label: Joomla.Text._('JSELECT'),
-                className: 'button button-success btn btn-success',
-                location: 'header',
-                onClick: async () => {
-                    const selected = Joomla.selectedMediaFile;
 
-                    if (!selected?.path) {
-                        return;
-                    }
-
-                    try {
-                        let capturedImage = '';
-
-                        // Let Joomla's own media resolver/API process the selected file.
-                        // We provide a tiny editor adapter that captures the HTML Joomla
-                        // would normally insert into TinyMCE.
-                        const captureEditor = {
-                            replaceSelection: (html) => {
-                                capturedImage = html;
-                            },
-                        };
-
-                        await Joomla.getMedia(selected, captureEditor);
-
-                        onSelect({
-                            path: selected.path,
-                            url: Joomla.selectedMediaFile.url || selected.path,
-                            width: Joomla.selectedMediaFile.width || 0,
-                            height: Joomla.selectedMediaFile.height || 0,
-                            html: capturedImage,
-                        });
-
-                        dialog.close();
-                    } catch (error) {
-                        Joomla.renderMessages({
-                            error: [Joomla.Text._('JLIB_APPLICATION_ERROR_SERVER')],
-                        });
-                    } finally {
-                        Joomla.selectedMediaFile = {};
-                    }
-                },
-            },
-            {
-                label: '',
-                ariaLabel: Joomla.Text._('JCLOSE'),
-                className: 'button-close btn-close',
-                data: {
-                    buttonClose: '',
-                    dialogClose: '',
-                },
-                location: 'header',
-            },
-        ],
-    });
-
-    dialog.addEventListener('joomla-dialog:close', () => {
-        Joomla.Modal.setCurrent(null);
-        dialog.destroy();
-    }, { once: true });
-
-    Joomla.Modal.setCurrent(dialog);
-    dialog.show();
-};
 
 const openArticleSelector = (onSelect) => {
     const url = 'index.php?option=com_content&view=articles&tmpl=component&layout=modal';
