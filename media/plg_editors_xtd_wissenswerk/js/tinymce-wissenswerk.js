@@ -79,7 +79,6 @@
         return {
             getMetadata: () => ({
                 name: 'WissensWerk TinyMCE',
-                url: 'https://wissenswerk.test/',
             }),
         };
     });
