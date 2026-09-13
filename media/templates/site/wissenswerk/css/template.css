@@ -2996,26 +2996,34 @@ body {
  * WissensWerk
  * Component: Accordion
  *
- * Baut auf dem Bootstrap Accordion / Collapse auf.
- * Bootstrap übernimmt die Funktionalität.
+ * Die äußere Section .ww-article-accordion bildet den eigenständigen
+ * WissensWerk-Inhaltsblock.
+ *
+ * Die Abstände zwischen einzelnen Sections werden auf Layout-Ebene
+ * gesteuert und nicht innerhalb dieser Komponente.
+ *
+ * Bootstrap übernimmt die Funktionalität über Accordion / Collapse.
  * WissensWerk übernimmt die visuelle Gestaltung.
  */
-.ww-accordion {
+.ww-article-accordion {
   width: 100%;
 }
-.ww-accordion .accordion-item {
+.ww-article-accordion .accordion {
+  width: 100%;
+}
+.ww-article-accordion .accordion-item {
   border: 0;
   border-top: 1px solid var(--ww-color-border, #d8d4cc);
   border-radius: 0;
   background: transparent;
 }
-.ww-accordion .accordion-item:last-child {
+.ww-article-accordion .accordion-item:last-child {
   border-bottom: 1px solid var(--ww-color-border, #d8d4cc);
 }
-.ww-accordion .accordion-header {
+.ww-article-accordion .accordion-header {
   margin: 0;
 }
-.ww-accordion .accordion-button {
+.ww-article-accordion .accordion-button {
   position: relative;
   display: flex;
   align-items: center;
@@ -3034,26 +3042,17 @@ body {
   box-shadow: none;
   transition: color 0.2s ease, background-color 0.2s ease;
 }
-.ww-accordion .accordion-button:hover {
+.ww-article-accordion .accordion-button:hover {
   color: var(--ww-color-accent, #b8860b);
   background-color: transparent;
 }
-.ww-accordion .accordion-button:focus {
+.ww-article-accordion .accordion-button:focus {
   z-index: 1;
   color: var(--ww-color-text, #2c2523);
   background-color: transparent;
   box-shadow: 0 0 0 2px var(--ww-color-accent, #b8860b);
 }
-.ww-accordion__number {
-  flex: 0 0 auto;
-  margin-right: 0.25rem;
-  font-weight: 600;
-}
-.ww-accordion__title {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-.ww-accordion .accordion-button::after {
+.ww-article-accordion .accordion-button::after {
   position: absolute;
   top: 50%;
   right: 0.35rem;
@@ -3066,30 +3065,30 @@ body {
   transform: translateY(-70%) rotate(45deg);
   transition: transform 0.2s ease;
 }
-.ww-accordion .accordion-button:not(.collapsed)::after {
+.ww-article-accordion .accordion-button:not(.collapsed)::after {
   transform: translateY(-30%) rotate(225deg);
 }
-.ww-accordion .accordion-button:not(.collapsed) {
+.ww-article-accordion .accordion-button:not(.collapsed) {
   color: var(--ww-color-text, #2c2523);
   background-color: transparent;
   box-shadow: none;
 }
-.ww-accordion .accordion-collapse {
+.ww-article-accordion .accordion-collapse {
   border: 0;
 }
-.ww-accordion .accordion-body {
+.ww-article-accordion .accordion-body {
   padding: 0.25rem 2.5rem 1.5rem 1.25rem;
   color: var(--ww-color-text, #2c2523);
   font-size: 1rem;
   line-height: 1.6;
 }
 @media (max-width: 767.98px) {
-  .ww-accordion .accordion-button {
+  .ww-article-accordion .accordion-button {
     padding-top: 0.875rem;
     padding-bottom: 0.875rem;
     font-size: 0.875rem;
   }
-  .ww-accordion .accordion-body {
+  .ww-article-accordion .accordion-body {
     padding-right: 2rem;
     padding-bottom: 1.25rem;
   }

@@ -21,8 +21,8 @@
     // icon renderer does not reliably resolve external <use> references.
     const icon = `
         <svg
-            width="24"
-            height="24"
+            width="36"
+            height="36"
             viewBox="0 0 50 50"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"

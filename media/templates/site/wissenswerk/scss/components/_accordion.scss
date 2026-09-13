@@ -1,20 +1,30 @@
- @use "../tokens" as *;
+@use "../tokens" as *;
+
 /**
  * WissensWerk
  * Component: Accordion
  *
- * Baut auf dem Bootstrap Accordion / Collapse auf.
- * Bootstrap übernimmt die Funktionalität.
+ * Die äußere Section .ww-article-accordion bildet den eigenständigen
+ * WissensWerk-Inhaltsblock.
+ *
+ * Die Abstände zwischen einzelnen Sections werden auf Layout-Ebene
+ * gesteuert und nicht innerhalb dieser Komponente.
+ *
+ * Bootstrap übernimmt die Funktionalität über Accordion / Collapse.
  * WissensWerk übernimmt die visuelle Gestaltung.
  */
 
-.ww-accordion {
+.ww-article-accordion {
 
     // -------------------------------------------------------------------------
     // Accordion Container
     // -------------------------------------------------------------------------
 
     width: 100%;
+
+    .accordion {
+        width: 100%;
+    }
 
 
     // -------------------------------------------------------------------------
@@ -99,30 +109,6 @@
 
 
     // -------------------------------------------------------------------------
-    // Nummer
-    // -------------------------------------------------------------------------
-
-    &__number {
-        flex: 0 0 auto;
-
-        margin-right: 0.25rem;
-
-        font-weight: 600;
-    }
-
-
-    // -------------------------------------------------------------------------
-    // Titel
-    // -------------------------------------------------------------------------
-
-    &__title {
-        flex: 1 1 auto;
-
-        min-width: 0;
-    }
-
-
-    // -------------------------------------------------------------------------
     // Chevron
     //
     // Bootstrap erzeugt standardmäßig ein SVG als background-image.
@@ -133,6 +119,7 @@
         position: absolute;
         top: 50%;
         right: 0.35rem;
+
         width: 0.65rem;
         height: 0.65rem;
         margin: 0;
@@ -146,8 +133,11 @@
         transition: transform 0.2s ease;
     }
 
+
+    // -------------------------------------------------------------------------
     // Chevron geöffnet
-    
+    // -------------------------------------------------------------------------
+
     .accordion-button:not(.collapsed)::after {
         transform: translateY(-30%) rotate(225deg);
     }
@@ -165,7 +155,7 @@
 
 
     // -------------------------------------------------------------------------
-    // Inhalt
+    // Collapse / Inhalt
     // -------------------------------------------------------------------------
 
     .accordion-collapse {
