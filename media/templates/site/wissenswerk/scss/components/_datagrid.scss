@@ -1,16 +1,58 @@
+@use "../tokens" as *;
+
 // ==========================================================================
 // WissensWerk – Data Grid
 // ==========================================================================
 //
 // Zweck:
-// Darstellung strukturierter Informationsdatensätze als responsives Grid.
+// Darstellung kleiner bis mittlerer strukturierter Informationsmengen.
 //
-// Die Komponente ist nicht als Ersatz für semantische HTML-Tabellen gedacht.
-// Sie eignet sich für strukturierte Informationsblöcke, die auf mobilen
-// Geräten in eine Karten-/Einzeldarstellung überführt werden können.
+// Das Data Grid ist kein Ersatz für semantische HTML-Tabellen.
+// Es dient als alternative Darstellungsform für strukturierte
+// Informationsblöcke, insbesondere wenn eine klassische Tabelle auf
+// mobilen Geräten keine geeignete Darstellung ermöglicht.
+//
+// Die äußere Section .ww-article-data-grid bildet die
+// WissensWerk-Layout-Ebene.
+//
+// Die eigentliche Komponente .ww-data-grid übernimmt die Darstellung.
+//
+// Unterstützte Spaltenanzahl:
+// 2–4
+//
+// Individuelle Spaltenbreiten können über die automatisch erzeugte
+// Grid-ID und die CSS Custom Property --ww-data-grid-columns
+// manuell überschrieben werden.
+//
+// Beispiel:
+//
+// #ww-data-grid-a7k3x9 {
+//     --ww-data-grid-columns:
+//         1fr 2fr 0.85fr 0.85fr;
+// }
 //
 // ==========================================================================
 
+
+// ==========================================================================
+// Article Section
+// ==========================================================================
+//
+// Die Abstände zwischen WissensWerk-Sections werden zentral auf
+// Layout-Ebene geregelt.
+//
+// Diese Komponente definiert hier bewusst keine eigenen
+// Section-Abstände.
+//
+
+.ww-article-data-grid {
+    width: 100%;
+}
+
+
+// ==========================================================================
+// Data Grid
+// ==========================================================================
 
 .ww-data-grid {
 
@@ -18,33 +60,83 @@
     // Grundkonfiguration
     // ----------------------------------------------------------------------
     //
-    // Die Master-Komponente verwendet eine neutrale Standardaufteilung.
-    // Konkrete Anwendungsfälle können diese Variable über einen Modifier
-    // überschreiben.
+    // Fallback: vier gleichmäßig verteilte Spalten.
+    //
+    // Die konkrete Spaltenanzahl wird über die Modifier
+    // --columns-2, --columns-3 oder --columns-4 gesetzt.
     //
 
-    --ww-data-grid-columns:  minmax(0, 1fr)  minmax(0, 1fr)  minmax(0, 1fr)  minmax(0, 1fr);
+    --ww-data-grid-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr)
+        minmax(0, 1fr)
+        minmax(0, 1fr);
 
     width: 100%;
 
     border: 1px solid var(--ww-color-border, #d8d4cc);
-    // background-color: var(--ww-color-surface, #f6f4ef);
+
+    // background-color:
+    //     var(--ww-color-surface, #f6f4ef);
+
+
+    // ----------------------------------------------------------------------
+    // Spaltenanzahl: 2
+    // ----------------------------------------------------------------------
+
+    &--columns-2 {
+        --ww-data-grid-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+    }
+
+
+    // ----------------------------------------------------------------------
+    // Spaltenanzahl: 3
+    // ----------------------------------------------------------------------
+
+    &--columns-3 {
+        --ww-data-grid-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+    }
+
+
+    // ----------------------------------------------------------------------
+    // Spaltenanzahl: 4
+    // ----------------------------------------------------------------------
+
+    &--columns-4 {
+        --ww-data-grid-columns:
+            minmax(0, 1fr)
+            minmax(0, 1fr)
+            minmax(0, 1fr)
+            minmax(0, 1fr);
+    }
 
 
     // ----------------------------------------------------------------------
     // Variante: Cookie-Übersicht
     // ----------------------------------------------------------------------
     //
-    // Cookie           = 25 %
-    // Zweck            = 40 %
-    // Speicherdauer    = 18 %
-    // Art              = 17 %
+    // Die Cookie-Variante überschreibt bewusst nur die
+    // Spaltenverhältnisse.
+    //
+    // Voraussetzung: Das Grid verwendet vier Spalten.
+    //
+    // Cookie       = 25 %
+    // Zweck        = 40 %
+    // Gültigkeit   = 17 %
+    // Art          = 17 %
     //
 
     &--cookies {
-
-        --ww-data-grid-columns:  minmax(0, 1fr)  minmax(0, 2fr)  minmax(0, 0.85fr)  minmax(0, 0.85fr);
-        
+        --ww-data-grid-columns:
+            minmax(0, 1fr)
+            minmax(0, 2fr)
+            minmax(0, 0.85fr)
+            minmax(0, 0.85fr);
     }
 
 
@@ -54,18 +146,23 @@
 
     &__header {
         display: grid;
-        grid-template-columns: var(--ww-data-grid-columns);
+
+        grid-template-columns:
+            var(--ww-data-grid-columns);
 
         border-bottom: 1px solid var(--ww-color-border, #d8d4cc);
     }
 
 
     &__heading {
+        min-width: 0;
+
         padding: 1rem 1.25rem;
 
         font-size: 0.875rem;
         font-weight: 600;
         line-height: 1.4;
+
         text-transform: uppercase;
         letter-spacing: 0.04em;
 
@@ -93,7 +190,8 @@
     &__item {
         display: grid;
 
-        grid-template-columns: var(--ww-data-grid-columns);
+        grid-template-columns:
+            var(--ww-data-grid-columns);
 
         border-bottom: 1px solid var(--ww-color-border, #d8d4cc);
 
@@ -109,6 +207,7 @@
 
     &__cell {
         min-width: 0;
+
         padding: 1.25rem;
 
         line-height: 1.5;
@@ -122,24 +221,20 @@
 
 
     // ----------------------------------------------------------------------
-    // Cookie / Titel
+    // Primärzelle
     // ----------------------------------------------------------------------
+    //
+    // Die erste Spalte enthält die zentrale Bezeichnung des Datensatzes.
+    //
 
-    &__cell--cookie {
-        
-        display: flex;
-        align-items: center;
-        gap: 0.875rem;
+    &__cell--primary {
+        font-weight: 600;
     }
 
 
-    &__icon {
-        flex: 0 0 auto;
-
-        width: 2rem;
-        height: 2rem;
-    }
-
+    // ----------------------------------------------------------------------
+    // Titel
+    // ----------------------------------------------------------------------
 
     &__title {
         margin: 0;
@@ -151,20 +246,42 @@
 
 
     // ----------------------------------------------------------------------
-    // Mobile Labels
+    // Wert
     // ----------------------------------------------------------------------
-    //
-    // Die Labels bleiben im HTML vorhanden und werden später im
-    // responsiven Layout sichtbar.
-    //
-
-
-
 
     &__value {
         margin: 0;
     }
+
+
+    // ----------------------------------------------------------------------
+    // Icon
+    //
+    // Für mögliche spätere Data-Grid-Varianten.
+    // ----------------------------------------------------------------------
+
+    &__icon {
+        flex: 0 0 auto;
+
+        width: 2rem;
+        height: 2rem;
+    }
 }
+
+
+// ==========================================================================
+// Responsive
+// ==========================================================================
+//
+// Auf kleinen Bildschirmen wird aus dem Grid eine Folge einzelner
+// Informationsblöcke.
+//
+// Die Spaltenüberschrift wird ausgeblendet.
+// Die jeweilige Bezeichnung wird über data-label aus dem HTML eingeblendet.
+//
+// Dadurch bleibt die Information auch ohne horizontales Scrollen
+// vollständig zugänglich.
+//
 
 @media (max-width: 767.98px) {
 
@@ -172,19 +289,37 @@
         display: none;
     }
 
+
     .ww-data-grid__item {
         display: block;
     }
 
+
     .ww-data-grid__cell {
         display: grid;
-        grid-template-columns: 7rem minmax(0, 1fr);
+
+        grid-template-columns:
+            7rem
+            minmax(0, 1fr);
+
         gap: 0.75rem;
+
         border-right: 0;
     }
 
+
     .ww-data-grid__cell::before {
         content: attr(data-label);
+
         font-weight: 600;
+    }
+
+
+    // Die Primärzelle ist die Bezeichnung des Datensatzes.
+    // Dort gibt es kein data-label und deshalb auch kein künstliches
+    // Label im mobilen Layout.
+
+    .ww-data-grid__cell--primary {
+        display: block;
     }
 }

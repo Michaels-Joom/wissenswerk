@@ -3,10 +3,12 @@ import { JoomlaEditor, JoomlaEditorButton } from 'editor-api';
 import { registerArticleAction } from './blocks/article.js';
 import { registerColumnsAction } from './blocks/columns.js';
 import { registerAccordionAction } from './blocks/accordion.js';
+import { registerDataGridAction } from './blocks/data-grid.js';
 
 registerArticleAction();
 registerColumnsAction();
 registerAccordionAction();
+registerDataGridAction();
 
 /*
  * TinyMCE external plugins are loaded as classic scripts.

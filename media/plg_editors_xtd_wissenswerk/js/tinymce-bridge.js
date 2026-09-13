@@ -132,6 +132,7 @@
                     'wissenswerk-article',
                     'wissenswerk-columns',
                     'wissenswerk-accordion',
+                    'wissenswerk-data-grid',
                 ].join(' '),
             },
         };

@@ -79,7 +79,12 @@ final class Wissenswerk extends CMSPlugin implements SubscriberInterface
         Text::script('JSELECT');
         Text::script('PLG_IMAGE_BUTTON_INSERT');
         Text::script('PLG_EDITORS-XTD_WISSENSWERK');
+        
+        Text::script('PLG_EDITORS-XTD_WISSENSWERK_ARTICLE');
         Text::script('PLG_EDITORS-XTD_WISSENSWERK_COLUMNS');
+        Text::script('PLG_EDITORS-XTD_WISSENSWERK_ACCORDION');
+        Text::script('PLG_EDITORS-XTD_WISSENSWERK_DATA_GRID');
+
         Text::script('JLIB_APPLICATION_ERROR_SERVER');
 
         $asset = $event->getAsset();

@@ -14,6 +14,7 @@
         article: 'wissenswerk-insert-article',
         columns: 'wissenswerk-insert-columns-card',
         accordion: 'wissenswerk-insert-accordion',
+        dataGrid: 'wissenswerk-insert-data-grid',
     };
 
     // WissensWerk toolbar icon.
@@ -744,7 +745,7 @@
         const articleMenuItem = {
             text: window.Joomla?.Text?._(
                 'PLG_EDITORS-XTD_WISSENSWERK_ARTICLE'
-            ) || 'WW Article – Split',
+            ) || 'WW Article Split',
             icon: 'file-add',
             onAction: () => runAction(editor, actions.article),
         };
@@ -752,7 +753,7 @@
         const columnsMenuItem = {
             text: window.Joomla?.Text?._(
                 'PLG_EDITORS-XTD_WISSENSWERK_COLUMNS'
-            ) || 'WW Article – Columns',
+            ) || 'WW Article Columns',
             icon: 'file-add',
             onAction: () => runAction(editor, actions.columns),
         };
@@ -763,6 +764,19 @@
             ) || 'WW Accordion',
             icon: 'file-add',
             onAction: () => runAction(editor, actions.accordion),
+        };
+
+        const dataGridMenuItem = {
+            text: window.Joomla?.Text?._(
+                'PLG_EDITORS-XTD_WISSENSWERK_DATA_GRID'
+            ) || 'WW Data Grid',
+
+            icon: 'table',
+
+            onAction: () => runAction(
+                editor,
+                actions.dataGrid
+            ),
         };
 
         editor.ui.registry.addMenuItem(
@@ -778,6 +792,11 @@
         editor.ui.registry.addMenuItem(
             'wissenswerk-accordion',
             accordionMenuItem
+        );
+
+        editor.ui.registry.addMenuItem(
+            'wissenswerk-data-grid',
+            dataGridMenuItem
         );
 
         editor.ui.registry.addMenuButton('wissenswerk', {
@@ -799,6 +818,10 @@
                     {
                         type: 'menuitem',
                         ...accordionMenuItem,
+                    },
+                    {
+                        type: 'menuitem',
+                        ...dataGridMenuItem,
                     },
                 ]);
             },
