@@ -29,14 +29,8 @@ $app = Factory::getApplication();
         =========================================================== -->
 
         <nav
-            class="ww-header__navigation"
-            aria-label="Hauptnavigation"
-        >
-            <jdoc:include
-                type="modules"
-                name="menu"
-                style="none"
-            />
+            class="ww-header__navigation" aria-label="Hauptnavigation" >
+            <jdoc:include type="modules" name="menu" style="none" />
         </nav>
 
 
@@ -48,26 +42,15 @@ $app = Factory::getApplication();
 
             <!-- Suche -->
 
-            <button
-                class="ww-header__search"
-                type="button"
-                aria-label="Suche öffnen"
-            >
-                <span
-                    class="bi bi-search"
-                    aria-hidden="true"
-                ></span>
+            <button class="ww-header__search" type="button" aria-label="Suche öffnen" >
+                <span class="bi bi-search" aria-hidden="true" ></span>
             </button>
 
 
             <!-- CTA -->
 
             <div class="ww-header__cta">
-                <jdoc:include
-                    type="modules"
-                    name="header-button"
-                    style="none"
-                />
+                <jdoc:include type="modules" name="header-button" style="none" />
             </div>
 
 
@@ -81,18 +64,12 @@ $app = Factory::getApplication();
                 aria-controls="wwOffcanvas"
                 aria-label="Navigation öffnen"
             >
-                <span
-                    class="ww-header__toggle-icon"
-                    aria-hidden="true"
-                >
+                <span class="ww-header__toggle-icon" aria-hidden="true" >
                     <span></span>
                     <span></span>
                     <span></span>
                 </span>
             </button>
-
         </div>
-
     </div>
-
 </header>
