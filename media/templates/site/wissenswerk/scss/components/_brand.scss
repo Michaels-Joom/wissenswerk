@@ -85,3 +85,12 @@
     text-decoration: none;
     color: inherit;
 }
+
+@media (max-width: 992px){
+    .ww-brand__first, .ww-brand__second {
+        font-size:1.2rem;
+    }
+    .ww-brand__logo{
+        width: 45px;
+    }
+}
