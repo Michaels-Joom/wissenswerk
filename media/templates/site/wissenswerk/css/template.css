@@ -1223,6 +1223,7 @@ body {
   pointer-events: none;
 }
 
+.page-mein-beruflicher-weg .ww-hero__visual,
 .page-ueber-mich .ww-hero__visual {
   position: absolute;
   right: -32%;
@@ -1319,6 +1320,7 @@ body {
   padding-left: 220px;
   color: var(--ww-color-primary);
   font-size: var(--ww-font-size-xl);
+  max-width: 50rem;
 }
 
 /* ==========================================================================
@@ -1364,6 +1366,73 @@ body {
   padding: 1rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
+}
+
+.com-content-article__body > section + section {
+  padding-top: 3rem;
+}
+
+.com-content-category-blog > section + section {
+  padding-top: 3rem;
+}
+
+.item-content {
+  padding-top: 3rem;
+}
+
+.page-mein-beruflicher-weg h3 {
+  font-size: var(--ww-h5-size);
+}
+.page-mein-beruflicher-weg .ww-article-column--icon-left {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  align-items: center;
+  padding: 24px;
+}
+.page-mein-beruflicher-weg .ww-article-column--icon-left .ww-article-column__media {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.page-mein-beruflicher-weg .ww-article-column--icon-left .ww-article-column__media img {
+  display: block;
+  width: 42px;
+  height: 42px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.page-mein-beruflicher-weg .ww-article-column--icon-left .ww-article-column__content {
+  min-width: 0;
+}
+.page-mein-beruflicher-weg .ww-article-column--icon-left .ww-article-column__content h3 {
+  margin: 0 0 12px;
+}
+.page-mein-beruflicher-weg .ww-article-column--icon-left .ww-article-column__content p {
+  margin: 0;
+}
+.page-mein-beruflicher-weg .ww-data-grid--columns-2 {
+  --ww-data-grid-columns: minmax(0rem, 1fr) minmax(0, 5fr);
+}
+.page-mein-beruflicher-weg h2 {
+  font-size: var(--ww-h3-size);
+  text-align: left;
+}
+.page-mein-beruflicher-weg .ww-article-column-subtitel,
+.page-mein-beruflicher-weg .ww-article-column__content_r {
+  text-align: left;
+}
+.page-mein-beruflicher-weg .ww-article-column-subtitel {
+  margin-bottom: var(--ww-space-2);
+  font-size: var(--ww-h5-size);
+  color: var(--ww-color-primary);
+}
+.page-mein-beruflicher-weg .ww-article-column__content_r {
+  padding-bottom: 2rem;
 }
 
 .ww-footer {

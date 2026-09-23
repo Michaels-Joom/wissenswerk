@@ -1,0 +1,85 @@
+.com-content-article__body > section + section {
+    padding-top: 3rem;
+}
+
+.com-content-category-blog> section + section {
+    padding-top: 3rem;
+}
+
+.item-content{
+padding-top: 3rem;
+
+}
+
+
+.page-mein-beruflicher-weg {
+
+    h3 {
+
+        font-size: var(--ww-h5-size);
+    }
+    .ww-article-column--icon-left {
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        column-gap: 20px;
+        align-items: center;
+
+        // Innenabstand des Kastens
+        padding: 24px;
+
+        // Icon-Bereich
+        .ww-article-column__media {
+            width: 56px;
+            height: 56px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0;
+        }
+
+        .ww-article-column__media img {
+            display: block;
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+        }
+
+        // Text-Bereich
+        .ww-article-column__content {
+            min-width: 0;
+        }
+
+        .ww-article-column__content h3 {
+            margin: 0 0 12px;
+        }
+
+        .ww-article-column__content p {
+            margin: 0;
+        }
+    }
+
+    .ww-data-grid--columns-2 {
+        --ww-data-grid-columns: minmax(0rem, 1fr) minmax(0, 5fr);
+    }
+     
+    h2 {
+        font-size: var(--ww-h3-size);
+        text-align: left;
+    }
+    .ww-article-column-subtitel,
+    .ww-article-column__content_r {
+        text-align: left;
+    }
+
+    .ww-article-column-subtitel{
+        margin-bottom: var(--ww-space-2);
+        font-size: var(--ww-h5-size);
+        color: var(--ww-color-primary);
+    }
+
+    .ww-article-column__content_r{
+        padding-bottom: 2rem;
+    }
+}
