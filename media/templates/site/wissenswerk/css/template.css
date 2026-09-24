@@ -1790,6 +1790,9 @@ body {
   .ww-footer__section {
     margin-top: 0;
   }
+  .ww-footer__left {
+    display: flex;
+  }
 }
 .ww-copyright-main {
   background-color: var(--ww-bronze-900);
