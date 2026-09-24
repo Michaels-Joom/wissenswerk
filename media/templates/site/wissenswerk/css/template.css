@@ -1679,7 +1679,7 @@ body {
   color: red;
 }
 
-@media (max-width: 567px) {
+@media (max-width: 576px) {
   .ww-footer {
     padding-bottom: 2rem;
   }
@@ -1769,7 +1769,7 @@ body {
     text-align: center;
   }
 }
-@media (min-width: 576px) and (max-width: 991px) {
+@media (min-width: 577px) and (max-width: 991px) {
   .ww-footer__claim {
     display: none;
   }
