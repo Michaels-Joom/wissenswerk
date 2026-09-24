@@ -1546,6 +1546,22 @@ body {
   padding-top: var(--ww-space-5);
 }
 
+.ww-footer__positions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4rem;
+}
+
+.ww-footer__section {
+  display: flex;
+  flex-direction: column;
+}
+
+#mod-custom116 {
+  width: -moz-min-content;
+  width: min-content;
+}
+
 .ww-footer__branding {
   display: flex;
   flex-direction: column;
@@ -1569,26 +1585,24 @@ body {
 }
 
 .ww-footer__claim {
-  margin: 0;
-  margin-bottom: var(--ww-space-6);
+  margin: 0 0 var(--ww-space-6);
   font-size: var(--ww-font-size-sm);
   line-height: 2;
 }
 
-.ww-footer__section {
-  display: flex;
-  flex-direction: column;
+.ww-footer__section p {
+  font-size: var(--ww-font-size-sm);
 }
 
 .ww-footer h3 {
   margin: 0 0 var(--ww-space-2);
+  padding-top: 0.7rem;
   color: var(--ww-color-text);
   font-family: var(--ww-font-family-heading);
   font-size: var(--ww-font-size-xs);
   font-weight: var(--ww-font-weight-semibold);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  padding-top: 0.7rem;
 }
 
 .ww-footer__section ul {
@@ -1599,7 +1613,6 @@ body {
 
 .ww-footer__section li {
   margin-block: 0;
-  margin-block-end: 0;
 }
 
 .ww-footer__section li:last-child {
@@ -1636,11 +1649,8 @@ body {
 }
 
 .ww-footer__bottom {
-  background-color: var(--ww-color-surface-salbei);
-}
-
-.ww-footer__bottom {
   padding-block: var(--ww-space-2);
+  background-color: var(--ww-color-surface-salbei);
   border-top: 1px solid var(--ww-color-border);
 }
 
@@ -1669,14 +1679,116 @@ body {
   color: red;
 }
 
-@media (max-width: 992px) {
-  .ww-footer__copyright,
-  .ww-footer__version,
+@media (max-width: 575px) {
+  .ww-footer {
+    padding-bottom: 2rem;
+  }
+  .ww-footer__claim {
+    display: none;
+  }
+  .ww-footer__positions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
+    row-gap: 3rem;
+    width: 100%;
+    margin-top: -3rem;
+  }
+  .ww-footer__left {
+    display: none;
+  }
+  .ww-footer__left-middle {
+    grid-column: 1;
+    width: 100%;
+  }
+  .ww-footer__right-middle {
+    grid-column: 2;
+    width: 100%;
+  }
+  .ww-footer__right {
+    grid-column: 1/-1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--ww-color-surface-salbei);
+  }
+  .ww-footer__left-middle,
+  .ww-footer__right-middle {
+    display: flex;
+    flex-direction: column;
+  }
+  .ww-footer__left-middle h3,
+  .ww-footer__right-middle h3 {
+    margin-bottom: 1rem;
+  }
+  .ww-footer__left-middle ul,
+  .ww-footer__right-middle ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ww-footer__left-middle li a,
+  .ww-footer__right-middle li a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 3.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    border: 1px solid var(--ww-color-border);
+    background-color: var(--ww-warmgray-100);
+    text-decoration: none;
+  }
+  .ww-footer__left-middle li + li a,
+  .ww-footer__right-middle li + li a {
+    border-top: 0;
+  }
+  .ww-footer__left-middle li a:hover,
+  .ww-footer__left-middle li a:focus-visible,
+  .ww-footer__right-middle li a:hover,
+  .ww-footer__right-middle li a:focus-visible {
+    color: var(--ww-color-primary);
+    background-color: var(--ww-color-surface-alt);
+  }
+  .ww-footer__right {
+    align-items: center;
+    text-align: center;
+    padding-top: 2rem;
+  }
+  .ww-footer__right .ww-footer__address,
+  .ww-footer__right .ww-footer__address p {
+    text-align: center;
+  }
   .ww-footer__developed {
     text-align: center;
   }
-  .ww-footer__version {
-    margin-block: var(--ww-space-2);
+}
+@media (min-width: 576px) and (max-width: 991px) {
+  .ww-footer__left {
+    display: none;
+  }
+  .ww-footer .row > [class*=col-] {
+    width: 50%;
+  }
+  .ww-footer .row > .col-12 {
+    width: 100%;
+  }
+  .ww-footer .row > .col-6:last-child {
+    width: 100%;
+  }
+  .ww-footer__section {
+    margin-top: var(--ww-space-4);
+  }
+  .ww-footer__right {
+    margin-top: var(--ww-space-5);
+  }
+}
+@media (min-width: 992px) {
+  .ww-footer__section {
+    margin-top: 0;
   }
 }
 .ww-copyright-main {

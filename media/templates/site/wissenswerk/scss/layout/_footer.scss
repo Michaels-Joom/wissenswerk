@@ -1,220 +1,584 @@
 @use "../tokens" as *;
+
 // =============================================================================
 // WissensWerk Design System
-// Component Layer
+// Layout Layer
 // Footer
-// =============================================================================
-//
-// File:
-// _footer.scss
-//
-// Purpose:
-// Global footer.
-//
-// Responsibilities:
-// - Branding
-// - Footer navigation
-// - Contact
-// - Social
-// - Bottom Bar
-//
 // =============================================================================
 
 // =============================================================================
 // Footer
 // =============================================================================
+
 .ww-footer {
     position: relative;
     overflow: hidden;
+
     background-color: var(--ww-color-surface-alt);
     color: var(--ww-color-text);
+
     border-top: 1px solid var(--ww-color-border);
 }
+
 
 // =============================================================================
 // Inner
 // =============================================================================
+
 .ww-footer__inner {
     position: relative;
     z-index: 2;
+
     padding-top: var(--ww-space-5);
 }
 
+
+// =============================================================================
+// Footer Positions
+// =============================================================================
+//
+// Die vier Footer-Positionen sind dynamisch.
+// Nicht belegte Positionen werden durch countModules()
+// bereits im PHP entfernt.
+//
+// Mobile:
+//   1 Spalte
+//
+// Tablet:
+//   2 Spalten
+//
+// Desktop:
+//   flexible Reihe nach rechts
+// =============================================================================
+
+.ww-footer__positions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 4rem;
+    
+    // gap: 2rem 3rem;
+    // flex-wrap: wrap;
+}
+
+
+// =============================================================================
+// Footer Position
+// =============================================================================
+
+.ww-footer__section {
+    display: flex;
+    flex-direction: column;
+}
+
+
+#mod-custom116 {
+    width: min-content;
+}
 // =============================================================================
 // Branding
 // =============================================================================
+
 .ww-footer__branding {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
+
 // =============================================================================
 // Brand
 // =============================================================================
+
 .ww-footer__brand {
     display: flex;
     align-items: center;
+
     gap: var(--ww-space-5);
     margin-bottom: var(--ww-space-6);
 }
 
+
 // =============================================================================
-// Logo und Fontsize 
+// Logo und Fontsize
 // =============================================================================
-.ww-footer__brand{
-    .ww-brand__logo img{
+
+.ww-footer__brand {
+
+    .ww-brand__logo img {
         width: 40px;
         height: auto;
     }
 
-    .ww-brand__first,     
-    .ww-brand__second{
-        font-size:0.9rem;
+    .ww-brand__first,
+    .ww-brand__second {
+        font-size: 0.9rem;
     }
 }
+
 
 // =============================================================================
 // Footer Claim
 // =============================================================================
+
 .ww-footer__claim {
-    margin: 0;
-    margin-bottom: var(--ww-space-6);
-    // color: var(--ww-color-text-muted);
+    margin: 0 0 var(--ww-space-6);
+
     font-size: var(--ww-font-size-sm);
     line-height: 2;
 }
 
+
 // =============================================================================
-// Navigation Sections
+// Footer Section Text
 // =============================================================================
-.ww-footer__section {
-    display: flex;
-    flex-direction: column;
+
+.ww-footer__section p {
+    font-size: var(--ww-font-size-sm);
 }
+
 
 // =============================================================================
 // Section Title
 // =============================================================================
+
 .ww-footer h3 {
     margin: 0 0 var(--ww-space-2);
+    padding-top: 0.7rem;
+
     color: var(--ww-color-text);
+
     font-family: var(--ww-font-family-heading);
     font-size: var(--ww-font-size-xs);
     font-weight: var(--ww-font-weight-semibold);
-    letter-spacing: .18em;
+
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    padding-top: 0.7rem;
 }
+
+
+// =============================================================================
+// Section Lists
+// =============================================================================
+
 .ww-footer__section ul {
     margin: 0;
     padding: 0;
+
     list-style: none;
 }
+
+
 .ww-footer__section li {
-    //margin-bottom: var(--ww-space-3);
-    margin-block: 0; 
-    margin-block-end: 0;
+    margin-block: 0;
 }
+
+
 .ww-footer__section li:last-child {
     margin-bottom: 0;
 }
 
+
 // =============================================================================
 // Section Links
 // =============================================================================
+
 .ww-footer__section a {
     color: var(--ww-color-text);
+
     font-size: var(--ww-font-size-sm);
     line-height: 1.9;
+
     text-decoration: none;
+
     transition: color var(--ww-transition-fast);
 }
+
+
 .ww-footer__section a:hover,
 .ww-footer__section a:focus-visible {
     color: var(--ww-color-secondary);
 }
 
+
 // =============================================================================
 // Contact
 // =============================================================================
+
 .ww-footer__address p {
     margin: 0;
+
     font-style: normal;
-    //color: var(--ww-color-text-muted);
     font-size: var(--ww-font-size-sm);
     line-height: 1.9;
 }
+
+
 .ww-footer__address a {
     color: inherit;
     text-decoration: none;
 }
+
+
 .ww-footer__address a:hover {
     color: var(--ww-color-primary);
 }
 
+
 // =============================================================================
 // Bottom Bar
 // =============================================================================
-    .ww-footer__bottom{
-        background-color:var(--ww-color-surface-salbei);
-    }
 
-// =============================================================================
-// Footer Bottom
-// =============================================================================
 .ww-footer__bottom {
     padding-block: var(--ww-space-2);
+
+    background-color: var(--ww-color-surface-salbei);
+
     border-top: 1px solid var(--ww-color-border);
 }
 
+// Footer-bottom
+
 // =============================================================================
-// Copyright
+// Footer-Bottom Copyright
 // =============================================================================
+
 .ww-footer__copyright {
     margin: 0;
+
     color: var(--ww-color-text);
+
     font-size: var(--ww-font-size-xs);
     line-height: var(--ww-line-height-body);
 }
 
+
 // =============================================================================
-// Version
+// Footer-Bottom Version
 // =============================================================================
+
 .ww-footer__version {
     margin: 0;
-    // color: var(--ww-color-text-muted);
+
     font-size: var(--ww-font-size-xs);
     line-height: var(--ww-line-height-body);
     text-align: center;
 }
 
+
 // =============================================================================
-// Developed
+// Footer-Bottom Developed
 // =============================================================================
+
 .ww-footer__developed {
     margin: 0;
-    // color: var(--ww-color-text-muted);
+
     font-size: var(--ww-font-size-xs);
     line-height: var(--ww-line-height-body);
     text-align: right;
 }
-.ww-footer__heart{
+
+
+.ww-footer__heart {
     color: red;
 }
 
+
 // =============================================================================
-// Developed
+// Responsive Footer Layout
 // =============================================================================
-@media (max-width: $ww-breakpoint-lg) {
-    .ww-footer__copyright,
-    .ww-footer__version,
-    .ww-footer__developed {
+//
+// Mobile:
+// - Footer-left (Quick Menu) wird ausgeblendet.
+// - Die verbleibenden Bereiche werden untereinander angeordnet.
+//
+// Wide Mobile / Tablet:
+// - About und Service stehen nebeneinander.
+// - Contact erhält eine eigene Zeile.
+//
+// Desktop:
+// - Bootstrap-Grundlayout bleibt unverändert.
+// =============================================================================
+
+
+// =============================================================================
+// Mobile
+// bis 575px
+// =============================================================================
+
+@media (max-width: 575px) {
+
+    .ww-footer {
+    
+        padding-bottom: 2rem;
+    
+    }
+    // -------------------------------------------------------------------------
+    // Claim ausblenden
+    // -------------------------------------------------------------------------
+
+    .ww-footer__claim {
+        display: none;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Footer Positions
+    // -------------------------------------------------------------------------
+
+    .ww-footer__positions {
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        column-gap: 1rem;
+        row-gap: 3rem;
+
+        width: 100%;
+        //margin-top: var(--ww-space-6);
+        margin-top: -3rem;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Quick Menu
+    // -------------------------------------------------------------------------
+
+    .ww-footer__left {
+        display: none;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // About
+    // -------------------------------------------------------------------------
+
+    .ww-footer__left-middle {
+
+        grid-column: 1;
+
+        width: 100%;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Service
+    // -------------------------------------------------------------------------
+
+    .ww-footer__right-middle {
+
+        grid-column: 2;
+
+        width: 100%;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Contact
+    // -------------------------------------------------------------------------
+
+    .ww-footer__right {
+
+        grid-column: 1 / -1;
+
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+
+        border-top: 1px solid var(--ww-color-surface-salbei);
+
+    }
+
+
+    // -------------------------------------------------------------------------
+    // About / Service
+    // -------------------------------------------------------------------------
+
+    .ww-footer__left-middle,
+    .ww-footer__right-middle {
+
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Section Headings
+    // -------------------------------------------------------------------------
+
+    .ww-footer__left-middle h3,
+    .ww-footer__right-middle h3 {
+
+        margin-bottom: 1rem;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Lists
+    // -------------------------------------------------------------------------
+
+    .ww-footer__left-middle ul,
+    .ww-footer__right-middle ul {
+
+        width: 100%;
+
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Touch Links
+    // -------------------------------------------------------------------------
+
+    .ww-footer__left-middle li a,
+    .ww-footer__right-middle li a {
+
+        display: flex;
+        align-items: center;
+
+        width: 100%;
+        min-height: 3.5rem;
+
+        padding: .75rem 1rem;
+
+        font-size: 0.9rem;
+        line-height: 1.2;
+
+        border: 1px solid var(--ww-color-border);
+
+        background-color: var(--ww-warmgray-100);
+
+        text-decoration: none;
+
+        
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Keine doppelte Linie zwischen Buttons
+    // -------------------------------------------------------------------------
+
+    .ww-footer__left-middle li + li a,
+    .ww-footer__right-middle li + li a {
+
+        border-top: 0;
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Hover / Focus
+    // -------------------------------------------------------------------------
+
+    .ww-footer__left-middle li a:hover,
+    .ww-footer__left-middle li a:focus-visible,
+    .ww-footer__right-middle li a:hover,
+    .ww-footer__right-middle li a:focus-visible {
+
+        color: var(--ww-color-primary);
+
+        background-color: var(--ww-color-surface-alt);
+    }
+
+
+    // -------------------------------------------------------------------------
+    // Contact
+    // -------------------------------------------------------------------------
+
+    .ww-footer__right {
+
+        align-items: center;
+
+        text-align: center;
+
+        padding-top: 2rem;
+    }
+
+
+    .ww-footer__right .ww-footer__address,
+    .ww-footer__right .ww-footer__address p {
 
         text-align: center;
     }
 
-    .ww-footer__version {
-        margin-block: var(--ww-space-2);
+    .ww-footer__developed {
+        text-align: center;
+    }
+}
+
+
+
+// =============================================================================
+// Wide Mobile / Tablet
+// 576px – 991px
+// =============================================================================
+
+@media (min-width: 576px) and (max-width: 991px) {
+
+    // -------------------------------------------------------------------------
+    // Quick Menu weiterhin ausblenden
+    // -------------------------------------------------------------------------
+
+    .ww-footer__left {
+        display: none;
+    }
+
+    // -------------------------------------------------------------------------
+    // Standardmäßig zwei Spalten
+    // -------------------------------------------------------------------------
+
+    .ww-footer .row > [class*="col-"] {
+        width: 50%;
+    }
+
+    // -------------------------------------------------------------------------
+    // Branding volle Breite
+    // -------------------------------------------------------------------------
+
+    .ww-footer .row > .col-12 {
+        width: 100%;
+    }
+
+    // -------------------------------------------------------------------------
+    // Contact volle Breite
+    // -------------------------------------------------------------------------
+
+    .ww-footer .row > .col-6:last-child {
+        width: 100%;
+    }
+
+    // -------------------------------------------------------------------------
+    // Abstand nach dem Branding
+    // -------------------------------------------------------------------------
+
+    .ww-footer__section {
+        margin-top: var(--ww-space-4);
+    }
+
+    // -------------------------------------------------------------------------
+    // Contact optisch als eigener Bereich
+    // -------------------------------------------------------------------------
+
+    .ww-footer__right {
+        margin-top: var(--ww-space-5);
+    }
+}
+
+
+// =============================================================================
+// Desktop
+// ab 992px
+// =============================================================================
+
+@media (min-width: 992px) {
+
+    // Bootstrap übernimmt wieder das ursprüngliche
+    // 4 + 2 + 2 + 2 + 2 Spaltenlayout.
+
+    .ww-footer__section {
+        margin-top: 0;
     }
 }

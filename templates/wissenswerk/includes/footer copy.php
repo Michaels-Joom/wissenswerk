@@ -31,16 +31,13 @@ $branding = trim($brandingFirst . $brandingSecond);
 <footer class="ww-footer" role="contentinfo">
     <div class="ww-container">
         <div class="ww-footer__inner">
-
             <div class="row gy-5">
 
                 <!-- ==========================================================
                      Branding
                 =========================================================== -->
                 <div class="col-12 col-lg-4">
-
                     <section class="ww-footer__branding">
-
                         <div class="ww-footer__brand">
                             <?php require __DIR__ . '/brand.php'; ?>
                         </div>
@@ -52,65 +49,55 @@ $branding = trim($brandingFirst . $brandingSecond);
                         <?php endif; ?>
 
                         <div class="ww-footer__social">
-                            <jdoc:include type="modules" name="footer-social" style="none" />
+                            <jdoc:include
+                                type="modules"
+                                name="footer-social"
+                                style="none" />
                         </div>
-
                     </section>
-
                 </div>
-
 
                 <!-- ==========================================================
-                     Variable Footer-Positionen
+                     Footer section 1
                 =========================================================== -->
-                <div class="col-12 col-lg-8">
 
-                    <div class="ww-footer__positions">
-
-                        <?php if ($this->countModules('footer-left')) : ?>
-
-                            <section class="ww-footer__section ww-footer__left">
-                                <jdoc:include type="modules" name="footer-left" style="html5" />
-                            </section>
-
-                        <?php endif; ?>
-
-
-                        <?php if ($this->countModules('footer-left-middle')) : ?>
-
-                            <section class="ww-footer__section ww-footer__left-middle">
-                                <jdoc:include type="modules" name="footer-left-middle" style="html5" />
-                            </section>
-
-                        <?php endif; ?>
-
-
-                        <?php if ($this->countModules('footer-right-middle')) : ?>
-
-                            <section class="ww-footer__section ww-footer__right-middle">
-                                <jdoc:include type="modules" name="footer-right-middle" style="html5" />
-                            </section>
-
-                        <?php endif; ?>
-
-
-                        <?php if ($this->countModules('footer-right')) : ?>
-
-                            <section class="ww-footer__section ww-footer__right">
-                                <jdoc:include type="modules" name="footer-right" style="html5" />
-                            </section>
-
-                        <?php endif; ?>
-
-                    </div>
-
+                <div class="col-6 col-lg-2">
+                    <section class="ww-footer__section ww-footer__left">
+                        <jdoc:include type="modules" name="footer-left" style="html5" />
+                    </section>
                 </div>
 
-            </div>
+                <!-- ==========================================================
+                     Footer section 2
+                =========================================================== -->
 
+                <div class="col-6 col-lg-2">
+                    <section class="ww-footer__section ww-footer__left-middle">
+                        <jdoc:include type="modules" name="footer-left-middle" style="html5" />
+                    </section>
+                </div>
+		  <!-- ==========================================================
+                    Footer section 3
+                =========================================================== -->
+
+                <div class="col-6 col-lg-2">
+                    <section class="ww-footer__section ww-footer__right-middle">
+                          <jdoc:include type="modules" name="footer-right-middle" style="html5" />
+                    </section>
+                </div>
+
+                <!-- ==========================================================
+                     footer section 4
+                =========================================================== -->
+
+                <div class="col-6 col-lg-2">
+                    <section class="ww-footer__section ww-footer__right">
+                            <jdoc:include type="modules" name="footer-right" style="html5" />
+                    </section>
+                </div>
+            </div>
         </div>
     </div>
-</footer>
 
     <!-- ==============================================================
          Footer Bottom
