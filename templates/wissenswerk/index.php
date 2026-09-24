@@ -247,7 +247,7 @@ if ($showSidebarLeft && $showSidebarRight) {
     <?php if ($showMainBottom) : ?>
         <section class="ww-main-bottom">
             <div class="ww-container">
-                <div class="ww-main_bottom__visual">
+                <div class="ww-main-bottom-visual">
                     <div class="ww-main-bottom-inner">
                         <jdoc:include type="modules" name="main-bottom" />
                     </div>        

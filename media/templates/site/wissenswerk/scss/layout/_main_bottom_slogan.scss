@@ -1,24 +1,139 @@
 // =============================================================================
-// ww-main_bottom Visual Layer
+// Main Bottom
 // =============================================================================
 
-.ww-main_bottom__visual{
+.ww-main-bottom {
+    width: 100%;
+}
+
+.mod-custom{
+    // width: 60rem;
+}
+
+
+// =============================================================================
+// Visual
+// =============================================================================
+
+.ww-main-bottom-visual {
+
+    position: relative;
+
+    width: 100%;
+    height: 200px;
 
     background-color: var(--ww-color-background);
-     background-image: url("../images/grafik/image bottom-main.png");
+    background-image: url("../images/grafik/image bottom-main.png");
     background-repeat: no-repeat;
     background-position: right center;
-    height:200px;
-    max-height: 200px;
+    background-size: 100%;
+}
+
+
+// =============================================================================
+// Inner
+// =============================================================================
+
+.ww-main-bottom-inner {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: stretch;
+    margin-left: 15%; // mindest abstand zum linken Motiv Blume
+    //justify-content: center;
+}
+
+
+// =============================================================================
+// Slogan Box
+// =============================================================================
+
+.ww-main-bottom-box {
+
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    //padding-bottom: 2.5rem;
+    padding-bottom: 10%;
+}
+
+
+// =============================================================================
+// Slogan
+// =============================================================================
+
+.ww-slogan {
+
+    //width: 100%;
+    width: auto;
+    
+    max-width: 30rem;
+
+    margin: 0;
+    //padding-inline: 2rem;
+
+    color: var(--ww-color-primary);
+    font-size: var(--ww-font-size-xl);
+
+    text-align: center;
+}
+
+
+// =============================================================================
+// Mobile
+// =============================================================================
+
+@media (max-width: 767px) {
+
+    .ww-main-bottom-visual {
+        height: 5rem;
+        background-size: 100%;
+    }
+
+    .ww-main-bottom-box {
+        display: none;
+    }
+
+   
 
 }
 
-.ww-slogan p{
 
-    padding-top: 80px;
-    padding-left: 220px;
-    color: var(--ww-color-primary);
-    font-size: var(--ww-font-size-xl);
-    max-width: 50rem;
-    
+// =============================================================================
+// Desktop
+// =============================================================================
+
+@media (min-width: 768px) {
+
+    .ww-main-bottom-visual {
+        height: 10rem;
+        background-size: 100%;
+    }
+
+    .ww-slogan {
+         max-width: 22rem;
+    }
+}
+
+@media (min-width: 991px) {
+
+    .ww-main-bottom-visual {
+        height: 15rem;
+        background-size: 100%;
+    }
+
+    .ww-slogan {
+         max-width: 30rem;
+    }
+
+    .ww-main-bottom-box {
+
+        padding-bottom: 3.5rem;
+    }
 }
