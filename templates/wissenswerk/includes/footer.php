@@ -37,7 +37,7 @@ $branding = trim($brandingFirst . $brandingSecond);
                 <!-- ==========================================================
                      Branding
                 =========================================================== -->
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-md-4 col-lg-4">
 
                     <section class="ww-footer__branding">
 
@@ -63,7 +63,7 @@ $branding = trim($brandingFirst . $brandingSecond);
                 <!-- ==========================================================
                      Variable Footer-Positionen
                 =========================================================== -->
-                <div class="col-12 col-lg-8">
+                <div class="col-12 col-md-8 col-lg-8">
 
                     <div class="ww-footer__positions">
 
@@ -122,7 +122,7 @@ $branding = trim($brandingFirst . $brandingSecond);
                 <!-- ======================================================
                      Copyright
                 ======================================================= -->
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-md-5 col-lg-4">
                     <p class="ww-footer__copyright">
                         &copy; <?= date('Y'); ?>
                         <?= htmlspecialchars($branding, ENT_QUOTES, 'UTF-8'); ?>.
@@ -133,7 +133,7 @@ $branding = trim($brandingFirst . $brandingSecond);
                 <!-- ======================================================
                      Version
                 ======================================================= -->
-                <div class="col-12 col-lg-4 text-center">
+                <div class="col-12 col-md-4 col-lg-4 text-center">
                     <?php if (!empty($footerVersion)) : ?>
                         <p class="ww-footer__version">
                             Version
@@ -145,7 +145,7 @@ $branding = trim($brandingFirst . $brandingSecond);
                 <!-- ======================================================
                      Developed
                 ======================================================= -->
-                <div class="col-12 col-lg-4 text-lg-end">
+                <div class="col-12 col-md-3 col-lg-4 text-lg-end">
                     <?php if (!empty($footerDeveloped)) : ?>
                         <p class="ww-footer__developed">
                             <?= htmlspecialchars($footerDevelopedParts[0], ENT_QUOTES, 'UTF-8'); ?>
