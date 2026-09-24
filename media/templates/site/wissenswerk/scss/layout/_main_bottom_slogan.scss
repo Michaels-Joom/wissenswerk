@@ -93,10 +93,11 @@
 
 
 // =============================================================================
-// Mobile
+// Mobile Portrait
+// bis 575 px
 // =============================================================================
 
-@media (max-width: 767px) {
+@media (max-width: 575px) {
 
     .ww-main-bottom-visual {
 
@@ -112,7 +113,38 @@
 
 
 // =============================================================================
-// Tablet / kleiner Desktop
+// Mobile Landscape
+// 576–767 px
+// =============================================================================
+
+@media (min-width: 576px)
+       and (max-width: 767px)
+       and (orientation: landscape) {
+
+    .ww-main-bottom-visual {
+
+        height: 7rem;
+
+        background-size: 100%;
+    }
+
+    .ww-main-bottom-box {
+
+        display: flex;
+    }
+
+    .ww-slogan {
+
+        max-width: 18rem;
+
+        font-size: var(--ww-font-size-md);
+    }
+}
+
+
+// =============================================================================
+// Tablet
+// 768–990 px
 // =============================================================================
 
 @media (min-width: 768px) and (max-width: 990px) {
@@ -127,6 +159,40 @@
     .ww-slogan {
 
         max-width: 22rem;
+    }
+
+    .ww-slogan p {
+
+        font-size: var(--ww-font-size-md);
+    }
+}
+
+
+// =============================================================================
+// Desktop
+// 991–1199 px
+// =============================================================================
+
+@media (min-width: 991px) and (max-width: 1199px) {
+
+    .ww-main-bottom-visual {
+
+        height: 13rem;
+
+        background-size: 100%;
+    }
+
+    .ww-main-bottom-inner {
+
+        grid-template-columns: 14% 46% 40%;
+    }
+
+    .ww-slogan {
+
+        max-width: 26rem;
+    }
+
+    .ww-slogan p {
 
         font-size: var(--ww-font-size-lg);
     }
@@ -134,10 +200,11 @@
 
 
 // =============================================================================
-// Desktop
+// Large Desktop
+// ab 1200 px
 // =============================================================================
 
-@media (min-width: 991px) {
+@media (min-width: 1200px) {
 
     .ww-main-bottom-visual {
 
@@ -146,9 +213,17 @@
         background-size: 100%;
     }
 
+    .ww-main-bottom-inner {
+
+        grid-template-columns: 15% 42% 43%;
+    }
+
     .ww-slogan {
 
         max-width: 30rem;
+    }
+
+    .ww-slogan p {
 
         font-size: var(--ww-font-size-xl);
     }
