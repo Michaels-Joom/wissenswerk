@@ -1679,7 +1679,7 @@ body {
   color: red;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .ww-footer {
     padding-bottom: 2rem;
   }
@@ -1803,6 +1803,11 @@ body {
   }
   .ww-footer__claim {
     display: block;
+  }
+  .ww-footer__copyright,
+  .ww-footer__version,
+  .ww-footer__developed {
+    text-align: center;
   }
 }
 @media (min-width: 992px) {
