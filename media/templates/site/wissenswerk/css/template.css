@@ -1101,10 +1101,49 @@ body {
   padding-block: var(--ww-space-6);
 }
 
+.ww-hero__inner {
+  position: relative;
+  z-index: 3;
+  max-width: 100%;
+  padding-block: var(--ww-space-7);
+}
+
+.ww-hero__title {
+  margin-bottom: var(--ww-space-2);
+  font-size: var(--ww-h2-size);
+}
+
+.ww-hero__subtitle {
+  margin-bottom: var(--ww-space-2);
+  font-size: var(--ww-h5-size);
+  color: var(--ww-color-primary);
+}
+
+.ww-hero__text {
+  max-width: 42rem;
+}
+
+.ww-divider {
+  border-bottom: 1px solid var(--ww-color-surface-salbei);
+  padding-bottom: 1rem;
+}
+
 .ww-hero__illustration {
   position: relative;
   overflow: hidden;
   min-height: 240px;
+}
+
+.ww-hero__illustration::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 80%;
+  height: 100px;
+  background: var(--ww-color-surface-salbei);
+  clip-path: polygon(0% 100%, 100% 100%, 260% 0%);
+  z-index: 2;
 }
 
 .page-kontakt .ww-hero__illustration::before,
@@ -1125,177 +1164,30 @@ body {
   z-index: 1;
 }
 
-.ww-hero__illustration::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 58%;
-  height: 40%;
-  background: var(--ww-color-surface-salbei);
-  clip-path: polygon(8% 100%, 100% 100%, 100% 25%);
-  z-index: 2;
+@media (min-width: 576px) and (max-width: 775px) {
+  .ww-hero__title {
+    margin-bottom: var(--ww-space-2);
+    font-size: var(--ww-h3-size);
+  }
+  .ww-hero__illustration::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 80%;
+    height: 100px;
+    background: var(--ww-color-surface-salbei);
+    clip-path: polygon(0% 100%, 100% 100%, 170% 0%);
+    z-index: 2;
+  }
+  .ww-hero__inner {
+    position: relative;
+    z-index: 3;
+    max-width: 90%;
+    padding-block: var(--ww-space-7);
+  }
 }
-
-.page-ueber-mich .ww-hero__illustration::after {
-  display: none;
-}
-
-.page-leistungen .ww-hero__visual {
-  position: absolute;
-  right: 24%;
-  bottom: 25%;
-  width: 320px;
-  height: 260px;
-  background-image: url("../images/grafik/template-entwicklung.png");
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: contain;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.page-impressum .ww-hero__visual {
-  position: absolute;
-  right: 30%;
-  bottom: 10%;
-  width: 320px;
-  height: 260px;
-  background-image: url("../images/logo/wissenswerk_logo_transparent.png");
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: contain;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.page-cokie-richtlinie .ww-hero__visual {
-  position: absolute;
-  right: 12%;
-  bottom: 2%;
-  width: 350px;
-  height: 350px;
-  background-image: url("../images/grafik/cookie.png");
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: contain;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.page-datenschutz .ww-hero__visual {
-  position: absolute;
-  right: 18%;
-  bottom: 30%;
-  width: 350px;
-  height: 350px;
-  background-image: url("../images/grafik/datenschutz.png");
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: contain;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.page-kontakt .ww-hero__visual {
-  position: absolute;
-  right: 25%;
-  bottom: 40%;
-  width: 400px;
-  height: 350px;
-  background-image: url("../images/grafik/kontakt.png");
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: contain;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.page-wissenswerk .ww-hero__visual {
-  position: absolute;
-  right: 5%;
-  bottom: 12%;
-  width: 500px;
-  height: 350px;
-  background-image: url("../images/grafik/steampunk.png");
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: contain;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.page-mein-beruflicher-weg .ww-hero__visual,
-.page-ueber-mich .ww-hero__visual {
-  position: absolute;
-  right: -32%;
-  bottom: 0%;
-  width: 1700px;
-  height: 350px;
-  background-image: url("../images/grafik/ueber_mich.png");
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: contain;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.page-wissenswert .ww-hero__visual {
-  position: absolute;
-  right: 5%;
-  bottom: 12%;
-  width: 500px;
-  height: 350px;
-  background-image: url("../images/grafik/loesungsweg.png");
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: contain;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.page-das-projekt .ww-hero__visual {
-  position: absolute;
-  right: 3%;
-  bottom: 2%;
-  width: 500px;
-  height: 350px;
-  background-image: url("../images/grafik/das-projekt.png");
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-size: contain;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.ww-hero__inner {
-  position: relative;
-  z-index: 3;
-  max-width: 52%;
-  padding-block: var(--ww-space-7);
-}
-
-.ww-hero__title {
-  margin-bottom: var(--ww-space-2);
-  font-size: var(--ww-h2-size);
-}
-
-.ww-hero__subtitle {
-  margin-bottom: var(--ww-space-2);
-  font-size: var(--ww-h4-size);
-  color: var(--ww-color-primary);
-}
-
-.ww-hero__text {
-  max-width: 42rem;
-}
-
-.ww-divider {
-  border-bottom: 1px solid var(--ww-color-surface-salbei);
-  padding-bottom: 1rem;
-}
-
-@media (max-width: 767.98px) {
+@media (min-width: 767.98px) {
   .ww-hero__visual {
     display: none;
   }
@@ -1305,7 +1197,150 @@ body {
   .ww-hero__illustration::after {
     width: 80%;
     height: 10%;
-    clip-path: polygon(20% 100%, 100% 100%, 100% 0);
+    clip-path: polygon(0% 100%, 100% 100%, 150% 0);
+  }
+}
+@media (min-width: 768px) {
+  .ww-hero__visual {
+    display: block;
+  }
+  .ww-hero__inner {
+    position: relative;
+    z-index: 3;
+    max-width: 52%;
+    padding-block: var(--ww-space-7);
+  }
+  .ww-hero__illustration::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 58%;
+    height: 40%;
+    background: var(--ww-color-surface-salbei);
+    clip-path: polygon(8% 100%, 100% 100%, 100% 25%);
+    z-index: 2;
+  }
+  .page-leistungen .ww-hero__visual {
+    position: absolute;
+    right: 24%;
+    bottom: 25%;
+    width: 320px;
+    height: 260px;
+    background-image: url("../images/grafik/template-entwicklung.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .page-impressum .ww-hero__visual {
+    position: absolute;
+    right: 30%;
+    bottom: 10%;
+    width: 320px;
+    height: 260px;
+    background-image: url("../images/logo/wissenswerk_logo_transparent.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .page-cokie-richtlinie .ww-hero__visual {
+    position: absolute;
+    right: 12%;
+    bottom: 2%;
+    width: 350px;
+    height: 350px;
+    background-image: url("../images/grafik/cookie.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .page-datenschutz .ww-hero__visual {
+    position: absolute;
+    right: 18%;
+    bottom: 30%;
+    width: 350px;
+    height: 350px;
+    background-image: url("../images/grafik/datenschutz.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .page-kontakt .ww-hero__visual {
+    position: absolute;
+    right: 25%;
+    bottom: 40%;
+    width: 400px;
+    height: 350px;
+    background-image: url("../images/grafik/kontakt.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .page-wissenswerk .ww-hero__visual {
+    position: absolute;
+    right: 5%;
+    bottom: 12%;
+    width: 500px;
+    height: 350px;
+    background-image: url("../images/grafik/steampunk.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .page-mein-beruflicher-weg .ww-hero__visual,
+  .page-ueber-mich .ww-hero__visual {
+    position: absolute;
+    right: -32%;
+    bottom: 0%;
+    width: 1700px;
+    height: 350px;
+    background-image: url("../images/grafik/ueber_mich.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .page-wissenswert .ww-hero__visual {
+    position: absolute;
+    right: 5%;
+    bottom: 12%;
+    width: 500px;
+    height: 350px;
+    background-image: url("../images/grafik/loesungsweg.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .page-das-projekt .ww-hero__visual {
+    position: absolute;
+    right: 0%;
+    bottom: 5%;
+    width: 350px;
+    height: 350px;
+    background-image: url("../images/grafik/das-projekt.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .page-ueber-mich .ww-hero__illustration::after {
+    display: none;
   }
 }
 .ww-main-bottom {
@@ -1769,19 +1804,6 @@ body {
     text-align: center;
   }
 }
-@media (min-width: 577px) and (max-width: 991px) {
-  .ww-footer__claim {
-    display: none;
-  }
-  .ww-footer__positions {
-    padding-top: 2rem;
-  }
-  .ww-footer__copyright,
-  .ww-footer__version,
-  .ww-footer__developed {
-    text-align: center;
-  }
-}
 @media (min-width: 576px) and (max-width: 767px) {
   .ww-footer__claim {
     display: none;
@@ -1803,6 +1825,19 @@ body {
   }
   .ww-footer__version {
     text-align: center;
+  }
+  .ww-footer__copyright,
+  .ww-footer__version,
+  .ww-footer__developed {
+    text-align: center;
+  }
+}
+@media (min-width: 576px) and (max-width: 991px) {
+  .ww-footer__claim {
+    display: none;
+  }
+  .ww-footer__positions {
+    padding-top: 2rem;
   }
   .ww-footer__copyright,
   .ww-footer__version,

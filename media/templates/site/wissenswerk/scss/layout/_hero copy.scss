@@ -1,0 +1,277 @@
+// =============================================================================
+// Hero
+// =============================================================================
+
+.ww-hero {
+
+    padding-block: var(--ww-space-6);
+
+}
+
+// =============================================================================
+// Hero Illustration Layer
+// =============================================================================
+
+.ww-hero__illustration {
+    position: relative;
+    overflow: hidden;
+    min-height: 240px;
+    }
+
+
+// =============================================================================
+// Hero Background (Leiterbahnen)
+// =============================================================================
+.page-kontakt .ww-hero__illustration::before,
+.page-home .ww-hero__illustration::before,
+.page-leistungen .ww-hero__illustration::before,
+.page-impressum .ww-hero__illustration::before,
+.page-datenschutz .ww-hero__illustration::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/grafik/grafik_leiterbahn_001.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 30% auto;
+    margin-right: 6rem;
+    opacity: .48;
+    pointer-events: none;
+    z-index: 1;
+}
+
+// =============================================================================
+// Hero Polygon
+// =============================================================================
+
+.ww-hero__illustration::after {
+
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 58%;
+    height: 40%;
+    background: var(--ww-color-surface-salbei);
+    clip-path: polygon(
+        8% 100%,
+        100% 100%,
+        100% 25%
+    );
+
+    z-index: 2;
+}
+
+.page-ueber-mich {
+    .ww-hero__illustration::after {
+       display: none;
+    }
+}
+
+
+
+// =============================================================================
+// Hero Visual
+// =============================================================================
+
+.page-leistungen .ww-hero__visual {
+
+    position: absolute;
+
+    right: 24%;
+    bottom: 25%;
+
+    width: 320px;
+    height: 260px;
+
+    background-image: url("../images/grafik/template-entwicklung.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+.page-impressum .ww-hero__visual {
+    position: absolute;
+    right: 30%;
+    bottom: 10%;
+    width: 320px;
+    height: 260px;
+    background-image: url("../images/logo/wissenswerk_logo_transparent.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.page-cokie-richtlinie .ww-hero__visual {
+    position: absolute;
+    right: 12%;
+    bottom: 2%;
+    width: 350px;
+    height: 350px;
+    background-image: url("../images/grafik/cookie.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+}
+.page-datenschutz .ww-hero__visual {
+    position: absolute;
+    right: 18%;
+    bottom: 30%;
+    width: 350px;
+    height: 350px;
+    background-image: url("../images/grafik/datenschutz.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.page-kontakt .ww-hero__visual {
+    position: absolute;
+    right: 25%;
+    bottom: 40%;
+    width: 400px;
+    height: 350px;
+    background-image: url("../images/grafik/kontakt.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.page-wissenswerk .ww-hero__visual {
+    position: absolute;
+    right: 5%;
+    bottom: 12%;
+    width: 500px;
+    height: 350px;
+    background-image: url("../images/grafik/steampunk.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+}
+.page-mein-beruflicher-weg .ww-hero__visual,
+.page-ueber-mich .ww-hero__visual{
+    position: absolute;
+    right: -32%;
+    bottom: 0%;
+    width: 1700px;
+    height: 350px;
+    background-image: url("../images/grafik/ueber_mich.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.page-wissenswert .ww-hero__visual{
+    position: absolute;
+    right: 5%;
+    bottom: 12%;
+    width: 500px;
+    height: 350px;
+    background-image: url("../images/grafik/loesungsweg.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.page-das-projekt .ww-hero__visual{
+    position: absolute;
+    right: 3%;
+    bottom: 2%;
+    width: 500px;
+    height: 350px;
+    background-image: url("../images/grafik/das-projekt.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+}
+
+
+
+// =============================================================================
+// Hero Content
+// =============================================================================
+
+.ww-hero__inner {
+
+    position: relative;
+
+    z-index: 3;
+
+    max-width: 52%;
+
+    padding-block: var(--ww-space-7);
+}
+
+
+// =============================================================================
+// Typography
+// =============================================================================
+
+
+
+.ww-hero__title {
+    margin-bottom: var(--ww-space-2);
+    font-size: var(--ww-h2-size);
+}
+
+.ww-hero__subtitle {
+    margin-bottom: var(--ww-space-2);
+    font-size: var(--ww-h4-size);
+    color: var(--ww-color-primary);
+    
+}
+
+.ww-hero__text {
+    max-width: 42rem;
+}
+
+.ww-divider{
+    //border-bottom: 2px solid var(--ww-color-surface-alt);
+    border-bottom: 1px solid var(--ww-color-surface-salbei);
+    padding-bottom: 1rem;
+    
+}
+
+@media (max-width: 767.98px) {
+
+    // Seitenbezogene Visuals auf Mobil ausblenden.
+    .ww-hero__visual {
+        display: none;
+    }
+
+    // Dekorative Leiterbahn auf Mobil ausblenden.
+    .ww-hero__illustration::before {
+        display: none;
+    }
+
+    // Polygon auf Mobil deutlich flacher gestalten.
+    .ww-hero__illustration::after {
+        width: 80%;
+        height: 10%;
+        clip-path: polygon(
+            20% 100%,
+            100% 100%,
+            100% 0
+        );
+    }
+}
