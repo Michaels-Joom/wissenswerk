@@ -1,0 +1,94 @@
+@use "../tokens" as *;
+@use "../_mixins" as *;
+
+
+// =============================================================================
+// Standard Button
+// =============================================================================
+
+.ww-button {
+
+    @include ww-button-base;
+
+}
+
+
+// =============================================================================
+// Start / Primary
+// =============================================================================
+
+.ww-button--salbei {
+
+    background-color: var(--ww-color-primary);
+    color: var(--ww-color-background);
+
+    &:hover {
+        background-color: var(--ww-color-secondary);
+        color: var(--ww-color-background);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--ww-color-primary);
+        outline-offset: 3px;
+    }
+
+}
+
+
+// =============================================================================
+// Secondary
+// =============================================================================
+
+.ww-button--secondary {
+
+    background-color: transparent;
+    border-color: var(--ww-color-primary);
+    color: var(--ww-color-primary);
+
+    &:hover {
+        background-color: var(--ww-color-primary);
+        color: var(--ww-color-background);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--ww-color-primary);
+        outline-offset: 3px;
+    }
+
+}
+
+
+// =============================================================================
+// Dezenter Button
+// =============================================================================
+
+.ww-button--quiet {
+
+    background-color: transparent;
+    border-color: var(--ww-color-surface-salbei);
+    color: var(--ww-color-text);
+
+    &:hover {
+        background-color: var(--ww-color-surface-salbei);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--ww-color-primary);
+        outline-offset: 3px;
+    }
+
+}
+
+
+// =============================================================================
+// Disabled
+// =============================================================================
+
+.ww-button[disabled],
+.ww-button.is-disabled {
+
+    opacity: .5;
+    cursor: not-allowed;
+    pointer-events: none;
+
+}

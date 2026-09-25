@@ -1,0 +1,28 @@
+
+// =============================================================================
+// Button Basis – internes Mixin
+// =============================================================================
+
+@mixin ww-button-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.65rem 1.25rem;
+
+    border: 1px solid transparent;
+    border-radius: 0;
+
+    font-family: inherit;
+    font-size: var(--ww-font-size-base);
+    font-weight: 500;
+    line-height: 1.2;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
