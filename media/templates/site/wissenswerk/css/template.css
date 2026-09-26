@@ -1130,7 +1130,7 @@ body {
 }
 
 .ww-hero__text {
-  max-width: 42rem;
+  max-width: 28rem;
 }
 
 .ww-divider {
@@ -1140,6 +1140,10 @@ body {
 
 .page-home .ww-hero__title {
   width: 30rem;
+}
+
+.page-wissen .ww-hero__title {
+  width: 29rem;
 }
 
 .ww-hero__illustration::after {
@@ -1186,20 +1190,22 @@ body {
   }
 }
 @media (min-width: 768px) {
+  .page-themen .ww-hero-text {
+    max-width: 29rem;
+  }
   .page-home .ww-hero-text {
     max-width: 35rem;
+  }
+  .page-themen .ww-hero__title {
+    max-width: 29rem;
   }
   .ww-hero__illustration::before {
     display: block;
   }
   .ww-hero__visual {
-    display: block;
+    display: none;
   }
-  .page-kontakt .ww-hero__illustration::before,
-  .page-home .ww-hero__illustration::before,
-  .page-leistungen .ww-hero__illustration::before,
-  .page-impressum .ww-hero__illustration::before,
-  .page-datenschutz .ww-hero__illustration::before {
+  .page-datenschutzs .ww-hero__illustration::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -1211,6 +1217,79 @@ body {
     opacity: 0.48;
     pointer-events: none;
     z-index: 1;
+  }
+  .page-service-kontakt .ww-hero__illustration::before,
+  .page-cokie-richtlinie .ww-hero__illustration::before,
+  .page-datenschutz .ww-hero__illustration::before,
+  .page-impressum .ww-hero__illustration::before,
+  .page-home .ww-hero__illustration::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/grafik/backgroundgrafik-2.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 100% auto;
+    margin-right: 3rem;
+    opacity: 0.48;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .page-themen .ww-hero__illustration::before,
+  .page-wissen .ww-hero__illustration::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/grafik/backgroundgrafik-3-4.png");
+    background-repeat: no-repeat;
+    background-position: 22rem center;
+    background-size: 100% auto;
+    margin-right: 3rem;
+    opacity: 0.28;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .page-wissenswert .ww-hero__illustration::before,
+  .page-das-projekt .ww-hero__illustration::before,
+  .page-ueber-mich .ww-hero__illustration::before,
+  .page-mein-beruflicher-weg .ww-hero__illustration::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/grafik/backgroundgrafik-3-3.png");
+    background-repeat: no-repeat;
+    background-position: left -2rem;
+    background-size: 100% auto;
+    margin-right: 0rem;
+    opacity: 0.28;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .page-themen .ww-hero__visual {
+    position: absolute;
+    right: 5%;
+    bottom: 3%;
+    width: 500px;
+    height: 400px;
+    background-image: url(../images/grafik/themen.png);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .page-wissen .ww-hero__visual {
+    position: absolute;
+    right: -1%;
+    bottom: 0%;
+    width: 500px;
+    height: 400px;
+    background-image: url(../images/grafik/wissen-gpt.png);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 3;
+    pointer-events: none;
   }
   .page-home .ww-hero__visual {
     position: absolute;
@@ -1264,11 +1343,11 @@ body {
     z-index: 3;
     pointer-events: none;
   }
-  .page-kontakt .ww-hero__visual {
+  .page-service-kontakt .ww-hero__visual {
     position: absolute;
-    right: 25%;
-    bottom: 40%;
-    width: 400px;
+    right: 18%;
+    bottom: 30%;
+    width: 350px;
     height: 350px;
     background-image: url("../images/grafik/kontakt.png");
     background-repeat: no-repeat;
@@ -1332,6 +1411,9 @@ body {
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
+  .page-themen .ww-hero-text {
+    max-width: 29rem;
+  }
   .ww-hero-text {
     width: 40rem;
   }
@@ -1351,6 +1433,9 @@ body {
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
+  .ww-hero__text {
+    width: 30rem;
+  }
   .ww-hero__illustration::after {
     content: "";
     position: absolute;
@@ -1365,18 +1450,16 @@ body {
   .page-home .ww-hero__illustration::after {
     height: 600px;
   }
-  .page-kontakt .ww-hero__illustration::before, .page-home .ww-hero__illustration::before, .page-leistungen .ww-hero__illustration::before, .page-impressum .ww-hero__illustration::before, .page-datenschutz .ww-hero__illustration::before {
-    content: "";
+  .page-wissenswert .ww-hero__visual {
+    right: 2%;
+  }
+  .page-mein-beruflicher-weg .ww-hero__visual, .page-ueber-mich .ww-hero__visual {
     position: absolute;
-    inset: 0;
-    background-image: url(../images/grafik/grafik_leiterbahn_001.png);
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: 30% auto;
-    margin-right: 6rem;
-    opacity: 0.48;
-    pointer-events: none;
-    z-index: 1;
+    right: -39%;
+    bottom: 0%;
+    width: 1580px;
+    height: 350px;
+    background-size: 900px;
   }
   .page-impressum .ww-hero__visual {
     position: absolute;
@@ -1394,7 +1477,7 @@ body {
   }
   .page-cokie-richtlinie .ww-hero__visual {
     position: absolute;
-    right: 12%;
+    right: 5%;
     bottom: 2%;
     width: 350px;
     height: 350px;
@@ -1404,13 +1487,10 @@ body {
     right: -1%;
     bottom: -8%;
   }
-  .page-wissenswerk .ww-hero__text {
-    max-width: 35rem;
-  }
 }
 @media (min-width: 1200px) {
   .ww-hero-text {
-    max-width: 42rem;
+    max-width: 40rem;
   }
   .ww-hero__illustration::after {
     content: "";
@@ -1425,6 +1505,13 @@ body {
   }
   .page-home .ww-hero__illustration::after {
     height: 600px;
+  }
+  .page-cokie-richtlinie .ww-hero__visual {
+    right: 4rem;
+  }
+  .page-service-kontakt .ww-hero__visual {
+    position: absolute;
+    right: 8rem;
   }
   .page-wissenswerk .ww-hero__visual {
     position: absolute;
