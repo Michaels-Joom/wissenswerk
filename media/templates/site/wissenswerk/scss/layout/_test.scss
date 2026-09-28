@@ -1,0 +1,425 @@
+// =============================================================================
+// Artikel – Mobile First
+// =============================================================================
+
+.ww-article {
+    width: 100%;
+    margin-block: 4rem;
+
+    &__header {
+        margin-bottom: 2rem;
+    }
+
+    &__eyebrow {
+        margin: 0 0 1rem;
+        color: var(--ww-color-accent, #b8860b);
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    &__title {
+        margin: 0 0 1rem;
+        color: var(--ww-color-text, #14202b);
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        line-height: 1.15;
+    }
+
+    &__subtitle {
+        margin: 0;
+        color: var(--ww-color-secondary, #164b55);
+        font-size: 1.15rem;
+        line-height: 1.5;
+    }
+
+    &__body {
+        display: flex;
+        gap: 2rem;
+    }
+
+    &__media {
+        flex: 0 0 auto;
+        margin: 0;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__content {
+        flex: 1 1 auto;
+        min-width: 0;
+
+        p {
+            margin: 0 0 1rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.ww-artikel__image{
+        justify-items: center;
+}
+
+/* =========================================================
+   Mobile
+   Bild zentriert
+   Bild → Header → Content
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+    .ww-article--media-left,
+    .ww-article--media-right {
+
+        .ww-article__body {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 1.5rem;
+        }
+
+        .ww-article__media {
+            order: 1;
+            flex: 0 0 auto;
+            align-self: center;
+            width: min(100%, 30rem);
+        }
+
+        .ww-article__content {
+            order: 2;
+            width: 100%;
+        }
+
+        .ww-article__header {
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+
+/* =========================================================
+   Mobile
+   Header → Bild → Content
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+    .ww-article--header-top-media-left,
+    .ww-article--header-top-media-right,
+    .ww-article--header-top-2col {
+
+        .ww-article__header {
+            margin-bottom: 1.5rem;
+        }
+
+        .ww-article__body {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 1.5rem;
+        }
+
+        .ww-article__media {
+            order: 1;
+            align-self: center;
+            flex: 0 0 auto;
+            width: min(100%, 30rem);
+        }
+
+        .ww-article__content {
+            order: 2;
+            width: 100%;
+        }
+    }
+}
+
+/* =========================================================
+   Mobile
+   Header → Bild → Content → Content
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+    .ww-article--header-top-twocol {
+
+        .ww-article__body {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 1.5rem;
+        }
+
+        .ww-article__media {
+            order: 1;
+            flex: 0 0 auto;
+            align-self: center;
+            width: min(100%, 30rem);
+            margin: 0;
+            //width: 15rem;
+          
+        }
+
+        .ww-article__content {
+            order: 2;
+            flex: 0 0 auto;
+            width: 100%;
+            min-width: 0;
+        }
+    }
+}
+
+    /* =========================================================
+    Variante Joomla
+    Bild links
+    ========================================================= */
+
+    .float-start {
+        float: left !important;
+        padding-right: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    /* =========================================================
+    Variante Joomla
+    Bild rechts
+    ========================================================= */
+
+    .float-end {
+        float: right !important;
+        padding-left: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+@media (min-width: 576px) and (max-width: 775px) {
+ 
+    
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+
+}
+
+@media (min-width: 992px) {
+
+
+
+
+    /* =========================================================
+    WW Article
+    ========================================================= */
+
+    .ww-article {
+        width: 100%;
+        margin-block: 4rem;
+
+        &__header {
+            margin-bottom: 2rem;
+        }
+
+        &__eyebrow {
+            margin: 0 0 1rem;
+            color: var(--ww-color-accent, #b8860b);
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        &__title {
+            margin: 0 0 1rem;
+            color: var(--ww-color-text, #14202b);
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            line-height: 1.15;
+        }
+
+        &__subtitle {
+            margin: 0;
+            color: var(--ww-color-secondary, #164b55);
+            font-size: 1.15rem;
+            line-height: 1.5;
+        }
+
+        &__body {
+            display: flex;
+            gap: 2rem;
+        }
+
+        &__media {
+            flex: 0 0 auto;
+            margin: 0;
+
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        &__content {
+            flex: 1 1 auto;
+            min-width: 0;
+
+            p {
+                margin: 0 0 1rem;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    /* =========================================================
+    Variante A
+    Header
+    Bild links | Content rechts
+    ========================================================= */
+
+    .ww-article--header-top-media-left {
+
+        .ww-article__body {
+            align-items: flex-start;
+        }
+
+        .ww-article__media {
+            flex: 0 0 300px;
+        }
+
+        .ww-article__content {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    /* =========================================================
+    Variante B
+    Header
+    Content links | Bild rechts
+    ========================================================= */
+
+    .ww-article--header-top-media-right {
+
+        .ww-article__body {
+            align-items: flex-start;
+        }
+
+        .ww-article__media {
+            order: 2;
+            flex: 0 0 300px;
+        }
+
+        .ww-article__content {
+            order: 1;
+        }
+    }
+
+    /* =========================================================
+    WW Article
+    Variante A
+    Header oben
+    Bild | Content | Content
+    ========================================================= */
+
+    .ww-article--header-top-twocol {
+
+        .ww-article__header {
+            margin-bottom: 2rem;
+        }
+
+        .ww-article__body {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .ww-article__media {
+            flex: 0 0 300px;
+            margin: 0;
+
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .ww-article__content {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+    }
+
+    /* =========================================================
+    Variante C
+    Bild links | Header + Content rechts
+    ========================================================= */
+
+    .ww-article--media-left {
+
+        .ww-article__body {
+            align-items: flex-start;
+        }
+
+        .ww-article__media {
+            flex: 0 0 300px;
+        }
+
+        .ww-article__content {
+            flex: 1 1 auto;
+        }
+
+        .ww-article__header {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    /* =========================================================
+    Variante D
+    Header + Content links | Bild rechts
+    ========================================================= */
+
+    .ww-article--media-right {
+
+        .ww-article__body {
+            align-items: flex-start;
+        }
+
+        .ww-article__media {
+            order: 2;
+            flex: 0 0 300px;
+        }
+
+        .ww-article__content {
+            order: 1;
+        }
+
+        .ww-article__header {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    /* =========================================================
+    Variante Joomla
+    Bild links
+    ========================================================= */
+
+    .float-start {
+        float: left !important;
+        padding-right: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    /* =========================================================
+    Variante Joomla
+    Bild rechts
+    ========================================================= */
+
+    .float-end {
+        float: right !important;
+        padding-left: 1rem;
+        padding-bottom: 0.5rem;
+    }
+}
