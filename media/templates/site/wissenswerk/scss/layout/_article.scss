@@ -1,85 +1,223 @@
-.com-content-article__body > section + section {
-    padding-top: 3rem;
-}
+@use "../tokens" as *;
 
-.com-content-category-blog> section + section {
-    padding-top: 3rem;
-}
+// =============================================================================
+// Artikel – Mobile First
+// =============================================================================
 
-.item-content{
-padding-bottom: 3rem;
+.ww-article {
 
-}
+    width: 100%;
+    margin-block: 4rem;
 
-
-.page-mein-beruflicher-weg {
-
-    h3 {
-
-        font-size: var(--ww-h5-size);
+    &__layout {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
     }
-    .ww-article-column--icon-left {
-        display: grid;
-        grid-template-columns: 56px 1fr;
-        column-gap: 20px;
-        align-items: center;
 
-        // Innenabstand des Kastens
-        padding: 24px;
+    &__content {
+        display: contents;
+    }
 
-        // Icon-Bereich
-        .ww-article-column__media {
-            width: 56px;
-            height: 56px;
+    &__header {
+        order: 1;
+    }
+
+    &__eyebrow {
+        margin: 0 0 1rem;
+        //color: var(--ww-color-accent, #b8860b);
+        color: var(--ww-color-secondary);
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+     &__title {
+        margin: 0 0 1rem;
+        color: var(--ww-color-text, #14202b);
+        
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        line-height: 1.15;
+    }
+
+     &__subtitle {
+        margin: 0;
+        color: var(--ww-color-primary);
+        font-size: 1.15rem;
+        line-height: 1.5;
+    }
+
+    &__media {
+        order: 2;
+        margin: 0;
+        align-self: center;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+
+            border: 2px solid var(--ww-color-secondary);
+            background: #fff;
+            padding: 2px;
+        }
+    }
+
+    &__text {
+        order: 3;
+    }
+}
+
+@media (min-width: 992px) {
+
+         .ww-article--header-top-twocol-media-left {
+
+                .ww-article__content {
+                    display: contents;
+                }
+
+                .ww-article__layout {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 2rem;
+                }
+
+                .ww-article__header {
+                    width: 100%;
+                    order: 1;
+                }
+
+                .ww-article__media {
+                    margin: 0;
+                    width: calc(40% - 1rem);
+                    order: 2;
+                }
+
+                .ww-article__text {
+                    width: calc(60% - 1rem);
+                    order: 3;
+
+                    display: flex;
+                    flex-direction: row;
+                    gap: 2rem;
+                }
+
+                .ww-article__text > p {
+                    width: calc(50% - 1rem);
+                }
+
+         }
+  
+    .ww-article--header-top-media-left {
+
+        .ww-article__content {
+            display: contents;
+        }
+
+        .ww-article__layout {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .ww-article__header {
+            width: 100%;
+            order: 1;
+        }
+
+        .ww-article__media {
+            margin: 0;
+            width: calc(40% - 1rem);
+            order: 2;
+        }
+
+        .ww-article__text {
+            width: calc(60% - 1rem);
+            order: 3;
+        }
+    }
+
+    .ww-article--header-top-media-right {
+
+        .ww-article__content {
+            display: contents;
+        }
+
+        .ww-article__layout {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .ww-article__header {
+            width: 100%;
+            order: 1;
+        }
+
+        .ww-article__media {
+            margin: 0;
+            width: calc(40% - 1rem);
+            order: 3;
+        }
+
+        .ww-article__text {
+            width: calc(60% - 1rem);
+            order: 2;
+        }
+    }
+
+    .ww-article--header-media-left{
+       .ww-article__layout {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 2rem;
+        }
+
+        .ww-article__media {
+            flex-grow: 0;
+            flex-shrink: 0;
+            flex-basis: 40%;
+            
+        }
+
+        .ww-article__content {
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 60%;
 
             display: flex;
-            align-items: center;
-            justify-content: center;
-
-            margin: 0;
-        }
-
-        .ww-article-column__media img {
-            display: block;
-            width: 42px;
-            height: 42px;
-            object-fit: contain;
-        }
-
-        // Text-Bereich
-        .ww-article-column__content {
-            min-width: 0;
-        }
-
-        .ww-article-column__content h3 {
-            margin: 0 0 12px;
-        }
-
-        .ww-article-column__content p {
-            margin: 0;
+            flex-direction: column;
+            
         }
     }
 
-    .ww-data-grid--columns-2 {
-        --ww-data-grid-columns: minmax(0rem, 1fr) minmax(0, 5fr);
-    }
-     
-    h2 {
-        font-size: var(--ww-h3-size);
-        text-align: left;
-    }
-    .ww-article-column-subtitel,
-    .ww-article-column__content_r {
-        text-align: left;
+    .ww-article--header-media-right{
+        .ww-article__layout {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 2rem;
+        }
+
+        .ww-article__media {
+            flex-grow: 0;
+            flex-shrink: 0;
+            flex-basis: 40%;
+            order: 2;
+        }
+
+        .ww-article__content {
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 60%;
+
+            display: flex;
+            flex-direction: column;
+            order: 1;
+        }
     }
 
-    .ww-article-column-subtitel{
-        margin-bottom: var(--ww-space-2);
-        font-size: var(--ww-h5-size);
-        color: var(--ww-color-primary);
-    }
-
-    .ww-article-column__content_r{
-        padding-bottom: 2rem;
-    }
 }
