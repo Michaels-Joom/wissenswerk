@@ -1597,6 +1597,26 @@ body {
   order: 3;
 }
 
+/* =========================================================
+Variante Joomla
+Bild links
+========================================================= */
+.float-start {
+  float: left !important;
+  padding-right: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+/* =========================================================
+Variante Joomla
+Bild rechts
+========================================================= */
+.float-end {
+  float: right !important;
+  padding-left: 1rem;
+  padding-bottom: 0.5rem;
+}
+
 @media (min-width: 992px) {
   .ww-article--header-top-twocol-media-left .ww-article__content {
     display: contents;
