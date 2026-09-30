@@ -1,0 +1,50 @@
+// =============================================================================
+// Definition List
+// =============================================================================
+
+.ww-definition-list {
+
+    margin: 0;
+
+    border-top: 1px solid var(--ww-column-border-color);
+    border-left: 1px solid var(--ww-column-border-color);
+    border-right: 1px solid var(--ww-column-border-color);
+
+    dt,
+    dd {
+        margin: 0;
+        padding: 0.75rem 0.5rem;
+        border-bottom: 1px solid var(--ww-column-border-color);
+    }
+
+    dt {
+        font-weight: 700;
+    }
+
+}
+
+// =============================================================================
+// Desktop
+// =============================================================================
+
+@media (min-width: 992px) {
+
+    .ww-definition-list {
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        dt {
+            flex: 0 0 17%;
+            text-align: center;
+        }
+
+        dd {
+            flex: 1 1 83%;
+            padding-left: 1rem;
+            border-left: 1px solid var(--ww-column-border-color);
+        
+        }
+    }
+}

@@ -16,34 +16,6 @@ document.querySelectorAll('ul.mod-menu_dropdown-metismenu').forEach(menu => {
         triggerElement: 'button.mm-toggler'
     });
 
-    /** Ergänzung */
-
-    /**
-     * Keep sibling submenus mutually exclusive.
-     *
-     * Only sibling branches on the same hierarchy level
-     * are affected. Parent and child branches may remain
-     * open simultaneously.
-     */
-    mm.on('shown.metisMenu', event => {
-
-        const submenu = event.detail?.shownElement;
-
-        if (!submenu) {
-            return;
-        }
-
-        const item = submenu.parentElement;
-
-        if (!item) {
-            return;
-        }
-
-        closeSiblingSubmenus(item);
-    });
-
-    /** Ergänzung Ende */
-
 
     // =========================================================================
     // Gemeinsame Hilfsfunktionen
@@ -61,47 +33,9 @@ document.querySelectorAll('ul.mod-menu_dropdown-metismenu').forEach(menu => {
     /**
      * Return the direct toggler belonging to a menu item.
      */
-
     const getToggler = (item) => {
 
         return item.querySelector(':scope > button.mm-toggler');
-
-        /**ergänzung */
-
-        /**
-         * Close open sibling submenus on the same hierarchy level.
-         *
-         * Parent and child branches may remain open simultaneously.
-         * Only sibling branches are mutually exclusive.
-         */
-        const closeSiblingSubmenus = (item) => {
-
-            const parentList = item.parentElement;
-
-                if (!parentList) {
-                    return;
-                }
-
-                [...parentList.children].forEach(sibling => {
-
-                if (sibling === item || !sibling.matches('li')) {
-                    return;
-                }
-
-                const submenu = getSubmenu(sibling);
-
-                if (!submenu) {
-                    return;
-                }
-
-                if (sibling.classList.contains('mm-active')) {
-                    mm.hide(submenu);
-                }
-            });
-        };
-
-     /**ergänzung ende*/
-
     };
 
 
@@ -243,33 +177,6 @@ document.querySelectorAll('ul.mod-menu_dropdown-metismenu').forEach(menu => {
         }
     };
 
-       /** Ergänzung */
-
-    /**
-     * Keep sibling submenus mutually exclusive.
-     *
-     * Only sibling branches on the same hierarchy level
-     * are affected. Parent and child branches may remain
-     * open simultaneously.
-     */
-    mm.on('shown.metisMenu', event => {
-
-        const submenu = event.detail?.shownElement;
-
-        if (!submenu) {
-            return;
-        }
-
-        const item = submenu.parentElement;
-
-        if (!item) {
-            return;
-        }
-
-        closeSiblingSubmenus(item);
-    });
-
-    /** Ergänzung Ende */
 
     // =========================================================================
     // Sidebar Navigation
@@ -308,8 +215,6 @@ document.querySelectorAll('ul.mod-menu_dropdown-metismenu').forEach(menu => {
              */
             sidebar.classList.add('ww-sidebar--initialized');
         };
-
-
 
         openSidebarPath();
     }

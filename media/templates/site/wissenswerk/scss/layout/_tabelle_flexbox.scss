@@ -1,0 +1,91 @@
+@use "../tokens" as *;
+
+// =============================================================================
+// Artikel – Mobile First
+// =============================================================================
+
+.ww-career{
+	
+    &__titel{
+
+        margin: 0 0 1rem;
+        color: var(--ww-color-text, #14202b);
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        line-height: 1.15;
+        
+        }        
+    
+
+    &__subtitel{
+
+        font-size: 1.15rem;
+        line-height: 1.5;
+                
+        margin-bottom: var(--ww-space-2);
+        font-size: var(--ww-h4-size);
+        color: var(--ww-color-primary);
+        padding-bottom: 1rem;
+    }
+    
+
+    &__item{
+
+        padding: 0.75rem 0.5rem;
+        
+        border-top: 1px solid var(--ww-column-border-color);
+        border-left: 1px solid var(--ww-column-border-color);
+        border-right: 1px solid var(--ww-column-border-color);
+    }
+
+    &__item:last-child {
+        border-bottom: 1px solid var(--ww-column-border-color);
+    }
+
+    &__period {
+
+        margin-bottom: 0.5rem;
+        
+    }
+
+    &__description {
+        margin: 0.5rem 0 0;
+        padding-top: 0.25rem;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+
+    .ww-career {
+
+        &__item {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+
+        &__period {
+            
+            // grow   = 0 shrink = 0 basis  = 17%
+            flex: 0 0 17%;
+                        
+        }
+
+        &__content {
+            
+            // grow   = 1 shrink = 1 auto -> Nimmm den restlichen Platz
+            flex: 1 1 auto;
+
+            border-left: 1px solid var(--ww-column-border-color);
+            padding-left: 1rem;
+        }
+    }
+}
+
+ 
+
+
+
+
+

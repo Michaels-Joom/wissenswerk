@@ -344,6 +344,7 @@
   --ww-border-success: #2E7D32;
   --ww-border-warning: #C39B53;
   --ww-border-danger: #C62828;
+  --ww-column-border-color: #808080;
   /* Semantic Borders */
   --ww-card-border:
       var(--ww-border-width-xs)
@@ -1547,9 +1548,44 @@ body {
   margin-bottom: 2rem;
 }
 
+.ww-definition-list {
+  margin: 0;
+  border-top: 1px solid var(--ww-column-border-color);
+  border-left: 1px solid var(--ww-column-border-color);
+  border-right: 1px solid var(--ww-column-border-color);
+}
+.ww-definition-list dt,
+.ww-definition-list dd {
+  margin: 0;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid var(--ww-column-border-color);
+}
+.ww-definition-list dt {
+  font-weight: 700;
+}
+
+@media (min-width: 992px) {
+  .ww-definition-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .ww-definition-list dt {
+    flex: 0 0 17%;
+    text-align: center;
+  }
+  .ww-definition-list dd {
+    flex: 1 1 83%;
+    padding-left: 1rem;
+    border-left: 1px solid var(--ww-column-border-color);
+  }
+}
+.ww-article + .ww-article {
+  margin-block-start: 0 !important;
+}
+
 .ww-article {
   width: 100%;
-  margin-block: 4rem;
 }
 .ww-article__layout {
   display: flex;
@@ -1579,6 +1615,14 @@ body {
   color: var(--ww-color-primary);
   font-size: 1.15rem;
   line-height: 1.5;
+  margin-bottom: var(--ww-space-2);
+  font-size: var(--ww-h4-size);
+  color: var(--ww-color-primary);
+}
+.ww-article__markup {
+  padding: 1rem;
+  background: var(--ww-green-100);
+  margin-bottom: 1rem;
 }
 .ww-article__media {
   order: 2;
@@ -1595,6 +1639,22 @@ body {
 }
 .ww-article__text {
   order: 3;
+}
+.ww-article__code {
+  margin-block: 2rem;
+  padding: 1.5rem;
+  background: var(--ww-color-background);
+  border-left: 4px solid var(--ww-color-accent, #b8860b);
+  overflow-x: auto;
+}
+.ww-article__code pre {
+  margin: 0;
+  font-family: monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.ww-article__code code {
+  color: var(--ww-color-text, #14202b);
 }
 
 /* =========================================================
@@ -1618,34 +1678,6 @@ Bild rechts
 }
 
 @media (min-width: 992px) {
-  .ww-article--header-top-twocol-media-left .ww-article__content {
-    display: contents;
-  }
-  .ww-article--header-top-twocol-media-left .ww-article__layout {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-  .ww-article--header-top-twocol-media-left .ww-article__header {
-    width: 100%;
-    order: 1;
-  }
-  .ww-article--header-top-twocol-media-left .ww-article__media {
-    margin: 0;
-    width: calc(40% - 1rem);
-    order: 2;
-  }
-  .ww-article--header-top-twocol-media-left .ww-article__text {
-    width: calc(60% - 1rem);
-    order: 3;
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-  }
-  .ww-article--header-top-twocol-media-left .ww-article__text > p {
-    width: calc(50% - 1rem);
-  }
   .ww-article--header-top-media-left .ww-article__content {
     display: contents;
   }
@@ -1700,6 +1732,7 @@ Bild rechts
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: 40%;
+    order: 1;
   }
   .ww-article--header-media-left .ww-article__content {
     flex-grow: 1;
@@ -1707,6 +1740,7 @@ Bild rechts
     flex-basis: 60%;
     display: flex;
     flex-direction: column;
+    order: 2;
   }
   .ww-article--header-media-right .ww-article__layout {
     display: flex;
@@ -1727,6 +1761,80 @@ Bild rechts
     display: flex;
     flex-direction: column;
     order: 1;
+  }
+  .ww-article--header-top-twocol-media-left .ww-article__content {
+    display: contents;
+  }
+  .ww-article--header-top-twocol-media-left .ww-article__layout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .ww-article--header-top-twocol-media-left .ww-article__header {
+    width: 100%;
+    order: 1;
+  }
+  .ww-article--header-top-twocol-media-left .ww-article__media {
+    margin: 0;
+    width: calc(40% - 1rem);
+    order: 2;
+  }
+  .ww-article--header-top-twocol-media-left .ww-article__text {
+    width: calc(60% - 1rem);
+    order: 3;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .ww-article--header-top-twocol-media-left .ww-article__text > p {
+    width: calc(50% - 1rem);
+  }
+}
+.ww-career__titel {
+  margin: 0 0 1rem;
+  color: var(--ww-color-text, #14202b);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 1.15;
+}
+.ww-career__subtitel {
+  font-size: 1.15rem;
+  line-height: 1.5;
+  margin-bottom: var(--ww-space-2);
+  font-size: var(--ww-h4-size);
+  color: var(--ww-color-primary);
+  padding-bottom: 1rem;
+}
+.ww-career__item {
+  padding: 0.75rem 0.5rem;
+  border-top: 1px solid var(--ww-column-border-color);
+  border-left: 1px solid var(--ww-column-border-color);
+  border-right: 1px solid var(--ww-column-border-color);
+}
+.ww-career__item:last-child {
+  border-bottom: 1px solid var(--ww-column-border-color);
+}
+.ww-career__period {
+  margin-bottom: 0.5rem;
+}
+.ww-career__description {
+  margin: 0.5rem 0 0;
+  padding-top: 0.25rem;
+}
+
+@media (min-width: 992px) {
+  .ww-career__item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .ww-career__period {
+    flex: 0 0 17%;
+  }
+  .ww-career__content {
+    flex: 1 1 auto;
+    border-left: 1px solid var(--ww-column-border-color);
+    padding-left: 1rem;
   }
 }
 .ww-footer {
@@ -2070,6 +2178,123 @@ Bild rechts
 .ww_box__green {
   color: var(--ww-color-primary);
   background-color: var(--ww-color-surface-salbei);
+}
+
+.com-content-article__body > section + section {
+  padding-top: 3rem;
+}
+
+.com-content-category-blog > section + section {
+  padding-top: 3rem;
+}
+
+.item-content {
+  padding-bottom: 3rem;
+}
+
+.page-mein-beruflicher-weg .ww-hero__illustration::after {
+  display: none;
+}
+.page-mein-beruflicher-weg h3 {
+  font-size: var(--ww-h5-size);
+}
+.page-mein-beruflicher-weg .ww-article-column--icon-left {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  align-items: center;
+  padding: 24px;
+}
+.page-mein-beruflicher-weg .ww-article-column--icon-left .ww-article-column__media {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.page-mein-beruflicher-weg .ww-article-column--icon-left .ww-article-column__media img {
+  display: block;
+  width: 42px;
+  height: 42px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.page-mein-beruflicher-weg .ww-article-column--icon-left .ww-article-column__content {
+  min-width: 0;
+}
+.page-mein-beruflicher-weg .ww-article-column--icon-left .ww-article-column__content h3 {
+  margin: 0 0 12px;
+}
+.page-mein-beruflicher-weg .ww-article-column--icon-left .ww-article-column__content p {
+  margin: 0;
+}
+.page-mein-beruflicher-weg .ww-data-grid--columns-2 {
+  --ww-data-grid-columns: minmax(0rem, 1fr) minmax(0, 5fr);
+}
+.page-mein-beruflicher-weg h2 {
+  font-size: var(--ww-h3-size);
+  text-align: left;
+}
+.page-mein-beruflicher-weg .ww-article-column-subtitel,
+.page-mein-beruflicher-weg .ww-article-column__content_r {
+  text-align: left;
+}
+.page-mein-beruflicher-weg .ww-article-column-subtitel {
+  margin-bottom: var(--ww-space-2);
+  font-size: var(--ww-h5-size);
+  color: var(--ww-color-primary);
+}
+.page-mein-beruflicher-weg .ww-article-column__content_r {
+  padding-bottom: 2rem;
+}
+@media (max-width: 768px) {
+  .page-mein-beruflicher-weg .ww-article-column--icon-left {
+    padding: 0.5rem;
+    -moz-column-gap: 6px;
+         column-gap: 6px;
+  }
+}
+@media (min-width: 768px) {
+  .page-mein-beruflicher-weg .ww-article-columns {
+    grid-template-columns: repeat(auto-fit, minmax(33%, 1fr));
+  }
+}
+@media (min-width: 992px) {
+  .page-mein-beruflicher-weg .ww-career__period {
+    flex: 0 0 17%;
+    align-self: center;
+    text-align: center;
+  }
+}
+
+.page-ueber-mich h2 {
+  font-size: var(--ww-h3-size);
+}
+.page-ueber-mich .ww-hero__illustration::after {
+  display: none;
+}
+.page-ueber-mich .ww-article__media img {
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+@media (min-width: 992px) {
+  .page-ueber-mich .ww-article--header-top-media-right .ww-article__text {
+    width: calc(50% - 1rem);
+    order: 2;
+  }
+  .page-ueber-mich .ww-article--header-top-media-right .ww-article__media {
+    margin: 0;
+    width: calc(50% - 1rem);
+    order: 3;
+  }
+  .page-ueber-mich .ww-article__media img {
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
 }
 
 .ww-eyebrow {

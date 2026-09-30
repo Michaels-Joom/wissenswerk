@@ -1,0 +1,171 @@
+.com-content-article__body > section + section {
+    padding-top: 3rem;
+}
+
+.com-content-category-blog> section + section {
+    padding-top: 3rem;
+}
+
+.item-content{
+    padding-bottom: 3rem;
+
+}
+
+
+
+.page-mein-beruflicher-weg {
+
+    .ww-hero__illustration::after{
+
+        display:none;
+    }
+
+    h3 {
+
+        font-size: var(--ww-h5-size);
+    }
+    .ww-article-column--icon-left {
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        column-gap: 20px;
+        align-items: center;
+
+        // Innenabstand des Kastens
+        padding: 24px;
+
+        // Icon-Bereich
+        .ww-article-column__media {
+            width: 56px;
+            height: 56px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0;
+        }
+
+        .ww-article-column__media img {
+            display: block;
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+        }
+
+        // Text-Bereich
+        .ww-article-column__content {
+            min-width: 0;
+        }
+
+        .ww-article-column__content h3 {
+            margin: 0 0 12px;
+        }
+
+        .ww-article-column__content p {
+            margin: 0;
+        }
+    }
+
+    .ww-data-grid--columns-2 {
+        --ww-data-grid-columns: minmax(0rem, 1fr) minmax(0, 5fr);
+    }
+     
+    h2 {
+        font-size: var(--ww-h3-size);
+        text-align: left;
+    }
+    .ww-article-column-subtitel,
+    .ww-article-column__content_r {
+        text-align: left;
+    }
+
+    .ww-article-column-subtitel{
+        margin-bottom: var(--ww-space-2);
+        font-size: var(--ww-h5-size);
+        color: var(--ww-color-primary);
+    }
+
+    .ww-article-column__content_r{
+        padding-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+
+        .ww-article-column--icon-left {
+
+            padding: 0.5rem;
+            column-gap: 6px
+        }
+    }
+
+
+    @media (min-width: 768px) {
+       .ww-article-columns {
+            
+            grid-template-columns: repeat(auto-fit, minmax(33%, 1fr));
+            
+        }
+                    
+    } 
+
+    @media (min-width: 992px) {
+     
+        .ww-career__period {
+        flex: 0 0 17%;
+        align-self: center;
+        text-align: center;
+        }
+                    
+    } 
+
+}
+
+.page-ueber-mich{
+
+    h2 {
+       
+        font-size: var(--ww-h3-size);
+    }
+
+    .ww-hero__illustration::after{
+
+        display:none;
+    }
+
+    .ww-article__media img {
+
+        border: none;
+        background:transparent;
+        padding: 0;
+
+    }
+
+    @media (min-width: 992px) {
+
+        .ww-article--header-top-media-right .ww-article__text {
+            width: calc(50% - 1rem);
+            order: 2;
+        }
+
+        .ww-article--header-top-media-right .ww-article__media {
+            margin: 0;
+            width: calc(50% - 1rem);
+            order: 3;
+
+        }
+
+        .ww-article__media img {
+
+            border: none;
+            background:transparent;
+            padding: 0;
+
+        }
+
+
+    }
+}
+
+
+
+
