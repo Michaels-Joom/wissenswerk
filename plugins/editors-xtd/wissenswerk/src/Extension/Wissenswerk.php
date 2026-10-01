@@ -40,6 +40,8 @@ final class Wissenswerk extends CMSPlugin implements SubscriberInterface
 
         $this->loadLanguage();
 
+        $editorType = $event->getEditorType();
+
         $document = $this->getApplication()->getDocument();
         $wa = $document->getWebAssetManager();
 
@@ -56,7 +58,10 @@ final class Wissenswerk extends CMSPlugin implements SubscriberInterface
             'plg_editors_xtd_wissenswerk/editor.css'
         );
 
-        $this->registerTinyMceBridge();
+        
+        if ($editorType === 'tinymce') {
+           $this->registerTinyMceBridge();
+        }
 
         // Same Media API options used by Joomla's own image editor button.
         $document->addScriptOptions(

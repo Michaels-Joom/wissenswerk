@@ -18,7 +18,7 @@
         gap: 1.5rem;
     }
 
-    &__content {
+    &__head {
         display: contents;
     }
 
@@ -130,7 +130,7 @@
 
     .ww-article--header-top-media-left {
 
-        .ww-article__content {
+        .ww-article__head {
             display: contents;
         }
 
@@ -152,7 +152,7 @@
             order: 2;
         }
 
-        .ww-article__text {
+        .ww-article__content {
             width: calc(60% - 1rem);
             order: 3;
         }
