@@ -73,6 +73,8 @@
 
         justify-content: space-between;
 
+        width: 100%;
+
         gap: var(--ww-space-4);
 
     }
@@ -118,9 +120,11 @@
 
         align-self: flex-start;
 
-        margin: 0;
+        margin:0;
 
         padding: var(--ww-space-1);
+
+        margin: -5px;
 
     }
 
@@ -344,9 +348,9 @@
 
         gap: var(--ww-space-3);
 
-        padding-block: var(--ww-space-5);
+        padding-block: var(--ww-space-6);
 
-        padding-inline: var(--ww-space-6);
+        //padding-inline: var(--ww-space-6);
 
         background-color: var(--ww-color-surface-alt);
 
@@ -361,9 +365,9 @@
 
     &__footer-logo {
 
-        display: block;
+        display: none;
 
-        width: 5rem;
+        width: 3rem;
 
         height: auto;
 
@@ -378,7 +382,7 @@
 
     &__legal {
 
-        width: 100%;
+        //width: 100%;
 
     }
 
@@ -387,7 +391,7 @@
 
         display: flex;
 
-        flex-direction: column;
+        flex-direction: row;
 
         align-items: center;
 
@@ -398,6 +402,8 @@
         padding: 0;
 
         list-style: none;
+
+        flex-wrap: wrap;
 
     }
 
@@ -412,7 +418,7 @@
 
     &__legal .nav-item {
 
-        width: 100%;
+        width: auto;
 
         margin: 0;
 
