@@ -286,6 +286,8 @@ document.querySelectorAll('ul.mod-menu_dropdown-metismenu').forEach(menu => {
     // =========================================================================
 
     const sidebar = menu.closest('.ww-sidebar');
+    const header = menu.closest('.ww-header');
+    const offcanvas = menu.closest('.ww-offcanvas');
 
     if (sidebar) {
 
@@ -339,8 +341,6 @@ document.querySelectorAll('ul.mod-menu_dropdown-metismenu').forEach(menu => {
     //    → der aktive Pfad wird erneut aufgebaut.
     //
     // =========================================================================
-
-    const header = menu.closest('.ww-header');
 
     if (header) {
 
@@ -469,6 +469,49 @@ document.querySelectorAll('ul.mod-menu_dropdown-metismenu').forEach(menu => {
 
 
     // =========================================================================
+    // Offcanvas Navigation
+    // =========================================================================
+    //
+    // Der Offcanvas verwendet dieselbe Joomla-Menüstruktur wie Header und
+    // Sidebar. Verhaltensseitig folgt er bewusst den Sidebar-Regeln:
+    //
+    // - aktiver Pfad wird geöffnet
+    // - notwendige Vorfahren werden geöffnet
+    // - Parent und Child dürfen gleichzeitig offen bleiben
+    // - nur Geschwister sind exklusiv
+    // - kein Outside-Click-Schließen der Untermenüs
+    // - beim erneuten Öffnen wird der aktive Pfad wiederhergestellt
+    //
+    // =========================================================================
+
+    if (offcanvas) {
+
+        /*
+         * Beim Öffnen des Bootstrap-Offcanvas wird der Menübaum zunächst
+         * zurückgesetzt und anschließend der aktive Pfad aufgebaut.
+         *
+         * Dadurch startet der Offcanvas bei jedem Öffnen definiert und folgt
+         * gleichzeitig den Regeln der persistenten Sidebar-Navigation.
+         */
+        offcanvas.addEventListener('shown.bs.offcanvas', async () => {
+            resetMenu();
+            await openActivePath();
+            offcanvas.classList.add('ww-offcanvas--initialized');
+        });
+
+        /*
+         * Beim Schließen bleiben keine offenen Unterzweige für den nächsten
+         * Aufruf erhalten. Das eigentliche Schließen des Offcanvas übernimmt
+         * weiterhin Bootstrap.
+         */
+        offcanvas.addEventListener('hidden.bs.offcanvas', () => {
+            resetMenu();
+            offcanvas.classList.remove('ww-offcanvas--initialized');
+        });
+    }
+
+
+    // =========================================================================
     // Dropdown behaviour
     // =========================================================================
     //
@@ -479,7 +522,7 @@ document.querySelectorAll('ul.mod-menu_dropdown-metismenu').forEach(menu => {
     //
     // =========================================================================
 
-    if (!sidebar) {
+    if (!sidebar && !offcanvas) {
 
         mm.on('shown.metisMenu', event => {
 

@@ -89,6 +89,7 @@
         <position>footer-right</position>
         
         <!-- Offcanvas Footer -->
+        <position>offcanvas-menu</position>
         <position>offcanvas-legal</position>
 
         <!-- Copyright -->

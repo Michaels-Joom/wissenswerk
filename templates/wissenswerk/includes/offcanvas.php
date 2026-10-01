@@ -43,7 +43,7 @@ defined('_JEXEC') or die;
 
          <nav class="ww-offcanvas__navigation" aria-label="Mobile Navigation">
 
-            <jdoc:include type="modules" name="menu" style="none" />
+            <jdoc:include type="modules" name="offcanvas-menu" style="none" />
 
         </nav>
     

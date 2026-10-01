@@ -2916,6 +2916,10 @@ Bild rechts
     display: none;
   }
 }
+.ww-topic-nav {
+  display: none;
+}
+
 .ww-topic-inner {
   border-bottom: 2px solid var(--ww-color-surface-alt);
   padding-bottom: var(--ww-space-4);
