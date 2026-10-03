@@ -15,6 +15,7 @@ use Joomla\CMS\Factory;
 
 $app = Factory::getApplication();
 $wa  = $this->getWebAssetManager();
+$app  = Factory::getApplication();
 
 // =============================================================================
 // Web Assets
@@ -82,8 +83,8 @@ $contentClass = 'col-12';
 
 if ($showSidebarLeft && $showSidebarRight) {
 
-    $contentClass = 'col-lg-8';
-    $sidebarClass = 'col-12 col-lg-2';
+    $contentClass = 'col-lg-6';
+    $sidebarClass = 'col-12 col-lg-3';
 
 
 } elseif ($showSidebarLeft || $showSidebarRight) {
@@ -92,8 +93,6 @@ if ($showSidebarLeft && $showSidebarRight) {
       $sidebarClass = 'col-12 col-lg-3';
 
 }
-
-
 
 ?><!DOCTYPE html>
 <html lang="<?= $this->language; ?>" dir="<?= $this->direction; ?>">

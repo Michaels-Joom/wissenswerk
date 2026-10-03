@@ -1,5 +1,7 @@
 @use "../tokens" as *;
 
+@use "../tokens" as *;
+
 // =============================================================================
 // Artikel – Mobile First
 // =============================================================================
@@ -9,10 +11,11 @@
 }
 
 .ww-article {
+
     width: 100%;
     //margin-block: 4rem;
 
-    &__layout {
+    &__body {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
@@ -40,6 +43,18 @@
         
         font-size: clamp(1.8rem, 3vw, 2.4rem);
         line-height: 1.15;
+    }
+
+     &__description {
+        margin: 0;
+        color: var(--ww-color-primary);
+        font-size: 1.15rem;
+        line-height: 1.5;
+
+        margin-bottom: var(--ww-space-2);
+        font-size: var(--ww-h4-size);
+        color: var(--ww-color-primary);
+   
     }
 
      &__subtitle {
@@ -70,14 +85,13 @@
             display: block;
             width: 100%;
             height: auto;
-
             border: 2px solid var(--ww-color-secondary);
             background: #fff;
             padding: 2px;
         }
     }
-
-    &__text {
+    
+    &__main {
         order: 3;
     }
 
@@ -130,66 +144,89 @@
 
     .ww-article--header-top-media-left {
 
-        .ww-article__head {
-            display: contents;
-        }
+        .ww-article{
 
-        .ww-article__layout {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
+           &__body {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
 
-        .ww-article__header {
-            width: 100%;
-            order: 1;
-        }
 
-        .ww-article__media {
-            margin: 0;
-            width: calc(40% - 1rem);
-            order: 2;
-        }
+            &__head {
 
-        .ww-article__content {
-            width: calc(60% - 1rem);
-            order: 3;
+                display: contents;
+            }
+
+            &__main {
+                width: calc(60% - 1rem);
+                order: 3;
+            }
+
+
+            &__header {
+                width: 100%;
+                order: 1;
+            }
+
+            &__media {
+                margin: 0;
+                width: calc(40% - 1rem);
+                order: 2;
+            }
+
+            
         }
     }
 
+
+   
+
+
+
+
+
     .ww-article--header-top-media-right {
 
-        .ww-article__content {
-            display: contents;
-        }
+        .ww-article{
 
-        .ww-article__layout {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
+           &__body {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
 
-        .ww-article__header {
-            width: 100%;
-            order: 1;
-        }
 
-        .ww-article__media {
-            margin: 0;
-            width: calc(40% - 1rem);
-            order: 3;
-        }
+            &__head {
 
-        .ww-article__text {
-            width: calc(60% - 1rem);
-            order: 2;
+                display: contents;
+            }
+
+            &__main {
+                width: calc(60% - 1rem);
+                order: 2;
+            }
+
+
+            &__header {
+                width: 100%;
+                order: 1;
+            }
+
+            &__media {
+                margin: 0;
+                width: calc(40% - 1rem);
+                order: 3;
+            }
+
+            
         }
     }
 
     .ww-article--header-media-left{
-       .ww-article__layout {
+       .ww-article__body {
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -203,7 +240,7 @@
             order:1;
         }
 
-        .ww-article__content {
+        .ww-article__head {
             flex-grow: 1;
             flex-shrink: 1;
             flex-basis: 60%;
@@ -216,7 +253,7 @@
     }
 
     .ww-article--header-media-right{
-        .ww-article__layout {
+        .ww-article__body {
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -230,7 +267,7 @@
             order: 2;
         }
 
-        .ww-article__content {
+        .ww-article__head {
             flex-grow: 1;
             flex-shrink: 1;
             flex-basis: 60%;
@@ -243,11 +280,11 @@
 
     .ww-article--header-top-twocol-media-left {
 
-        .ww-article__content {
+        .ww-article__head {
             display: contents;
         }
 
-        .ww-article__layout {
+        .ww-article__body {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -265,7 +302,7 @@
             order: 2;
         }
 
-        .ww-article__text {
+        .ww-article__main {
             width: calc(60% - 1rem);
             order: 3;
 
@@ -274,7 +311,7 @@
             gap: 2rem;
         }
 
-        .ww-article__text > p {
+        .ww-article__main > p {
             width: calc(50% - 1rem);
         }
 
