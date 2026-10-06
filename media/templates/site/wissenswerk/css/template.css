@@ -1802,6 +1802,21 @@ Bild rechts
   .ww-article--header-top-twocol-media-left .ww-article__main > p {
     width: calc(50% - 1rem);
   }
+  .ww-artikel__liste dl {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
+    row-gap: 0.75rem;
+  }
+  .ww-artikel__liste dt {
+    grid-column: 1;
+    font-weight: 600;
+  }
+  .ww-artikel__liste dd {
+    grid-column: 2;
+    margin: 0;
+  }
 }
 .ww-career__titel {
   margin: 0 0 1rem;
@@ -2298,6 +2313,28 @@ Bild rechts
     background: transparent;
     padding: 0;
   }
+}
+
+.module_ww_artikel {
+  padding-bottom: 2rem;
+}
+
+.ww_artikel_new .mod-articles-items,
+.ww_artikel_direkt .mod-articles-items,
+.ww_artikel_cooming_soon .mod-articles-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ww_artikel_new p,
+.ww_artikel_direkt p,
+.ww_artikel_cooming_soon p {
+  padding-left: 0.75rem;
+}
+.ww_artikel_new .mod-articles-title,
+.ww_artikel_direkt .mod-articles-title,
+.ww_artikel_cooming_soon .mod-articles-title {
+  padding-left: 0.75rem;
 }
 
 .ww-eyebrow {

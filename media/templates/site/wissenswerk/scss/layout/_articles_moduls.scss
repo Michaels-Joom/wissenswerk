@@ -1,0 +1,24 @@
+.module_ww_artikel{
+
+    padding-bottom:2rem;
+}
+
+.ww_artikel_new,
+.ww_artikel_direkt,
+.ww_artikel_cooming_soon{
+
+    .mod-articles-items {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    p{
+        padding-left: 0.75rem;
+    }
+
+    .mod-articles-title{
+        padding-left: 0.75rem;
+    }
+
+}
