@@ -45,7 +45,6 @@ $branding = trim($branding_first . ' ' . $branding_second);
 $menu = $app->getMenu();
 $active = $menu->getActive();
 
-
 // =============================================================================
 // Modulpositionen
 // =============================================================================
@@ -93,8 +92,6 @@ if ($showSidebarLeft && $showSidebarRight) {
 
 }
 
-
-
 ?><!DOCTYPE html>
 <html lang="<?= $this->language; ?>" dir="<?= $this->direction; ?>">
 
@@ -121,11 +118,11 @@ if ($showSidebarLeft && $showSidebarRight) {
          Breadcrumbs
     ============================================================== -->
     <?php if ($showBreadcrumbs) : ?>
-        <section class="ww-breadcrumbs">
+        <nav class="ww-breadcrumbs">
             <div class="ww-container ww-divider">
                 <jdoc:include type="modules" name="breadcrumbs" style="none" />
             </div>
-        </section>
+        </nav>
     <?php endif; ?>
 
     <!-- ==============================================================
@@ -150,13 +147,13 @@ if ($showSidebarLeft && $showSidebarRight) {
     ============================================================== -->   
     <?php if ($showTopic) : ?>
     
-        <section class="ww-topic-nav">
+        <nav class="ww-topic-nav">
             <div class="ww-container">
                 <div class="ww-topic-inner">
                     <jdoc:include type="modules" name="topics" style="none" />
                 </div>
             </div>
-        </section>
+    </nav>
       <?php endif; ?>    
 
     <!-- ==============================================================
@@ -183,7 +180,6 @@ if ($showSidebarLeft && $showSidebarRight) {
 
     <?php endif; ?>
 
-
     <!-- ==============================================================
          Top B
     ============================================================== -->
@@ -194,9 +190,6 @@ if ($showSidebarLeft && $showSidebarRight) {
             </div>
         </section>
     <?php endif; ?>
-
-
-
 
     <!-- ==============================================================
          Main Top
@@ -227,9 +220,9 @@ if ($showSidebarLeft && $showSidebarRight) {
                     </aside>
                 <?php endif; ?>
 
-                <section class="ww-content <?= $contentClass; ?>">
+                <div class="ww-content <?= $contentClass; ?>">
                     <jdoc:include type="component" />
-                </section>
+                </div>
 
                 <?php if ($showSidebarRight) : ?>
                     <aside class="ww-sidebar ww-sidebar--right <?= $sidebarClass; ?>">
@@ -260,6 +253,7 @@ if ($showSidebarLeft && $showSidebarRight) {
     <!-- ==============================================================
          Bottom A
     ============================================================== -->
+
     <?php if ($showBottomA) : ?>
         <section class="ww-bottom-a">
             <div class="ww-container">
@@ -271,6 +265,7 @@ if ($showSidebarLeft && $showSidebarRight) {
     <!-- ==============================================================
          Bottom B
     ============================================================== -->
+
     <?php if ($showBottomB) : ?>
         <section class="ww-bottom-b">
             <div class="ww-container">

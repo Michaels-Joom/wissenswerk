@@ -39,7 +39,7 @@ $branding = trim($brandingFirst . $brandingSecond);
                 =========================================================== -->
                 <div class="col-12 col-md-4 col-lg-4">
 
-                    <section class="ww-footer__branding">
+                    <div class="ww-footer__branding">
 
                         <div class="ww-footer__brand">
                             <?php require __DIR__ . '/brand.php'; ?>
@@ -55,7 +55,7 @@ $branding = trim($brandingFirst . $brandingSecond);
                             <jdoc:include type="modules" name="footer-social" style="none" />
                         </div>
 
-                    </section>
+                        </div>
 
                 </div>
 
