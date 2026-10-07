@@ -1,0 +1,307 @@
+// ------------------------------------------------------------
+// Blog Pagination
+// ------------------------------------------------------------
+
+
+
+.com-content-category-blog__navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 3rem;;
+    width: 100%;
+}
+
+
+// ------------------------------------------------------------
+// Seitenzähler
+// ------------------------------------------------------------
+
+.com-content-category-blog__navigation .counter {
+    order: 2;
+
+    margin: 0.5rem 0 0;
+    padding: 0;
+
+    color: #6f6862;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+
+// ------------------------------------------------------------
+// Pagination
+// ------------------------------------------------------------
+
+.com-content-category-blog__pagination {
+    order: 1;
+
+    width: auto;
+}
+
+
+.com-content-category-blog__pagination .pagination_wrapper {
+    display: flex;
+    justify-content: center;
+
+    margin: 0;
+}
+
+
+// ------------------------------------------------------------
+// Pagination-Kasten
+// ------------------------------------------------------------
+
+.com-content-category-blog__pagination .pagination {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    width: auto;
+    margin: 0;
+    padding: 0.35rem;
+
+    background-color: #f6f4ef;
+    border: 1px solid #d8d2c8;
+    border-radius: 0.35rem;
+
+    list-style: none;
+}
+
+
+// ------------------------------------------------------------
+// Pagination-Elemente
+// ------------------------------------------------------------
+
+.com-content-category-blog__pagination .page-item {
+    margin: 0;
+}
+
+
+// ------------------------------------------------------------
+// Pagination-Links
+// ------------------------------------------------------------
+
+.com-content-category-blog__pagination .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 2.25rem;
+    height: 2.25rem;
+    padding: 0 0.65rem;
+
+    color: #2c2523;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0.25rem;
+
+    text-decoration: none;
+    line-height: 1;
+}
+
+
+// ------------------------------------------------------------
+// Hover / Focus
+// ------------------------------------------------------------
+
+.com-content-category-blog__pagination
+.page-item:not(.active):not(.disabled)
+.page-link:hover,
+
+.com-content-category-blog__pagination
+.page-item:not(.active):not(.disabled)
+.page-link:focus {
+    color: #2c2523;
+    background-color: #e8e2d8;
+}
+
+
+// ------------------------------------------------------------
+// Aktuelle Seite
+// ------------------------------------------------------------
+
+.com-content-category-blog__pagination
+.page-item.active
+.page-link {
+    color: #ffffff;
+    background-color: #b8860b;
+}
+
+
+// ------------------------------------------------------------
+// Deaktivierte Navigation
+// ------------------------------------------------------------
+
+.com-content-category-blog__pagination
+.page-item.disabled
+.page-link {
+    color: #aaa39a;
+    background-color: transparent;
+}
+
+
+// ------------------------------------------------------------
+// Navigation: Anfang / Zurück / Vor / Ende
+// ------------------------------------------------------------
+
+// Originalen Text bzw. Icon-Inhalt ausblenden
+.com-content-category-blog__pagination
+.page-item:first-child
+.page-link,
+
+.com-content-category-blog__pagination
+.page-item:nth-child(2)
+.page-link,
+
+.com-content-category-blog__pagination
+.page-item:nth-last-child(2)
+.page-link,
+
+.com-content-category-blog__pagination
+.page-item:last-child
+.page-link {
+    font-size: 0;
+}
+
+
+// Anfang
+.com-content-category-blog__pagination
+.page-item:first-child
+.page-link::before {
+    content: "«";
+    font-size: 1rem;
+}
+
+
+// Zurück
+.com-content-category-blog__pagination
+.page-item:nth-child(2)
+.page-link::before {
+    content: "‹";
+    font-size: 1rem;
+}
+
+
+// Vor
+.com-content-category-blog__pagination
+.page-item:nth-last-child(2)
+.page-link::before {
+    content: "›";
+    font-size: 1rem;
+}
+
+
+// Ende
+.com-content-category-blog__pagination
+.page-item:last-child
+.page-link::before {
+    content: "»";
+    font-size: 1rem;
+}
+
+
+// ------------------------------------------------------------
+// Page Navigation
+// ------------------------------------------------------------
+
+.ww-page-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: var(--ww-space-6);
+
+    margin-top: var(--ww-space-8);
+    padding-top: var(--ww-space-5);
+
+    border-top: 1px solid var(--ww-color-border);
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    // --------------------------------------------------------
+    // Previous / Next
+    // --------------------------------------------------------
+
+    &__previous,
+    &__next {
+        display: flex;
+        flex-direction: row;
+        gap: var(--ww-space-1);
+
+        max-width: 45%;
+
+        color: var(--ww-color-text);
+        text-decoration: none;
+
+        transition:
+            color 0.2s ease,
+            transform 0.2s ease;
+
+        &:hover,
+        &:focus-visible {
+            color: var(--ww-color-primary);
+        }
+    }
+
+    // --------------------------------------------------------
+    // Previous
+    // --------------------------------------------------------
+
+    &__previous {
+        align-items: flex-start;
+
+        &::before {
+            content: "←";
+
+            margin-bottom: var(--ww-space-1);
+
+            font-size: 1.25rem;
+            line-height: 0.75;
+        }
+
+        &:hover,
+        &:focus-visible {
+            transform: translateX(-3px);
+        }
+    }
+
+    // --------------------------------------------------------
+    // Next
+    // --------------------------------------------------------
+
+    &__next {
+        align-items: flex-end;
+        margin-left: auto;
+
+        &::after {
+            content: "→";
+
+            margin-bottom: var(--ww-space-1);
+
+            font-size: 1.25rem;
+            line-height: 1;
+        }
+
+        &:hover,
+        &:focus-visible {
+            transform: translateX(3px);
+        }
+    }
+
+    // --------------------------------------------------------
+    // Label
+    // --------------------------------------------------------
+
+    &__label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+
+        color: var(--ww-color-primary);
+    }
+}

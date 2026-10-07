@@ -1,16 +1,51 @@
 .module_ww_artikel{
 
     padding-bottom:2rem;
+    
+    
+
+        h3, h4{
+ 
+            font-size: 1.0rem;
+            color:var(--ww-color-surface-salbei);
+          
+        }
+        .mod-articles-title{
+
+            font-weight: 100;
+        }
+         
+        p {
+
+            font-size:1.0rem;
+        }
+}
+
+.mod-articles-items{
+    font-weight: 100;
+}
+
+.ww-menu__themen {
+
+    h3, h4{
+ 
+            font-size: var(--ww-h6-size);
+            color:var(--ww-color-surface-salbei);
+          
+        }
+    
 }
 
 .ww_artikel_new,
 .ww_artikel_direkt,
+.ww_artikel_empfohlen,
 .ww_artikel_cooming_soon{
 
     .mod-articles-items {
         list-style: none;
         margin: 0;
         padding: 0;
+        font-weight: 100;
     }
 
     p{
@@ -22,3 +57,6 @@
     }
 
 }
+
+
+

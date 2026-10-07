@@ -20,25 +20,24 @@ $this->loadLanguage();
 $lang = $this->getLanguage();
 ?>
 
-<nav class="pagenavigation" aria-label="<?php echo Text::_('PLG_PAGENAVIGATION_ARIA_LABEL'); ?>">
-    <span class="pagination ms-0">
-    <?php if ($row->prev) :
-        $direction = $lang->isRtl() ? 'right' : 'left'; ?>
-            <a class="btn btn-sm btn-secondary previous" href="<?php echo Route::_($row->prev); ?>" rel="prev">
-            <span class="visually-hidden">
-                <?php echo Text::sprintf('JPREVIOUS_TITLE', htmlspecialchars($rows[$location - 1]->title)); ?>
+<nav class="ww-page-nav" aria-label="Artikelnavigation">
+
+    <?php if (!empty($row->prev)) : ?>
+        <a class="ww-page-nav__previous"
+           href="<?php echo Route::_($row->prev); ?>">
+            <span class="ww-page-nav__label">
+                <?php echo htmlspecialchars($row->prev_label, ENT_QUOTES, 'UTF-8'); ?>
             </span>
-            <?php echo '<span class="icon-chevron-' . $direction . '" aria-hidden="true"></span> <span aria-hidden="true">' . htmlspecialchars($row->prev_label) . '</span>'; ?>
-            </a>
+        </a>
     <?php endif; ?>
-    <?php if ($row->next) :
-        $direction = $lang->isRtl() ? 'left' : 'right'; ?>
-            <a class="btn btn-sm btn-secondary next" href="<?php echo Route::_($row->next); ?>" rel="next">
-            <span class="visually-hidden">
-                <?php echo Text::sprintf('JNEXT_TITLE', htmlspecialchars($rows[$location + 1]->title)); ?>
+
+    <?php if (!empty($row->next)) : ?>
+        <a class="ww-page-nav__next"
+           href="<?php echo Route::_($row->next); ?>">
+            <span class="ww-page-nav__label">
+                <?php echo htmlspecialchars($row->next_label, ENT_QUOTES, 'UTF-8'); ?>
             </span>
-            <?php echo '<span aria-hidden="true">' . htmlspecialchars($row->next_label) . '</span> <span class="icon-chevron-' . $direction . '" aria-hidden="true"></span>'; ?>
-            </a>
+        </a>
     <?php endif; ?>
-    </span>
+
 </nav>

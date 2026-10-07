@@ -42,9 +42,14 @@
 // Sidebar navigation boundary
 // -------------------------------------------------------------------------
 
-.ww-sidebar .moduletable {
+.ww-sidebar--right .moduletable {
     border-inline-start: 1px solid var(--ww-color-border);
     padding-inline-start: 0.75rem;
+}
+
+.ww-sidebar--left .moduletable {
+    border-inline-end: 1px solid var(--ww-color-border);
+    padding-inline-end: 0.75rem;
 }
 
 .ww-sidebar {

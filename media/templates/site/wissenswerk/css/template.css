@@ -1029,7 +1029,7 @@ audio {
 
 .ww-sidebar {
   min-width: 0;
-  padding-inline: 30px 60px;
+  padding-inline: 30px 20px;
 }
 
 body {
@@ -1537,7 +1537,7 @@ body {
 /* ==========================================================
    Sidebar
    ========================================================== */
-.ww-sidebar {
+.ww-sidebar--right {
   min-width: 0;
   padding-inline: 15px 15px;
 }
@@ -2215,10 +2215,6 @@ Bild rechts
   padding-top: 3rem;
 }
 
-.item-content {
-  padding-bottom: 3rem;
-}
-
 .page-mein-beruflicher-weg .ww-hero__illustration::after {
   display: none;
 }
@@ -2318,21 +2314,44 @@ Bild rechts
 .module_ww_artikel {
   padding-bottom: 2rem;
 }
+.module_ww_artikel h3, .module_ww_artikel h4 {
+  font-size: 1rem;
+  color: var(--ww-color-surface-salbei);
+}
+.module_ww_artikel .mod-articles-title {
+  font-weight: 100;
+}
+.module_ww_artikel p {
+  font-size: 1rem;
+}
+
+.mod-articles-items {
+  font-weight: 100;
+}
+
+.ww-menu__themen h3, .ww-menu__themen h4 {
+  font-size: var(--ww-h6-size);
+  color: var(--ww-color-surface-salbei);
+}
 
 .ww_artikel_new .mod-articles-items,
 .ww_artikel_direkt .mod-articles-items,
+.ww_artikel_empfohlen .mod-articles-items,
 .ww_artikel_cooming_soon .mod-articles-items {
   list-style: none;
   margin: 0;
   padding: 0;
+  font-weight: 100;
 }
 .ww_artikel_new p,
 .ww_artikel_direkt p,
+.ww_artikel_empfohlen p,
 .ww_artikel_cooming_soon p {
   padding-left: 0.75rem;
 }
 .ww_artikel_new .mod-articles-title,
 .ww_artikel_direkt .mod-articles-title,
+.ww_artikel_empfohlen .mod-articles-title,
 .ww_artikel_cooming_soon .mod-articles-title {
   padding-left: 0.75rem;
 }
@@ -3025,9 +3044,14 @@ Bild rechts
   transform: scaleX(1);
 }
 
-.ww-sidebar .moduletable {
+.ww-sidebar--right .moduletable {
   border-inline-start: 1px solid var(--ww-color-border);
   padding-inline-start: 0.75rem;
+}
+
+.ww-sidebar--left .moduletable {
+  border-inline-end: 1px solid var(--ww-color-border);
+  padding-inline-end: 0.75rem;
 }
 
 .ww-sidebar .metismenu {
@@ -4033,4 +4057,165 @@ Bild rechts
 }
 .pagenavigation {
   padding-top: 3rem;
+}
+
+.com-content-category-blog__navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.com-content-category-blog__navigation .counter {
+  order: 2;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  color: #6f6862;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.com-content-category-blog__pagination {
+  order: 1;
+  width: auto;
+}
+
+.com-content-category-blog__pagination .pagination_wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.com-content-category-blog__pagination .pagination {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: auto;
+  margin: 0;
+  padding: 0.35rem;
+  background-color: #f6f4ef;
+  border: 1px solid #d8d2c8;
+  border-radius: 0.35rem;
+  list-style: none;
+}
+
+.com-content-category-blog__pagination .page-item {
+  margin: 0;
+}
+
+.com-content-category-blog__pagination .page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0 0.65rem;
+  color: #2c2523;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.com-content-category-blog__pagination .page-item:not(.active):not(.disabled) .page-link:hover,
+.com-content-category-blog__pagination .page-item:not(.active):not(.disabled) .page-link:focus {
+  color: #2c2523;
+  background-color: #e8e2d8;
+}
+
+.com-content-category-blog__pagination .page-item.active .page-link {
+  color: #ffffff;
+  background-color: #b8860b;
+}
+
+.com-content-category-blog__pagination .page-item.disabled .page-link {
+  color: #aaa39a;
+  background-color: transparent;
+}
+
+.com-content-category-blog__pagination .page-item:first-child .page-link,
+.com-content-category-blog__pagination .page-item:nth-child(2) .page-link,
+.com-content-category-blog__pagination .page-item:nth-last-child(2) .page-link,
+.com-content-category-blog__pagination .page-item:last-child .page-link {
+  font-size: 0;
+}
+
+.com-content-category-blog__pagination .page-item:first-child .page-link::before {
+  content: "«";
+  font-size: 1rem;
+}
+
+.com-content-category-blog__pagination .page-item:nth-child(2) .page-link::before {
+  content: "‹";
+  font-size: 1rem;
+}
+
+.com-content-category-blog__pagination .page-item:nth-last-child(2) .page-link::before {
+  content: "›";
+  font-size: 1rem;
+}
+
+.com-content-category-blog__pagination .page-item:last-child .page-link::before {
+  content: "»";
+  font-size: 1rem;
+}
+
+.ww-page-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: var(--ww-space-6);
+  margin-top: var(--ww-space-8);
+  padding-top: var(--ww-space-5);
+  border-top: 1px solid var(--ww-color-border);
+}
+.ww-page-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+.ww-page-nav__previous, .ww-page-nav__next {
+  display: flex;
+  flex-direction: row;
+  gap: var(--ww-space-1);
+  max-width: 45%;
+  color: var(--ww-color-text);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.ww-page-nav__previous:hover, .ww-page-nav__previous:focus-visible, .ww-page-nav__next:hover, .ww-page-nav__next:focus-visible {
+  color: var(--ww-color-primary);
+}
+.ww-page-nav__previous {
+  align-items: flex-start;
+}
+.ww-page-nav__previous::before {
+  content: "←";
+  margin-bottom: var(--ww-space-1);
+  font-size: 1.25rem;
+  line-height: 0.75;
+}
+.ww-page-nav__previous:hover, .ww-page-nav__previous:focus-visible {
+  transform: translateX(-3px);
+}
+.ww-page-nav__next {
+  align-items: flex-end;
+  margin-left: auto;
+}
+.ww-page-nav__next::after {
+  content: "→";
+  margin-bottom: var(--ww-space-1);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.ww-page-nav__next:hover, .ww-page-nav__next:focus-visible {
+  transform: translateX(3px);
+}
+.ww-page-nav__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ww-color-primary);
 }/*# sourceMappingURL=template.css.map */
