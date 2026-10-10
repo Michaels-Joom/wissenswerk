@@ -40,13 +40,6 @@ $app = Factory::getApplication();
 
         <div class="ww-header__actions">
 
-            <!-- Suche -->
-
-            <button class="ww-header__search" type="button" aria-label="Suche öffnen" >
-                <span class="bi bi-search" aria-hidden="true" ></span>
-            </button>
-
-
             <!-- CTA -->
 
             <div class="ww-header__cta">

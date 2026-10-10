@@ -31,12 +31,8 @@ $branding = trim($brandingFirst . $brandingSecond);
 <footer class="ww-footer" role="contentinfo">
     <div class="ww-container">
         <div class="ww-footer__inner">
-
             <div class="row gy-5">
 
-                <!-- ==========================================================
-                     Branding
-                =========================================================== -->
                 <div class="col-12 col-md-4 col-lg-4">
 
                     <div class="ww-footer__branding">
@@ -59,12 +55,7 @@ $branding = trim($brandingFirst . $brandingSecond);
 
                 </div>
 
-
-                <!-- ==========================================================
-                     Variable Footer-Positionen
-                =========================================================== -->
                 <div class="col-12 col-md-8 col-lg-8">
-
                     <div class="ww-footer__positions">
 
                         <?php if ($this->countModules('footer-left')) : ?>
@@ -75,7 +66,6 @@ $branding = trim($brandingFirst . $brandingSecond);
 
                         <?php endif; ?>
 
-
                         <?php if ($this->countModules('footer-left-middle')) : ?>
 
                             <section class="ww-footer__section ww-footer__left-middle">
@@ -84,7 +74,6 @@ $branding = trim($brandingFirst . $brandingSecond);
 
                         <?php endif; ?>
 
-
                         <?php if ($this->countModules('footer-right-middle')) : ?>
 
                             <section class="ww-footer__section ww-footer__right-middle">
@@ -92,7 +81,6 @@ $branding = trim($brandingFirst . $brandingSecond);
                             </section>
 
                         <?php endif; ?>
-
 
                         <?php if ($this->countModules('footer-right')) : ?>
 
@@ -103,58 +91,51 @@ $branding = trim($brandingFirst . $brandingSecond);
                         <?php endif; ?>
 
                     </div>
-
                 </div>
-
             </div>
-
         </div>
     </div>
 </footer>
 
-    <!-- ==============================================================
-         Footer Bottom
-    ============================================================== -->
-    <div class="ww-footer__bottom">
-        <div class="ww-container">
-            <div class="row align-items-center">
+<div class="ww-footer__bottom">
+    <div class="ww-container">
+        <div class="row align-items-center">
 
-                <!-- ======================================================
-                     Copyright
-                ======================================================= -->
-                <div class="col-12 col-md-5 col-lg-4">
-                    <p class="ww-footer__copyright">
-                        &copy; <?= date('Y'); ?>
-                        <?= htmlspecialchars($branding, ENT_QUOTES, 'UTF-8'); ?>.
-                        Alle Rechte vorbehalten.
+            <!-- ======================================================
+                    Copyright
+            ======================================================= -->
+            <div class="col-12 col-md-5 col-lg-4">
+                <p class="ww-footer__copyright">
+                    &copy; <?= date('Y'); ?>
+                    <?= htmlspecialchars($branding, ENT_QUOTES, 'UTF-8'); ?>.
+                    Alle Rechte vorbehalten.
+                </p>
+            </div>
+
+            <!-- ======================================================
+                    Version
+            ======================================================= -->
+            <div class="col-12 col-md-4 col-lg-4 text-center">
+                <?php if (!empty($footerVersion)) : ?>
+                    <p class="ww-footer__version">
+                        Version
+                        <?= htmlspecialchars($footerVersion, ENT_QUOTES, 'UTF-8'); ?>
                     </p>
-                </div>
+                <?php endif; ?>
+            </div>
 
-                <!-- ======================================================
-                     Version
-                ======================================================= -->
-                <div class="col-12 col-md-4 col-lg-4 text-center">
-                    <?php if (!empty($footerVersion)) : ?>
-                        <p class="ww-footer__version">
-                            Version
-                            <?= htmlspecialchars($footerVersion, ENT_QUOTES, 'UTF-8'); ?>
-                        </p>
-                    <?php endif; ?>
-                </div>
-
-                <!-- ======================================================
-                     Developed
-                ======================================================= -->
-                <div class="col-12 col-md-3 col-lg-4 text-lg-end">
-                    <?php if (!empty($footerDeveloped)) : ?>
-                        <p class="ww-footer__developed">
-                            <?= htmlspecialchars($footerDevelopedParts[0], ENT_QUOTES, 'UTF-8'); ?>
-                            <i class="bi bi-heart-fill ww-footer__heart" aria-hidden="true"></i>
-                            <?= htmlspecialchars($footerDevelopedParts[1], ENT_QUOTES, 'UTF-8'); ?>
-                        </p>
-                    <?php endif; ?>
-                </div>
+            <!-- ======================================================
+                    Developed
+            ======================================================= -->
+            <div class="col-12 col-md-3 col-lg-4 text-lg-end">
+                <?php if (!empty($footerDeveloped)) : ?>
+                    <p class="ww-footer__developed">
+                        <?= htmlspecialchars($footerDevelopedParts[0], ENT_QUOTES, 'UTF-8'); ?>
+                        <i class="bi bi-heart-fill ww-footer__heart" aria-hidden="true"></i>
+                        <?= htmlspecialchars($footerDevelopedParts[1], ENT_QUOTES, 'UTF-8'); ?>
+                    </p>
+                <?php endif; ?>
             </div>
         </div>
     </div>
-</footer>
+</div>

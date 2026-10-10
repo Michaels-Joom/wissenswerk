@@ -59,6 +59,7 @@
     .navbar-toggler {
         display: none;
     }
+   
 }
 
 
@@ -196,7 +197,6 @@
 //
 // =============================================================================
 
-
 // =============================================================================
 // Header Search
 // =============================================================================
@@ -209,18 +209,15 @@
         transform .2s ease;
 }
 
-
 .ww-header__search:hover,
 .ww-header__search:focus-visible {
     color: var(--ww-color-secondary);
 }
 
-
 .ww-header__search:hover i,
 .ww-header__search:focus-visible i {
     transform: scale(1.08);
 }
-
 
 // =============================================================================
 // Keyboard Focus

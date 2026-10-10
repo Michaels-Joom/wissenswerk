@@ -1,0 +1,21 @@
+
+
+.com-finder__explained{
+    
+    p{
+        color: var(--ww-color-primary);
+    }
+
+    
+}
+
+.result__item + .result__item {
+        border-top: 1px solid var(--ww-color-secondary);
+        margin-top: 1.5em;
+        padding-top: 1.5em;
+    }
+
+    
+.search-pages-counter{
+    color: var(--ww-color-surface-salbei);
+}

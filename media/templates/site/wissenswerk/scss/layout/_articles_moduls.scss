@@ -1,8 +1,14 @@
 .module_ww_artikel{
 
-    padding-bottom:2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
     
-    
+    background-color: var(--ww-color-surface-alt);
+        
 
         h3, h4{
  
@@ -36,10 +42,14 @@
     
 }
 
+
 .ww_artikel_new,
 .ww_artikel_direkt,
 .ww_artikel_empfohlen,
 .ww_artikel_cooming_soon{
+
+    
+
 
     .mod-articles-items {
         list-style: none;
@@ -60,3 +70,18 @@
 
 
 
+.ww_artikel_direkt{
+    
+    padding-top:1rem;
+    margin-top:1rem;
+
+}
+
+.page-home{
+ 
+    .module_ww_artikel{
+
+        background-color: transparent;
+        
+    }
+}
